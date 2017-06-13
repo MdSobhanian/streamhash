@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang=en document-events ng-app="streamViewApp" ng-class="{'page_loading': pageLoading, 'page_loaded': pageLoaded}" ng-cloak>
+<head>
+<meta charset=UTF-8>
+<title page-title ng-bind="page_title"></title>
+
+<meta name=viewport content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=mobile-web-app-capable content=yes>
+
+<link rel="stylesheet" id="Montserrat-css" href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700&#038;ver=4.6.4" type="text/css" media="all">
+<link rel="stylesheet" id="Lato-css" href="https://fonts.googleapis.com/css?family=Lato%3A400%2C300%2C100%2C700%2C900&#038;ver=4.6.4" type="text/css" media="all">
+
+
+<link rel="stylesheet" id="bootstrap.min-css" href="assets/css/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome.min-css" href="assets/css/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="main-css" href="assets/css/custom.css" type="text/css" media="all">
+
+<script src="assets/js/jQuery.js"></script>
+<script src="assets/libs/angular/angular.min.js"></script>
+<script src="assets/libs/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="assets/libs/angular-ui-router/angular-ui-router.min.js"></script>
+<script src="assets/libs/oclazyload/ocLazyLoad.min.js"></script>
+<script src="assets/libs/angular-cookies/angular-cookies.min.js"></script>
+<script src="assets/libs/angular-route/angular-route.min.js"></script>
+<script src="app/app.js"></script>
+<script src="app/factory.js"></script>
+<script src="app/ocLazyLoad.js"></script>
+<script src="app/directive.js"></script>
+<script src="app/states.js"></script>
+</head>
+<body>
+
+
+<div class="main-wrapper"> 
+
+
+<div id=page_preloader ng-hide=hidePreloader><img src="assets/img/page_preloader.svg" alt=Loader title=Loader width=48 height=48 /></div>
+
+  
+<div ui-view></div>
+
+
+</div>
+
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
+<script type="text/javascript" src="assets/js/scripts.js"></script>
+
+<!-- <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/586a34df1aad8833902f6578/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script> -->
+</body>
+</html>

@@ -1,0 +1,234 @@
+/* notify */
+/*! UIkit 2.26.4 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
+/* ========================================================================
+   Component: Notify
+ ========================================================================== */
+/*
+ * Message container for positioning
+ */
+.uk-notify {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1040;
+  box-sizing: border-box;
+  width: 350px;
+}
+/* Position modifiers
+========================================================================== */
+.uk-notify-top-right,
+.uk-notify-bottom-right {
+  left: auto;
+  right: 10px;
+}
+.uk-notify-top-center,
+.uk-notify-bottom-center {
+  left: 50%;
+  margin-left: -175px;
+}
+.uk-notify-bottom-left,
+.uk-notify-bottom-right,
+.uk-notify-bottom-center {
+  top: auto;
+  bottom: 10px;
+}
+/* Responsiveness
+========================================================================== */
+/* Phones portrait and smaller */
+@media (max-width: 479px) {
+  /*
+     * Fit in small screen
+     */
+  .uk-notify {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    margin: 0;
+  }
+}
+/* Sub-object: `uk-notify-message`
+========================================================================== */
+.uk-notify-message {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 15px;
+  background: #444;
+  color: #fff;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+/* Close in notify
+ ========================================================================== */
+.uk-notify-message > .uk-close {
+  visibility: hidden;
+  float: right;
+}
+.uk-notify-message:hover > .uk-close {
+  visibility: visible;
+}
+/* Modifier: `uk-alert-info`
+ ========================================================================== */
+.uk-notify-message-primary {
+  background: #ebf7fd;
+  color: #2d7091;
+  border-color: rgba(45, 112, 145, 0.3);
+}
+/* Modifier: `uk-alert-success`
+ ========================================================================== */
+.uk-notify-message-success {
+  background: #f2fae3;
+  color: #659f13;
+  border-color: rgba(101, 159, 19, 0.3);
+}
+/* Modifier: `uk-notify-message-warning`
+ ========================================================================== */
+.uk-notify-message-warning {
+  background: #fffceb;
+  color: #e28327;
+  border-color: rgba(226, 131, 39, 0.3);
+}
+/* Modifier: `uk-notify-message-danger`
+ ========================================================================== */
+.uk-notify-message-danger {
+  background: #fff1f0;
+  color: #d85030;
+  border-color: rgba(216, 80, 48, 0.3);
+}
+.uk-notify {
+  z-index: 1114;
+  width: 400px;
+  top: 56px;
+  max-width: 100%;
+}
+.uk-notify-top-center,
+.uk-notify-bottom-center {
+  margin-left: -200px;
+}
+.uk-notify-top-left {
+  left: 24px;
+}
+.uk-notify-top-right {
+  right: 24px;
+}
+.uk-notify-bottom-left {
+  left: 24px;
+}
+.uk-notify-bottom-right {
+  right: 24px;
+}
+.uk-notify-bottom-center,
+.uk-notify-bottom-left,
+.uk-notify-bottom-right {
+  top: auto;
+  bottom: 8px;
+}
+.uk-notify-message {
+  background: #323232;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+}
+.uk-notify .uk-close {
+  display: none;
+}
+.uk-notify .notify-action {
+  float: right;
+  text-transform: uppercase;
+  color: #8bc34a;
+  margin-left: 16px;
+}
+.uk-notify .notify-action:hover {
+  color: #689f38;
+}
+.uk-notify .notify-content {
+  overflow: hidden;
+}
+.uk-notify-message-info {
+  background: #1976d2;
+  color: #fff;
+}
+.uk-notify-message-success {
+  background: #7cb342;
+}
+.uk-notify-message-warning {
+  background: #ffa000;
+}
+.uk-notify-message-danger {
+  background: #e53935;
+}
+.uk-notify-message-info,
+.uk-notify-message-success,
+.uk-notify-message-warning,
+.uk-notify-message-danger {
+  color: #fff;
+}
+.uk-notify-message-info .notify-action,
+.uk-notify-message-success .notify-action,
+.uk-notify-message-warning .notify-action,
+.uk-notify-message-danger .notify-action {
+  color: #fff;
+}
+.uk-notify-message-info .notify-action:hover,
+.uk-notify-message-success .notify-action:hover,
+.uk-notify-message-warning .notify-action:hover,
+.uk-notify-message-danger .notify-action:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+@media only screen and (max-width: 767px) {
+  .uk-notify-top-center,
+  .uk-notify-top-left,
+  .uk-notify-top-right,
+  .uk-notify-bottom-center,
+  .uk-notify-bottom-left,
+  .uk-notify-bottom-right {
+    width: 100%;
+    margin: 0;
+    left: 0;
+    right: 0;
+  }
+  .uk-notify-top-center > .uk-notify-message,
+  .uk-notify-top-left > .uk-notify-message,
+  .uk-notify-top-right > .uk-notify-message,
+  .uk-notify-bottom-center > .uk-notify-message,
+  .uk-notify-bottom-left > .uk-notify-message,
+  .uk-notify-bottom-right > .uk-notify-message {
+    border-radius: 0;
+    padding: 16px 32px;
+  }
+  .uk-notify-top-center,
+  .uk-notify-top-left,
+  .uk-notify-top-right {
+    top: 0;
+    bottom: auto;
+  }
+  .uk-notify-bottom-center,
+  .uk-notify-bottom-left,
+  .uk-notify-bottom-right {
+    top: auto;
+    bottom: -10px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .sidebar_main_active .uk-notify-top-left,
+  .sidebar_main_open .uk-notify-top-left {
+    left: 256px;
+  }
+  .sidebar_main_active .uk-notify-top-center,
+  .sidebar_main_open .uk-notify-top-center {
+    margin-left: -80px;
+  }
+  .sidebar_main_active .uk-notify-bottom-left,
+  .sidebar_main_open .uk-notify-bottom-left {
+    left: 256px;
+  }
+  .sidebar_main_active .uk-notify-bottom-center,
+  .sidebar_main_open .uk-notify-bottom-center {
+    margin-left: -80px;
+  }
+}
