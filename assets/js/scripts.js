@@ -1,7 +1,7 @@
-
 //image hover
 $('.video-box').hover(
   function(){
+    console.log("fffd");
     $(this).addClass( "rotate" );
     }, function() { 
     $(this).removeClass( "rotate" );

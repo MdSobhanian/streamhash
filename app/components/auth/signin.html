@@ -1,0 +1,81 @@
+<div class="main-content form-content bg-img">
+	<nav class="navbar navbar-default form-navbar" role="navigation">
+		<div class="container">
+			<div class="navbar-header form-header">
+				 
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button> 
+
+				<a class="navbar-brand" ui-sref="static.index">
+					<img src="img/logo.png">
+				</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="content-panel">
+
+		<!-- LOGIN FORM 
+		===================================================-->
+		<div class="login-form">
+			<div class="container">
+				<div class="login-form-inner grey-bg">	
+					<h3 class="login-tit">Sign In</h3>
+					<form method="post" ng-submit="signin()">
+						<div class="form-group">
+						    <label for="exampleInputEmail1">Email address</label>
+						    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required ng-model="email">
+						</div>
+
+						<div class="form-group">
+						    <label>Password</label>
+						    <input type="password" class="form-control" placeholder="Enter Password" required ng-model="password">
+						</div>
+
+						<input type="text" name="login_by" ng-model="login_by" ng-hide="true">
+
+						<input type="text" name="device_type" ng-model="device_type" ng-hide="true">
+
+						<input type="text" name="device_token" ng-model="device_token" ng-hide="true">
+
+						
+						<div>
+							<button type="submit" class="btn btn-primary form-btn">Sign In</button>
+						</div>
+
+						<div>
+							<a href="#" class="face-link form-link">
+								<img src="img/fb.png">Login with Facebook
+							</a>
+						</div>
+
+						<div class="clearfix"></div>
+
+						<div class="pull-left">
+							<div class="form-txt-block">
+								<p class="form-txt">New to Netflix?<a ui-sref="static.signup" class="form-link">Sign up now.</a></p>
+							</div>
+						</div>
+
+						<div class="pull-right">
+
+							<div class="forgot form-txt-block">
+								<a ui-sref="static.forgot" class="form-link">Forgot your email or password?</a>
+							</div>
+
+						</div>
+
+						<div class="clearfix"></div>
+
+					</form>
+				</div>					
+			</div>
+		</div>
+		<!-- LOGIN FORM -->
+
+	</div>
+</div>

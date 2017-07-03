@@ -1,0 +1,136 @@
+<div class="content-wrapper gray-background">
+
+	<div class="account-layout">
+		<div class="container">
+			
+			<div class="account-layout-inner padding50">
+				<h1 class="account-header">My Account</h1>
+				<div class="account-content">
+
+					<!-- Account Section -->
+					<div class="account-section row no-margin">
+
+						<!-- Accound section header -->
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<div class="account-section-header">
+								<h3 class="account-section-title">Profile</h3>
+								
+							</div>
+						</div>
+
+						<!-- Account section content -->
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+							<!-- Account Section Content -->
+							<div class="account-section-content row no-margin">
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="account-section-content-block">
+										<p class="account-section-text">{{profile.email}}</p>
+										<p class="account-section-text account-gray-text">
+										Password <span>********</span>
+										</p>
+										<p class="account-section-text account-gray-text">
+										Phone <span>{{profile.mobile}}</span>
+										</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="account-section-content-block text-right">
+										<div>
+											<a ui-sref="profile.edit-profile" class="account-section-link">Edit Profile</a>
+										</div>
+										
+										<div>
+											<a ui-sref="profile.change-password" class="account-section-link">Change Password</a>
+										</div>
+
+										<div>
+											<a ui-sref="profile.delete-account" class="account-section-link">Delete Account</a>
+										</div>											
+									</div>
+								</div>
+
+							</div>
+							<!-- Account Section Content -->
+
+
+						
+						</div>
+
+					</div>
+					<!-- Account Section End -->
+
+					<!-- Account Section -->
+					<div class="account-section row no-margin">
+
+						<!-- Accound section header -->
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<div class="account-section-header">
+								<h3 class="account-section-title">Plan Details</h3>
+							</div>
+						</div>
+
+						<!-- Account section content -->
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+							<div class="account-section-content row no-margin">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="account-section-content-block">
+										<p class="account-section-text">4 Screens</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="account-section-content-block text-right">
+										<div>
+											<a href="#" class="account-section-link">Change Plan</a>
+										</div>											
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Account section content -->
+					</div>
+					<!-- Account Section End -->
+
+					<!-- Account Section -->
+					<div class="account-section row no-margin">
+
+						<!-- Accound section header -->
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<div class="account-section-header">
+								<h3 class="account-section-title">Manage Profile</h3>
+							</div>
+						</div>
+
+						<!-- Account section content -->
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+							<div class="account-section-content row no-margin">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="">
+										<a href="#" class="account-profile">
+											<img src="{{subprofile.picture}}">
+											{{subprofile.name}}
+										</a>
+									</div>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="account-section-content-block text-right">
+										<div>
+											<a ui-sref="manage-profile.view-profile" class="account-section-link">Manage Profile</a>
+										</div>											
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Account section content -->
+					</div>
+					<!-- Account Section End -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

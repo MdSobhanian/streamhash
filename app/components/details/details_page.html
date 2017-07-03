@@ -1,0 +1,75 @@
+<div class="content">
+
+<div style="margin:5%; padding: 10px;">
+
+<div class="box-head">
+   <h3>{{datas.title}}</h3></a>
+</div>
+
+<div class="box video-box-row" ng-repeat="video in datas.data" ng-init="$parentindex = $index">
+
+	<div id="{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn($index, $parentindex)" ng-mouseleave="hoverOut($index, $parentindex)" class="tile col-lg-3 slide-box video-box" ng-repeat="value in video">
+    	<div class="video-box-outer">
+    	
+	        <div class="tile-media">
+	          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/><!-- 3rd image-->
+	          	<!-- <img class="tile-img first" ng-src="{{value.default_image}}" alt=""/>
+	          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/> -->
+	        </div>
+
+	        <div class="tile-details">
+
+	        	<div class="hover-icon">
+	        		<i class="fa fa-play"></i>
+	        	</div>
+
+				<div class="tile-content">
+		            <h3 class="tile-tit">{{value.title}}</h3>
+
+		            <div class="row no-margin">
+						<div class="pull-left">
+							<input type="hidden" class="rating" value="3">
+						</div>
+						<p class="video-season">
+							<span>2016</span>
+							<span class="video-epi-count">+16</span>
+							<span>2h</span>
+						</p>
+					</div>
+
+					<div class="row no-margin">
+						<div class="video-des col-lg-10 col-md-10 col-sm-10 col-xs-10 no-pad">
+							<p class="video-des-inner">{{value.description}}</p>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<a href="javascript:void(0)" class="arrow"><i class="fa fa-angle-down size-arrow"></i></a>
+					</div>
+				</div>
+
+	        </div>
+	    </div>
+	    
+    </div>
+ 
+ 	<div class="clearfix"></div>
+
+</div>
+<div class="clearfix"></div>
+
+</div>
+
+<style type="text/css">
+.box-head h3{
+
+    font-size: 18px;
+	color: #e5e5e5;
+	font-weight: 700;
+	text-decoration: none;
+	display: inline-block;
+
+	margin:0;
+
+}
+</style>

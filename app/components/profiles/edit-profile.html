@@ -1,0 +1,53 @@
+<div class="content-panel">
+
+	<div class="profiles-gate-container">
+
+		<div class="centered-div">
+			<div class="profile-actions-container">
+				<h1>Edit Profile</h1>
+				<!-- <h2>Add a profile for another person watching Netflix.</h2> -->
+
+				<form method="post" id="sub_profile" enctype="multipart/form-data">
+				<div class="profile-metadata profile-entry">
+					<div class="main-profile-avatar" style="position: relative;">
+						<img ng-src="{{profile.picture}}" alt="" style="opacity: 1; transform: scale(1); transition-duration: 400ms;" id="preview_picture">
+						<div class="image_sub_profile" style="cursor: pointer;" ng-click="openBrowse()"><i class="fa fa-plus-circle"></i></div>
+					</div>
+					<input type="file" name="picture" id="picture" style="display: none" onchange="angular.element(this).scope().loadFile(this, 'preview_picture')">
+					<div class="profile-add-parent">
+						<div class="profile-entry-inputs">
+							<input id="add-profile-name" class="" placeholder="Name" type="text" required ng-model="profile.name" name="name">
+
+							<input type="type" name="id" style="display: none;" ng-model="id">
+
+							<input type="type" name="sub_id" style="display: none;" ng-model="profile.id">
+
+							<input type="type" name="token" style="display: none;" ng-model="token">
+
+							<label for="add-profile-name" aria-label="Name"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="profile-button preferred-action pull-left" role="button" ng-click="editProfile()">
+					<span>Save</span>
+				</div>
+				<a ui-sref="manage-profile.manage-profiles">
+					<div class="profile-button pull-left" style="margin-left: 5px;">
+						<span>Cancel</span>
+					</div>
+				</a>
+
+				<a ng-click="deleteProfile(profile.id)">
+					<div class="profile-button pull-left" style="margin-left: 5px;">
+						<span>Delete Profile</span>
+					</div>
+				</a>
+
+				<div class="clearfix"></div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

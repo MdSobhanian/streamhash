@@ -1,0 +1,41 @@
+<div class="content-panel">
+
+	<div class="profiles-gate-container">
+
+	<div class="list-profiles">
+		<div class="profile-gate-label">Manage Profiles</div>
+
+		<ul class="choose-profile">
+
+			<li class="profile" ng-repeat="profile in profiles">
+				<div>
+
+					<a class="profile-link" ui-sref="manage-profile.edit-profile({id : profile.id})">
+						<div class="avatar-wrapper">
+							<div class="profile-icon" style="background-image:url({{profile.picture}});" style="position: relative;">
+
+								<div class="edit_sub_profile">
+
+								<i class="fa fa-pencil-square"></i>
+
+								</div>
+
+
+							 </div>
+						</div>
+
+						<span class="profile-name">{{profile.name}}</span>
+					</a>
+
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<span class="profile-button preferred-action">
+		<a ui-sref="manage-profile.view-profile">Done</a>
+	</span>
+
+	</div>
+
+</div>

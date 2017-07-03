@@ -16,6 +16,12 @@
 <link rel="stylesheet" id="font-awesome.min-css" href="assets/css/font-awesome.min.css" type="text/css" media="all">
 <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
 <link rel="stylesheet" id="main-css" href="assets/css/custom.css" type="text/css" media="all">
+ <link href="assets/css/star-rating.min.css" rel="stylesheet">
+
+<link href="assets/css/owl.carousel.min.css" rel="stylesheet">
+<link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/slick.css" type="text/css" media="all">
+<link rel="stylesheet" href="assets/css/slick-theme.css" type="text/css" media="all">
 
 <script src="assets/js/jQuery.js"></script>
 <script src="assets/libs/angular/angular.min.js"></script>
@@ -24,6 +30,8 @@
 <script src="assets/libs/oclazyload/ocLazyLoad.min.js"></script>
 <script src="assets/libs/angular-cookies/angular-cookies.min.js"></script>
 <script src="assets/libs/angular-route/angular-route.min.js"></script>
+<script src="assets/libs/slick-carousel/slick/slick.js"></script>
+<script src="assets/libs/angular-slick/dist/slick.js"></script>
 <script src="app/app.js"></script>
 <script src="app/factory.js"></script>
 <script src="app/ocLazyLoad.js"></script>
@@ -36,8 +44,14 @@
 <div class="main-wrapper"> 
 
 
-<div id=page_preloader ng-hide=hidePreloader><img src="assets/img/page_preloader.svg" alt=Loader title=Loader width=48 height=48 /></div>
+<div id=page_preloader ng-hide=hidePreloader>
+	<img src="assets/img/page_preloader.svg" alt=Loader title=Loader width=48 height=48 />
+</div>
 
+
+<div id="before_loader" style="display: none;">
+	<img src="assets/img/page_preloader.svg" alt=Loader title=Loader width=48 height=48 />
+</div>
   
 <div ui-view></div>
 
@@ -47,6 +61,13 @@
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
 <script type="text/javascript" src="assets/js/scripts.js"></script>
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+
+ <script src="assets/js/star-rating.min.js"></script>
+
+<!-- <script type="text/javascript" src="assets/js/slick.min.js"></script>
+ -->
+    
 
 <!-- <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

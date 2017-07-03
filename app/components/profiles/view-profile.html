@@ -1,0 +1,45 @@
+<div class="content-panel">
+
+	<div class="profiles-gate-container">
+
+	<div class="list-profiles">
+		<div class="profile-gate-label">Who's watching?</div>
+
+		<ul class="choose-profile">
+
+			<li class="profile" ng-repeat="profile in profiles">
+
+				<div>
+
+					<a class="profile-link" ui-sref="profile.home({id : profile.id})">
+						<div class="avatar-wrapper">
+							<div class="profile-icon" style="background-image:url({{profile.picture}});"> </div>
+						</div>
+
+						<span class="profile-name">{{profile.name}}</span>
+					</a>
+
+				</div>
+			</li>
+
+			<li ng-if="profiles.length < 5">
+
+				<a ui-sref="manage-profile.add-profile">
+
+					<div class="addProfileIcon icon-tvuiAdd">
+						<i class="fa fa-plus-circle"></i>
+					</div>
+
+					<span class="profile-name">Add Profile</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<span class="profile-button">
+		<a ui-sref="manage-profile.manage-profiles">Manage Profiles</a>
+	</span>
+
+	</div>
+
+</div>
