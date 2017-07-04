@@ -47,9 +47,14 @@
 		    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
 		    					</div>
 
-		    					<div>
-		    						<a href="#" class="my-list bold">
+		    					<div id="my-list-txt_{{recent_video.admin_video_id}}_989">
+		    					
+		    						<a ng-click="addWishlist(recent_video.admin_video_id, recent_video.admin_video_id, 989)" class="my-list bold" id="" ng-if="!recent_video.wishlist_status" style="cursor: pointer;">
 		    							<i class="fa fa-plus my-list-icon"></i>
+		    							<span class="my-list-txt">My List</span> 
+		    						</a>
+		    						<a ng-click="removeWishlist(recent_video.wishlist_status, recent_video.admin_video_id,recent_video.admin_video_id, 989)" class="my-list bold" ng-if="recent_video.wishlist_status" style="cursor: pointer;">
+		    							<i class="fa fa-check my-list-icon"></i>
 		    							<span class="my-list-txt">My List</span> 
 		    						</a>
 		    					</div>
@@ -593,7 +598,7 @@
 							    <div role="tabpanel" class="tab-pane active" id="{{$index}}_{{data.key}}_overview">
 								    <div class="overview tab-section">
 								    	<div class="close-tab">
-				    						<a href="javascript:void(0)" class="close-btn">
+				    						<a style="cursor: pointer;" ng-click="closeDiv($index,data.key)" class="close-btn">
 				    							<i class="fa fa-times"></i>
 				    						</a>
 				    					</div>
@@ -626,7 +631,7 @@
 							    						</div>
 							    						<p class="content-txt bold seasons">
 							    							<span>{{value.publish_time}}</span>
-							    							<span class="epi-count">{{value.watch_count}}</span>
+							    							<span class="epi-count">+{{value.watch_count}}</span>
 							    							<span>{{value.duration}}</span>
 							    						</p>
 							    					</div>
@@ -637,9 +642,18 @@
 							    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
 							    					</div>
 
-							    					<div>
-							    						<a href="#" class="my-list bold">
+							    					<div id="my-list-txt_{{$index}}_{{data.key}}">
+							    						<!-- <a href="#" class="my-list bold">
 							    							<i class="fa fa-plus"></i>
+							    							<span class="my-list-txt">My List</span> 
+							    						</a> -->
+
+							    						<a ng-click="addWishlist(value.admin_video_id, $index, data.key)" class="my-list bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
+							    							<i class="fa fa-plus my-list-icon"></i>
+							    							<span class="my-list-txt">My List</span> 
+							    						</a>
+							    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, data.key)" class="my-list bold" ng-if="value.wishlist_status" style="cursor: pointer;">
+							    							<i class="fa fa-check my-list-icon"></i>
 							    							<span class="my-list-txt">My List</span> 
 							    						</a>
 							    					</div>

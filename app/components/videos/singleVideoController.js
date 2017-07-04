@@ -60,5 +60,37 @@ angular.module('streamViewApp')
         });
 
 		console.log($scope.video);
+
+
+		$.ajax({
+
+			type : "post",
+
+			url : apiUrl + "userApi/addHistory",
+
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id},
+
+			async : false,
+
+			success : function (data) {
+
+				if (data.success) {
+					
+
+				} else {
+
+					console.log('Something Went Wrong, Please Try again later');
+
+					return false;
+				}
+			},
+			error : function (data) {
+
+				console.log('Something Went Wrong, Please Try again later');
+
+			},
+		});
+
+
 	}
 ]);
