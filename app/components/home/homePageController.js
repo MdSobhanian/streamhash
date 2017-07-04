@@ -206,6 +206,36 @@ angular.module('streamViewApp')
 					};
 			*/
 
+			$scope.dynamicContent = function(index, key, id) {
+
+				$("#"+index+"_"+key+"_overview").fadeOut();
+				$("#"+index+"_"+key+"_episodes").fadeOut();
+				$("#"+index+"_"+key+"_trailers").fadeOut();
+				$("#"+index+"_"+key+"_more-like").fadeOut();
+				$("#"+index+"_"+key+"_details").fadeOut();
+
+				if (id == "overview") {
+
+					$("#"+index+"_"+key+"_overview").fadeIn();
+
+				} else if (id == "episodes") {
+
+					$("#"+index+"_"+key+"_episodes").fadeIn();
+
+				} else if (id == "trailers") {
+
+					$("#"+index+"_"+key+"_trailers").fadeIn();
+					
+				} else if (id == "more-like") {
+
+					$("#"+index+"_"+key+"_more-like").fadeIn();
+					
+				} else {
+
+					$("#"+index+"_"+key+"_details").fadeIn();
+				}
+			}
+
 			$scope.displayContent = function(id) {
 
 				$("#overview").fadeOut();
