@@ -6,11 +6,11 @@
    <h3>{{datas.title}}</h3></a>
 </div>
 
-<div class="video-full-box"  ng-repeat="(key,subcategory) in datas.data">
+<div class="video-full-box"  ng-repeat="(key,subcategory) in datas.data"> 
 	<div class="box-title">
 	  <div class="box-head row no-margin">
 	        <h3 class="main-title pull-left">{{key}}</h3>
-	        <a class="see-all pull-right" ui-sref="static.title({title : key})">See All </a>
+	        <a class="see-all pull-right" ui-sref="profile.title({title : datas.sub_category[key]})" style="color: #fff">See All </a>
 	    </div>
 	</div>
 	<div class="box video-box-row" ng-repeat="video in subcategory" ng-init="$parentindex = $index">
