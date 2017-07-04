@@ -3,6 +3,7 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 
+		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
 		$scope.forgot = function() {
 

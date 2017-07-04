@@ -16,7 +16,11 @@ streamViewApp
                 restrict: 'A',
                 link: function() {
                     var listener = function(event, toState) {
-                        var default_title = 'StreamView';
+
+                        var name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0]  : 'StreamView' ): 'StreamView';
+
+                        var default_title = name.value;
+
                         $timeout(function() {
                             $rootScope.page_title = (toState.data && toState.data.pageTitle)
                                 ? default_title + ' - ' + toState.data.pageTitle : default_title;

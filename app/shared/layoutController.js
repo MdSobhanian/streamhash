@@ -3,6 +3,13 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		// $scope.settings = $rootScope.site_settings;
+
+		/*$scope.site_settings = ($rootScope.site_settings) ? (($rootScope.site_settings[2] != undefined) ? $rootScope.site_settings[2]  : '' ): '';
+    	$scope.site_name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0]  : '' ): '';
+    	$scope.site_url = ($rootScope.site_settings) ? (($rootScope.site_settings[14] != undefined) ? $rootScope.site_settings[14]  : '' ): '';*/
+    	$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
 		if (!$scope.user_id) {

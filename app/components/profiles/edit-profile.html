@@ -13,7 +13,7 @@
 						<img ng-src="{{profile.picture}}" alt="" style="opacity: 1; transform: scale(1); transition-duration: 400ms;" id="preview_picture">
 						<div class="image_sub_profile" style="cursor: pointer;" ng-click="openBrowse()"><i class="fa fa-plus-circle"></i></div>
 					</div>
-					<input type="file" name="picture" id="picture" style="display: none" onchange="angular.element(this).scope().loadFile(this, 'preview_picture')">
+					<input type="file" name="picture" id="picture" style="display: none" onchange="angular.element(this).scope().loadFile(this, 'preview_picture')" accept="image/png, image/jpeg">
 					<div class="profile-add-parent">
 						<div class="profile-entry-inputs">
 							<input id="add-profile-name" class="" placeholder="Name" type="text" required ng-model="profile.name" name="name">

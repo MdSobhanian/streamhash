@@ -276,7 +276,7 @@ streamViewApp
                         }]
                     },
                     data: {
-                        pageTitle: 'Delete Account',
+                        pageTitle: 'Edit Account',
                     }
                 })
 

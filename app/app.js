@@ -50,14 +50,13 @@ var streamViewApp = angular.module('streamViewApp', [
   'slick',
 ]);
 
-
 /*var route_url = "http://localhost/streamview-base/streamview-angular/#";
 
 var apiUrl = "http://localhost:8000/";
 
 var angularUrl = "http://localhost/streamview-base/streamview-angular/#/";
-
 */
+
 var route_url = "http://streamview.streamhash.com/#";
 
 var apiUrl = "http://adminview.streamhash.com/";
@@ -161,20 +160,18 @@ streamViewApp
                  });*/
 
 
-            // console.log($state);
-
-            // console.log($state.params);
-
-            if ($location.path() == '/home/') {
-
-              $state.go('profile.home', {id: ''});
-
-            }
           
-
-           //  $rootScope.pageLoading = true;
-
-
+                $.ajax({
+                    url : apiUrl+"userApi/site_settings",
+                    type : 'get',
+                    contentType : false,
+                    processData: false,
+                    async : false,
+                    success : function(result) {
+                      // console.log(result);
+                      $rootScope.site_settings = result;
+                    }
+                });
 
         }
 

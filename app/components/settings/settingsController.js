@@ -166,7 +166,7 @@ angular.module('streamViewApp')
 
 						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});
 
-						$state.go('profile.account-settings', {id : memoryStorage.sub_profile_id}, {reload:true});
+						$state.go('profile.account-settings', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
 
 					} else {
 
@@ -269,7 +269,7 @@ angular.module('streamViewApp')
 
 						UIkit.notify({message : "Your account has been successfully updated", timeout : 3000, pos : 'top-center', status : 'success'});						
 
-						$state.go('profile.account-settings', {id : memoryStorage.sub_profile_id}, {reload:true});
+						$state.go('profile.account-settings', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
 
 					} else {
 
