@@ -38,15 +38,15 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block text-right">
 										<div>
-											<a ui-sref="profile.edit-profile" class="account-section-link">Edit Profile</a>
+											<a ui-sref="profile.edit-account({id : id})" class="account-section-link">Edit Profile</a>
 										</div>
 										
 										<div>
-											<a ui-sref="profile.change-password" class="account-section-link">Change Password</a>
+											<a ui-sref="profile.change-password({id : id})" class="account-section-link">Change Password</a>
 										</div>
 
 										<div>
-											<a ui-sref="profile.delete-account" class="account-section-link">Delete Account</a>
+											<a ui-sref="profile.delete-account({id : id})" class="account-section-link">Delete Account</a>
 										</div>											
 									</div>
 								</div>
@@ -110,7 +110,7 @@
 							<div class="account-section-content row no-margin">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="">
-										<a href="#" class="account-profile">
+										<a class="account-profile">
 											<img src="{{subprofile.picture}}">
 											{{subprofile.name}}
 										</a>

@@ -229,6 +229,57 @@ streamViewApp
                     }
                 })
 
+                .state("profile.change-password", {
+                    url: "/change-password/{id}",
+                    templateUrl: 'app/components/settings/change_password.html',
+                    controller: 'changePasswordController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/settingsController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Change Password',
+                    }
+                })
+
+                .state("profile.delete-account", {
+                    url: "/delete-account/{id}",
+                    templateUrl: 'app/components/settings/delete_account.html',
+                    controller: 'deleteAccountController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/settingsController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Delete Account',
+                    }
+                })
+
+                .state("profile.edit-account", {
+                    url: "/edit-account/{id}",
+                    templateUrl: 'app/components/settings/edit_account.html',
+                    controller: 'editAccountController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/settingsController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Delete Account',
+                    }
+                })
+
 
             $httpProvider.interceptors.push('authInterceptor');
 

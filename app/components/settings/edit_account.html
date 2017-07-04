@@ -1,0 +1,34 @@
+<div class="main-content form-content bg-img">
+
+	<!-- LOGIN FORM 
+	===================================================-->
+	<div class="login-form" style="padding-top: 10%">
+		<div class="container">
+			<div class="login-form-inner grey-bg">	
+				<h3 class="login-tit">Edit Profile</h3>
+				<form method="post" ng-submit="editProfile()">
+					<div class="form-group">
+					    <label for="exampleInputEmail1">Full Name</label>
+					    <input type="name" class="form-control" placeholder="Enter Your Name" required ng-model="profile.name">
+					</div>
+
+					<div class="form-group">
+					    <label for="exampleInputEmail1">Email address</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required ng-model="profile.email">
+					</div>
+
+					<div class="form-group">
+					    <label>Phone No</label>
+					    <input type="text" class="form-control" placeholder="Enter Mobileno" required ng-model="profile.mobile" pattern="[0-9]{0,}">
+					</div>
+
+
+					<div>
+						<button type="submit" class="btn btn-primary form-btn">Save</button>
+					</div>
+
+					
+				</form>
+			</div>					
+		</div>
+	</div>
