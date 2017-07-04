@@ -116,6 +116,7 @@
 
 .active_img {
 	border: 4px solid #fff;
+    height: 149px !important;
 }
 
 
@@ -128,7 +129,7 @@
 	content: '';
 	position: absolute;
 	left: 40%;
-
+    bottom: -8%;
 }
 
 
