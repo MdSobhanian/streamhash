@@ -28,12 +28,29 @@
 
 		            <div class="row no-margin">
 						<div class="pull-left">
-							<input type="hidden" class="rating" value="3">
+							<div>
+								<div class="rating-symbol glyphicon"
+								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
+									
+								</div>
+							</div>
 						</div>
 						<p class="video-season">
-							<span>2016</span>
-							<span class="video-epi-count">+16</span>
-							<span>2h</span>
+							<span>{{value.publish_time}}</span>
+							<span class="video-epi-count">+{{value.watch_count}}</span>
+							<span>{{value.duration}}</span>
 						</p>
 					</div>
 

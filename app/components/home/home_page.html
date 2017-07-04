@@ -696,7 +696,24 @@
 
 						            <div class="row no-margin">
 			    						<div class="pull-left">
-			    							<input type="hidden" class="rating" value="{{value.ratings}}">
+			    							<div>
+			    								<div class="rating-symbol glyphicon"
+			    								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
+			    									
+			    								</div>
+			    							</div>
 			    						</div>
 			    						<p class="video-season">
 			    							<span>{{value.publish_time}}</span>
@@ -743,7 +760,24 @@
 
 							    					<div class="row no-margin">
 							    						<div class="pull-left">
-							    							<input type="hidden" class="rating" value="{{value.ratings}}">
+							    							<div>
+							    								<div class="rating-symbol glyphicon"
+							    								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
+							    									
+							    								</div>
+							    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
+							    									
+							    								</div>
+							    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
+							    									
+							    								</div>
+							    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
+							    									
+							    								</div>
+							    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
+							    									
+							    								</div>
+							    							</div>
 							    						</div>
 							    						<p class="content-txt bold seasons">
 							    							<span>{{value.publish_time}}</span>
