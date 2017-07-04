@@ -11,23 +11,40 @@
 	    			<div class="tab-section-content row no-margin">
 		    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad">
 		    				<div class="overview-details">
-		    					<h3 class="content-tit">Pretty Little Liars</h3>
+		    					<h3 class="content-tit">{{recent_video.title}}</h3>
 
 		    					<div class="row no-margin">
 		    						<div class="pull-left">
-		    							<input type="hidden" class="rating" value="3">
+		    							<div>
+		    								<div class="rating-symbol glyphicon"
+		    								ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 1), 'glyphicon-star' : (recent_video.ratings >= 1)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 2), 'glyphicon-star' : (recent_video.ratings >= 2)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 3), 'glyphicon-star' : (recent_video.ratings >= 3)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 4), 'glyphicon-star' : (recent_video.ratings >= 4)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 5), 'glyphicon-star' : (recent_video.ratings >= 5)}">
+		    									
+		    								</div>
+		    							</div>
 		    						</div>
 		    						<p class="content-txt bold seasons">
-		    							<span>2016</span>
-		    							<span class="epi-count">+16</span>
-		    							<span>2h</span>
+		    							<span>{{recent_video.publish_time}}</span>
+		    							<span class="epi-count">+{{recent_video.watch_count}}</span>
+		    							<span>{{recent_video.duration}}</span>
 		    						</p>
 		    					</div>
 
 		    					<div>
-		    						<p class="content-txt overview-des">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		    						<p class="content-txt overview-des">{{recent_video.description}}</p>
 
-		    						<p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+		    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
 		    					</div>
 
 		    					<div>
@@ -44,14 +61,12 @@
 		    					<div class="linear">
 		    					</div>
 		    					<div class="rotate-img-outer">	
-	    					
-		    						<div class="rotate-img highlight-img bg-img first" style="background-image: url(img/img1.jpg);"></div>
-						    		<div class="rotate-img highlight-img bg-img second" style="background-image: url(img/img2.jpg);"></div>
-						    		<div class="rotate-img highlight-img bg-img third" style="background-image: url(img/img3.jpg);"></div>
+	    							
+		    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in recent_video.images"></div>
 			    				</div>
 
 			    				<div class="play-icon-outer">
-			    					<a href="#" class="play-icon"><i class="fa fa-play"></i></a>
+			    					<a ui-sref="single_video({id : recent_video.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
 			    				</div>
 		    				</div>
 		    			</div>
@@ -379,22 +394,22 @@
 					<div class="tab-overlay">
 
 						<div class="morelike-section-inner tab-section-content tab-sec-inner contain-width">
-							<h3 class="content-tit">Pretty Little Liars</h3>
+							<h3 class="content-tit">{{recent_video.sub_category_name}}</h3>
 
 							<div class="morelike-list row no-margin">
 
 								<!-- episode list box -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="video in recent_video.sub_videos">
 									<div class="episode-list-box">
 
-										<div class="episode-img bg-img" style="background-image: url(img/img5.jpg);">
+										<div class="episode-img bg-img" style="background-image: url({{video.default_image}});">
 											<div class="episode-img-overlay">
 												<div class="episode-img-inner">
-													<p class="new-epi">New Episode</p>
+													<p class="new-epi">{{video.title}}</p>
 												</div>
 
 												<div class="epi-play-icon-outer">
-													<a href="#" class="epi-play-icon">
+													<a ui-sref="single_video({id : video.admin_video_id})" class="epi-play-icon">
 														<i class="fa fa-play"></i>
 													</a>
 												</div>
@@ -404,134 +419,34 @@
 										<div class="episode-list-content">
 											<div class="row no-margin">
 					    						<div class="pull-left">
-					    							<input type="hidden" class="rating" value="3">
+					    							<div>
+					    								<div class="rating-symbol glyphicon"
+		    								ng-class="{'glyphicon-star-empty' : (video.ratings < 1), 'glyphicon-star' : (video.ratings >= 1)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 2), 'glyphicon-star' : (video.ratings >= 2)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 3), 'glyphicon-star' : (video.ratings >= 3)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 4), 'glyphicon-star' : (video.ratings >= 4)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 5), 'glyphicon-star' : (video.ratings >= 5)}">
+		    									
+		    								</div>
+					    							</div>
 					    						</div>
 					    						<p class="content-txt bold seasons">
-					    							<span>2016</span>
-					    							<span class="epi-count">+16</span>
-					    							<span>2h</span>
+					    							<span>{{video.publish_time}}</span>
+					    							<span class="epi-count">+{{video.watch_count}}</span>
+					    							<span>{{video.duration}}</span>
 					    						</p>
 					    					</div>
 
 					    					<div>
-					    						<p class="content-txt overview-des bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					    					</div>
-										</div>
-
-									</div>
-								</div>
-								<!-- episode-list-box end -->
-
-								<!-- episode list box -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-									<div class="episode-list-box">
-
-										<div class="episode-img bg-img" style="background-image: url(img/img8.jpg);">
-											<div class="episode-img-overlay">
-												<div class="episode-img-inner">
-													<p class="new-epi">New Episode</p>
-												</div>
-
-												<div class="epi-play-icon-outer">
-													<a href="#" class="epi-play-icon">
-														<i class="fa fa-play"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-
-										<div class="episode-list-content">
-											<div class="row no-margin">
-					    						<div class="pull-left">
-					    							<input type="hidden" class="rating" value="3">
-					    						</div>
-					    						<p class="content-txt bold seasons">
-					    							<span>2016</span>
-					    							<span class="epi-count">+16</span>
-					    							<span>2h</span>
-					    						</p>
-					    					</div>
-
-					    					<div>
-					    						<p class="content-txt overview-des bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					    					</div>
-										</div>
-
-									</div>
-								</div>
-								<!-- episode-list-box end -->
-
-								<!-- episode list box -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-									<div class="episode-list-box">
-
-										<div class="episode-img bg-img" style="background-image: url(img/img9.jpg);">
-											<div class="episode-img-overlay">
-												<div class="episode-img-inner">
-													<p class="new-epi">New Episode</p>
-												</div>
-
-												<div class="epi-play-icon-outer">
-													<a href="#" class="epi-play-icon">
-														<i class="fa fa-play"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-
-										<div class="episode-list-content">
-											<div class="row no-margin">
-					    						<div class="pull-left">
-					    							<input type="hidden" class="rating" value="3">
-					    						</div>
-					    						<p class="content-txt bold seasons">
-					    							<span>2016</span>
-					    							<span class="epi-count">+16</span>
-					    							<span>2h</span>
-					    						</p>
-					    					</div>
-
-					    					<div>
-					    						<p class="content-txt overview-des bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					    					</div>
-										</div>
-
-									</div>
-								</div>
-								<!-- episode-list-box end -->
-
-								<!-- episode list box -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-									<div class="episode-list-box">
-
-										<div class="episode-img bg-img" style="background-image: url(img/img10.jpg);">
-											<div class="episode-img-overlay">
-												<div class="episode-img-inner">
-													<p class="new-epi">New Episode</p>
-												</div>
-
-												<div class="epi-play-icon-outer">
-													<a href="#" class="epi-play-icon">
-														<i class="fa fa-play"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-
-										<div class="episode-list-content">
-											<div class="row no-margin">
-					    						<div class="pull-left">
-					    							<input type="hidden" class="rating" value="3">
-					    						</div>
-					    						<p class="content-txt bold seasons">
-					    							<span>2016</span>
-					    							<span class="epi-count">+16</span>
-					    							<span>2h</span>
-					    						</p>
-					    					</div>
-
-					    					<div>
-					    						<p class="content-txt overview-des bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					    						<p class="content-txt overview-des bold">{{video.description}}</p>
 					    					</div>
 										</div>
 
@@ -554,84 +469,11 @@
 					<div class="tab-overlay">
 
 						<div class="details-section-inner tab-section-content tab-sec-inner contain-width">
-							<h3 class="content-tit">Pretty Little Liars</h3>
+							<h3 class="content-tit">{{recent_video.title}}</h3>
 
 							<div class="details-row row no-margin">
-
-								<!-- DETAILS-BOX -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-									<div class="details-box">
-										<div class="">
-											<h3 class="details-tit gray-color">Creator</h3>
-											<p class="white-color details-txt">Spencer Hastings</p>
-										</div>
-
-										<div class="">
-											<h3 class="details-tit gray-color">Cast</h3>
-											<p class="white-color details-txt">Spencer Hastings</p>
-											<p class="white-color details-txt">Spencer Hastings</p>
-											<p class="white-color details-txt">Spencer Hastings</p>
-											<p class="white-color details-txt">Spencer Hastings</p>
-										</div>
-									</div>
-								</div>
-								<!-- DETAILS-BOX END -->
-
-								<!-- DETAILS-BOX -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-									<div class="details-box">
-										<div class="">
-											<h3 class="details-tit gray-color">Genres</h3>
-											<p class="white-color details-txt">Lorem</p>
-											<p class="white-color details-txt">Lorem lorem</p>
-											<p class="white-color details-txt">Lorem lorem lorem</p>
-											<p class="white-color details-txt">Lorem</p>
-										</div>
-
-										<div class="">
-											<h3 class="details-tit gray-color">this show is</h3>
-											<p class="white-color details-txt">Exciting</p>
-											<p class="white-color details-txt">Imaginative</p>
-										</div>
-									</div>
-								</div>
-								<!-- DETAILS-BOX END -->
-
-								<!-- DETAILS-BOX -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-									<div class="details-box">
-										<div class="">
-											<h3 class="details-tit gray-color">Maturity Ratings</h3>
-											<p class="white-color details-txt">
-												<span class="epi-count">+16</span>
-											</p>
-
-											<p class="gray-color">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											</p>
-										</div>
-
-									</div>
-								</div>
-								<!-- DETAILS-BOX END -->
-
-								<!-- DETAILS-BOX -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-									<div class="details-box">
-										<div class="">
-											<h3 class="details-tit gray-color">Audio</h3>
-
-											<p class="gray-color">
-												English Audio Description
-											</p>
-											<p class="gray-color">
-												English
-											</p>
-										</div>
-
-									</div>
-								</div>
-								<!-- DETAILS-BOX END -->
+								
+								<p>{{recent_video.details}}</p>
 
 							</div>
 						</div>
@@ -642,25 +484,26 @@
 		</div>
 
 		<div class="drop-tab">
+		
 			<ul class="nav nav-tabs" role="tablist">
 			    <li role="presentation" class="active">
-			    	<a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+			    	<a style="cursor:pointer" ng-click="displayContent('overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+			    </li>
+
+			    <li role="presentation" ng-if="is_genre">
+			    	<a style="cursor:pointer" ng-click="displayContent('episodes')" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
+			    </li>
+
+			    <li role="presentation" ng-if="is_genre">
+			    	<a style="cursor:pointer" ng-click="displayContent('trailers')" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
 			    </li>
 
 			    <li role="presentation">
-			    	<a href="#episodes" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
+			    	<a style="cursor:pointer" ng-click="displayContent('more-like')" aria-controls="more-like" role="tab" data-toggle="tab">More Like This</a>
 			    </li>
 
-			    <li role="presentation">
-			    	<a href="#trailers" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
-			    </li>
-
-			    <li role="presentation">
-			    	<a href="#more-like" aria-controls="more-like" role="tab" data-toggle="tab">More Like This</a>
-			    </li>
-
-			    <li role="presentation">
-			    	<a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a>
+			    <li role="presentation" ng-if="recent_video.details">
+			    	<a style="cursor:pointer" ng-click="displayContent('details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
 			    </li>
 		  	</ul>				
 		</div>

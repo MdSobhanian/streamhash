@@ -13,6 +13,8 @@ angular.module('streamViewApp')
 
 		if ($scope.user_id) {
 
+
+
 				$.ajax({
 
 					type : "post",
@@ -34,6 +36,8 @@ angular.module('streamViewApp')
 						if (data.success) {
 
 							$scope.datas = data.data;
+
+							$scope.recent_video = data.recent_video;
 
 						} else {
 
@@ -201,6 +205,38 @@ angular.module('streamViewApp')
 						$(this).children('.fa-angle-right').show();
 					};
 			*/
+
+			$scope.displayContent = function(id) {
+
+				$("#overview").fadeOut();
+				$("#episodes").fadeOut();
+				$("#trailers").fadeOut();
+				$("#more-like").fadeOut();
+				$("#details").fadeOut();
+
+				if (id == 'overview') {
+
+					$("#overview").fadeIn();
+
+				} else if (id == 'episodes') {
+
+					$("#episodes").fadeIn();
+
+				} else if (id == 'trailers') {
+
+					$("#trailers").fadeIn();
+					
+				} else if (id == 'more-like') {
+
+					$("#more-like").fadeIn();
+					
+				} else {
+
+					$("#details").fadeIn();
+				}
+				
+				
+			}
 
 		} else {
 
