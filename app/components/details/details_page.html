@@ -79,7 +79,7 @@
 			    <div role="tabpanel" class="tab-pane active" id="{{$index}}_{{$parentindex}}_overview">
 				    <div class="overview tab-section">
 				    	<div class="close-tab">
-    						<a href="javascript:void(0)" class="close-btn">
+    						<a style="cursor: pointer;" ng-click="closeDiv($index,$parentindex)"class="close-btn">
     							<i class="fa fa-times"></i>
     						</a>
     					</div>
@@ -123,9 +123,14 @@
 			    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
 			    					</div>
 
-			    					<div>
-			    						<a href="#" class="my-list bold">
-			    							<i class="fa fa-plus"></i>
+			    					<div id="my-list-txt_{{$index}}_{{$parentindex}}">
+			    					
+			    						<a ng-click="addWishlist(value.admin_video_id, $index, $parentindex)" class="my-list bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
+			    							<i class="fa fa-plus my-list-icon"></i>
+			    							<span class="my-list-txt">My List</span> 
+			    						</a>
+			    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, $parentindex)" class="my-list bold" ng-if="value.wishlist_status" style="cursor: pointer;">
+			    							<i class="fa fa-check my-list-icon"></i>
 			    							<span class="my-list-txt">My List</span> 
 			    						</a>
 			    					</div>
