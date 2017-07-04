@@ -173,6 +173,14 @@ streamViewApp
                     }
                 });
 
+                $.ajax({
+                  url : apiUrl+'userApi/allPages',
+                  type : 'post',
+                  success : function(data) {
+                    $rootScope.allPages = data;
+                  }
+               })
+
         }
 
 ])

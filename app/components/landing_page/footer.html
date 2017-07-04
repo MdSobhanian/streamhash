@@ -1,48 +1,26 @@
 <div ui-view></div>
 
-	<footer>
-		<div class="container">	
-			<div class="foot-head">
-				<a href="#" class="foot-link">Questions? Contact Us</a>
-			</div>
+<footer>
+	<div class="container">	
+		<div class="pull-left">
 
-			<div class="footer row no-margin">
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-					<div class="">
-						<a href="#" class="foot-link">FAQ</a>
-						<a href="#" class="foot-link">Investor Resolution</a>
-						<a href="#" class="foot-link">Terms Of ?Use</a>
-						<a href="#" class="foot-link">Help</a>
-					</div>
-				</div>
+            <p class="footer-gd">© Copyright 2017 All rights reserved.</p>
 
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-					<div class="">
-						<a href="#" class="foot-link">FAQ</a>
-						<a href="#" class="foot-link">Investor Resolution</a>
-						<a href="#" class="foot-link">Terms Of ?Use</a>
-						<a href="#" class="foot-link">Help</a>
-					</div>
-				</div>
+        </div>
 
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-					<div class="">
-						<a href="#" class="foot-link">FAQ</a>
-						<a href="#" class="foot-link">Investor Resolution</a>
-						<a href="#" class="foot-link">Terms Of ?Use</a>
-						<a href="#" class="foot-link">Help</a>
-					</div>
-				</div>
+        <div class="pull-right">
 
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-					<div class="">
-						<a href="#" class="foot-link">FAQ</a>
-						<a href="#" class="foot-link">Investor Resolution</a>
-						<a href="#" class="foot-link">Terms Of ?Use</a>
-						<a href="#" class="foot-link">Help</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</footer>
+          <ul class="footer_ul">
+
+             <li ng-repeat="pages in allPages" style="list-style: none">
+	          <a ui-sref="static.page({id : pages.type})" style="color: #fff;text-transform: capitalize;">{{pages.type}}</a> |
+	        </li>
+
+          </ul>
+
+        </div>
+
+        <div class="clearfix"></div>
+	</div>
+	
+</footer>

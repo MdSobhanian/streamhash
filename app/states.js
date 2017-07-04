@@ -336,6 +336,19 @@ streamViewApp
                     }
                 })
 
+                .state("static.page",{
+                    url:"/page/{id}",
+                    templateUrl:'app/components/static/static.html',
+                    controller: 'staticController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/static/staticController.js',
+                            ]);
+                        }]
+                    }, 
+                })
+
 
             $httpProvider.interceptors.push('authInterceptor');
 
