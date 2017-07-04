@@ -212,6 +212,24 @@ streamViewApp
                     }
                 })
 
+                .state("profile.search", {
+                    url: "/search/{word}",
+                    templateUrl: 'app/components/search/search_videos.html',
+                    controller: 'searchWordController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/search/searchVideoController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Search Videos'
+                    }
+                })
+
+
                 .state("profile.account-settings", {
                     url: "/account-settings/{sub_id}",
                     templateUrl: 'app/components/settings/account_settings.html',

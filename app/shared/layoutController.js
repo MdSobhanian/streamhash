@@ -1,7 +1,7 @@
 angular.module('streamViewApp')
-.controller('main_headerCtrl', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
+.controller('main_headerCtrl', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams','$location',
 
-	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+	function ($scope, $http, $rootScope, $window, $state, $stateParams,$location) {
 
 		// $scope.settings = $rootScope.site_settings;
 
@@ -153,6 +153,21 @@ angular.module('streamViewApp')
 			$state.go('static.index', {}, {reload:true});
 
 		};
+
+		$scope.getSearchModel = function(word) {
+
+			console.log(word);
+
+			if (word != '' && word != undefined) {
+
+				$location.path('/search/'+word).replace();
+
+			} else {
+
+				$location.path('/home/'+memoryStorage.sub_profile_id).replace();
+
+			}
+		}
 
 	}
 ])

@@ -1,0 +1,613 @@
+<div class="content">
+
+<div style="margin:5%; padding: 10px;">
+
+<div class="box-head">
+   <h3>{{datas.title}}</h3></a>
+</div>
+
+<div class="box video-box-row" ng-repeat="video in datas.data" ng-init="$parentindex = $index">
+
+	<div id="{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn(this,$index, $parentindex, video.length)" ng-mouseleave="hoverOut(this, $index, $parentindex, video.length)" class="tile col-lg-3 slide-box video-box" ng-repeat="value in video">
+    	<div class="video-box-outer">
+    	
+	        <div class="tile-media">
+	          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/><!-- 3rd image-->
+	          	<!-- <img class="tile-img first" ng-src="{{value.default_image}}" alt=""/>
+	          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/> -->
+	        </div>
+
+	        <div class="tile-details">
+
+	        	<div class="hover-icon">
+	        		<i class="fa fa-play"></i>
+	        	</div>
+
+				<div class="tile-content">
+		            <h3 class="tile-tit">{{value.title}}</h3>
+
+		            <div class="row no-margin">
+						<div class="pull-left">
+							<div>
+								<div class="rating-symbol glyphicon"
+								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
+									
+								</div>
+							</div>
+						</div>
+						<p class="video-season">
+							<span>{{value.publish_time}}</span>
+							<span class="video-epi-count">+{{value.watch_count}}</span>
+							<span>{{value.duration}}</span>
+						</p>
+					</div>
+
+					<div class="row no-margin">
+						<div class="video-des col-lg-10 col-md-10 col-sm-10 col-xs-10 no-pad">
+							<p class="video-des-inner">{{value.description}}</p>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<a ng-click="showVideoDrop(this, $index, $parentindex,video.length)" class="arrow"><i class="fa fa-angle-down size-arrow"></i></a>
+					</div>
+				</div>
+
+	        </div>
+	    </div>
+	    
+    </div>
+ 
+ 	<div class="clearfix"></div>
+
+ 	<div class="video-drop" style="margin-top: 1% !important;" id="{{$index}}_{{$parentindex}}_video_drop" ng-repeat="value in video">
+		<div class="tab-content">
+
+				<!-- OVERVIEW SECTION  -->
+			    <div role="tabpanel" class="tab-pane active" id="{{$index}}_{{$parentindex}}_overview">
+				    <div class="overview tab-section">
+				    	<div class="close-tab">
+    						<a href="javascript:void(0)" class="close-btn">
+    							<i class="fa fa-times"></i>
+    						</a>
+    					</div>
+			    		
+		    			<div class="tab-section-content row no-margin">
+			    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad">
+			    				<div class="overview-details">
+			    					<h3 class="content-tit">{{value.title}}</h3>
+
+			    					<div class="row no-margin">
+			    						<div class="pull-left">
+			    							<div>
+			    								<div class="rating-symbol glyphicon"
+			    								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
+			    									
+			    								</div>
+			    							</div>
+			    						</div>
+			    						<p class="content-txt bold seasons">
+			    							<span>{{value.publish_time}}</span>
+			    							<span class="epi-count">{{value.watch_count}}</span>
+			    							<span>{{value.duration}}</span>
+			    						</p>
+			    					</div>
+
+			    					<div>
+			    						<p class="content-txt overview-des">{{value.description}}</p>
+
+			    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
+			    					</div>
+
+			    					<div>
+			    						<a href="#" class="my-list bold">
+			    							<i class="fa fa-plus"></i>
+			    							<span class="my-list-txt">My List</span> 
+			    						</a>
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-pad">
+			    				<div class="linear-outer">
+			    					
+			    					<div class="linear">
+			    					</div>
+			    					<div class="rotate-img-outer">	
+		    					
+			    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in value.images"></div>
+				    				</div>
+
+				    				<div class="play-icon-outer">
+				    					<a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
+				    				</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    							    
+				    </div>
+				</div>
+				<!-- OVERVIEW SECTION END -->
+
+
+
+				<!-- EPISODES-SECTION
+				======================================== -->
+				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_episodes">
+					<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
+						<div class="tab-overlay">
+
+							<div class="episodes-section-inner tab-section-content tab-sec-inner contain-width">
+								<h3 class="content-tit">Pretty Little Liars</h3>
+								<form class="season-select">
+									<div class="form-group">
+									    <select class="form-control" id="exampleSelect1">
+									      <option>Season 1</option>
+									      <option>Season 2</option>
+									      <option>Season 3</option>
+									      <option>Season 4</option>
+									      <option>SEason 5</option>
+									    </select>
+									</div>
+								</form>
+ 
+								<div class="episodes-list row no-margin">
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img1.jpg);">
+												<div class="episode-img-overlay">
+													<div class="episode-img-inner">
+														<p class="episode-count">1</p>
+													</div>
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="pull-left">
+														<h4 class="epi-tit gray-color1">Dark Night</h4>
+													</div>
+
+													<div class="pull-right">
+														<p class="bold gray-color1">2h</p>
+													</div>
+												</div>
+
+												<div class="">
+													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img2.jpg);">
+												<div class="episode-img-overlay">
+													<div class="episode-img-inner">
+														<p class="episode-count">2</p>
+													</div>
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="pull-left">
+														<h4 class="epi-tit gray-color1">Dark Night</h4>
+													</div>
+
+													<div class="pull-right">
+														<p class="bold gray-color1">2h</p>
+													</div>
+												</div>
+
+												<div class="">
+													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img3.jpg);">
+												<div class="episode-img-overlay">
+													<div class="episode-img-inner">
+														<p class="episode-count">3</p>
+													</div>
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="pull-left">
+														<h4 class="epi-tit gray-color1">Dark Night</h4>
+													</div>
+
+													<div class="pull-right">
+														<p class="bold gray-color1">2h</p>
+													</div>
+												</div>
+
+												<div class="">
+													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img4.jpg);">
+												<div class="episode-img-overlay">
+													<div class="episode-img-inner">
+														<p class="episode-count">4</p>
+													</div>
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="pull-left">
+														<h4 class="epi-tit gray-color1">Dark Night</h4>
+													</div>
+
+													<div class="pull-right">
+														<p class="bold gray-color1">2h</p>
+													</div>
+												</div>
+
+												<div class="">
+													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- EPISODES-SECTION END-->
+
+
+
+				<!-- TRAILERS SECTION -->
+				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_trailers">
+					<div class="trailers-section tab-section tab-bg bg-img" style="background-image: url(img/img1.jpg);">
+						<div class="tab-overlay">
+
+							<div class="trailers-section-inner tab-section-content tab-sec-inner contain-width">
+								<h3 class="content-tit">Pretty Little Liars</h3>
+ 
+								<div class="trailers-list row no-margin">
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img5.jpg);">
+												<div class="episode-img-overlay">
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="">
+														<h4 class="epi-tit gray-color1">PLL (Season 1)</h4>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img6.jpg);">
+												<div class="episode-img-overlay">
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="">
+														<h4 class="epi-tit gray-color1">PLL (Season 2)</h4>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img7.jpg);">
+												<div class="episode-img-overlay">
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="">
+														<h4 class="epi-tit gray-color1">PLL (Season 3)</h4>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+									<!-- episode list box -->
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url(img/img8.jpg);">
+												<div class="episode-img-overlay">
+
+													<div class="epi-play-icon-outer">
+														<a href="#" class="epi-play-icon">
+															<i class="ion-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+													<div class="">
+														<h4 class="epi-tit gray-color1">PLL (Season 4)</h4>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- episode-list-box end -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- TRAILERS SECTION END -->
+
+
+
+				<!-- MORE LIKE SECTION  -->
+				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_more-like">
+					<div class="morelike-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
+						<div class="tab-overlay">
+
+							<div class="morelike-section-inner tab-section-content tab-sec-inner contain-width">
+								<h3 class="content-tit">{{value.sub_category_name}}</h3>
+ 
+								<div class="morelike-list row no-margin">
+
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="sub_video in value.sub_videos">
+										<div class="episode-list-box">
+
+											<div class="episode-img bg-img" style="background-image: url({{sub_video.default_image}});">
+												<div class="episode-img-overlay">
+													<div class="episode-img-inner">
+														<p class="new-epi">{{sub_video.title}}</p>
+													</div>
+
+													<div class="epi-play-icon-outer">
+														<a ui-sref="single_video({id : sub_video.admin_video_id})" class="epi-play-icon">
+															<i class="fa fa-play"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<div class="episode-list-content">
+												<div class="row no-margin">
+						    						<div class="pull-left">
+						    							<div>
+						    								<div class="rating-symbol glyphicon"
+		    								ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 1), 'glyphicon-star' : (sub_video.ratings >= 1)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 2), 'glyphicon-star' : (sub_video.ratings >= 2)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 3), 'glyphicon-star' : (sub_video.ratings >= 3)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 4), 'glyphicon-star' : (sub_video.ratings >= 4)}">
+		    									
+		    								</div>
+		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 5), 'glyphicon-star' : (sub_video.ratings >= 5)}">
+		    									
+		    								</div>
+						    							</div>
+						    						</div>
+						    						<p class="content-txt bold seasons">
+						    							<span>{{sub_video.publish_time}}</span>
+						    							<span class="epi-count">+{{sub_video.watch_count}}</span>
+						    							<span>{{sub_video.duration}}</span>
+						    						</p>
+						    					</div>
+
+						    					<div>
+						    						<p class="content-txt overview-des bold">{{sub_video.description}}</p>
+						    					</div>
+											</div>
+
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- MORE LIKE SECTION END -->
+
+
+
+				<!-- DETAILS-SECTION -->
+				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_details">
+					<div class="details-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
+						<div class="tab-overlay">
+
+							<div class="details-section-inner tab-section-content tab-sec-inner contain-width">
+								<h3 class="content-tit">{{value.sub_category_name}}</h3>
+
+								<div class="details-row row no-margin">
+
+									<p>{{value.details}}</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- DETAILS-SECTION END -->
+		</div>
+
+		<div class="drop-tab">
+
+			<ul class="nav nav-tabs" role="tablist">
+			    <li role="presentation" class="active">
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+			    </li>
+
+			    <li role="presentation" ng-if="is_genre">
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'episodes')" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
+			    </li>
+
+			    <li role="presentation" ng-if="is_genre">
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
+			    </li>
+
+			    <li role="presentation">
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'more-like')" aria-controls="more-like" role="tab" data-toggle="tab">More Like This</a>
+			    </li>
+
+			    <li role="presentation" ng-if="recent_video.details">
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
+			    </li>
+		  	</ul>		
+			
+		</div>
+	</div>
+
+</div>
+
+<div class="clearfix"></div>
+
+</div>
+
+<style type="text/css">
+.box-head h3{
+
+    font-size: 18px;
+	color: #e5e5e5;
+	font-weight: 700;
+	text-decoration: none;
+	display: inline-block;
+
+	margin:0;
+
+}
+
+.video-box-row {
+
+	font-size : 14px;
+
+	white-space: normal;
+}
+</style>
