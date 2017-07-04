@@ -15,8 +15,24 @@ angular.module('streamViewApp')
              $scope.black_bg = data;
         });
 
-		$scope.sub_profile_id = memoryStorage.sub_profile_id = $stateParams.id;
+		if ($stateParams.sub_id == undefined || $stateParams.sub_id == '') {
 
+			$scope.sub_profile_id = memoryStorage.sub_profile_id;
+
+
+		} else {	
+
+			memoryStorage.sub_profile_id = $stateParams.sub_id;
+
+			$scope.sub_profile_id = memoryStorage.sub_profile_id;
+
+			localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+		}
+
+		console.log($scope.sub_profile_id);
+
+	
 		$scope.user_picture = (memoryStorage.user_picture != '' && memoryStorage.user_picture != undefined ) ? memoryStorage.user_picture : 'img/model3.jpg'; 
 
 		$scope.user_name = (memoryStorage.user_name != '' && memoryStorage.user_name != undefined ) ? memoryStorage.user_name : ''; 
@@ -57,7 +73,7 @@ angular.module('streamViewApp')
 
 			url : apiUrl + "userApi/view-sub-profile",
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id:$stateParams.id},
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id:$scope.sub_profile_id},
 
 			async : false,
 
@@ -90,7 +106,7 @@ angular.module('streamViewApp')
 
 			url : apiUrl + "userApi/active-profiles",
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : $stateParams.id},
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : $scope.sub_profile_id},
 
 			async : false,
 

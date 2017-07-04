@@ -45,6 +45,8 @@ angular.module('streamViewApp')
 
 						memoryStorage.user_name = data.name;
 
+						memoryStorage.one_time_subscription = data.one_time_subscription;
+
 						localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 						UIkit.notify({message : 'Your account has been successfully LoggedIn', timeout : 3000, pos : 'top-center', status : 'success'});

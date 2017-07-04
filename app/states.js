@@ -159,7 +159,7 @@ streamViewApp
                 })
 
                 .state("profile.home", {
-                    url: "/home/{id}",
+                    url: "/home/{sub_id}",
                     templateUrl: 'app/components/home/home_page.html',
                     controller: 'homePageController',
                     resolve: {
@@ -213,7 +213,7 @@ streamViewApp
                 })
 
                 .state("profile.account-settings", {
-                    url: "/account-settings/{id}",
+                    url: "/account-settings/{sub_id}",
                     templateUrl: 'app/components/settings/account_settings.html',
                     controller: 'settingsController',
                     resolve: {
@@ -277,6 +277,26 @@ streamViewApp
                     },
                     data: {
                         pageTitle: 'Delete Account',
+                    }
+                })
+
+
+
+                .state("profile.subscriptions", {
+                    url: "/subscriptions/{sub_id}",
+                    templateUrl: 'app/components/settings/subscriptions.html',
+                    controller: 'subscriptionsController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/settingsController.js',
+                                'assets/css/subscriptions.css'
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Subscriptions',
                     }
                 })
 

@@ -7,7 +7,7 @@ angular.module('streamViewApp')
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
-		$scope.sub_profile_id = memoryStorage.sub_profile_id = $stateParams.id
+		$scope.sub_profile_id = memoryStorage.sub_profile_id = $stateParams.sub_id;
 
 		$rootScope.$emit('footerBar', false);
 

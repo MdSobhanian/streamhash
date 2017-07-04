@@ -1,0 +1,57 @@
+<div class="main-content form-content bg-img">
+
+	<!-- LOGIN FORM 
+	===================================================-->
+	<div class="login-form" style="padding-top: 10%">
+		<div class="container">
+			<div class="row">	
+				<div class="col-md-4 ng-scope" ng-repeat="subscription in subscriptions">
+
+                    <!-- START PRICING PLAN -->
+                    <div class="card pricing style-2" ng-class="{'z-depth-4': (subscription.popular_status == 1) }" ng-hide="one_time_subscription == 1 && subscription.amount == 0">
+
+                        <!-- START PLAN TITLE DIV. -->
+                        <!-- CHANGE COLOR BY CHANGING LAST CSS CLASS (teal) AVAILABLE COLOR CLASSES LISTED HERE http://materializecss.com/color.html -->
+                        <div class="plan-title waves-effect waves-block waves-light teal" ng-class="{'teal' : (subscription.popular_status == 0) , 'yellow darken-3': (subscription.popular_status == 1) }">
+                            <h5 ng-class="{'white-text' : (subscription.popular_status == 0) , 'dark-grey-text': (subscription.popular_status == 1) }" class="white-text">
+                                <span class="plan">{{subscription.title}}</span>
+                            </h5>
+                        </div>
+                        <!-- END PLAN TITLE DIV. -->
+
+                        <!-- START PRICE INFO DIV. -->
+                        <div class="price waves-effect waves-block waves-light teal lighten-1" ng-class="{'teal lighten-1' : (subscription.popular_status == 0) , 'yellow darken-2': (subscription.popular_status == 1) }">
+                            <h4 ng-class="{'white-text' : (subscription.popular_status == 0) , 'dark-grey-text': (subscription.popular_status == 1) }" class="white-text">
+                                <span class="currency">$</span>
+                                <span class="amount">{{subscription.amount}}</span>
+                                <span class="period">/ {{subscription.plan}} month</span>
+                            </h4>
+                        </div>
+                        <!-- END PRICE INFO DIV. -->
+
+                        <div class="card-content">
+
+                            <!-- START FEATURE LIST -->
+                            <span class="price-co">{{subscription.description}}</span>
+
+
+                            <!-- START SIGN UP BUTTON start-now-starter -->
+                            <div class="plan-signup-btn">
+                                <!-- <a id="start-now-starter" class=" waves-effect waves-block waves-light no-margin white-text" href="#" ng-show>Pay Now</a> -->
+
+                                <a id="start-now-plus" class="waves-effect waves-block waves-light no-margin white-text btn" ng-click="sendToPaypal(subscription.id, subscription.amount)" ng-class="{'btn' : (subscription.popular_status == 0) , 'yellow darken-2 btn-large': (subscription.popular_status == 1) }" style="cursor: pointer;">
+                                    <span ng-class="{'dark-grey-text': (subscription.popular_status == 1) }">Pay Now</span>
+                                </a>
+
+                            </div>
+                            <!-- END SIGN UP BUTTON -->
+
+                        </div>
+                    </div>
+                    <!-- END PRICING PLAN -->
+
+                </div>
+			</div>					
+		</div>
+	</div>
+

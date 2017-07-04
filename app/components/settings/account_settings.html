@@ -77,14 +77,14 @@
 							<div class="account-section-content row no-margin">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block">
-										<p class="account-section-text">4 Screens</p>
+										<p class="account-section-text">{{active_plan.title ? active_plan.title : '-'}}</p>
 									</div>
 								</div>
 
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block text-right">
 										<div>
-											<a href="#" class="account-section-link">Change Plan</a>
+											<a ui-sref="profile.subscriptions({sub_id : sub_id})" class="account-section-link">Change Plan</a>
 										</div>											
 									</div>
 								</div>
