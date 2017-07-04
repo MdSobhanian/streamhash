@@ -148,9 +148,9 @@
 
 					<ul class="dropdown-menu nav-profile-menu">
 						<div class="border-bot more-profile padding15">
-							<li class="row no-margin" ng-repeat="profile in profiles">
-								<a ui-sref="profile.home({id : profile.id})"><div class="nav-profile-img bg-img" style="background-image: url({{profile.picture}});"></div>
-									{{profile.name}}</a>
+							<li class="row no-margin" ng-repeat="value in profiles">
+								<a ui-sref="profile.home({id : value.id})"><div class="nav-profile-img bg-img" style="background-image: url({{value.picture}});"></div>
+									{{value.name}}</a>
 							</li>
 
 							<li>

@@ -56,8 +56,8 @@ var streamViewApp = angular.module('streamViewApp', [
 var apiUrl = "http://localhost:8000/";
 
 var angularUrl = "http://localhost/streamview-base/streamview-angular/#/";
-*/
 
+*/
 var route_url = "http://streamview.streamhash.com/#";
 
 var apiUrl = "http://adminview.streamhash.com/";
@@ -79,33 +79,86 @@ streamViewApp
 
             $rootScope.token = memoryStorage.access_token;
 
-            $rootScope.$on('$stateChangeSuccess', function () {
+           var hideClass = 'ng-hide',
+                delay = 1000,
+                firstChangeStartt = false,
+                firstContentLoaded = false,
+                timer;
 
-              window.onbeforeunload = null;
+              $rootScope.$on('$stateChangeStart',
+                function(event, toState, toParams, fromState, fromParams) {
 
-              $timeout(function() {
-                      $rootScope.pageLoading = false;
-                  },100);
-
-              $timeout(function() {
-                      $rootScope.pageLoaded = true;
-                    },2000);
-
-           });
-
-
-           $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-
-              if(toState.name != 'profile.home' && $stateParams.slider_id == '') {
-
-                  if(!toParams.hasOwnProperty('hidePreloader')) {
-                          $rootScope.pageLoading = true;
-                          $rootScope.pageLoaded = false;
+                  // Remove this if you want the loader + delayed view behavior when first entering the page
+                  if (!firstChangeStartt) {
+                    firstChangeStartt = true;
+                    return;
                   }
 
-              }
+                  // Cancel the ongoing timer (if any)
+                  // This is used not to get weird behaviors if you change state before the previous has finished loading
+                  $timeout.cancel(timer);
 
-           });
+                  // Show the loader and hide the old view as soon as a state change has started
+                  $(".page-loading").removeClass(hideClass);
+
+                  $('.page').addClass(hideClass);
+                });
+
+              // Use '$viewContentLoaded' instead of '$stateChangeSuccess'.
+              // When '$stateChangeSuccess' fires the DOM has not been rendered and you cannot directly query the elements from the new HTML
+              // When '$viewContentLoaded' fires the new DOM has been rendered
+              $rootScope.$on('$viewContentLoaded',
+                function(event, toState, toParams, fromState, fromParams) {
+
+                  // Remove this if you want the loader + delayed view behavior when first entering the page
+                  if (!firstContentLoaded) {
+                    firstContentLoaded = true;
+                    return;
+                  }
+
+                  $timeout.cancel(timer);
+
+                  // Hide the new view as soon as it has rendered
+                  var page = $('.page');
+                  page.addClass(hideClass);
+
+                  // Hide the loader and show the new view after a delay
+                  // Pass false as the third argument to prevent the digest loop from starting (since you are just modifying CSS there is no reason for Angular to perform dirty checking in this example)
+                  timer = $timeout(function() {
+
+                    page.removeClass(hideClass);
+                    $(".page-loading").addClass(hideClass);
+
+                  }, delay, false);
+                });
+                
+               /* $rootScope.$on('$stateChangeSuccess', function () {
+
+                    window.onbeforeunload = null;
+
+                    $timeout(function() {
+                            $rootScope.pageLoading = false;
+                        },5000);
+
+                    $timeout(function() {
+                            $rootScope.pageLoaded = true;
+                          },50000);
+
+                 });
+
+
+                 $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+
+                    if(toState.name != 'profile.home' && $stateParams.slider_id == '') {
+
+                        if(!toParams.hasOwnProperty('hidePreloader')) {
+                                $rootScope.pageLoading = true;
+                                $rootScope.pageLoaded = false;
+                        }
+
+                    }
+
+                 });*/
 
 
             // console.log($state);
@@ -119,7 +172,7 @@ streamViewApp
             }
           
 
-            $rootScope.pageLoading = true;
+           //  $rootScope.pageLoading = true;
 
 
 

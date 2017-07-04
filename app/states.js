@@ -300,6 +300,24 @@ streamViewApp
                     }
                 })
 
+                .state("single_video", {
+                    url: "/video/{id}",
+                    templateUrl: 'app/components/videos/single_video.html',
+                    controller: 'singleVideoController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'lazy_notify',
+                                'app/components/videos/singleVideoController.js',
+                                'assets/jwplayer/jwplayer.js',
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Video',
+                    }
+                })
+
 
             $httpProvider.interceptors.push('authInterceptor');
 

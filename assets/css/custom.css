@@ -12,7 +12,7 @@
 	bottom:0;
 	position:fixed;
 	z-index:2000;
-	opacity:0;
+	opacity:1;
 	-webkit-transition:all 280ms cubic-bezier(.4,0,.2,1);
 	transition:all 280ms cubic-bezier(.4,0,.2,1)
 }
