@@ -63,6 +63,14 @@ angular.module('streamViewApp')
 
 		    // $parent_box.find('.video-drop').toggle();
 
+		    var video_drop = $(".video-drop").is(":visible");
+
+		    if(video_drop) {
+
+		    	$('.video-drop').hide();
+		    }
+
+
 		    $("#"+idx+"_"+key+"_video_drop").fadeIn();
 		};
 

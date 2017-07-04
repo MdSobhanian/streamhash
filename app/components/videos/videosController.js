@@ -36,22 +36,13 @@ angular.module('streamViewApp')
 		});
 
 
-		$scope.hoverIn = function(id, key) {
+		/*$scope.hoverIn = function(id, key) {
 
 			$('#'+id+"_"+key).addClass('transition-class');
 
 			$('#'+id+"_"+key).css('overflow', 'hidden');
 
-			/*var video_drop = $(".video-drop").is(":visible");
-
-			if (!video_drop) {
-
-				$(this).addClass('transition-class');
-
-			} else {
-
-				$(this).addClass('active_img');
-			}*/
+			
 
 		};
 
@@ -59,7 +50,114 @@ angular.module('streamViewApp')
 
 			$('#'+id+"_"+key).removeClass('transition-class');
 
+		};*/
+
+		$scope.showVideoDrop = function(event, idx, key) {
+
+		   /* $parent_box = $(event).closest('.slide-area');
+
+		    $silde_box = $(event).closest('.slide-box');
+
+		    $silde_box.addClass('active_img');
+
+		    //$silde_box.css('height', '145px !important');
+
+		    $parent_box.siblings().find('.video-drop').hide();*/
+
+		    // $("#"+idx+"_"+id+"_video").fadeIn();
+
+		    // $parent_box.find('.video-drop').toggle();
+
+		    var video_drop = $(".video-drop").is(":visible");
+
+		    if(video_drop) {
+
+		    	$('.video-drop').hide();
+		    }
+
+
+		    $("#"+idx+"_"+key+"_video_drop").fadeIn();
 		};
+
+		
+
+		$scope.hoverIn = function(event, id, key, length) {
+
+			var video_drop = $(".video-drop").is(":visible");
+
+			if (!video_drop) {
+
+				$('#'+id+"_"+key).addClass('transition-class');
+
+			} else {
+
+				$('#'+id+"_"+key).addClass('active_img');
+
+				for(var i = 0; i < length ; i++) {
+
+					$("#"+i+"_"+key+"_video_drop").hide();
+
+				}
+
+				$("#"+id+"_"+key+"_video_drop").fadeIn();
+			}
+
+		};
+
+		$scope.hoverOut = function(event, id, key, length) {
+			
+			var video_drop = $(".video-drop").is(":visible");
+
+			if (video_drop) {
+
+				for(var i = 0; i < length ; i++) {
+
+					if (id != i) {
+
+						$("#"+i+"_"+key+"_video_drop").fadeOut();
+
+						$('#'+i+"_"+key).removeClass('active_img');
+
+					}
+
+				}
+
+				
+			} 
+
+			$('#'+id+"_"+key).removeClass('transition-class');
+			
+		};
+
+		$scope.dynamicContent = function(index, key, id) {
+
+				$("#"+index+"_"+key+"_overview").fadeOut();
+				$("#"+index+"_"+key+"_episodes").fadeOut();
+				$("#"+index+"_"+key+"_trailers").fadeOut();
+				$("#"+index+"_"+key+"_more-like").fadeOut();
+				$("#"+index+"_"+key+"_details").fadeOut();
+
+				if (id == "overview") {
+
+					$("#"+index+"_"+key+"_overview").fadeIn();
+
+				} else if (id == "episodes") {
+
+					$("#"+index+"_"+key+"_episodes").fadeIn();
+
+				} else if (id == "trailers") {
+
+					$("#"+index+"_"+key+"_trailers").fadeIn();
+					
+				} else if (id == "more-like") {
+
+					$("#"+index+"_"+key+"_more-like").fadeIn();
+					
+				} else {
+
+					$("#"+index+"_"+key+"_details").fadeIn();
+				}
+		}
 
 
 	}
