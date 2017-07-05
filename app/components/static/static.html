@@ -23,10 +23,19 @@
 		===================================================-->
 		<div class="login-form">
 			<div class="container">
-				<h3 class="login-tit">{{page}}</h3>					
+				<h3 class="login-tit">{{page.heading}}</h3>		
+
+				<p ng-bind-html="page.description"></p>			
 			</div>
 		</div>
 		<!-- LOGIN FORM -->
 
 	</div>
 </div>
+<style type="text/css">
+.login-tit {
+	color: #fff;
+	font-family: verdana;
+	  text-decoration: underline;
+}
+</style>

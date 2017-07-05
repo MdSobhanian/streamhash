@@ -5,54 +5,62 @@ angular.module('streamViewApp')
 
 		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
-		$scope.forgot = function() {
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
-			$.ajax({
+		if($scope.user_id) {
 
-				type : "post",
+			$scope.forgot = function() {
 
-				url : apiUrl + "userApi/forgotpassword",
+				$.ajax({
 
-				data : {email : $scope.email},
+					type : "post",
 
-				async : false,
+					url : apiUrl + "userApi/forgotpassword",
 
-				beforeSend : function() {
+					data : {email : $scope.email},
 
-					$("#before_loader").show();
+					async : false,
 
-				},
+					beforeSend : function() {
+
+						$("#before_loader").show();
+
+					},
 
 
-				success : function (data) {
+					success : function (data) {
 
-					if (data.success) {
+						if (data.success) {
 
-						$scope.email = "";
+							$scope.email = "";
 
-						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});				
+							UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});				
 
-					} else {
+						} else {
 
-						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-						return false;
-					}
-				},
-				error : function (data) {
+							return false;
+						}
+					},
+					error : function (data) {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-				},
+					},
 
-				complete : function() {
+					complete : function() {
 
-					$("#before_loader").hide();
+						$("#before_loader").hide();
 
-				},
+					},
 
-			});
+				});
+			}
+
+		} else {
+
+			$state.go('profile.home',{sub_id : memoryStorage.sub_profile_id},{reload:true});
 		}
-
 	}
 ])

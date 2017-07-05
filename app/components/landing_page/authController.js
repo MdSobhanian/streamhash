@@ -9,7 +9,7 @@ angular.module('streamViewApp')
 
 		if ($scope.user_id) {
 
-			$state.go('profile.home',{},{reload:true});
+			// $state.go('profile.home',{},{reload:true});
 
 		} else {
 

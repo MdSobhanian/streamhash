@@ -7,72 +7,81 @@ angular.module('streamViewApp')
 
 		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
-		$scope.signup = function() {
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
-				$scope.login_by = 'manual';
+		if($scope.user_id) {
 
-				$scope.device_type = 'web';
+			$scope.signup = function() {
 
-				$scope.device_token = '123456';
+					$scope.login_by = 'manual';
 
-				$.ajax({
+					$scope.device_type = 'web';
 
-				type : "post",
+					$scope.device_token = '123456';
 
-				url : apiUrl + "userApi/register",
+					$.ajax({
 
-				data : {email:$scope.email, name : $scope.name, password : $scope.password,
-					login_by : $scope.login_by, device_type : $scope.device_type, device_token : $scope.device_token},
+					type : "post",
 
-				async : false,
+					url : apiUrl + "userApi/register",
 
-				beforeSend : function() {
+					data : {email:$scope.email, name : $scope.name, password : $scope.password,
+						login_by : $scope.login_by, device_type : $scope.device_type, device_token : $scope.device_token},
 
-					$("#before_loader").show();
+					async : false,
 
-				},
+					beforeSend : function() {
 
-				success : function (data) {
+						$("#before_loader").show();
 
-					if (data.success) {
+					},
 
-						memoryStorage.access_token = data.token;
+					success : function (data) {
 
-						memoryStorage.user_id = data.id;
+						if (data.success) {
 
-						memoryStorage.login_by = data.login_by;
+							memoryStorage.access_token = data.token;
 
-						memoryStorage.user_picture = data.picture;
+							memoryStorage.user_id = data.id;
 
-						memoryStorage.user_name = data.name;
+							memoryStorage.login_by = data.login_by;
 
-						localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+							memoryStorage.user_picture = data.picture;
 
-						UIkit.notify({message : 'Your account has been successfully Registered', timeout : 3000, pos : 'top-center', status : 'success'});
+							memoryStorage.user_name = data.name;
 
-						$state.go('manage-profile.view-profile',{},{reload:true});
+							localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
-					} else {
+							UIkit.notify({message : 'Your account has been successfully Registered', timeout : 3000, pos : 'top-center', status : 'success'});
 
-						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+							$state.go('manage-profile.view-profile',{},{reload:true});
 
-						return false;
-					}
-				},
-				error : function (data) {
+						} else {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-				},
+							return false;
+						}
+					},
+					error : function (data) {
 
-				complete : function(data) {
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					$("#before_loader").hide();
+					},
 
-				},
-			});
+					complete : function(data) {
 
-		};
+						$("#before_loader").hide();
+
+					},
+				});
+
+			};
+
+		} else {
+
+			$state.go('profile.home',{sub_id : memoryStorage.sub_profile_id},{reload:true});
+		}
 
 	}
 
