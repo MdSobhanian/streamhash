@@ -1606,3 +1606,51 @@ color: white;
 border-radius: 2px;
 text-decoration: none;
 }
+
+.form-signup-google .btn {
+    background-color: #dc4e41;
+    float: left;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.form-signup-google .btn i, .form-signup-facebook .btn i {
+    font-size: 16px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.form-signup-facebook .btn {
+    background-color: #3b5998;
+    float: right;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+.form-signup-google .btn i, .form-signup-facebook .btn i {
+    font-size: 16px;
+    padding-right: 10px;
+    vertical-align: middle;
+}

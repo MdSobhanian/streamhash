@@ -7,7 +7,7 @@ angular.module('streamViewApp')
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
-		if($scope.user_id) {
+		if(!$scope.user_id) {
 
 			$scope.forgot = function() {
 

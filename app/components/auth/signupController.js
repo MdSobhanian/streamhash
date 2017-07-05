@@ -1,15 +1,37 @@
 angular.module('streamViewApp')
 .controller('signupController', [
 
-	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$http',
+	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$sce',
 
-	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
+	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location, $sce) {
 
 		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
-		if($scope.user_id) {
+		if(!$scope.user_id) {
+
+			$scope.fb_status  = false;
+
+			$scope.google_status  = false;
+
+			$.ajax({
+					type : 'get',
+					url : apiUrl+'userApi/check_social',
+					async : false,
+					success : function(data) {
+						if(data.fb_status == true) {
+							$scope.fb_status = data.fb_status;
+
+							console.log("Fb Status"+$scope.fb_status);
+						}
+						if(data.google_status == true) {
+							$scope.google_status = data.google_status;
+						}
+					},
+			});	
+
+			$scope.socialUrl = $sce.trustAsResourceUrl(apiUrl+'social');
 
 			$scope.signup = function() {
 

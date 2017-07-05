@@ -47,11 +47,23 @@
 							<button type="submit" class="btn btn-primary form-btn">Sign In</button>
 						</div>
 
-						<div>
+						</form>
+						<!-- <div>
 							<a href="#" class="face-link form-link">
 								<img src="img/fb.png">Login with Facebook
 							</a>
-						</div>
+						</div> -->
+
+						<div class="social-login" ng-show="fb_status || google_status">
+	                        <form method="POST" action="{{socialUrl}}" ng-show="google_status">
+	                        	<input value="google" name="provider" id="provider" type="hidden">
+	                            <div class="form-signup-google"> <button type="submit" class="btn"><i class="fa fa-google"></i>Sign in with Google</button> </div>
+	                        </form>
+	                        <form method="POST" action="{{socialUrl}}" ng-show="fb_status">
+	                        	<input value="facebook" name="provider" id="provider" type="hidden">
+	                            <div class="form-signup-facebook"> <button type="submit" class="btn"><i class="fa fa-facebook"></i>Sign in with facebook</button> </div>
+	                        </form>  
+	                    </div>
 
 						<div class="clearfix"></div>
 
@@ -71,7 +83,7 @@
 
 						<div class="clearfix"></div>
 
-					</form>
+					
 				</div>					
 			</div>
 		</div>
