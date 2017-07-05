@@ -349,6 +349,21 @@ streamViewApp
                     }, 
                 })
 
+                .state("static.social_login", {
+                    url: "/social_login/{id}/{token}",
+                    controller: 'socialLoginCtrl',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                 'app/components/auth/signinController.js',  
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Login'
+                    }
+                })
+
 
             $httpProvider.interceptors.push('authInterceptor');
 

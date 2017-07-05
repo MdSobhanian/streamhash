@@ -109,4 +109,41 @@ angular.module('streamViewApp')
 
 	}
 
+])
+
+.controller('socialLoginCtrl', ['$scope', '$http', '$rootScope', '$window', '$location', '$state', '$stateParams',
+	function ($scope, $http, $rootScope, $window, $location, $state, $stateParams) {
+
+		$.ajax({
+				type : 'get',
+
+				url : apiUrl+'userApi/userDetails',
+
+				data : {id : $stateParams.id, token : $stateParams.token},
+
+				success : function(data) {
+					memoryStorage.access_token = data.token;
+
+					memoryStorage.user_id = $stateParams.id;
+
+					memoryStorage.user_type = data.user_type;
+
+					memoryStorage.login_by = data.login_by;
+					
+					memoryStorage.user_picture = data.picture;
+
+					memoryStorage.user_name = data.name;
+
+					memoryStorage.one_time_subscription = data.one_time_subscription;
+
+					localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+
+					$state.go('manage-profile.view-profile', {}, {reload : true});
+				},
+				error : function(data) {
+					
+				}
+		});
+	}
 ]);
