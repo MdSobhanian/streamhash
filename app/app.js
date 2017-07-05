@@ -49,8 +49,8 @@ var streamViewApp = angular.module('streamViewApp', [
   'oc.lazyLoad',
   'slick',
 ]);
-
-/*var route_url = "http://localhost/streamview-base/streamview-angular/#";
+/*
+var route_url = "http://localhost/streamview-base/streamview-angular/#";
 
 var apiUrl = "http://localhost:8000/";
 
@@ -183,8 +183,10 @@ streamViewApp
 
         }
 
-])
+]);
 
-.run(['$templateCache', function ( $templateCache ) {
-    $templateCache.removeAll(); 
-}]);
+streamViewApp.run(function($rootScope, $templateCache) {
+   $rootScope.$on('$viewContentLoaded', function() {
+      $templateCache.removeAll();
+   });
+});
