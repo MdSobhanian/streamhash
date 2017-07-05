@@ -1463,6 +1463,9 @@ landing-page css
 
 footer{
     padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .foot-link{
@@ -1653,4 +1656,9 @@ text-decoration: none;
     font-size: 16px;
     padding-right: 10px;
     vertical-align: middle;
+}
+.main-wrapper {
+    position: relative;
+min-height: 100%;
+
 }

@@ -112,47 +112,7 @@ angular.module('streamViewApp')
 				$("#"+index+"_"+key+"_overview").fadeOut();
 			}
 
-		$.ajax({
-
-			type : "post",
-
-			url : apiUrl + "userApi/details",
-
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, key : $stateParams.title},
-
-			async : false,
-
-			beforeSend : function() {
-
-					$("#before_loader").show();
-
-			},
-
-			success : function (data) {
-
-				if (data.success) {
-
-					$scope.datas = data;
-
-				} else {
-
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
-
-					return false;
-				}
-			},
-			error : function (data) {
-
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
-
-			},
-
-			complete : function(data) {
-
-				$("#before_loader").hide();
-
-			},
-		});
+		
 
 		$scope.showVideoDrop = function(event, idx, key) {
 
@@ -259,6 +219,110 @@ angular.module('streamViewApp')
 
 					$("#"+index+"_"+key+"_details").fadeIn();
 				}
+		}
+
+		$(window).scroll(function() {
+
+	    	if($(window).scrollTop() == $(document).height() - $(window).height()) {
+		           // ajax call get data from server and append to the div
+		        $("#load_more_details").click();
+		    }
+
+		});
+
+		$scope.datas =  [];
+
+		$scope.detailsFn = function(skip, take) {
+
+			var data = new FormData;
+			data.append('id', memoryStorage.user_id);
+			data.append('token', memoryStorage.access_token);
+			data.append('key', $stateParams.title);
+			data.append('skip',skip);
+			data.append('take',take);
+
+
+			$.ajax({
+
+				type : "post",
+
+				url : apiUrl + "userApi/details",
+
+				data : data,
+
+				contentType : false,
+
+				processData: false,
+
+				async : false,
+
+				beforeSend : function() {
+
+					$("#data_loader").show();
+
+				},
+
+				success : function (data) {
+
+					$scope.title = data.title;
+
+					if (data.success) {
+
+						// $scope.datas = data;
+
+						if (data.data.length > 0) {
+
+							if($scope.datas.length > 0) {
+								
+								$scope.datas = $.merge($scope.datas, data.data);
+
+							} else {
+
+								$scope.datas = data.data;
+
+							}
+						}
+
+
+					} else {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+					}
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+
+				complete : function(data) {
+
+					$("#data_loader").hide();
+
+				},
+			});
+		}
+
+		$scope.detailsFn(0, 12);
+
+		$scope.loadMoreDetails = function () {
+
+			var dataLength = $scope.datas.length;
+
+			length = 0;
+
+			for (var i = 0; i < dataLength; i++) {
+
+				length += $scope.datas[i].length;
+
+			}
+
+	        $total = length;
+
+			$scope.detailsFn($total, 12);
+				
 		}
 
 
