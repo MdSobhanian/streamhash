@@ -123,7 +123,7 @@ angular.module('streamViewApp')
 
 			beforeSend : function() {
 
-					$("#before_loader").show();
+					$("#data_loader").show();
 
 			},
 
@@ -131,7 +131,14 @@ angular.module('streamViewApp')
 
 				if (data.success) {
 
-					$scope.datas = data;
+					if (data.data.length > 0) {
+
+						$scope.datas = data;
+ 
+					} else {
+
+						$scope.no_results_found = "No Search Result Found";
+					}
 
 				} else {
 
@@ -148,7 +155,7 @@ angular.module('streamViewApp')
 
 			complete : function(data) {
 
-				$("#before_loader").hide();
+				$("#data_loader").hide();
 
 			},
 		});
@@ -169,15 +176,11 @@ angular.module('streamViewApp')
 
 		    // $parent_box.find('.video-drop').toggle();
 
-		    var video_drop = $(".video-drop").is(":visible");
+		    $("#"+idx+"_"+key+"_video_drop").show();
 
-		    if(video_drop) {
-
-		    	$('.video-drop').hide();
-		    }
+		    $('#'+idx+"_"+key).addClass('active_img');
 
 
-		    $("#"+idx+"_"+key+"_video_drop").fadeIn();
 		};
 
 		
@@ -200,7 +203,7 @@ angular.module('streamViewApp')
 
 				}
 
-				$("#"+id+"_"+key+"_video_drop").fadeIn();
+				$("#"+id+"_"+key+"_video_drop").show();
 			}
 
 		};
@@ -213,16 +216,15 @@ angular.module('streamViewApp')
 
 				for(var i = 0; i < length ; i++) {
 
-					if (id != i) {
+					$("#"+i+"_"+key+"_video_drop").hide();
 
-						$("#"+i+"_"+key+"_video_drop").fadeOut();
-
-						$('#'+i+"_"+key).removeClass('active_img');
-
-					}
+					$('#'+i+"_"+key).removeClass('active_img');
 
 				}
 
+				$('#'+id+"_"+key).addClass('active_img');
+
+				$("#"+id+"_"+key+"_video_drop").show();
 				
 			} 
 

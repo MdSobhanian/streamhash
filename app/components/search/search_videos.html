@@ -3,8 +3,14 @@
 <div style="margin:5%; padding: 10px;">
 
 <div class="box-head">
-   <h3>{{datas.title}}</h3></a>
+   <h3>"{{datas.title}}" Search Results</h3></a>
 </div>
+
+<div id="data_loader" style="margin-top: 5px;text-align: center;display: none">
+	<img src="assets/img/ellipsis.svg" style="width: 40px;">
+</div>
+
+<p>{{no_results_found}}</p>
 
 <div class="box video-box-row" ng-repeat="video in datas.data" ng-init="$parentindex = $index">
 

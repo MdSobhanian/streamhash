@@ -185,6 +185,7 @@ streamViewApp
                     resolve: {
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([
+                                'assets/css/home.css',
                                 'app/components/details/detailePageController.js',
 
                             ]);
@@ -202,6 +203,7 @@ streamViewApp
                     resolve: {
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([
+                                'assets/css/home.css',
                                 'app/components/videos/videosController.js',
 
                             ]);
@@ -220,6 +222,7 @@ streamViewApp
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([
                                 'app/components/search/searchVideoController.js',
+                                'assets/css/home.css',
 
                             ]);
                         }]
