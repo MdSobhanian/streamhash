@@ -193,13 +193,16 @@ angular.module('streamViewApp')
 
 			} else {
 
-				$('#'+id+"_"+key).addClass('active_img');
-
 				for(var i = 0; i < length ; i++) {
 
 					$("#"+i+"_"+key+"_video_drop").hide();
 
+					$('#'+i+"_"+key).removeClass('active_img');
+
 				}
+
+
+				$('#'+id+"_"+key).addClass('active_img');
 
 				$("#"+id+"_"+key+"_video_drop").show();
 			}
