@@ -1029,6 +1029,7 @@ input:focus,textarea:focus{
     font-weight: 700;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     font-size: 1vw;
+    overflow: hidden;
 }
 
 .video-season{
