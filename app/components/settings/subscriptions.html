@@ -5,10 +5,10 @@
 	<div class="login-form" style="padding-top: 10%">
 		<div class="container">
 			<div class="row">	
-				<div class="col-md-4 ng-scope" ng-repeat="subscription in subscriptions">
+				<div class="col-md-4 ng-scope" ng-repeat="subscription in subscriptions" ng-hide="one_time_subscription == 1 && subscription.amount == 0">
 
                     <!-- START PRICING PLAN -->
-                    <div class="card pricing style-2" ng-class="{'z-depth-4': (subscription.popular_status == 1) }" ng-hide="one_time_subscription == 1 && subscription.amount == 0">
+                    <div class="card pricing style-2" ng-class="{'z-depth-4': (subscription.popular_status == 1) }">
 
                         <!-- START PLAN TITLE DIV. -->
                         <!-- CHANGE COLOR BY CHANGING LAST CSS CLASS (teal) AVAILABLE COLOR CLASSES LISTED HERE http://materializecss.com/color.html -->
