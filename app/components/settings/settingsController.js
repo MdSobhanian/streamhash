@@ -5,6 +5,8 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('navBar', 'black-background');
 
+		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+
 		// $rootScope.$emit('footerBar', 'true');
 
 		$scope.id = memoryStorage.user_id;
@@ -140,6 +142,8 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('navBar', 'black-background');
 
+		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+
 
 		$scope.changePassword = function() {
 
@@ -199,6 +203,8 @@ angular.module('streamViewApp')
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
 		$rootScope.$emit('navBar', 'black-background');
+
+		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
 
 		// $rootScope.$emit('footerBar', 'true');
 
@@ -303,7 +309,7 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('navBar', 'black-background');
 
-		
+		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';		
 
 		$scope.deleteAccount = function() {
 
@@ -368,6 +374,8 @@ angular.module('streamViewApp')
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
 		$rootScope.$emit('navBar', 'black-background');
+
+		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
 
 		$scope.one_time_subscription = memoryStorage.one_time_subscription;
 
