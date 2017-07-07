@@ -7,6 +7,10 @@ angular.module('streamViewApp')
 
 		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
+		var name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0]  : 'StreamView' ): 'StreamView';
+
+        $scope.site_name = name.value;
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
 		if(!$scope.user_id) {
@@ -82,7 +86,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : data.error, timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}

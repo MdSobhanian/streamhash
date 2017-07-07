@@ -35,6 +35,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'Home'
+                    }
                 })
 
                 .state("static.signin",{
@@ -48,6 +51,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'Login'
+                    }
                 })
 
                 .state("static.signup",{
@@ -61,6 +67,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'Signup'
+                    }
                 })
 
                 .state("static.forgot",{
@@ -74,6 +83,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'Forgot Password'
+                    }
                 })
 
 
@@ -103,6 +115,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'View Profiles'
+                    }
                 })
 
                 .state("manage-profile.add-profile",{
@@ -116,6 +131,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'Add Profile'
+                    }
                 })
 
                 .state("manage-profile.manage-profiles",{
@@ -129,6 +147,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'Manage Profiles'
+                    }
                 })
 
                 .state("manage-profile.edit-profile",{
@@ -142,6 +163,9 @@ streamViewApp
                             ]);
                         }]
                     }, 
+                    data: {
+                        pageTitle: 'Edit Profile'
+                    }
                 })
 
                 .state("profile",{
@@ -335,7 +359,7 @@ streamViewApp
                         }]
                     },
                     data: {
-                        pageTitle: 'Video',
+                        pageTitle: 'Video Details',
                     }
                 })
 

@@ -62,21 +62,31 @@ angular.module('streamViewApp')
 
 						if (data.success) {
 
-							memoryStorage.access_token = data.token;
+							if (data.verification_control == 1) {
 
-							memoryStorage.user_id = data.id;
+								UIkit.notify({message : 'Your account has been successfully Registered, Please Verify your email and Sign In', timeout : 3000, pos : 'top-center', status : 'success'});
 
-							memoryStorage.login_by = data.login_by;
+								$state.go('static.signin',{},{reload:true});
 
-							memoryStorage.user_picture = data.picture;
+							} else {
 
-							memoryStorage.user_name = data.name;
+								memoryStorage.access_token = data.token;
 
-							localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+								memoryStorage.user_id = data.id;
 
-							UIkit.notify({message : 'Your account has been successfully Registered', timeout : 3000, pos : 'top-center', status : 'success'});
+								memoryStorage.login_by = data.login_by;
 
-							$state.go('manage-profile.view-profile',{},{reload:true});
+								memoryStorage.user_picture = data.picture;
+
+								memoryStorage.user_name = data.name;
+
+								localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+								UIkit.notify({message : 'Your account has been successfully Registered', timeout : 3000, pos : 'top-center', status : 'success'});
+
+								$state.go('manage-profile.view-profile',{},{reload:true});
+
+							}
 
 						} else {
 

@@ -6,6 +6,10 @@ angular.module('streamViewApp')
 
 		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
+		var name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0]  : 'StreamView' ): 'StreamView';
+
+        $scope.site_name = name.value;
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
 		$scope.sub_profile_id = (memoryStorage.sub_profile_id != undefined && memoryStorage.sub_profile_id != '') ? memoryStorage.sub_profile_id : '';
@@ -47,9 +51,31 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+					if(data.error != undefined && data.error != '') {
 
-					return false;
+
+						UIkit.notify({message : data.error, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						window.localStorage.setItem('logged_in', false);
+
+						memoryStorage = {};
+						localStorage.removeItem("sessionStorage");
+						localStorage.clear();
+
+						// UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
+
+						$state.go('static.index', {}, {reload:true});
+
+						return false;
+
+
+					} else {
+
+						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+
+					}	
 				}
 			},
 			error : function (data) {
