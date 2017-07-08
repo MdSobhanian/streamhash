@@ -478,7 +478,7 @@
 
 							<div class="details-row row no-margin">
 								
-								<p>{{recent_video.details}}</p>
+								<p ng-bind-html="recent_video.details"></p>
 
 							</div>
 						</div>
@@ -1076,7 +1076,7 @@
 
 												<div class="details-row row no-margin">
 
-													<p>{{value.details}}</p>
+													<p ng-bind-html="value.details"></p>
 
 												</div>
 											</div>
@@ -1105,7 +1105,7 @@
 								    	<a style="cursor:pointer" ng-click="dynamicContent($index,data.key,'more-like')" aria-controls="more-like" role="tab" data-toggle="tab">More Like This</a>
 								    </li>
 
-								    <li role="presentation" ng-if="recent_video.details">
+								    <li role="presentation" ng-if="value.details">
 								    	<a style="cursor:pointer" ng-click="dynamicContent($index,data.key,'details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
 								    </li>
 							  	</ul>		
