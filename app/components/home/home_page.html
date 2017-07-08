@@ -86,22 +86,29 @@
 			<!-- EPISODES-SECTION
 			======================================== -->
 			<div role="tabpanel" class="tab-pane" id="episodes" ng-if="recent_video.is_genre">
-				<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url(im{{recent_video.default_image}});">
+				<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url({{recent_video.default_image}});">
 					<div class="tab-overlay">
 
 						<div class="episodes-section-inner tab-section-content tab-sec-inner contain-width">
 							<h3 class="content-tit">{{recent_video.sub_category_name}}</h3>
 							<form class="season-select">
 								<div class="form-group">
-								    <select class="form-control" id="exampleSelect1">
-								    <option>Select Seasons</option>
-								      <option value="{{genre_name.genre_id}}" ng-repeat="genre_name in recent_video.genre_names">{{genre_name.genre_name}}</option>
+								    <select class="form-control" id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, '','','seasons', 'data_loader_seasons');">
+									    <option value="">Select Seasons</option>
+									    <option value="{{genrename.genre_id}}" ng-repeat="genrename in recent_video.genre_names">
+									    {{genrename.genre_name}}
+									    </option>
 								    </select>
 								</div>
 							</form>
 
 							<div class="episodes-list row no-margin">
 
+								<div id="data_loader_seasons" style="margin-top: 10px;text-align: center;display: none">
+									<img src="assets/img/ellipsis.svg" style="width: 40px;">
+								</div>
+
+								<div  id="seasons">
 								<!-- episode list box -->
 								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="genre_list in recent_video.first_part">
 									<div class="episode-list-box">
@@ -137,6 +144,8 @@
 										</div>
 
 									</div>
+								</div>
+
 								</div>
 								<!-- episode-list-box end -->
 
@@ -488,21 +497,29 @@
 								<!-- EPISODES-SECTION
 								======================================== -->
 								<div role="tabpanel" class="tab-pane" id="{{$index}}_{{data.key}}_episodes" ng-if="value.is_genre">
-									<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url(im{{value.default_image}});">
+									<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 										<div class="tab-overlay">
 
 											<div class="episodes-section-inner tab-section-content tab-sec-inner contain-width">
 												<h3 class="content-tit">{{value.sub_category_name}}</h3>
 												<form class="season-select">
 													<div class="form-group">
-													    <select class="form-control" id="exampleSelect1">
-													    <option>Select Seasons</option>
-													      <option value="{{genre_name.genre_id}}" ng-repeat="genre_name in value.genre_names">{{genre_name.genre_name}}</option>
+													    <select class="form-control" id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{$index}},{{$keyindex}},'_sessions', '_loader_seasons');">
+														    <option value="">Select Seasons</option>
+														    <option value="{{genrename.genre_id}}" ng-repeat="genrename in value.genre_names">
+														    {{genrename.genre_name}}
+														    </option>
 													    </select>
 													</div>
 												</form>
 
 												<div class="episodes-list row no-margin">
+
+												<div id="{{$index}}{{$keyindex}}_loader_seasons" style="margin-top: 10px;text-align: center;display: none">
+														<img src="assets/img/ellipsis.svg" style="width: 40px;">
+													</div>
+
+													<div id="{{$index}}{{$keyindex}}_sessions">
 
 													<!-- episode list box -->
 													<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="genre_list in value.first_part">
@@ -539,6 +556,8 @@
 															</div>
 
 														</div>
+													</div>
+
 													</div>
 													<!-- episode-list-box end -->
 

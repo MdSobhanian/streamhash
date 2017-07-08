@@ -6,9 +6,7 @@
    <h3>"{{title}}" Search Results</h3></a>
 </div>
 
-<div id="data_loader" style="margin-top: 5px;text-align: center;display: none">
-	<img src="assets/img/ellipsis.svg" style="width: 40px;">
-</div>
+
 
 <p>{{no_results_found}}</p>
 
@@ -169,21 +167,29 @@
 				<!-- EPISODES-SECTION
 								======================================== -->
 				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_episodes" ng-if="value.is_genre">
-					<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url(im{{value.default_image}});">
+					<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 						<div class="tab-overlay">
 
 							<div class="episodes-section-inner tab-section-content tab-sec-inner contain-width">
 								<h3 class="content-tit">{{value.sub_category_name}}</h3>
 								<form class="season-select">
 									<div class="form-group">
-									    <select class="form-control" id="exampleSelect1">
-									    <option>Select Seasons</option>
-									      <option value="{{genre_name.genre_id}}" ng-repeat="genre_name in value.genre_names">{{genre_name.genre_name}}</option>
+									     <select class="form-control" id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{$index}},{{$parentindex}},'_sessions', '_loader_seasons');">
+										    <option value="">Select Seasons</option>
+										    <option value="{{genrename.genre_id}}" ng-repeat="genrename in value.genre_names">
+										    {{genrename.genre_name}}
+										    </option>
 									    </select>
 									</div>
 								</form>
 
 								<div class="episodes-list row no-margin">
+
+								<div id="{{$index}}{{$parentindex}}_loader_seasons" style="margin-top: 10px;text-align: center;display: none">
+										<img src="assets/img/ellipsis.svg" style="width: 40px;">
+									</div>
+
+									<div id="{{$index}}{{$parentindex}}_sessions">
 
 									<!-- episode list box -->
 									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="genre_list in value.first_part">
@@ -220,6 +226,8 @@
 											</div>
 
 										</div>
+									</div>
+
 									</div>
 									<!-- episode-list-box end -->
 
@@ -396,6 +404,10 @@
 		</div>
 	</div>
 
+</div>
+
+<div id="data_loader" style="margin-top: 5px;text-align: center;display: none">
+	<img src="assets/img/ellipsis.svg" style="width: 40px;">
 </div>
 
 <div class="clearfix"></div>
