@@ -49,13 +49,13 @@ var streamViewApp = angular.module('streamViewApp', [
   'oc.lazyLoad',
   'slick',
 ]);
-/*
-var route_url = "http://localhost/streamview-base/streamview-angular/#";
+
+/*var route_url = "http://localhost/streamview-base/streamview-angular/#";
 
 var apiUrl = "http://localhost:8000/";
 
-var angularUrl = "http://localhost/streamview-base/streamview-angular/#/";
-*/
+var angularUrl = "http://localhost/streamview-base/streamview-angular/#/";*/
+
 
 var route_url = "http://streamview.streamhash.com/#";
 
