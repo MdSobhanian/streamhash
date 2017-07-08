@@ -58,6 +58,8 @@ angular.module('streamViewApp')
 			$scope.closeDiv = function(index, key) {
 
 				$("#"+index+"_"+key+"_video_drop").fadeOut();
+
+				$('#'+index+"_"+key).removeClass('active_img');
 			}
 
 			$scope.removeWishlist = function(id, admin_video_id, $index, key) {
@@ -108,10 +110,6 @@ angular.module('streamViewApp')
 				});
 			}
 
-			$scope.closeDiv = function(index, key) {
-
-				$("#"+index+"_"+key+"_overview").fadeOut();
-			}
 
 		$.ajax({
 
