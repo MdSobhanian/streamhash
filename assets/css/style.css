@@ -859,7 +859,7 @@ input:focus,textarea:focus{
     transition: 450ms transform, 450ms -webkit-transform;
     font-size: 0;
     white-space: nowrap;
-    margin: 20px 0 0;
+   /* margin: 20px 0 0;*/
     padding-bottom: 1px;
 }
 

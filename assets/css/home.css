@@ -139,7 +139,7 @@
 
 
 .post{
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
      -webkit-animation: somename 0.7s;
     -moz-animation: somename 0.7s;
     animation: somename 0.7s;
