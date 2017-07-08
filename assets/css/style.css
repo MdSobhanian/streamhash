@@ -1068,7 +1068,7 @@ input:focus,textarea:focus{
 .video-drop{
     position: relative;
     display: none;
-    margin-top: -1.5% !important;
+    margin-top: -2.5% !important;
 }
 
 .arrow{
