@@ -111,6 +111,59 @@ angular.module('streamViewApp')
 				$("#"+index+"_"+key+"_overview").fadeOut();
 			}
 
+			 $scope.getSeasons = function(genre_id, idx, key, divid, loader) {
+
+				$.ajax({
+
+					type : "post",
+
+					url : apiUrl + "userApi/genre-list",
+
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, genre_id : genre_id},
+
+					async : false,
+
+					beforeSend : function() {
+
+						$("#"+idx+key+divid).html("");
+
+						$("#"+idx+key+loader).show();
+
+					},
+
+					success : function (data) {
+
+						if (data.success) {
+
+							// $("#"+divid).html(data.view);
+
+							console.log($("#"+idx+key+divid));
+
+							$("#"+idx+key+divid).html(data.data);
+
+						} else {
+
+							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
+						}
+					},
+					error : function (data) {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					},
+
+					complete : function(data) {
+
+						$("#"+idx+key+loader).hide();
+
+					},
+				});
+
+			}
+
+
 		$.ajax({
 
 			type : "post",

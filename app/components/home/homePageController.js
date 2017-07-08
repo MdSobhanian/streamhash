@@ -387,6 +387,8 @@ angular.module('streamViewApp')
 
 					beforeSend : function() {
 
+						$("#"+idx+key+divid).html("");
+
 						$("#"+idx+key+loader).show();
 
 					},
