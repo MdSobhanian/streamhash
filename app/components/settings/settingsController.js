@@ -462,6 +462,8 @@ angular.module('streamViewApp')
 
 								memoryStorage.user_type = 1;
 
+								memoryStorage.no_of_account = data.plan.no_of_account;
+
 								$scope.one_time_subscription = memoryStorage.one_time_subscription;
 
 								localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
@@ -469,7 +471,9 @@ angular.module('streamViewApp')
 								UIkit.notify({message : "Successfully, subscribed to view videos", timeout : 3000, pos : 'top-center', status : 'success'});
 
 								$state.go('profile.account-settings', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+
 							} else {
+								
 								UIkit.notify({message : "Oops! something went wrong", timeout : 3000, pos : 'top-center', status : 'danger'});
 							}
 						},

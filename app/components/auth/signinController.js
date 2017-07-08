@@ -78,13 +78,27 @@ angular.module('streamViewApp')
 
 							memoryStorage.user_name = data.name;
 
+							memoryStorage.user_type = data.user_type;
+
 							memoryStorage.one_time_subscription = data.one_time_subscription;
+
+							memoryStorage.sub_profile_id = data.sub_profile_id;
 
 							localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 							UIkit.notify({message : 'Your account has been successfully LoggedIn', timeout : 3000, pos : 'top-center', status : 'success'});
 
-							$state.go('manage-profile.view-profile',{},{reload:true});
+							// $state.go('manage-profile.view-profile',{},{reload:true});
+
+							if(memoryStorage.user_type == 1) {
+
+								$state.go('manage-profile.view-profile',{},{reload:true});
+
+							} else {
+
+								$state.go('profile.subscriptions',{sub_id : memoryStorage.sub_profile_id},{reload:true});
+
+							}
 
 						} else {
 
@@ -140,12 +154,25 @@ angular.module('streamViewApp')
 
 					memoryStorage.user_name = data.name;
 
+					memoryStorage.sub_profile_id = data.sub_profile_id;
+
 					memoryStorage.one_time_subscription = data.one_time_subscription;
 
 					localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 
-					$state.go('manage-profile.view-profile', {}, {reload : true});
+					// $state.go('manage-profile.view-profile', {}, {reload : true});
+
+					if(memoryStorage.user_type == 1) {
+
+						$state.go('manage-profile.view-profile',{},{reload:true});
+
+					} else {
+
+						$state.go('profile.subscriptions',{sub_id : memoryStorage.sub_profile_id},{reload:true});
+
+					}
+
 				},
 				error : function(data) {
 					

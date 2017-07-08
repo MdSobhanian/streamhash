@@ -82,11 +82,25 @@ angular.module('streamViewApp')
 
 								memoryStorage.user_name = data.name;
 
+								memoryStorage.user_type = data.user_type;
+
+								memoryStorage.sub_profile_id = data.sub_profile_id;
+
 								localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 								UIkit.notify({message : 'Your account has been successfully Registered', timeout : 3000, pos : 'top-center', status : 'success'});
 
-								$state.go('manage-profile.view-profile',{},{reload:true});
+								if(memoryStorage.user_type == 1) {
+
+									$state.go('manage-profile.view-profile',{},{reload:true});
+
+								} else {
+
+									$state.go('profile.subscriptions',{sub_id : memoryStorage.sub_profile_id},{reload:true});
+
+								}
+
+								
 
 							}
 

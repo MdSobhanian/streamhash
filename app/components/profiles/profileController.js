@@ -29,6 +29,65 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 
+		$scope.no_of_account = 0;
+
+		$.ajax({
+
+			type : "post",
+
+			url : apiUrl + "userApi/get-subscription",
+
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+			async : false,
+
+			success : function (data) {
+
+				if (data.success) {
+
+					memoryStorage.no_of_account = data.data;
+
+					$scope.no_of_account = memoryStorage.no_of_account;
+
+					localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+				} else {
+
+					if(data.error != undefined && data.error != '') {
+
+
+						UIkit.notify({message : data.error, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						window.localStorage.setItem('logged_in', false);
+
+						memoryStorage = {};
+						localStorage.removeItem("sessionStorage");
+						localStorage.clear();
+
+						// UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
+
+						$state.go('static.index', {}, {reload:true});
+
+						return false;
+
+
+					} else {
+
+						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+
+					}	
+				}
+			},
+			error : function (data) {
+
+				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+			},
+
+		});
+
 		$.ajax({
 
 			type : "post",
@@ -50,6 +109,10 @@ angular.module('streamViewApp')
 				if (data.success) {
 
 					$scope.profiles = data.data;
+
+					memoryStorage.active_profiles_length = $scope.profiles.length;
+
+					localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 				} else {
 
@@ -93,6 +156,8 @@ angular.module('streamViewApp')
 			},
 		});
 
+
+
 	}
 ])
 
@@ -100,6 +165,14 @@ angular.module('streamViewApp')
 .controller('addProfileController', ['$scope', '$http', '$rootScope', '$window', '$state', 
 
 	function ($scope, $http, $rootScope, $window, $state) {
+
+		if (memoryStorage.no_of_account >= memoryStorage.active_profiles_length) {
+
+			UIkit.notify({message : "Already you added "+memoryStorage.active_profiles_length+" profiles in your account. If you want more subscribe and get to Add More Profile.", timeout : 3000, pos : 'top-center', status : 'warning'});
+
+			$state.go('manage-profile.view-profile', {}, {reload : true});
+
+		}
 
 		$scope.imgsrc = apiUrl+'placeholder.png';
 
@@ -191,6 +264,70 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 
+
+
+		$scope.no_of_account = memoryStorage.no_of_account > 0 ? memoryStorage.no_of_account : 0;
+
+		if (memoryStorage.no_of_account == undefined || memoryStorage.no_of_account == 0 || memoryStorage.no_of_account == '') {
+
+			$.ajax({
+
+				type : "post",
+
+				url : apiUrl + "userApi/get-subscription",
+
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+				async : false,
+
+				success : function (data) {
+
+					if (data.success) {
+
+						memoryStorage.no_of_account = data.data;
+
+						$scope.no_of_account = memoryStorage.no_of_account;
+
+						localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+					} else {
+
+						if(data.error != undefined && data.error != '') {
+
+
+							UIkit.notify({message : data.error, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							window.localStorage.setItem('logged_in', false);
+
+							memoryStorage = {};
+							localStorage.removeItem("sessionStorage");
+							localStorage.clear();
+
+							// UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
+
+							$state.go('static.index', {}, {reload:true});
+
+							return false;
+
+
+						} else {
+
+							UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
+
+						}	
+					}
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+
+			});
+		}
+
 		$.ajax({
 
 			type : "post",
@@ -212,6 +349,10 @@ angular.module('streamViewApp')
 				if (data.success) {
 
 					$scope.profiles = data.data;
+
+					memoryStorage.active_profiles_length = $scope.profiles.length;
+
+					localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 				} else {
 

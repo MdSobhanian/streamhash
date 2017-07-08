@@ -29,6 +29,19 @@
 
 				</div>
 			</li>
+
+			<li ng-if="profiles.length < no_of_account">
+
+				<a ui-sref="manage-profile.add-profile">
+
+					<div class="addProfileIcon icon-tvuiAdd">
+						<i class="fa fa-plus-circle"></i>
+					</div>
+
+					<span class="profile-name">Add Profile</span>
+				</a>
+			</li>
+			
 		</ul>
 	</div>
 
