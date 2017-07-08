@@ -14,7 +14,6 @@ angular.module('streamViewApp')
 		if ($scope.user_id) {
 
 
-
 				$.ajax({
 
 					type : "post",

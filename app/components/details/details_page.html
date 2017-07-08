@@ -162,41 +162,36 @@
 
 
 
-				<!-- EPISODES-SECTION
-				======================================== -->
-				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_episodes">
-					<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
+				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_episodes" ng-if="value.is_genre">
+					<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url(im{{value.default_image}});">
 						<div class="tab-overlay">
 
 							<div class="episodes-section-inner tab-section-content tab-sec-inner contain-width">
-								<h3 class="content-tit">Pretty Little Liars</h3>
+								<h3 class="content-tit">{{value.sub_category_name}}</h3>
 								<form class="season-select">
 									<div class="form-group">
 									    <select class="form-control" id="exampleSelect1">
-									      <option>Season 1</option>
-									      <option>Season 2</option>
-									      <option>Season 3</option>
-									      <option>Season 4</option>
-									      <option>SEason 5</option>
+									    <option>Select Seasons</option>
+									      <option value="{{genre_name.genre_id}}" ng-repeat="genre_name in value.genre_names">{{genre_name.genre_name}}</option>
 									    </select>
 									</div>
 								</form>
- 
+
 								<div class="episodes-list row no-margin">
 
 									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="genre_list in value.first_part">
 										<div class="episode-list-box">
 
-											<div class="episode-img bg-img" style="background-image: url(img/img1.jpg);">
+											<div class="episode-img bg-img" style="background-image: url({{genre_list.default_image}});">
 												<div class="episode-img-overlay">
 													<div class="episode-img-inner">
-														<p class="episode-count">1</p>
+														<p class="episode-count">{{genre_list.watch_count}}</p>
 													</div>
 
 													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
+														<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon">
+															<i class="fa fa-play"></i>
 														</a>
 													</div>
 												</div>
@@ -205,130 +200,16 @@
 											<div class="episode-list-content">
 												<div class="row no-margin">
 													<div class="pull-left">
-														<h4 class="epi-tit gray-color1">Dark Night</h4>
+														<h4 class="epi-tit gray-color1">{{genre_list.title}}</h4>
 													</div>
 
 													<div class="pull-right">
-														<p class="bold gray-color1">2h</p>
+														<p class="bold gray-color1">{{genre_list.duration}}</p>
 													</div>
 												</div>
 
 												<div class="">
-													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<!-- episode-list-box end -->
-
-									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-										<div class="episode-list-box">
-
-											<div class="episode-img bg-img" style="background-image: url(img/img2.jpg);">
-												<div class="episode-img-overlay">
-													<div class="episode-img-inner">
-														<p class="episode-count">2</p>
-													</div>
-
-													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="pull-left">
-														<h4 class="epi-tit gray-color1">Dark Night</h4>
-													</div>
-
-													<div class="pull-right">
-														<p class="bold gray-color1">2h</p>
-													</div>
-												</div>
-
-												<div class="">
-													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<!-- episode-list-box end -->
-
-									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-										<div class="episode-list-box">
-
-											<div class="episode-img bg-img" style="background-image: url(img/img3.jpg);">
-												<div class="episode-img-overlay">
-													<div class="episode-img-inner">
-														<p class="episode-count">3</p>
-													</div>
-
-													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="pull-left">
-														<h4 class="epi-tit gray-color1">Dark Night</h4>
-													</div>
-
-													<div class="pull-right">
-														<p class="bold gray-color1">2h</p>
-													</div>
-												</div>
-
-												<div class="">
-													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<!-- episode-list-box end -->
-
-									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-										<div class="episode-list-box">
-
-											<div class="episode-img bg-img" style="background-image: url(img/img4.jpg);">
-												<div class="episode-img-overlay">
-													<div class="episode-img-inner">
-														<p class="episode-count">4</p>
-													</div>
-
-													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="pull-left">
-														<h4 class="epi-tit gray-color1">Dark Night</h4>
-													</div>
-
-													<div class="pull-right">
-														<p class="bold gray-color1">2h</p>
-													</div>
-												</div>
-
-												<div class="">
-													<p class="epi-des gray-color1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+													<p class="epi-des gray-color1">{{genre_list.description}}</p>
 												</div>
 											</div>
 
@@ -346,25 +227,25 @@
 
 
 				<!-- TRAILERS SECTION -->
-				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_trailers">
-					<div class="trailers-section tab-section tab-bg bg-img" style="background-image: url(img/img1.jpg);">
+				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_trailers" ng-if="value.is_genre">
+					<div class="trailers-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 						<div class="tab-overlay">
 
 							<div class="trailers-section-inner tab-section-content tab-sec-inner contain-width">
-								<h3 class="content-tit">Pretty Little Liars</h3>
- 
+								<h3 class="content-tit">{{value.sub_category_name}}</h3>
+
 								<div class="trailers-list row no-margin">
 
 									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="trailer in value.genres">
 										<div class="episode-list-box">
 
-											<div class="episode-img bg-img" style="background-image: url(img/img5.jpg);">
+											<div class="episode-img bg-img" style="background-image: url({{trailer.genre_image}});">
 												<div class="episode-img-overlay">
 
 													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
+														<a ui-sref="genre_video({id : trailer.genre_id})" class="epi-play-icon">
+															<i class="fa fa-play"></i>
 														</a>
 													</div>
 												</div>
@@ -373,102 +254,19 @@
 											<div class="episode-list-content">
 												<div class="row no-margin">
 													<div class="">
-														<h4 class="epi-tit gray-color1">PLL (Season 1)</h4>
+														<h4 class="epi-tit gray-color1">{{trailer.genre_name}}</h4>
 													</div>
 												</div>
 											</div>
 
 										</div>
 									</div>
-									<!-- episode-list-box end -->
-
-									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-										<div class="episode-list-box">
-
-											<div class="episode-img bg-img" style="background-image: url(img/img6.jpg);">
-												<div class="episode-img-overlay">
-
-													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="">
-														<h4 class="epi-tit gray-color1">PLL (Season 2)</h4>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<!-- episode-list-box end -->
-
-									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-										<div class="episode-list-box">
-
-											<div class="episode-img bg-img" style="background-image: url(img/img7.jpg);">
-												<div class="episode-img-overlay">
-
-													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="">
-														<h4 class="epi-tit gray-color1">PLL (Season 3)</h4>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<!-- episode-list-box end -->
-
-									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-										<div class="episode-list-box">
-
-											<div class="episode-img bg-img" style="background-image: url(img/img8.jpg);">
-												<div class="episode-img-overlay">
-
-													<div class="epi-play-icon-outer">
-														<a href="#" class="epi-play-icon">
-															<i class="ion-play"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="">
-														<h4 class="epi-tit gray-color1">PLL (Season 4)</h4>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<!-- episode-list-box end -->
 
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- TRAILERS SECTION END -->
 
 
 
@@ -572,11 +370,11 @@
 			    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
 			    </li>
 
-			    <li role="presentation" ng-if="is_genre">
+			    <li role="presentation" ng-if="value.is_genre">
 			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'episodes')" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
 			    </li>
 
-			    <li role="presentation" ng-if="is_genre">
+			    <li role="presentation" ng-if="value.is_genre">
 			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
 			    </li>
 
