@@ -45,3 +45,53 @@ streamViewApp.directive('ngEnter', function () {
         });
     };
 });
+
+streamViewApp.directive('autocomplete', function() {
+    return {
+        restrict: 'A',
+        require : 'ngModel',
+        link : function (scope, element, attrs, ngModelCtrl) {
+              element.autocomplete({
+
+                source: apiUrl+"userApi/searchall",
+
+                select:function (event,ui) {
+                    
+                    console.log(ui);
+
+                    ngModelCtrl.$setViewValue(ui.item);
+
+                    scope.$apply();
+
+                     if (event.type == "autocompleteselect"){
+                        
+                        // console.log( "logged correctly: " + ui.item.value );
+
+                        var title = ui.item.value;
+
+                        var searchKey = $("#auto_complete_search").val();
+
+                        if(ui.item.value == 'View All') {
+
+                            // console.log('View AALLLLLLLLL');
+
+                            window.location.href = angularUrl+"search/"+searchKey;
+
+                        } else {
+                            // console.log("User Submit");
+
+                            // jQuery('#auto_complete_search').val(ui.item.value);
+
+                            window.location.href = angularUrl+"search/"+ui.item.value;
+
+                           
+                        }
+
+                    }       
+                }
+              });
+                
+            
+        }
+    }
+});

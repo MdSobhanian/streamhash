@@ -71,11 +71,11 @@
 				<li>
 				
 					<form class="navbar-form">
-						<div class="input-group search-group">
+						<div class="input-group search-group" id="custom-search-input">
 						  <span class="input-group-addon" id="basic-addon1">
 						  	<i class="fa fa-search"></i>
 						  </span>
-						  <input type="text" class="form-control search" placeholder="Search" aria-describedby="basic-addon1" ng-enter="getSearchModel(search_key)" ng-model="search_key" style="color: #fff;">
+						  <input type="text" class="form-control search search-query" placeholder="Search" aria-describedby="basic-addon1" ng-enter="getSearchModel(search_key)" ng-model="search_key" style="color: #fff;" id="auto_complete_search" name="key" autocomplete="true">
 						</div>
 					</form>							
 				</li>

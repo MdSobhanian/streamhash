@@ -74,6 +74,41 @@ angular.module('streamViewApp')
 			},
 		});
 
+	    /* $("#auto_complete_search").autocomplete({
+
+            source: apiUrl+"/user/searchall",
+            
+            minLength: 1,
+            select: function(event, ui){
+
+                // set the value of the currently focused text box to the correct value
+
+                if (event.type == "autocompleteselect"){
+                    
+                    // console.log( "logged correctly: " + ui.item.value );
+
+                    var username = ui.item.value;
+
+                    if(ui.item.value == 'View All') {
+
+                        // console.log('View AALLLLLLLLL');
+
+                        // window.location.href = "{{route('search-all', array('q' => 'all'))}}";
+
+                    } else {
+                        // console.log("User Submit");
+
+                        jQuery('#auto_complete_search').val(ui.item.value);
+
+                        // jQuery('#userSearch').submit();
+                    }
+
+                }                        
+            }      // select
+
+        });  */
+
+
 		$.ajax({
 
 			type : "post",
