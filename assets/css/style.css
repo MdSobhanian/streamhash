@@ -456,7 +456,7 @@ input:focus,textarea:focus{
 }
 
 .rating-symbol{
-	margin-right: 5px;
+	/*margin-right: 5px;*/
 }
 
 .rating-symbol:hover,
@@ -521,7 +521,7 @@ input:focus,textarea:focus{
 }
 
 .overview-des{
-	display: -webkit-box;
+	/*display: -webkit-box;*/
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -938,7 +938,8 @@ input:focus,textarea:focus{
 
 .tile-content{
     position: absolute;
-    padding: 10px 10px 5px;
+    /*padding: 10px 10px 5px;*/
+    padding: 7px;                                                                                                   
     left: 0;
     right: 0;
     bottom: 0;
@@ -1025,11 +1026,12 @@ input:focus,textarea:focus{
 
 .tile-tit{
     margin-top: 0;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     font-weight: 700;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-    font-size: 1vw;
+    font-size: 12px;
     overflow: hidden;
+    text-transform: capitalize;
 }
 
 .video-season{
@@ -1048,8 +1050,12 @@ input:focus,textarea:focus{
 }
 
 .tile-content .rating-symbol{
-    font-size: 7px;
-    margin: 0 2px;
+    font-size: 6px;
+    margin: 0 1px;
+}
+
+.glyphicon {
+    top : 0px !important;
 }
 
 .video-des-inner{
@@ -1062,13 +1068,14 @@ input:focus,textarea:focus{
     line-height: 8px;
     margin-bottom: 0;
     text-shadow: 0 1px 1px rgba(0,0,0,.7);
-    margin-top: 0;
+    margin-top: 5px;
     font-size: .6vw;
 }
 
 .video-drop{
-    position: relative;
+    /*position: relative;*/
     display: none;
+    width: 100%;
     margin-top: -2.5% !important;
 }
 

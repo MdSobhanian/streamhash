@@ -1,9 +1,13 @@
 angular.module('streamViewApp')
 .controller('searchWordController', [
 
-	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$http',
+	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$anchorScroll',
 
-	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
+	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location, $anchorScroll) {
+
+		// $location.hash('page_content');
+
+		$anchorScroll();
 
 		$scope.title = $stateParams.word;
 

@@ -99,6 +99,8 @@ angular.module('streamViewApp')
 
 				    // $parent_box.find('.video-drop').toggle();
 
+				    $(".video-drop").hide();
+
 				    $("#"+idx+"_"+key+"_video_drop").show();
 
 				    $('#'+idx+"_"+key).addClass('active_img');
@@ -109,7 +111,17 @@ angular.module('streamViewApp')
 				
 
 				$scope.hoverIn = function(event, id, key, length) {
+					
 
+					/*console.log($(".video-drop").attr('id'));
+
+					console.log($("#"+id+"_"+key+"_video_drop"));
+
+					if ($("#"+id+"_"+key+"_video_drop") != $(".video-drop").attr('id')) {
+
+						$(".video-drop").hide();
+					}
+*/
 					var video_drop = $(".video-drop").is(":visible");
 
 					if (!video_drop) {
@@ -128,7 +140,7 @@ angular.module('streamViewApp')
 
 						$('#'+id+"_"+key).addClass('active_img');
 
-						$("#"+id+"_"+key+"_video_drop").show();
+						$("#"+id+"_"+key+"_video_drop").css('display', 'inline-block');
 					}
 
 				};

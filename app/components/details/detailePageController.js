@@ -1,10 +1,13 @@
 angular.module('streamViewApp')
 .controller('titlePageController', [
 
-	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$http',
+	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$anchorScroll',
 
-	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
+	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location,  $anchorScroll) {
 
+		// $location.hash('page_content');
+
+		$anchorScroll();
 
 		$scope.addWishlist = function(id, $index, key) {
 
