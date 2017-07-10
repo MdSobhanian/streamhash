@@ -460,3 +460,6 @@
 .ui-widget .ui-widget {
     font-size: 1em;
 }
+.ui-helper-hidden-accessible {
+    display: none;
+}

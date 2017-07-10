@@ -61,13 +61,10 @@ streamViewApp.directive('autocomplete', function() {
 
                     ngModelCtrl.$setViewValue(ui.item);
 
-                    scope.$apply();
+                    // scope.$apply();
 
                      if (event.type == "autocompleteselect"){
-                        
-                        // console.log( "logged correctly: " + ui.item.value );
 
-                        var title = ui.item.value;
 
                         var searchKey = $("#auto_complete_search").val();
 
