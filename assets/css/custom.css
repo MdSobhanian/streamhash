@@ -463,3 +463,11 @@
 .ui-helper-hidden-accessible {
     display: none;
 }
+
+.new-epi {
+    font-weight: bold;
+    padding: 5px;
+    font-size: 18px;
+}
+
+}
