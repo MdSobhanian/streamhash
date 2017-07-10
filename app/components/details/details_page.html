@@ -13,8 +13,8 @@
 	<div id="{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn(this,$index, $parentindex, video.length)" ng-mouseleave="hoverOut(this, $index, $parentindex, video.length)" class="tile col-lg-3 slide-box video-box" ng-repeat="value in video">
     	<div class="video-box-outer">
     	
-	        <div class="tile-media">
-	          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/><!-- 3rd image-->
+	        <div class="tile-media" id="{{$index}}_{{$parentindex}}_img">
+	          	<img class="tile-img" ng-src="{{value.default_image}}" alt=""/><!-- 3rd image-->
 	          	<!-- <img class="tile-img first" ng-src="{{value.default_image}}" alt=""/>
 	          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/> -->
 	        </div>

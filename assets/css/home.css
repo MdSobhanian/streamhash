@@ -120,10 +120,8 @@
 }
 
 .active_img {
-	border: 4px solid #fff;
-    height: 149px !important;
+	border: 4px solid #fff !important;
 }
-
 
 .active_img:after {
     width: 0;
@@ -134,9 +132,16 @@
 	content: '';
 	position: absolute;
 	left: 40%;
-    bottom: -8%;
+    bottom: -5%;
 }
 
+.tile-media {
+
+    border: 4px solid #141414;
+
+    height: 141px;
+
+}
 
 .post{
 	/*margin-bottom: 20px;*/

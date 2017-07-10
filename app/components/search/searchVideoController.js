@@ -63,7 +63,7 @@ angular.module('streamViewApp')
 
 				$("#"+index+"_"+key+"_video_drop").fadeOut();
 
-				$('#'+index+"_"+key).removeClass('active_img');
+				$('#'+index+"_"+key+"_img").removeClass('active_img');
 			}
 
 			$scope.removeWishlist = function(id, admin_video_id, $index, key) {
@@ -184,7 +184,7 @@ angular.module('streamViewApp')
 
 		    $('#'+idx+"_"+key).removeClass('transition-class');
 
-		    $('#'+idx+"_"+key).addClass('active_img');
+		    $('#'+idx+"_"+key+"_img").addClass('active_img');
 
 
 		};
@@ -205,12 +205,12 @@ angular.module('streamViewApp')
 
 					$("#"+i+"_"+key+"_video_drop").hide();
 
-					$('#'+i+"_"+key).removeClass('active_img');
+					$('#'+i+"_"+key+"_img").removeClass('active_img');
 
 				}
 
 
-				$('#'+id+"_"+key).addClass('active_img');
+				$('#'+id+"_"+key+"_img").addClass('active_img');
 				
 
 				$("#"+id+"_"+key+"_video_drop").show();
@@ -228,11 +228,11 @@ angular.module('streamViewApp')
 
 					$("#"+i+"_"+key+"_video_drop").hide();
 
-					$('#'+i+"_"+key).removeClass('active_img');
+					$('#'+i+"_"+key+"_img").removeClass('active_img');
 
 				}
 
-				$('#'+id+"_"+key).addClass('active_img');
+				$('#'+id+"_"+key+"_img").addClass('active_img');
 
 				$("#"+id+"_"+key+"_video_drop").show();
 				
