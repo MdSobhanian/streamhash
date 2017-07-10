@@ -130,6 +130,8 @@ angular.module('streamViewApp')
 
 		    $("#"+idx+"_"+key+"_video_drop").show();
 
+		    $('#'+idx+"_"+key).removeClass('transition-class');
+
 		    $('#'+idx+"_"+key).addClass('active_img');
 
 
