@@ -1073,7 +1073,7 @@ input:focus,textarea:focus{
 }
 
 .video-drop{
-    /*position: relative;*/
+    position: relative;
     display: none;
     width: 100%;
     margin-top: -2.5% !important;
