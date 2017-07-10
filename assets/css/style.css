@@ -874,6 +874,7 @@ input:focus,textarea:focus{
     transition: 450ms all;
     -webkit-transform-origin: center left;
     transform-origin: center left;
+    padding: 0;
 }
 
 .tile-img {
