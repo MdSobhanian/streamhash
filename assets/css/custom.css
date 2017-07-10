@@ -470,4 +470,9 @@
     font-size: 18px;
 }
 
+.footer_ul li{
+
+    display: inline-block;
+    margin-right: 3px;
+
 }
