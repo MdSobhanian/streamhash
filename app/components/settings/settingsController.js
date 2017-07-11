@@ -5,7 +5,8 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('navBar', 'black-background');
 
-		
+		// $(document.body).css('background-color', '#141414');
+
 
 		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
 
