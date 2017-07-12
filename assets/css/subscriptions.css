@@ -112,3 +112,24 @@ position: relative;
     border-color: #eb7728;
     color: #fff;
 }
+
+.pink-btn {
+    background-color: #c25975;
+    border-color: #c25975;
+    color: #fff;
+}
+
+.orange-btn:hover,
+.orange-btn-free:active,
+.orange-btn:focus{
+
+  color: #fff;
+
+}
+
+
+.pink-btn:hover,
+.pink-btn:active,
+.pink-btn:focus{
+  color: #fff;
+}

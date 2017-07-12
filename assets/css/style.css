@@ -103,7 +103,11 @@ input:focus,textarea:focus{
 }
 
 .navbar-brand img{
-	height: 25px;
+	height: 40px;
+}
+.header_section {
+    padding: 0 45px;
+    width: 100%;
 }
 
 .navbar-default{
@@ -132,6 +136,7 @@ input:focus,textarea:focus{
 
 .mega-dropdown {
     position: static !important;
+    padding-top: 10px;
 }
 
 .mega-dropdown-menu{
@@ -201,6 +206,13 @@ input:focus,textarea:focus{
 	-ms-transition: width .3s linear;
 	-o-transition: width .3s linear;
 	transition: width .3s linear;
+}
+
+.custom-search-input:focus {
+    width: 75% !important;
+    box-shadow: none;
+    border-bottom: 1px solid #fff;
+    border-radius: 0;
 }
 
 .search:focus{
@@ -1081,6 +1093,7 @@ input:focus,textarea:focus{
     display: none;
     width: 100%;
     margin-top: -2.5% !important;
+    margin-bottom: 20px;
 }
 
 .arrow{
@@ -1308,8 +1321,8 @@ landing-page css
 }
 
 .text-wrap{
-  top: 35%;
-  position: absolute;
+  margin-top: 25%;
+  /*position: absolute;*/
 }
 
 .basic-para{
@@ -1435,6 +1448,14 @@ landing-page css
     text-transform: uppercase;
 }
 
+.device-join-link:hover,
+.device-join-link:active,
+.device-join-link:focus{ 
+
+    color: #fff;
+
+}
+
 .device-img{
     height: 160px;
     width: 250px;
@@ -1482,7 +1503,8 @@ landing-page css
 }
 
 footer{
-    padding: 10px 0;
+    /*padding: 10px 0;*/
+     /*padding: 50px 0;*/
     position: absolute;
     bottom: 0;
     width: 100%;
