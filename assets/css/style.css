@@ -1832,8 +1832,11 @@ min-height: 100%;
 
 .item-title {
   
- font-size:20px;
- color:#fff;
+font-size: 20px;
+color: #fff;
+height: 20px;
+overflow: hidden;
+
     
 }
 
@@ -1853,4 +1856,27 @@ min-height: 100%;
 
 .notification_badge {
     position: absolute;top:0;right:0;background: #ff0000;padding: 5px 10px;border-radius: 50%
+}
+
+.navbar-nav > li > .notifications::after {
+    content: "";
+    border-bottom: 7px solid #fff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: -9px;
+    left: 90%;
+    z-index: 10;
+
+}
+
+.navbar-nav > li > .notifications::before {
+    content: "";
+    border-bottom: 7px solid #fff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: -9px;
+    z-index: 10;
+    left: 90%
 }
