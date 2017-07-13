@@ -1228,7 +1228,7 @@ login css
 
 .form-btn:hover,
 .form-btn:focus{
-    background: #E50914;
+    background: #ff0a16;
 }
 
 .face-link img{
@@ -1857,7 +1857,7 @@ overflow: hidden;
  }
 
 .notification_badge {
-    position: absolute;top:0;right:0;background: #ff0000;padding: 5px 10px;border-radius: 50%
+    position: absolute;top:0;right:15%;background: #ff0000;padding: 2px 7px;border-radius: 50%
 }
 
 .navbar-nav > li > .notifications::after {
