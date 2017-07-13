@@ -1880,3 +1880,16 @@ overflow: hidden;
     z-index: 10;
     left: 90%
 }
+
+.play_icon_div {
+
+    top:50%;
+
+}
+
+.play_icon_hover {
+    font-size: 40px;
+    height: 70px;
+    padding: 10px;
+    width: 70px;
+}

@@ -62,6 +62,10 @@ angular.module('streamViewApp')
 				$("#"+index+"_"+key+"_video_drop").fadeOut();
 
 				$('#'+index+"_"+key+"_img").removeClass('active_img');
+
+				$('#'+index+"_"+key+"_desc").show();	
+
+						$('#'+index+"_"+key+"_div").removeClass('play_icon_div');	
 			}
 
 			$scope.removeWishlist = function(id, admin_video_id, $index, key) {
@@ -234,6 +238,10 @@ angular.module('streamViewApp')
 
 		    $('#'+idx+"_"+key+"_img").addClass('active_img');
 
+		    $('#'+idx+"_"+key+"_desc").hide();	
+
+						$('#'+idx+"_"+key+"_div").addClass('play_icon_div');	
+
 
 		};
 
@@ -255,12 +263,21 @@ angular.module('streamViewApp')
 
 					$('#'+i+"_"+key+"_img").removeClass('active_img');
 
+
+					$('#'+i+"_"+key+"_desc").show();	
+
+						$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
+
 				}
 
 
 				$('#'+id+"_"+key+"_img").addClass('active_img');
 
 				$("#"+id+"_"+key+"_video_drop").show();
+
+				$('#'+id+"_"+key+"_desc").hide();	
+
+				$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
 			}
 
 		};
@@ -277,11 +294,19 @@ angular.module('streamViewApp')
 
 					$('#'+i+"_"+key+"_img").removeClass('active_img');
 
+					$('#'+i+"_"+key+"_desc").show();	
+
+					$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
+
 				}
 
 				$('#'+id+"_"+key+"_img").addClass('active_img');
 
 				$("#"+id+"_"+key+"_video_drop").show();
+
+				$('#'+id+"_"+key+"_desc").hide();	
+
+				$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
 				
 			} 
 

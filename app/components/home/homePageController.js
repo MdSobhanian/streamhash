@@ -109,6 +109,10 @@ angular.module('streamViewApp')
 
 				    $('#'+idx+"_"+key+"_img").addClass('active_img');
 
+				    $('#'+idx+"_"+key+"_desc").hide();	
+
+					$('#'+idx+"_"+key+"_div").addClass('play_icon_div');	
+
 
 				};
 
@@ -132,6 +136,11 @@ angular.module('streamViewApp')
 
 						$('#'+id+"_"+key).addClass('transition-class');
 
+						$('#'+id+"_"+key+"_desc").show();
+
+						$('#'+id+"_"+key+"_div").removeClass('play_icon_div');
+
+
 					} else {
 
 						for(var i = 0; i < length ; i++) {
@@ -142,10 +151,17 @@ angular.module('streamViewApp')
 
 							$('#'+i+"_"+key+"_img").removeClass('active_img');
 
+							$('#'+i+"_"+key+"_div").removeClass('play_icon_div');
+
+							$('#'+i+"_"+key+"_desc").show();	
 
 						}
 
-						$('#'+id+"_"+key+"_img").addClass('active_img');		
+						$('#'+id+"_"+key+"_img").addClass('active_img');
+
+						$('#'+id+"_"+key+"_desc").hide();	
+
+						$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
 
 						$("#"+id+"_"+key+"_video_drop").show();
 					}
@@ -156,6 +172,8 @@ angular.module('streamViewApp')
 					
 					var video_drop = $(".video-drop").is(":visible");
 
+
+
 					if (video_drop) {
 
 						for(var i = 0; i < length ; i++) {
@@ -164,12 +182,19 @@ angular.module('streamViewApp')
 
 							$('#'+i+"_"+key+"_img").removeClass('active_img');
 
+							$('#'+i+"_"+key+"_div").removeClass('play_icon_div');
+
+							$('#'+i+"_"+key+"_desc").show();
+
 						}
 
 						// $('#'+id+"_"+key).addClass('active_img');
 
 						$('#'+id+"_"+key+"_img").addClass('active_img');
 
+						$('#'+id+"_"+key+"_desc").hide();
+
+						$('#'+id+"_"+key+"_div").addClass('play_icon_div');
 
 						$("#"+id+"_"+key+"_video_drop").show();
 						
@@ -349,6 +374,10 @@ angular.module('streamViewApp')
 				// $("#"+index+"_"+key+"_video_drop").fadeOut();
 
 				$('#'+index+"_"+key+"_img").removeClass('active_img');
+
+				$('#'+index+"_"+key+"_desc").show();	
+
+				$('#'+index+"_"+key+"_div").removeClass('play_icon_div');	
 			}
 
 			$scope.removeWishlist = function(id, admin_video_id, $index, key) {
