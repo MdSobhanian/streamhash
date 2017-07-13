@@ -69,15 +69,20 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<li>
+
+					<form style="padding-top: 10px;">
+					  <input id="search-box" type="text" class="search-box" name="key" autocomplete="true" ng-enter="getSearchModel(search_key)" ng-model="search_key"/>
+					  <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
+					</form>
 				
-					<form class="navbar-form">
+					<!-- <form class="navbar-form">
 						<div class="input-group search-group" id="custom-search-input">
 						  <span class="input-group-addon" id="basic-addon1">
 						  	<i class="fa fa-search"></i>
 						  </span>
 						  <input type="text" class="form-control search search-query" placeholder="Search" aria-describedby="basic-addon1" ng-enter="getSearchModel(search_key)" ng-model="search_key" style="color: #fff;" id="auto_complete_search" name="key" autocomplete="true">
 						</div>
-					</form>							
+					</form>	 -->						
 				</li>
 
 				<!-- <li class="dropdown notify">

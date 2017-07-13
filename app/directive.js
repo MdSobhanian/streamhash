@@ -66,7 +66,7 @@ streamViewApp.directive('autocomplete', function() {
                      if (event.type == "autocompleteselect"){
 
 
-                        var searchKey = $("#auto_complete_search").val();
+                        var searchKey = $("#search-box").val();
 
                         if(ui.item.value == 'View All') {
 

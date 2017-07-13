@@ -408,11 +408,11 @@
 
 .ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
     background: #000 none repeat scroll 0 0;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border-right: 20px none;
     color: #fff;
     padding: 10px 15px;
-    width: 250px !important;
+    width: 300px !important;
     z-index: 2147483647;
     overflow-x: hidden;
     text-overflow: ellipsis;
