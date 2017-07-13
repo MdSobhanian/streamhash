@@ -41,7 +41,7 @@
 											<a ui-sref="profile.edit-account({id : id})" class="account-section-link">Edit Profile</a>
 										</div>
 										
-										<div>
+										<div ng-if="login_by == 'manual'">
 											<a ui-sref="profile.change-password({id : id})" class="account-section-link">Change Password</a>
 										</div>
 

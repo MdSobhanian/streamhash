@@ -13,7 +13,9 @@
             <div class="form-group">
                 <label><b>Note:</b> Once you deleted account, you will lose your history and wishlist details. </label>
                 <br>
-                <input type="password" class="form-control" placeholder="Enter Password" required ng-model="password">
+                <div ng-if="login_by == 'manual'">
+                  <input type="password" class="form-control" placeholder="Enter Password" required ng-model="password">
+                </div>
             </div>
 
            

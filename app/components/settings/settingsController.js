@@ -16,6 +16,8 @@ angular.module('streamViewApp')
 
 		$scope.sub_id = $stateParams.sub_id;
 
+		$scope.login_by = memoryStorage.login_by;
+
 		$.ajax({
 
 			type : "get",
@@ -312,9 +314,13 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('navBar', 'black-background');
 
+		$scope.login_by = memoryStorage.login_by;
+
 		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';		
 
 		$scope.deleteAccount = function() {
+
+			var password = memoryStorage.login_by == 'manual' ? $scope.password : '';
 
 			$.ajax({
 
