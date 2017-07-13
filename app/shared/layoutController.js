@@ -1,7 +1,7 @@
 angular.module('streamViewApp')
-.controller('main_headerCtrl', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams','$location',
+.controller('main_headerCtrl', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams','$location', '$interval',
 
-	function ($scope, $http, $rootScope, $window, $state, $stateParams,$location) {
+	function ($scope, $http, $rootScope, $window, $state, $stateParams,$location,$interval) {
 
 		// $scope.settings = $rootScope.site_settings;
 
@@ -202,6 +202,72 @@ angular.module('streamViewApp')
 				$location.path('/home/'+memoryStorage.sub_profile_id).replace();
 
 			}
+		}
+
+		
+
+		function notifications() {
+			$.ajax({
+
+				type : "post",
+
+				url : apiUrl + "userApi/notifications",
+
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : $scope.sub_profile_id},
+
+				async : false,
+
+				success : function (data) {
+
+					if (data.success) {
+
+						$scope.notifications = data.data;
+
+						$scope.notifications_count = data.count;
+
+					} else {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+					}
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+			});
+		}
+
+		notifications();
+
+		$interval(notifications, 50000);
+
+		$scope.redNotification = function() {
+
+			$.ajax({
+
+				type : "post",
+
+				url : apiUrl + "userApi/red-notifications",
+
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : $scope.sub_profile_id},
+
+				async : false,
+
+				success : function (data) {
+
+					$scope.notifications_count = 0;
+					
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+			});			
+
 		}
 
 	}

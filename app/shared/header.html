@@ -71,7 +71,7 @@
 				<li>
 
 					<form style="padding-top: 10px;">
-					  <input id="search-box" type="text" class="search-box" name="key" autocomplete="true" ng-enter="getSearchModel(search_key)" ng-model="search_key"/>
+					  <input id="search-box" type="text" class="search-box" name="key" autocomplete="true" ng-enter="getSearchModel(search_key)" ng-model="search_key" placeholder="Search.." />
 					  <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
 					</form>
 				
@@ -143,6 +143,56 @@
 						</li>
 					</ul>
 				</li> -->
+
+				<li class="dropdown">
+					  
+					  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" style="position: relative;" ng-click="redNotification()">
+					    <i class="glyphicon glyphicon-bell"></i>
+
+					    <span class="notification_badge" id="notification_badge">{{notifications_count}}</span>
+					  </a>
+					  
+					  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+					    
+					   <!--  <div class="notification-heading"><h4 class="menu-title">Notifications</h4><h4 class="menu-title pull-right">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4>
+					    </div>
+					    <li class="divider"></li> -->
+					   <div class="notifications-wrapper">
+					   		<div ng-repeat="notification in notifications">
+							    <a class="content" ui-sref="single_video({id : notification.admin_video_id})">
+							      
+							       <div class="notification-item">
+
+							       	<div class="row">
+
+								       	<div class="col-lg-3">
+
+								       		<img ng-src="{{notification.img}}" style="width: 100%;height: 100%;" />
+
+								       	</div>
+
+								       	<div class="col-lg-9">
+
+								        <h4 class="item-title" style="text-overflow: ellipsis;">{{notification.title}}</h4>
+								        <p class="item-info">{{notification.time}}</p>
+
+								        </div>
+							        </div>
+							      </div>
+							    </a>
+							    <li class="divider"></li>
+						    </div>
+					   </div>
+					    <!-- <li class="divider"></li> -->
+					    <div class="notification-footer">
+					    	<a ui-sref='profile.title({title:recent})'>
+					    	<h4 class="menu-title pull-right">View all&nbsp;<i class="fa fa-arrow-circle-right"></i></h4>
+					    	</a>
+					    	<div class="clearfix"></div>
+					    </div>
+					  </ul>
+					  
+		         </li><!-- /dropdown -->
 
 				<li class="dropdown nav-profile">
 					<a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">
