@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en document-events ng-app="streamViewApp" ng-class="{'page_loading': pageLoading, 'page_loaded': pageLoaded}" ng-cloak>
+<html lang=en document-events ng-app="streamViewApp" ng-class="{'page_loading': pageLoading, 'page_loaded': pageLoaded}" ng-cloak ng-controller="siteCtrl">
 <head>
 <meta charset=UTF-8>
 <title page-title ng-bind="page_title"></title>
@@ -12,11 +12,13 @@
 <link rel="stylesheet" id="Lato-css" href="https://fonts.googleapis.com/css?family=Lato%3A400%2C300%2C100%2C700%2C900&#038;ver=4.6.4" type="text/css" media="all">
 
 
+<link rel="shortcut icon" type="image/png" href="{{site_icon.value}}"/>
+
 <link rel="stylesheet" id="bootstrap.min-css" href="assets/css/bootstrap.min.css" type="text/css" media="all">
 <link rel="stylesheet" id="font-awesome.min-css" href="assets/css/font-awesome.min.css" type="text/css" media="all">
 <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
 <link rel="stylesheet" id="main-css" href="assets/css/custom.css" type="text/css" media="all">
- <link href="assets/css/star-rating.min.css" rel="stylesheet">
+<link href="assets/css/star-rating.min.css" rel="stylesheet">
 
 <link href="assets/css/owl.carousel.min.css" rel="stylesheet">
 <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">

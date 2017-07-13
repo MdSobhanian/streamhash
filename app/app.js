@@ -57,11 +57,11 @@ var apiUrl = "http://localhost:8000/";
 var angularUrl = "http://localhost/streamview-base/streamview-angular/#/";*/
 
 
-var route_url = "http://streamview.streamhash.com/#";
+var route_url = "http://demo.streamhash.com/#";
 
 var apiUrl = "http://adminview.streamhash.com/";
 
-var angularUrl = "http://streamview.streamhash.com/#/";
+var angularUrl = "http://demo.streamhash.com/#/";
 
 streamViewApp
     .run([
@@ -190,3 +190,12 @@ streamViewApp.run(function($rootScope, $templateCache) {
       $templateCache.removeAll();
    });
 });
+streamViewApp
+.controller('siteCtrl', ['$scope', '$http', '$rootScope',
+  function ($scope, $http, $rootScope, $stateParams) {
+    $scope.site_icon = ($rootScope.site_settings) ? (($rootScope.site_settings[2] != undefined) ? $rootScope.site_settings[2]  : '' ): '';
+
+console.log($scope.site_icon);
+  }
+]);
+
