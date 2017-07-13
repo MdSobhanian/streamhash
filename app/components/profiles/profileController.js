@@ -166,7 +166,7 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 
-		if (memoryStorage.no_of_account >= memoryStorage.active_profiles_length) {
+		if (memoryStorage.no_of_account == memoryStorage.active_profiles_length) {
 
 			UIkit.notify({message : "Already you added "+memoryStorage.active_profiles_length+" profiles in your account. If you want more subscribe and get to Add More Profile.", timeout : 3000, pos : 'top-center', status : 'warning'});
 

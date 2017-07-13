@@ -17,7 +17,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/addWishlist",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : id,sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -72,7 +72,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/deleteWishlist",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id,sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -120,7 +120,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/genre-list",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, genre_id : genre_id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, genre_id : genre_id, sub_profile_id :memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -171,7 +171,7 @@ angular.module('streamViewApp')
 
 			url : apiUrl + "userApi/browse",
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, key : $stateParams.browse},
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, key : $stateParams.browse, sub_profile_id : memoryStorage.sub_profile_id},
 
 			async : false,
 

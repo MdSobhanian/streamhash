@@ -68,7 +68,7 @@ angular.module('streamViewApp')
 
 			url : apiUrl + "userApi/addHistory",
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id},
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id, sub_profile_id:memoryStorage.sub_profile_id},
 
 			async : false,
 

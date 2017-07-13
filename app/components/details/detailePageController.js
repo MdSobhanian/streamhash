@@ -17,7 +17,8 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/addWishlist",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : id,
+						sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -72,7 +73,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/deleteWishlist",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id,sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -238,7 +239,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/genre-list",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, genre_id : genre_id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, genre_id : genre_id, sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -289,6 +290,7 @@ angular.module('streamViewApp')
 			var data = new FormData;
 			data.append('id', memoryStorage.user_id);
 			data.append('token', memoryStorage.access_token);
+			data.append('sub_profile_id', memoryStorage.sub_profile_id);
 			data.append('key', $stateParams.title);
 			data.append('skip',skip);
 			data.append('take',take);

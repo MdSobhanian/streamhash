@@ -20,7 +20,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/home",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -302,7 +302,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/addWishlist",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : id,sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 
@@ -359,7 +359,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/deleteWishlist",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id,sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 
