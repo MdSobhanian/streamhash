@@ -1704,3 +1704,32 @@ text-decoration: none;
 min-height: 100%;
 
 }
+
+/* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
+/* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
+.styled-select {
+   background: url('../img/arrow_icon.png') no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+
+.black   { background-color: #000;  border: 1px solid #fff;}
+
+
+.black select   { color: #fff; }
+
+.styled-select option {
+  color: #fff;
+  background-color: #000;
+}
