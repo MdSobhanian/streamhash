@@ -205,7 +205,7 @@
 						<div class="border-bot more-profile padding15">
 							<li class="row no-margin" ng-repeat="value in profiles">
 								<a ui-sref="profile.home({sub_id : value.id})"><div class="nav-profile-img bg-img" style="background-image: url({{value.picture}});"></div>
-									{{value.name}}</a>
+									{{value.name}} <span ng-if="value.status == 1">(Main)</span></a>
 							</li>
 
 							<li>
