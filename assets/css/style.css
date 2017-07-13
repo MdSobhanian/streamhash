@@ -1760,7 +1760,7 @@ min-height: 100%;
 .search-box:focus {
   -webkit-transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
   transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
-  border: none;
+  border: 1px solid #fff;
   outline: none;
   box-shadow: none;
   padding-left: 15px;
