@@ -1857,7 +1857,7 @@ overflow: hidden;
  }
 
 .notification_badge {
-    position: absolute;top:0;right:15%;background: #ff0000;padding: 2px 7px;border-radius: 50%
+    position: absolute;top:0;right:15%;background: #ff0000;padding: 1px 8px;border-radius: 50%;font-size: 12px;
 }
 
 .navbar-nav > li > .notifications::after {
