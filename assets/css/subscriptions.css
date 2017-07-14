@@ -18,7 +18,7 @@
 
 .pink {
 
-    background-color: #c25975;
+    background-color: #E50914;
 }
 
 .card-progress {
@@ -43,7 +43,7 @@
 }
 
 .orange {
-    background-color: #eb7728;
+    background-color: #ff0a16;
 }
 
 .card-type {
@@ -102,20 +102,14 @@ position: relative;
 
 
 .pink-btn {
-    background-color: #c25975;
-    border-color: #c25975;
+    background-color: #E50914;
+    border-color: #E50914;
     color: #fff;
 }
 
 .orange-btn {
-    background-color: #eb7728;
-    border-color: #eb7728;
-    color: #fff;
-}
-
-.pink-btn {
-    background-color: #c25975;
-    border-color: #c25975;
+    background-color: #ff0a16;
+    border-color: #ff0a16;
     color: #fff;
 }
 

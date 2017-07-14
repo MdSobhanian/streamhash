@@ -758,14 +758,14 @@ input:focus,textarea:focus{
 }
 
 .epi-play-icon{
-	font-size: 38px;
+	font-size: 22px;
     color: #fff;
     opacity: .7;
     border: 3px solid #fff;
     display: inline-block;
-    padding: 6px 20px;
-    width: 70px;
-    height: 70px;
+    padding: 6px 12px;
+   /* width: 70px;
+    height: 70px;*/
     border-radius: 100%;
     display: none;
     transition: transform 150ms ease,-webkit-transform 150ms ease,-moz-transform 150ms ease,-o-transform 150ms ease;
@@ -777,7 +777,7 @@ input:focus,textarea:focus{
     -moz-transform: scale(1.15,1.15);
     -ms-transform: scale(1.15,1.15);
     -o-transform: scale(1.15,1.15);
-    transform: scale(1.15,1.15);
+    transform: scale(1,1);
     color: #E50914;
     background: rgba(0,0,0,.6);
 }
@@ -1747,6 +1747,7 @@ min-height: 100%;
   cursor: pointer;
   background: #000;
   left: -30px;
+  opacity: 0.6;
 }
 .search-box + label .search-icon {
   color: #fff;
@@ -1771,6 +1772,7 @@ min-height: 100%;
   /*border-radius: auto;*/
   background: #000000;
   color: #ffffff;
+  opacity: 1;
 }
 .search-box:focus + label .search-icon {
   color: #fff;
