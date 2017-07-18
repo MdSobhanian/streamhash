@@ -148,8 +148,7 @@
 					  
 					  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" style="position: relative;" ng-click="redNotification()">
 					    <i class="glyphicon glyphicon-bell"></i>
-
-					    <span class="notification_badge" id="notification_badge">{{notifications_count}}</span>
+					    <span class="notification_badge" id="notification_badge" ng-if="notifications_count > 0">{{notifications_count}}</span>
 					  </a>
 					  
 					  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
@@ -158,7 +157,7 @@
 					    </div>
 					    <li class="divider"></li> -->
 					   <div class="notifications-wrapper">
-					   		<div ng-repeat="notification in notifications">
+					   		<div ng-repeat="notification in notifications" ng-if="notifications.length > 0">
 							    <a class="content" ui-sref="single_video({id : notification.admin_video_id})">
 							      
 							       <div class="notification-item">
@@ -182,9 +181,15 @@
 							    </a>
 							    <li class="divider"></li>
 						    </div>
+
+						    <div ng-if="notifications.length == 0">	
+
+						    	<p style="color: #fff">No results found.</p>
+
+						    </div>
 					   </div>
 					    <!-- <li class="divider"></li> -->
-					    <div class="notification-footer">
+					    <div class="notification-footer" ng-if="notifications.length > 0">
 					    	<a ui-sref="profile.title({title:'recent'})">
 					    	<h4 class="menu-title pull-right">View all&nbsp;<i class="fa fa-arrow-circle-right"></i></h4>
 					    	</a>
