@@ -7,7 +7,7 @@ angular.module('streamViewApp')
 
 		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
-		$scope.home_bg_image = ($rootScope.site_settings) ? (($rootScope.site_settings[46] != undefined) ? $rootScope.site_settings[46].value  : '' ): '';
+		$scope.home_bg_image = ($rootScope.site_settings) ? (($rootScope.site_settings[50] != undefined) ? $rootScope.site_settings[50].value  : '' ): '';
 
 		$scope.allPages = $rootScope.allPages;
 
