@@ -9,6 +9,8 @@ angular.module('streamViewApp')
 
 		$scope.home_bg_image = ($rootScope.site_settings) ? (($rootScope.site_settings[50] != undefined) ? $rootScope.site_settings[50].value  : '' ): '';
 
+		console.log($scope.home_bg_image);
+
 		$scope.allPages = $rootScope.allPages;
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
