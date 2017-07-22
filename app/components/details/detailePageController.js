@@ -341,13 +341,13 @@ angular.module('streamViewApp')
 
 				success : function (data) {
 
-					$scope.title = data.title;
-
 					if (data.success) {
 
 						// $scope.datas = data;
 
 						if (data.data.length > 0) {
+
+							$scope.title = data.title;
 
 							if($scope.datas.length > 0) {
 								
