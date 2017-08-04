@@ -185,6 +185,7 @@ angular.module('streamViewApp')
 
 			UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
 
+
 			$state.go('static.index', {}, {reload:true});
 
 		};
@@ -227,14 +228,14 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+						// UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 1000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}
 				},
 				error : function (data) {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					// UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 1000, pos : 'top-center', status : 'danger'});
 
 				},
 			});
@@ -242,7 +243,9 @@ angular.module('streamViewApp')
 
 		notifications();
 
-		$interval(notifications, 50000);
+		var interval = $interval(notifications, 50000);
+
+
 
 		$scope.redNotification = function() {
 
@@ -263,7 +266,7 @@ angular.module('streamViewApp')
 				},
 				error : function (data) {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 1000, pos : 'top-center', status : 'danger'});
 
 				},
 			});			
@@ -271,8 +274,14 @@ angular.module('streamViewApp')
 		}
 
 	}
-])
+])/*.run(['$rootScope', '$interval', function($rootScope, $interval) {
+    $rootScope.$on('$routeChangeStart', function() {
+        $interval.cancel(interval);
+    });
+}]);*/
 
+
+// angular.module('streamViewApp')
 .controller('footerCtrl', ['$scope', '$http', '$rootScope', '$window', '$state', 
 
 	function ($scope, $http, $rootScope, $window, $state) {
