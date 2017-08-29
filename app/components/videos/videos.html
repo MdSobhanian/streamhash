@@ -6,7 +6,7 @@
    <h3>{{datas.title}}</h3>
 </div>
 
-<div class="video-full-box"  ng-repeat="(key,subcategory) in datas.data"> 
+<div class="video-full-box"  ng-repeat="(key,subcategory) in datas.data" ng-init="subkey = datas.sub_category[key]"> 
 	<div class="box-title">
 	  <div class="box-head row no-margin">
 	        <h3 class="main-title pull-left">{{key}}</h3>
@@ -15,10 +15,10 @@
 	</div>
 	<div class="box video-box-row" ng-repeat="video in subcategory" ng-init="$parentindex = $index">
 
-		<div id="{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn(this,$index, $parentindex,video.length)" ng-mouseleave="hoverOut(this,$index, $parentindex,video.length)" class="tile col-lg-3 slide-box video-box" ng-repeat="value in video">
+		<div id="{{subkey}}_{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn(this,subkey, $index, $parentindex,video.length)" ng-mouseleave="hoverOut(this,subkey, $index, $parentindex,video.length)" class="tile col-lg-3 slide-box video-box" ng-repeat="value in video">
 	    	<div class="video-box-outer">
 	    	
-		        <div class="tile-media" id="{{$index}}_{{$parentindex}}_img">
+		        <div class="tile-media" id="{{subkey}}_{{$index}}_{{$parentindex}}_img">
 		          	<img class="tile-img" ng-src="{{value.default_image}}" alt=""/><!-- 3rd image-->
 		          	<!-- <img class="tile-img first" ng-src="{{value.default_image}}" alt=""/>
 		          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/> -->
@@ -32,7 +32,7 @@
 			        	</div>
 		        	</a>
 
-					<div class="tile-content" id="{{$index}}_{{$parentindex}}_desc">
+					<div class="tile-content" id="{{subkey}}_{{$index}}_{{$parentindex}}_desc">
 			            <h3 class="tile-tit">{{value.title}}</h3>
 
 			            <div class="row no-margin">
@@ -70,7 +70,7 @@
 						</div>
 
 						<div class="text-center">
-							<a ng-click="showVideoDrop(this, $index, $parentindex,video.length)" class="arrow"><img src="assets/img/down-arrow-red.png" class="arrow_down" /></a>
+							<a ng-click="showVideoDrop(this, subkey, $index, $parentindex,video.length)" class="arrow"><img src="assets/img/down-arrow-red.png" class="arrow_down" /></a>
 						</div>
 					</div>
 
@@ -81,14 +81,14 @@
 	 
 	 	<div class="clearfix"></div>
 
-	 	<div class="video-drop" style="margin-top: 1% !important;" id="{{$index}}_{{$parentindex}}_video_drop" ng-repeat="value in video">
+	 	<div class="video-drop" style="margin-top: 1% !important;" id="{{subkey}}_{{$index}}_{{$parentindex}}_video_drop" ng-repeat="value in video">
 			<div class="tab-content">
 
 					<!-- OVERVIEW SECTION  -->
-				    <div role="tabpanel" class="tab-pane active" id="{{$index}}_{{$parentindex}}_overview">
+				    <div role="tabpanel" class="tab-pane active" id="{{subkey}}_{{$index}}_{{$parentindex}}_overview">
 					    <div class="overview tab-section">
 					    	<div class="close-tab">
-	    						<a style="cursor: pointer;" ng-click="closeDiv($index,$parentindex)" class="close-btn">
+	    						<a style="cursor: pointer;" ng-click="closeDiv(subkey, $index,$parentindex)" class="close-btn">
 	    							<i class="fa fa-times"></i>
 	    						</a>
 	    					</div>
@@ -132,13 +132,13 @@
 				    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
 				    					</div>
 
-				    					<div id="my-list-txt_{{$index}}_{{$parentindex}}">
+				    					<div id="my-list-txt_{{subkey}}_{{$index}}_{{$parentindex}}">
 			    					
-				    						<a ng-click="addWishlist(value.admin_video_id, $index, $parentindex)" class="my-list bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
+				    						<a ng-click="addWishlist(value.admin_video_id, subkey, $index, $parentindex)" class="my-list bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
 				    							<i class="fa fa-plus my-list-icon"></i>
 				    							<span class="my-list-txt">My List</span> 
 				    						</a>
-				    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, $parentindex)" class="my-list bold" ng-if="value.wishlist_status" style="cursor: pointer;">
+				    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,subkey, $index, $parentindex)" class="my-list bold" ng-if="value.wishlist_status" style="cursor: pointer;">
 				    							<i class="fa fa-check my-list-icon"></i>
 				    							<span class="my-list-txt">My List</span> 
 				    						</a>
@@ -169,7 +169,7 @@
 
 
 
-					<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_episodes" ng-if="value.is_genre">
+					<div role="tabpanel" class="tab-pane" id="{{subkey}}_{{$index}}_{{$parentindex}}_episodes" ng-if="value.is_genre">
 						<div class="episodes-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 							<div class="tab-overlay">
 
@@ -177,7 +177,7 @@
 									<h3 class="content-tit">{{value.sub_category_name}}</h3>
 									<form class="season-select">
 										<div class="form-group">
-												    <select class="form-control" id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{$index}},{{$parentindex}},'_sessions', '_loader_seasons');">
+												    <select class="form-control" id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{subkey}},{{$index}},{{$parentindex}},'_sessions', '_loader_seasons');">
 												    <option value="">Select Seasons</option>
 												    <option value="{{genrename.genre_id}}" ng-repeat="genrename in value.genre_names">
 												    {{genrename.genre_name}}
@@ -188,11 +188,11 @@
 
 									<div class="episodes-list row no-margin">
 
-										<div id="{{$index}}{{$parentindex}}_loader_seasons" style="margin-top: 10px;text-align: center;display: none">
+										<div id="{{subkey}}{{$index}}{{$parentindex}}_loader_seasons" style="margin-top: 10px;text-align: center;display: none">
 											<img src="assets/img/ellipsis.svg" style="width: 40px;">
 										</div>
 
-									<div id="{{$index}}{{$parentindex}}_sessions">
+									<div id="{{subkey}}{{$index}}{{$parentindex}}_sessions">
 
 										<!-- episode list box -->
 										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="genre_list in value.first_part">
@@ -244,7 +244,7 @@
 
 
 					<!-- TRAILERS SECTION -->
-					<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_trailers" ng-if="value.is_genre || value.trailer_video">
+					<div role="tabpanel" class="tab-pane" id="{{subkey}}_{{$index}}_{{$parentindex}}_trailers" ng-if="value.is_genre || value.trailer_video">
 						<div class="trailers-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 							<div class="tab-overlay">
 
@@ -313,7 +313,7 @@
 
 
 					<!-- MORE LIKE SECTION  -->
-					<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_more-like">
+					<div role="tabpanel" class="tab-pane" id="{{subkey}}_{{$index}}_{{$parentindex}}_more-like">
 						<div class="morelike-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 							<div class="tab-overlay">
 
@@ -386,7 +386,7 @@
 
 
 					<!-- DETAILS-SECTION -->
-					<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_details">
+					<div role="tabpanel" class="tab-pane" id="{{subkey}}_{{$index}}_{{$parentindex}}_details">
 						<div class="details-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 							<div class="tab-overlay">
 
@@ -409,23 +409,23 @@
 
 				<ul class="nav nav-tabs" role="tablist">
 				    <li role="presentation" class="active">
-				    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+				    	<a style="cursor:pointer" ng-click="dynamicContent(subkey, $index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
 				    </li>
 
 				    <li role="presentation" ng-if="value.is_genre">
-				    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'episodes')" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
+				    	<a style="cursor:pointer" ng-click="dynamicContent(subkey, $index,$parentindex,'episodes')" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
 				    </li>
 
 				    <li role="presentation" ng-if="value.is_genre || value.trailer_video">
-				    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
+				    	<a style="cursor:pointer" ng-click="dynamicContent(subkey, $index,$parentindex,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
 				    </li>
 
 				    <li role="presentation">
-				    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'more-like')" aria-controls="more-like" role="tab" data-toggle="tab">More Like This</a>
+				    	<a style="cursor:pointer" ng-click="dynamicContent(subkey, $index,$parentindex,'more-like')" aria-controls="more-like" role="tab" data-toggle="tab">More Like This</a>
 				    </li>
 
 				    <li role="presentation" ng-if="value.details">
-				    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
+				    	<a style="cursor:pointer" ng-click="dynamicContent(subkey, $index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
 				    </li>
 			  	</ul>		
 				
