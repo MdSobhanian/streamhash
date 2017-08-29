@@ -444,6 +444,7 @@ angular.module('streamViewApp')
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
+
 		$scope.sendToPaypal = function(id, amt) {
 
 			if (amt == 0) {

@@ -5,6 +5,15 @@ angular.module('streamViewApp')
 
 		$scope.trailer_video = '';
 
+		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
+
+		if ($scope.user_type) {
+
+			$state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+
+		}
+
+
 		console.log($scope.trailer_video);
 
 		$scope.sub_profile_id = memoryStorage.sub_profile_id;

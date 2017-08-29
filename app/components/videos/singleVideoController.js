@@ -9,6 +9,15 @@ angular.module('streamViewApp')
 
 		$scope.sub_profile_id = memoryStorage.sub_profile_id;
 
+		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
+
+		if ($scope.user_type) {
+
+			$state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+
+		}
+
+
 		$scope.height = $(window).height();
 
 		$.ajax({
