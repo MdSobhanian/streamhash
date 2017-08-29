@@ -363,6 +363,24 @@ streamViewApp
                     }
                 })
 
+                .state("trailer_video", {
+                    url: "/trailer_video/{id}",
+                    templateUrl: 'app/components/videos/trailer_video.html',
+                    controller: 'trailerVideoController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'lazy_notify',
+                                'app/components/videos/trailerVideoController.js',
+                                'assets/jwplayer/jwplayer.js',
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Video Details',
+                    }
+                })
+
                  .state("genre_video", {
                     url: "/genre_video/{id}",
                     templateUrl: 'app/components/videos/genre_video.html',

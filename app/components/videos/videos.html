@@ -244,7 +244,7 @@
 
 
 					<!-- TRAILERS SECTION -->
-					<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_trailers" ng-if="value.is_genre">
+					<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_trailers" ng-if="value.is_genre || value.trailer_video">
 						<div class="trailers-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
 							<div class="tab-overlay">
 
@@ -254,7 +254,7 @@
 									<div class="trailers-list row no-margin">
 
 										<!-- episode list box -->
-										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="trailer in value.genres">
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="trailer in value.genres" ng-if="value.is_genre">
 											<div class="episode-list-box">
 
 												<div class="episode-img bg-img" style="background-image: url({{trailer.genre_image}});">
@@ -278,6 +278,31 @@
 
 											</div>
 										</div>
+
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-if="value.trailer_video">
+														<div class="episode-list-box">
+
+															<div class="episode-img bg-img" style="background-image: url({{value.default_image}});">
+																<div class="episode-img-overlay">
+
+																	<div class="epi-play-icon-outer">
+																		<a ui-sref="trailer_video({id : value.admin_video_id})" class="epi-play-icon">
+																			<i class="fa fa-play"></i>
+																		</a>
+																	</div>
+																</div>
+															</div>
+
+															<div class="episode-list-content">
+																<div class="row no-margin">
+																	<div class="">
+																		<h4 class="epi-tit gray-color1">{{value.title}}</h4>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
 
 									</div>
 								</div>
@@ -391,7 +416,7 @@
 				    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'episodes')" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
 				    </li>
 
-				    <li role="presentation" ng-if="value.is_genre">
+				    <li role="presentation" ng-if="value.is_genre || value.trailer_video">
 				    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
 				    </li>
 
