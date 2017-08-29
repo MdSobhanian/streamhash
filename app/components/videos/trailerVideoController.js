@@ -1,13 +1,9 @@
 angular.module('streamViewApp')
-.controller('singleVideoController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
+.controller('trailerVideoController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
-		$scope.video = '';
-
-		console.log($scope.video);
-
-		$scope.sub_profile_id = memoryStorage.sub_profile_id;
+		$scope.trailer_video = '';
 
 		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
@@ -17,6 +13,10 @@ angular.module('streamViewApp')
 
 		}
 
+
+		console.log($scope.trailer_video);
+
+		$scope.sub_profile_id = memoryStorage.sub_profile_id;
 
 		$scope.height = $(window).height();
 
@@ -35,6 +35,8 @@ angular.module('streamViewApp')
 				if (data.success) {
 
 					$scope.video = data;
+
+					console.log($scope.video.trailer_video);
 
 				} else {
 
@@ -58,7 +60,7 @@ angular.module('streamViewApp')
 
 		playerInstance.setup({
             sources: [{
-                file: $scope.video.main_video,
+                file: $scope.video.trailer_video,
               }],
             // file: "{{$trailerstreamUrl}}",
             image: $scope.video.video.default_image,
@@ -100,10 +102,10 @@ angular.module('streamViewApp')
                 
                 });
 
-		console.log($scope.video);
+		console.log($scope.trailer_video);
 
 
-		$.ajax({
+		/*$.ajax({
 
 			type : "post",
 
@@ -130,7 +132,7 @@ angular.module('streamViewApp')
 				console.log('Something Went Wrong, Please Try again later');
 
 			},
-		});
+		});*/
 
 
 	}
