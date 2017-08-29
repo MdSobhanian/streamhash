@@ -66,18 +66,18 @@ angular.module('streamViewApp')
 				});
 			}
 
-			$scope.closeDiv = function(index, key) {
+			$scope.closeDiv = function(sub,index, key) {
 
-				$("#"+index+"_"+key+"_video_drop").fadeOut();
+				$("#"+sub+'_'+index+"_"+key+"_video_drop").fadeOut();
 
-				$('#'+index+"_"+key+"_img").removeClass('active_img');
+				$('#'+sub+'_'+index+"_"+key+"_img").removeClass('active_img');
 
-				$('#'+index+"_"+key+"_desc").show();	
+				$('#'+sub+'_'+index+"_"+key+"_desc").show();	
 
-						$('#'+index+"_"+key+"_div").removeClass('play_icon_div');	
+				$('#'+sub+'_'+index+"_"+key+"_div").removeClass('play_icon_div');	
 			}
 
-			$scope.removeWishlist = function(id, admin_video_id, $index, key) {
+			$scope.removeWishlist = function(id, admin_video_id, sub, $index, key) {
 
 				$.ajax({
 
@@ -125,7 +125,7 @@ angular.module('streamViewApp')
 				});
 			}
 
-			 $scope.getSeasons = function(genre_id, idx, key, divid, loader) {
+			 $scope.getSeasons = function(genre_id, sub, idx, key, divid, loader) {
 
 				$.ajax({
 
@@ -139,9 +139,9 @@ angular.module('streamViewApp')
 
 					beforeSend : function() {
 
-						$("#"+idx+key+divid).html("");
+						$("#"+sub+idx+key+divid).html("");
 
-						$("#"+idx+key+loader).show();
+						$("#"+sub+idx+key+loader).show();
 
 					},
 
@@ -151,9 +151,9 @@ angular.module('streamViewApp')
 
 							// $("#"+divid).html(data.view);
 
-							console.log($("#"+idx+key+divid));
+							console.log($("#"+sub+idx+key+divid));
 
-							$("#"+idx+key+divid).html(data.data);
+							$("#"+sub+idx+key+divid).html(data.data);
 
 						} else {
 
@@ -170,7 +170,7 @@ angular.module('streamViewApp')
 
 					complete : function(data) {
 
-						$("#"+idx+key+loader).hide();
+						$("#"+sub+idx+key+loader).hide();
 
 					},
 				});
@@ -225,7 +225,7 @@ angular.module('streamViewApp')
 
 		};*/
 
-		$scope.showVideoDrop = function(event, idx, key) {
+		$scope.showVideoDrop = function(event, sub, idx, key) {
 
 		   /* $parent_box = $(event).closest('.slide-area');
 
@@ -241,57 +241,60 @@ angular.module('streamViewApp')
 
 		    // $parent_box.find('.video-drop').toggle();
 
-		    $("#"+idx+"_"+key+"_video_drop").show();
+		    $("#"+sub+'_'+idx+"_"+key+"_video_drop").show();
 
-		    $('#'+idx+"_"+key).removeClass('transition-class');
+		    $('#'+sub+'_'+idx+"_"+key).removeClass('transition-class');
 
-		    $('#'+idx+"_"+key+"_img").addClass('active_img');
+		    $('#'+sub+'_'+idx+"_"+key+"_img").addClass('active_img');
 
-		    $('#'+idx+"_"+key+"_desc").hide();	
+		    $('#'+sub+'_'+idx+"_"+key+"_desc").hide();	
 
-						$('#'+idx+"_"+key+"_div").addClass('play_icon_div');	
+			$('#'+sub+'_'+idx+"_"+key+"_div").addClass('play_icon_div');	
 
 
 		};
 
 		
 
-		$scope.hoverIn = function(event, id, key, length) {
+		$scope.hoverIn = function(event, sub, id, key, length) {
 
 			var video_drop = $(".video-drop").is(":visible");
 
+			console.log(video_drop);
+
 			if (!video_drop) {
 
-				$('#'+id+"_"+key).addClass('transition-class');
+				$('#'+sub+'_'+id+"_"+key).addClass('transition-class');
 
 			} else {
 
 				for(var i = 0; i < length ; i++) {
 
-					$("#"+i+"_"+key+"_video_drop").hide();
+					$("#"+sub+'_'+i+"_"+key+"_video_drop").hide();
 
-					$('#'+i+"_"+key+"_img").removeClass('active_img');
+					$('#'+sub+'_'+i+"_"+key+"_img").removeClass('active_img');
 
 
-					$('#'+i+"_"+key+"_desc").show();	
+					$('#'+sub+'_'+i+"_"+key+"_desc").show();	
 
-						$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
+						$('#'+sub+'_'+i+"_"+key+"_div").removeClass('play_icon_div');	
 
 				}
 
+				console.log('#'+sub+'_'+id+"_"+key+"_img");
 
-				$('#'+id+"_"+key+"_img").addClass('active_img');
+				$('#'+sub+'_'+id+"_"+key+"_img").addClass('active_img');
 
-				$("#"+id+"_"+key+"_video_drop").show();
+				$("#"+sub+'_'+id+"_"+key+"_video_drop").show();
 
-				$('#'+id+"_"+key+"_desc").hide();	
+				$('#'+sub+'_'+id+"_"+key+"_desc").hide();	
 
-				$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
+				$('#'+sub+'_'+id+"_"+key+"_div").addClass('play_icon_div');	
 			}
 
 		};
 
-		$scope.hoverOut = function(event, id, key, length) {
+		$scope.hoverOut = function(event, sub, id, key, length) {
 			
 			var video_drop = $(".video-drop").is(":visible");
 
@@ -299,57 +302,57 @@ angular.module('streamViewApp')
 
 				for(var i = 0; i < length ; i++) {
 
-					$("#"+i+"_"+key+"_video_drop").hide();
+					$("#"+sub+'_'+i+"_"+key+"_video_drop").hide();
 
-					$('#'+i+"_"+key+"_img").removeClass('active_img');
+					$('#'+sub+'_'+i+"_"+key+"_img").removeClass('active_img');
 
-					$('#'+i+"_"+key+"_desc").show();	
+					$('#'+sub+'_'+i+"_"+key+"_desc").show();	
 
-					$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
+					$('#'+sub+'_'+i+"_"+key+"_div").removeClass('play_icon_div');	
 
 				}
 
-				$('#'+id+"_"+key+"_img").addClass('active_img');
+				$('#'+sub+'_'+id+"_"+key+"_img").addClass('active_img');
 
-				$("#"+id+"_"+key+"_video_drop").show();
+				$("#"+sub+'_'+id+"_"+key+"_video_drop").show();
 
-				$('#'+id+"_"+key+"_desc").hide();	
+				$('#'+sub+'_'+id+"_"+key+"_desc").hide();	
 
-				$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
+				$('#'+sub+'_'+id+"_"+key+"_div").addClass('play_icon_div');	
 				
 			} 
 
-			$('#'+id+"_"+key).removeClass('transition-class');
+			$('#'+sub+'_'+id+"_"+key).removeClass('transition-class');
 			
 		};
 
-		$scope.dynamicContent = function(index, key, id) {
+		$scope.dynamicContent = function(sub, index, key, id) {
 
-				$("#"+index+"_"+key+"_overview").hide();
-				$("#"+index+"_"+key+"_episodes").hide();
-				$("#"+index+"_"+key+"_trailers").hide();
-				$("#"+index+"_"+key+"_more-like").hide();
-				$("#"+index+"_"+key+"_details").hide();
+				$("#"+sub+"_"+index+"_"+key+"_overview").hide();
+				$("#"+sub+"_"+index+"_"+key+"_episodes").hide();
+				$("#"+sub+"_"+index+"_"+key+"_trailers").hide();
+				$("#"+sub+"_"+index+"_"+key+"_more-like").hide();
+				$("#"+sub+"_"+index+"_"+key+"_details").hide();
 
 				if (id == "overview") {
 
-					$("#"+index+"_"+key+"_overview").show();
+					$("#"+sub+"_"+index+"_"+key+"_overview").show();
 
 				} else if (id == "episodes") {
 
-					$("#"+index+"_"+key+"_episodes").show();
+					$("#"+sub+"_"+index+"_"+key+"_episodes").show();
 
 				} else if (id == "trailers") {
 
-					$("#"+index+"_"+key+"_trailers").show();
+					$("#"+sub+"_"+index+"_"+key+"_trailers").show();
 					
 				} else if (id == "more-like") {
 
-					$("#"+index+"_"+key+"_more-like").show();
+					$("#"+sub+"_"+index+"_"+key+"_more-like").show();
 					
 				} else {
 
-					$("#"+index+"_"+key+"_details").show();
+					$("#"+sub+"_"+index+"_"+key+"_details").show();
 				}
 		}
 
