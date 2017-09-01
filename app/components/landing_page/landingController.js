@@ -9,7 +9,7 @@ angular.module('streamViewApp')
 
 		$scope.home_bg_image = ($rootScope.site_settings) ? (($rootScope.site_settings[46] != undefined) ? $rootScope.site_settings[46].value  : '' ): '';
 
-		console.log($scope.home_bg_image);
+		//console.log($scope.home_bg_image);
 
 		$scope.allPages = $rootScope.allPages;
 

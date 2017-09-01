@@ -228,14 +228,14 @@ angular.module('streamViewApp')
 
 					} else {
 
-						// UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 1000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 1000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}
 				},
 				error : function (data) {
 
-					// UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 1000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 1000, pos : 'top-center', status : 'danger'});
 
 				},
 			});
@@ -246,7 +246,9 @@ angular.module('streamViewApp')
 		var interval = $interval(notifications, 50000);
 
 
-		$rootScope.$on('notfication_cleartimeout', function(event, data) {
+		$rootScope.$on('notfication_cleartimeout', function(event) {
+
+			console.log("notifications");
 
 			$interval.cancel(interval);
 
