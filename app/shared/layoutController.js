@@ -246,6 +246,11 @@ angular.module('streamViewApp')
 		var interval = $interval(notifications, 50000);
 
 
+		$rootScope.$on('notfication_cleartimeout', function(event, data) {
+
+			$interval.cancel(interval);
+
+		});
 
 		$scope.redNotification = function() {
 

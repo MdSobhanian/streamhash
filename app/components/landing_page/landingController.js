@@ -24,6 +24,9 @@ angular.module('streamViewApp')
 			// $state.go('static.index',{},{reload:true});
 
 		}
+
+
+		$rootScope.$emit('notfication_cleartimeout', true);
 		
 	}
 
