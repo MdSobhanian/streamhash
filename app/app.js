@@ -54,8 +54,8 @@ var streamViewApp = angular.module('streamViewApp', [
 
 var apiUrl = "http://localhost:8000/";
 
-var angularUrl = "http://localhost/streamview-base/streamview-angular/#/";*/
-
+var angularUrl = "http://localhost/streamview-base/streamview-angular/#/";
+*/
 
 var route_url = "http://demo.streamhash.com/#";
 
@@ -72,7 +72,9 @@ streamViewApp
         '$window',
         '$timeout',
         '$location',
-        function ($rootScope, $state, $stateParams,$http,$window, $timeout, $location) {
+        '$interval',
+        '$anchorScroll',
+        function ($rootScope, $state, $stateParams,$http,$window, $timeout, $location, $interval,$anchorScroll) {
 
             $rootScope.id = memoryStorage.user_id;
 
@@ -101,6 +103,8 @@ streamViewApp
                   $(".page-loading").removeClass(hideClass);
 
                   $('.page').addClass(hideClass);
+
+                  $anchorScroll(0);
                 });
 
               // Use '$viewContentLoaded' instead of '$stateChangeSuccess'.
@@ -130,37 +134,7 @@ streamViewApp
 
                   }, delay, false);
                 });
-                
-               /* $rootScope.$on('$stateChangeSuccess', function () {
 
-                    window.onbeforeunload = null;
-
-                    $timeout(function() {
-                            $rootScope.pageLoading = false;
-                        },5000);
-
-                    $timeout(function() {
-                            $rootScope.pageLoaded = true;
-                          },50000);
-
-                 });
-
-
-                 $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-
-                    if(toState.name != 'profile.home' && $stateParams.slider_id == '') {
-
-                        if(!toParams.hasOwnProperty('hidePreloader')) {
-                                $rootScope.pageLoading = true;
-                                $rootScope.pageLoaded = false;
-                        }
-
-                    }
-
-                 });*/
-
-
-          
                 $.ajax({
                     url : apiUrl+"userApi/site_settings",
                     type : 'get',
@@ -180,6 +154,7 @@ streamViewApp
                     $rootScope.allPages = data;
                   }
                })
+
 
         }
 
