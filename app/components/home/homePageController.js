@@ -23,6 +23,8 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('footerBar', false);
 
+		$rootScope.$emit('activeProfiles',$stateParams.sub_id);
+
 		if ($scope.user_id) {
 
 

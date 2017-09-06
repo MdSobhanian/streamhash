@@ -108,72 +108,94 @@ angular.module('streamViewApp')
 
         });  */
 
+        $scope.sub_profile_data = function(sub_id) {
 
-		$.ajax({
+        	sub_id = sub_id ? sub_id : $scope.sub_profile_id;
 
-			type : "post",
+			$.ajax({
 
-			url : apiUrl + "userApi/view-sub-profile",
+				type : "post",
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id:$scope.sub_profile_id},
+				url : apiUrl + "userApi/view-sub-profile",
 
-			async : false,
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id:sub_id},
 
-			success : function (data) {
+				async : false,
 
-				if (data.success) {
+				success : function (data) {
 
-					$scope.sub_profile = data.data;
+					if (data.success) {
 
-				} else {
+						$scope.sub_profile = data.data;
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					} else {
 
-					$state.go('manage-profile.view-profile', {}, {reload:true});
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					return false;
-				}
-			},
-			error : function (data) {
+						$state.go('manage-profile.view-profile', {}, {reload:true});
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
-
-			},
-		});
-
-
-		$.ajax({
-
-			type : "post",
-
-			url : apiUrl + "userApi/active-profiles",
-
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : $scope.sub_profile_id},
-
-			async : false,
-
-			success : function (data) {
-
-				if (data.success) {
-
-					$scope.profiles = data.data;
-
-				} else {
+						return false;
+					}
+				},
+				error : function (data) {
 
 					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					return false;
-				}
-			},
-			error : function (data) {
-
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
-
-			},
-		});
+				},
+			});
+		}
 
 
+		$scope.activeProfiles = function(sub_id) {
 
+			sub_id = sub_id ? sub_id : $scope.sub_profile_id;
+
+			$.ajax({
+
+				type : "post",
+
+				url : apiUrl + "userApi/active-profiles",
+
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : sub_id},
+
+				async : false,
+
+				success : function (data) {
+
+					if (data.success) {
+
+						$scope.profiles = data.data;
+
+					} else {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+					}
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+			});
+		}
+
+		$scope.sub_profile_data($scope.sub_profile_id);
+
+
+		$scope.activeProfiles($scope.sub_profile_id);
+
+
+
+		$rootScope.$on('activeProfiles', function(event, sub_id) {
+
+			// console.log("sub_id"+sub_id);
+
+			 $scope.sub_profile_data(sub_id);
+
+             $scope.activeProfiles(sub_id);
+        });
 
 		$scope.logout = function() {
 
