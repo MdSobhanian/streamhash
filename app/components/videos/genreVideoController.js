@@ -5,6 +5,8 @@ angular.module('streamViewApp')
 
 		$scope.video = '';
 
+        $scope.ios_video = '';
+
 		console.log($scope.video);
 
 		$scope.sub_profile_id = memoryStorage.sub_profile_id;
@@ -36,6 +38,8 @@ angular.module('streamViewApp')
 
 					$scope.video = data.model;
 
+                    $scope.ios_video = data.ios_video;
+
 				} else {
 
 					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
@@ -57,9 +61,11 @@ angular.module('streamViewApp')
 
 
 		playerInstance.setup({
-            sources: [{
+              sources: [{
                 file: $scope.video.video,
-              }],
+              },{
+                file: $scope.ios_video
+                }],
             // file: "{{$trailerstreamUrl}}",
             image: $scope.video.image,
             width: "100%",
