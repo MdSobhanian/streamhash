@@ -59,7 +59,9 @@ angular.module('streamViewApp')
 		playerInstance.setup({
             sources: [{
                 file: $scope.video.main_video,
-              }],
+              }, {
+	            file: $scope.video.ios_video
+	        }],
             // file: "{{$trailerstreamUrl}}",
             image: $scope.video.video.default_image,
             width: "100%",
