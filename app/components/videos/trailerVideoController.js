@@ -58,12 +58,49 @@ angular.module('streamViewApp')
 		var playerInstance = jwplayer("video-player");
 
 
+		var is_mobile = false;
+
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+
+        if(isMobile.any()) {
+
+            var is_mobile = true;
+
+        }
+
+        if (is_mobile) {
+
+        	var video = $scope.video.ios_trailer_video;
+        } else {
+
+        	var video = $scope.video.trailer_video;
+        }
+
+
+
 		playerInstance.setup({
             sources: [{
-                file: $scope.video.trailer_video,
-              },{
-	            file: $scope.video.ios_trailer_video
-	        	}],
+                file: video
+              }],
             // file: "{{$trailerstreamUrl}}",
             image: $scope.video.video.default_image,
             width: "100%",
