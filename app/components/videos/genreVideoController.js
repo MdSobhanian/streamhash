@@ -5,6 +5,8 @@ angular.module('streamViewApp')
 
 		$scope.video = '';
 
+        $scope.ios_video = '';
+
 		console.log($scope.video);
 
 		$scope.sub_profile_id = memoryStorage.sub_profile_id;
@@ -36,6 +38,8 @@ angular.module('streamViewApp')
 
 					$scope.video = data.model;
 
+                    $scope.ios_video = data.ios_video;
+
 				} else {
 
 					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
@@ -55,10 +59,47 @@ angular.module('streamViewApp')
 
 		var playerInstance = jwplayer("video-player");
 
+                var is_mobile = false;
+
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+
+        if(isMobile.any()) {
+
+            var is_mobile = true;
+
+        }
+
+        if (is_mobile) {
+
+            var video = $scope.ios_video;
+        } else {
+
+            var video = $scope.video.video;
+        }
+
 
 		playerInstance.setup({
-            sources: [{
-                file: $scope.video.video,
+              sources: [{
+                file: video
               }],
             // file: "{{$trailerstreamUrl}}",
             image: $scope.video.image,
