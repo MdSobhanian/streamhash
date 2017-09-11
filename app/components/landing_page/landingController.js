@@ -7,6 +7,8 @@ angular.module('streamViewApp')
 
 		$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
 
+		$scope.site_name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0].value  : '' ): '';
+
 		$scope.home_bg_image = ($rootScope.site_settings) ? (($rootScope.site_settings[46] != undefined) ? $rootScope.site_settings[46].value  : '' ): '';
 		$scope.site_name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0].value  : '' ): '';
 

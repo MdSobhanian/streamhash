@@ -9,13 +9,13 @@
       </div>
 
       <div class="footer row no-margin">
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" ng-repeat="pages in allPages" >
           <div class="">
-            <a ui-sref="static.page({id : pages.type})" class="foot-link" ng-repeat="pages in allPages" style="text-transform: capitalize;">{{pages.type}}</a>
+            <a ui-sref="static.page({id : page.type})" class="foot-link" ng-repeat="page in pages" style="text-transform: capitalize;">{{page.type}}</a>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+       <!--  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
           <div class="">
             <a href="#" class="foot-link">FAQ</a>
             <a href="#" class="foot-link">Investor Resolution</a>
@@ -39,7 +39,7 @@
             <a href="#" class="foot-link">Terms Of Use</a>
             <a href="#" class="foot-link">Help</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     
@@ -58,7 +58,7 @@
           <ul class="footer_ul">
 
              <li ng-repeat="pages in allPages" style="list-style: none">
-	          <a ui-sref="static.page({id : pages.type})" style="color: #fff;text-transform: capitalize;">{{pages.type}}</a> |
+	          <a ui-sref="static.page({id : pages.type})" style="color: #fff;text-transform: capitalize;">{{pages.heading}}</a> <span ng-hide="$last">|</span>
 	        </li>
 
           </ul>
