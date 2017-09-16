@@ -1932,3 +1932,28 @@ font-size: 18px;
 line-height: 20px;
 width: 200px;
 }
+
+
+
+.bg-white-overlay {
+
+    background: #fff;
+
+    color: #000;
+
+    padding: 10px;
+/*
+    opacity: 0.5;*/
+
+    border-radius: 10px;
+}
+
+.biling_heading {
+
+    font-size: 20px;
+
+    text-transform: uppercase;
+
+
+
+}

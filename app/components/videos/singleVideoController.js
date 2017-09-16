@@ -100,7 +100,7 @@ angular.module('streamViewApp')
             // file: "{{$trailerstreamUrl}}",
             image: $scope.video.video.default_image,
             width: "100%",
-            aspectratio: "16:9",
+            height : $scope.height,
             primary: "flash",
             autostart : true,
         });
