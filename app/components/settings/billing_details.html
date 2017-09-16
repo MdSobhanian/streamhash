@@ -1,0 +1,147 @@
+<div class="main-content form-content bg-img" style="background-image:url({{login_bg}})">
+
+        <div class="login-form" style="padding-top: 7%">
+
+                <div class="container" style="width: 70%;">
+
+
+                	<div class="bg-white-overlay">
+
+                		<h3 class="biling_heading">Billing Details</h3>
+
+                		<hr>
+
+                		<div class="row">
+                			
+                			<div class="col-lg-3 text-center text-uppercase">
+
+                				<!-- <label>Current Plan</label>
+
+
+                				<div> -->
+                						
+                				<h4 style="margin:5px 0px 0px 0px">{{active_plan.subscription.title}}</h4>
+
+                				<a ui-sref="profile.subscriptions({sub_id : sub_id})" class="account-section-link"><small>(Plan Details)</small></a>
+
+                				<!-- </div> -->
+                			</div>
+
+
+                			<div class="col-lg-3">
+
+                				<label>Next Billing Date</label>
+
+
+                				<div>
+                						
+                					{{active_plan.data.expiry_date}}
+
+                				</div>
+                			</div>
+
+
+                			<div class="col-lg-3">
+
+                				<label>Regular Price</label>
+
+
+                				<div>
+                						
+                					$ {{active_plan.data.amount}} / {{active_plan.subscription.plan}} Months
+
+                				</div>
+                			</div>
+
+                		</div>
+
+                		<hr>
+
+                		<h3 class="biling_heading">Billing History</h3>
+
+                		<hr>
+
+                		<div class="table-responsive">
+
+	                		<table class="table table-bordered">
+	                			
+	                		<thead>
+	                				
+	                				<tr>
+
+	                					<td>S.No</td>
+	                					
+	                					<td>Date</td>
+
+	                					<td>Plan</td>
+
+	                					<td>No of Accounts</td>
+
+	                					<td>Expiry Date</td>
+
+	                					<td>No of Month</td>
+
+	                					<td>Amount</td>
+
+	                				</tr>
+
+	                		</thead>
+
+
+	                		<tbody>
+	                			
+	                			<tr ng-repeat="plan in subscribed_plans.plans" ng-class="{'success' : $index %2 == 0 }">
+	                				
+	                				<td>{{$index+1}}</td>
+	                					
+	            					<td>{{plan.date}}</td>
+
+	            					<td>{{plan.plan_name}}</td>
+
+	            					<td>{{plan.no_of_account}}</td>
+
+	            					<td>{{plan.expiry_date}}</td>
+
+	            					<td>{{plan.no_of_month}}</td>
+
+	            					<td>$ {{plan.amount}}</td>	
+	                					
+	                			</tr>
+
+	                		</tbody>
+
+	                		<tfoot>
+	                			
+		                		<tr>
+
+		                			<td></td>
+
+		                			<td></td>
+
+		                			<td></td>
+
+		                			<td></td>
+
+		                			<td></td>
+
+		                			<td>Total</td>
+
+		                			<td>$ {{subscribed_plans.amount}}</td>
+
+		                		</tr>
+
+	                		</tfoot>
+
+
+	                		</table>
+
+	                	</div>
+
+                	</div>
+
+
+                </div>
+
+        </div>
+
+</div>
