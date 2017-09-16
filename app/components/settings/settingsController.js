@@ -75,7 +75,7 @@ angular.module('streamViewApp')
 
 				if (data.success) {
 
-					$scope.active_plan = data.data;
+					$scope.active_plan = data.subscription;
 
 				} else {
 
@@ -503,4 +503,85 @@ angular.module('streamViewApp')
 
 		}
 	}
+])
+.controller('billingDetailsController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
+
+	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+
+		$rootScope.$emit('navBar', 'black-background');
+
+		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+
+
+		$.ajax({
+
+			type : "post",
+
+			url : apiUrl + "userApi/active_plan",
+
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+			async : false,
+		
+
+			success : function (data) {
+
+				if (data.success) {
+
+					$scope.active_plan = data;
+
+				} else {
+
+					console.log(data.message);
+
+					// UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					return false;
+				}
+			},
+			error : function (data) {
+
+				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+			},
+
+		});
+
+
+		$.ajax({
+
+			type : "post",
+
+			url : apiUrl + "userApi/subscribed_plans",
+
+			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+			async : false,
+		
+
+			success : function (data) {
+
+				if (data.success) {
+
+					$scope.subscribed_plans = data;
+
+				} else {
+
+					console.log(data.message);
+
+					// UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					return false;
+				}
+			},
+			error : function (data) {
+
+				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+			},
+
+		});
+
+	}
+
 ])

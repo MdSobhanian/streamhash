@@ -10,6 +10,7 @@ streamViewApp
             $stateProvider
 
                 .state("static",{
+                    cache: false,
                     abstract:true,
                     url:"",
                     templateUrl:'app/components/landing_page/footer.html',
@@ -25,6 +26,7 @@ streamViewApp
                 })
 
                 .state("static.index",{
+                    cache: false,
                     url:"/index",
                     templateUrl:'app/components/landing_page/landing_page.html',
                     controller: 'landingController',
@@ -41,6 +43,7 @@ streamViewApp
                 })
 
                 .state("static.signin",{
+                    cache: false,
                     url:"/signin",
                     templateUrl:'app/components/auth/signin.html',
                     controller: 'signinController',
@@ -57,6 +60,7 @@ streamViewApp
                 })
 
                 .state("static.signup",{
+                    cache: false,
                     url:"/signup",
                     templateUrl:'app/components/auth/signup.html',
                     controller: 'signupController',
@@ -74,6 +78,7 @@ streamViewApp
 
                 .state("static.forgot",{
                     url:"/forgot",
+                    cache: false,
                     templateUrl:'app/components/auth/forgot_password.html',
                     controller: 'forgotController',
                     resolve: {
@@ -90,6 +95,7 @@ streamViewApp
 
 
                 .state("manage-profile",{
+                    cache: false,
                     abstract:true,
                     url:"",
                     templateUrl:'app/components/profiles/header.html',
@@ -105,6 +111,7 @@ streamViewApp
                 })
 
                 .state("manage-profile.view-profile",{
+                    cache: false,
                     url:"/view-profiles",
                     templateUrl:'app/components/profiles/view-profile.html',
                     controller: 'viewProfilesController',
@@ -121,6 +128,7 @@ streamViewApp
                 })
 
                 .state("manage-profile.add-profile",{
+                    cache: false,
                     url:"/add-profile",
                     templateUrl:'app/components/profiles/add_profile.html',
                     controller: 'addProfileController',
@@ -137,6 +145,7 @@ streamViewApp
                 })
 
                 .state("manage-profile.manage-profiles",{
+                    cache: false,
                     url:"/manage-profiles",
                     templateUrl:'app/components/profiles/manage-profiles.html',
                     controller: 'manageProfilesController',
@@ -153,6 +162,7 @@ streamViewApp
                 })
 
                 .state("manage-profile.edit-profile",{
+                    cache: false,
                     url:"/edit-profile/{id}",
                     templateUrl:'app/components/profiles/edit-profile.html',
                     controller: 'editProfileController',
@@ -169,6 +179,7 @@ streamViewApp
                 })
 
                 .state("profile",{
+                    cache: false,
                     abstract:true,
                     url:"",
                     templateUrl:'app/shared/main_layout.html',
@@ -183,6 +194,7 @@ streamViewApp
                 })
 
                 .state("profile.home", {
+                    cache: false,
                     url: "/home/{sub_id}",
                     templateUrl: 'app/components/home/home_page.html',
                     controller: 'homePageController',
@@ -203,6 +215,7 @@ streamViewApp
                 })
 
                 .state("profile.title", {
+                    cache: false,
                     url: "/title/{title}",
                     templateUrl: 'app/components/details/details_page.html',
                     controller: 'titlePageController',
@@ -221,6 +234,7 @@ streamViewApp
                 })
 
                  .state("profile.browse", {
+                    cache: false,
                     url: "/browse/{browse}",
                     templateUrl: 'app/components/videos/videos.html',
                     controller: 'browseController',
@@ -239,6 +253,7 @@ streamViewApp
                 })
 
                 .state("profile.search", {
+                    cache: false,
                     url: "/search/{word}",
                     templateUrl: 'app/components/search/search_videos.html',
                     controller: 'searchWordController',
@@ -258,6 +273,7 @@ streamViewApp
 
 
                 .state("profile.account-settings", {
+                    cache: false,
                     url: "/account-settings/{sub_id}",
                     templateUrl: 'app/components/settings/account_settings.html',
                     controller: 'settingsController',
@@ -275,6 +291,7 @@ streamViewApp
                 })
 
                 .state("profile.change-password", {
+                    cache: false,
                     url: "/change-password/{id}",
                     templateUrl: 'app/components/settings/change_password.html',
                     controller: 'changePasswordController',
@@ -292,6 +309,7 @@ streamViewApp
                 })
 
                 .state("profile.delete-account", {
+                    cache: false,
                     url: "/delete-account/{id}",
                     templateUrl: 'app/components/settings/delete_account.html',
                     controller: 'deleteAccountController',
@@ -309,6 +327,7 @@ streamViewApp
                 })
 
                 .state("profile.edit-account", {
+                    cache: false,
                     url: "/edit-account/{id}",
                     templateUrl: 'app/components/settings/edit_account.html',
                     controller: 'editAccountController',
@@ -328,6 +347,7 @@ streamViewApp
 
 
                 .state("profile.subscriptions", {
+                    cache: false,
                     url: "/subscriptions/{sub_id}",
                     templateUrl: 'app/components/settings/subscriptions.html',
                     controller: 'subscriptionsController',
@@ -345,7 +365,27 @@ streamViewApp
                     }
                 })
 
+
+                .state("profile.billing-details", {
+                    cache: false,
+                    url: "/billing-details/{sub_id}",
+                    templateUrl: 'app/components/settings/billing_details.html',
+                    controller: 'billingDetailsController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/settingsController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Billing Details',
+                    }
+                })
+
                 .state("single_video", {
+                    cache: false,
                     url: "/video/{id}",
                     templateUrl: 'app/components/videos/single_video.html',
                     controller: 'singleVideoController',
@@ -364,6 +404,7 @@ streamViewApp
                 })
 
                 .state("trailer_video", {
+                    cache: false,
                     url: "/trailer_video/{id}",
                     templateUrl: 'app/components/videos/trailer_video.html',
                     controller: 'trailerVideoController',
@@ -382,6 +423,7 @@ streamViewApp
                 })
 
                  .state("genre_video", {
+                    cache: false,
                     url: "/genre_video/{id}",
                     templateUrl: 'app/components/videos/genre_video.html',
                     controller: 'singleVideoController',
@@ -400,6 +442,7 @@ streamViewApp
                 })
 
                 .state("static.page",{
+                    cache: false,
                     url:"/page/{id}",
                     templateUrl:'app/components/static/static.html',
                     controller: 'staticController',
@@ -413,6 +456,7 @@ streamViewApp
                 })
 
                 .state("static.social_login", {
+                    cache: false,
                     url: "/social_login/{id}/{token}",
                     controller: 'socialLoginCtrl',
                     resolve: {
