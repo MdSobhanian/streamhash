@@ -1,0 +1,140 @@
+<div class="main-content form-content bg-img" style="background-image:url({{login_bg}})">
+
+        <div class="login-form" style="padding-top: 7%">
+
+                <div class="container" style="width: 70%;">
+
+
+                	<div class="bg-white-overlay">
+
+                		<section class="invoice">
+					      <!-- title row -->
+					      <div class="row">
+					        <div class="col-xs-12">
+					          <h2 class="page-header">
+					            <i class="fa fa-globe"></i> {{site_name}}, Pay Per View.
+					            <!-- <small class="pull-right">Date: {{}}</small> -->
+					          </h2>
+					        </div>
+					        <!-- /.col -->
+					      </div>
+					      <!-- info row -->
+					      <div class="row invoice-info">
+
+					        <div class="col-sm-12 invoice-col">
+					        	<div class="pull-right">
+						          <b>Category:</b> {{video.category_name}}<br>
+						          
+						          <b>Sub Category:</b> {{video.sub_category_name}}<br>
+
+						        </div>
+					        </div>
+
+					        <div class="clearfix"></div>
+					      </div>
+
+					      <br>
+					      <!-- /.row -->
+
+					      <!-- Table row -->
+					      <div class="row">
+					        <div class="col-xs-12 table-responsive">
+					          <table class="table table-striped">
+					            <thead>
+					            <tr>
+					              <th>S.No</th>
+					              <th>Title</th>
+					              <th>User Type</th>
+					              <th>Subscription Type</th>
+					              <th>Amount</th>
+					            </tr>
+					            </thead>
+					            <tbody>
+					            <tr style="background-color: #fff !important" class="text-center">
+					              <td>1</td>
+					              <td>{{video.title}}</td>
+					              <td>
+
+					              	<span ng-if="video.type_of_user == 1">
+					              		Normal Users
+					              	</span>
+					              	<span ng-if="video.type_of_user == 2">
+					              		Paid Users
+					              	</span>
+					              	<span ng-if="video.type_of_user == 3">
+					              		Both Users
+					              	</span>
+
+					              </td>
+					              <td>	
+
+					              	<span ng-if="video.type_of_subscription == 1">
+					              		One Time Payment 
+					              	</span>
+					              	<span ng-if="video.type_of_subscription == 2">
+					              		Recurring Payment 
+					              	</span>
+
+
+					              </td>
+					              <td>$ {{video.amount}}</td>
+					            </tr>
+					            
+					            </tbody>
+					          </table>
+					        </div>
+					        <!-- /.col -->
+					      </div>
+					      <!-- /.row -->
+
+					      <div class="row">
+					        <!-- accepted payments column -->
+					        <div class="col-xs-6">
+					         
+					        </div>
+					        <!-- /.col -->
+					        <div class="col-xs-6">
+					          <p class="lead">Amount</p>
+
+					          <div class="table-responsive">
+					            <table class="table">
+					              <tr>
+					                <th style="width:50%">Subtotal:</th>
+					                <td>${{video.amount}}</td>
+					              </tr>
+					              <tr>
+					                <th>Tax</th>
+					                <td>$0</td>
+					              </tr>
+					              <tr>
+					                <th>Total:</th>
+					                <td>${{video.amount}}</td>
+					              </tr>
+					            </table>
+					          </div>
+					        </div>
+					        <!-- /.col -->
+					      </div>
+					      <!-- /.row -->
+
+					      <!-- this row will not appear when printing -->
+					      <div class="row no-print">
+					        <div class="col-xs-12">
+					    
+					          <button type="button" class="btn btn-success pull-right" ng-click="sendToPaypal(video.admin_video_id)">
+					          		<i class="fa fa-credit-card"></i> Submit Payment
+					          </button>
+					          
+					        </div>
+					      </div>
+					    </section>
+
+
+                	</div>
+
+
+                </div>
+
+        </div>
+
+</div>

@@ -36,6 +36,17 @@ angular.module('streamViewApp')
 
 					$scope.video = data;
 
+                    if ($scope.video.pay_per_view_status) {
+
+
+                    } else {
+
+                        console.log($scope.video.pay_per_view_status);
+
+                        $state.go('profile.pay_per_view', {id : $scope.video.video.admin_video_id}, {reload:true});
+
+                    }
+
 				} else {
 
 					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
@@ -93,6 +104,39 @@ angular.module('streamViewApp')
         	var video = $scope.video.main_video;
         }
 
+
+        function history() {
+            $.ajax({
+
+                type : "post",
+
+                url : apiUrl + "userApi/addHistory",
+
+                data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id, sub_profile_id:memoryStorage.sub_profile_id},
+
+                async : false,
+
+                success : function (data) {
+
+                    if (data.success) {
+                        
+
+                    } else {
+
+                        console.log('Something Went Wrong, Please Try again later');
+
+                        return false;
+                    }
+                },
+                error : function (data) {
+
+                    console.log('Something Went Wrong, Please Try again later');
+
+                },
+            });
+
+        }
+
 		playerInstance.setup({
             sources: [{
                 file: video
@@ -103,6 +147,15 @@ angular.module('streamViewApp')
             height : $scope.height,
             primary: "flash",
             autostart : true,
+
+            events : {
+
+                onComplete : function(event) { 
+
+                    history();
+
+                }
+            }
         });
 
 
@@ -139,35 +192,6 @@ angular.module('streamViewApp')
 
 		console.log($scope.video);
 
-
-		$.ajax({
-
-			type : "post",
-
-			url : apiUrl + "userApi/addHistory",
-
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id, sub_profile_id:memoryStorage.sub_profile_id},
-
-			async : false,
-
-			success : function (data) {
-
-				if (data.success) {
-					
-
-				} else {
-
-					console.log('Something Went Wrong, Please Try again later');
-
-					return false;
-				}
-			},
-			error : function (data) {
-
-				console.log('Something Went Wrong, Please Try again later');
-
-			},
-		});
 
 
 	}

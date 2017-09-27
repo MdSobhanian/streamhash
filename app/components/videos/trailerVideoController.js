@@ -13,7 +13,6 @@ angular.module('streamViewApp')
 
 		}
 
-
 		console.log($scope.trailer_video);
 
 		$scope.sub_profile_id = memoryStorage.sub_profile_id;

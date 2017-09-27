@@ -92,7 +92,7 @@
 					    <li class="divider"></li> -->
 					   <div class="notifications-wrapper">
 					   		<div ng-repeat="notification in notifications" ng-if="notifications.length > 0">
-							    <a class="content" ui-sref="single_video({id : notification.admin_video_id})">
+							    <a class="content" ui-sref="(value.pay_per_view_status) ? single_video({id : notification.admin_video_id}) : profile.pay_per_view({id : notification.admin_video_id})">
 							      
 							       <div class="notification-item">
 

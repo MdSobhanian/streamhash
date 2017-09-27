@@ -12,7 +12,6 @@ angular.module('streamViewApp')
 
 		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
-		console.log($scope.user_type);
 
 		if ($scope.user_type) {
 

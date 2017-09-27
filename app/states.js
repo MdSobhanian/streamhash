@@ -384,6 +384,25 @@ streamViewApp
                     }
                 })
 
+                .state('profile.pay_per_view', {
+                    cache: false,
+                    url: "/pay-per-view/{id}",
+                    templateUrl: 'app/components/settings/pay_per_view.html',
+                    controller: 'payPerViewController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/payPerViewController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Pay Per View Details',
+                    }
+
+                })
+
                 .state("single_video", {
                     cache: false,
                     url: "/video/{id}",

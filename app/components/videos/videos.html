@@ -26,11 +26,27 @@
 
 		        <div class="tile-details">
 
-		        	<a ui-sref="single_video({id : value.admin_video_id})">
+		        	<!-- <a ui-sref="single_video({id : value.admin_video_id})">
 			        	<div class="hover-icon" id="{{$index}}_{{$parentindex}}_div">
 		        			<i class="fa fa-play"></i>
 			        	</div>
-		        	</a>
+		        	</a> -->
+
+		        	<span ng-show="value.pay_per_view_status">
+						<a ui-sref="single_video({id : value.admin_video_id})">
+				        	<div class="hover-icon" id="{{$index}}_{{$parentindex}}_div">
+			        			<i class="fa fa-play"></i>
+				        	</div>
+			        	</a>
+					</span>
+					<span ng-hide="value.pay_per_view_status">
+						<!-- <a ui-sref="profile.pay_per_view({id : value.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a> -->
+						<a ui-sref="profile.pay_per_view({id : value.admin_video_id})">
+				        	<div class="hover-icon" id="{{$index}}_{{$parentindex}}_div">
+			        			<i class="fa fa-play"></i>
+				        	</div>
+			        	</a>
+					</span>
 
 					<div class="tile-content" id="{{subkey}}_{{$index}}_{{$parentindex}}_desc">
 			            <h3 class="tile-tit">{{value.title}}</h3>
@@ -157,7 +173,14 @@
 					    				</div>
 
 					    				<div class="play-icon-outer">
-					    					<a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
+					    					<!-- <a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a> -->
+
+					    					<span ng-show="value.pay_per_view_status">
+					    						<a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
+					    					</span>
+					    					<span ng-hide="value.pay_per_view_status">
+					    						<a ui-sref="profile.pay_per_view({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
+					    					</span>
 					    				</div>
 				    				</div>
 				    			</div>
@@ -205,9 +228,17 @@
 														</div>
 
 														<div class="epi-play-icon-outer">
-															<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon">
+															<!-- <a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon">
 																<i class="fa fa-play"></i>
-															</a>
+															</a> -->
+
+															<span ng-show="genre_list.pay_per_view_status">
+									    						<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+									    					</span>
+									    					<span ng-hide="genre_list.pay_per_view_status">
+									    						<a ui-sref="profile.pay_per_view({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+									    					</span>
+
 														</div>
 													</div>
 												</div>
@@ -332,9 +363,16 @@
 														</div>
 
 														<div class="epi-play-icon-outer">
-															<a ui-sref="single_video({id : sub_video.admin_video_id})" class="epi-play-icon">
+															<!-- <a ui-sref="single_video({id : sub_video.admin_video_id})" class="epi-play-icon">
 																<i class="fa fa-play"></i>
-															</a>
+															</a> -->
+
+															<span ng-show="sub_video.pay_per_view_status">
+									    						<a ui-sref="single_video({id : sub_video.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+									    					</span>
+									    					<span ng-hide="sub_video.pay_per_view_status">
+									    						<a ui-sref="profile.pay_per_view({id : sub_video.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+									    					</span>
 														</div>
 													</div>
 												</div>
