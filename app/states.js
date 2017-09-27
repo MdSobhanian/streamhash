@@ -491,6 +491,22 @@ streamViewApp
                 })
 
 
+
+                .state('profile.test', {
+                    cache: false,
+                    url: "/test",
+                    templateUrl: 'app/components/settings/test.html',
+
+                })
+
+                .state('profile.test_1', {
+                    cache: false,
+                    url: "/test_1",
+                    templateUrl: 'app/components/settings/test1.html',
+
+                })
+
+
             $httpProvider.interceptors.push('authInterceptor');
 
         }
