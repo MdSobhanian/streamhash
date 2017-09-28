@@ -1995,27 +1995,23 @@ width: 200px;
     overflow: hidden;
 }
 .pay-icon1{
-    color: #2885BA;
-    /*color: #b3b6b7 ;*/
+    color: #E50914 ;
     margin-right: 10px;
     font-size: 30px;
     vertical-align: -10%;
 }
 .pay-head{
-    color:#2885BA;
-    /*color: #b3b6b7 ;*/
+    color: #E50914 ;
     margin-bottom: 10px;
     padding-bottom:10px; 
-    border-bottom: 2px solid #2885BA;
-    /*border-bottom: 2px solid #b3b6b7;*/
+    border-bottom: 2px solid #E50914;
 }
 .pay-icon{
     margin-right:15px;
     color: white;
 }
 .section1{
-    background-color: #2885BA;
-    /*background-color: #b3b6b7 ;*/
+    background-color: #E50914;
     color:white;
     padding: 15px;
 }
@@ -2044,13 +2040,11 @@ width: 200px;
     margin-top: 20px;
 }
 .payment-submit{
-    background-color: #2885BA;
-    /*background-color: #008001;*/
+    background-color: #E50914;
     color:white;
     padding: 5px 20px;
     border-radius: 5px;
-    border: 1px solid #2885BA;
-    /*border:1px solid #008001;*/
+    border:1px solid #E50914;
     margin-top: 10px;
 }
 .payment-submit i{
