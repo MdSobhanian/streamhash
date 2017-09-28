@@ -502,7 +502,7 @@ streamViewApp
                 .state('profile.test_1', {
                     cache: false,
                     url: "/test_1",
-                    templateUrl: 'app/components/settings/test1.html',
+                    templateUrl: 'app/components/settings/test_1.html',
 
                 })
 

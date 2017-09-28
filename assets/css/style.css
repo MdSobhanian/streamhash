@@ -1953,7 +1953,115 @@ width: 200px;
     font-size: 20px;
 
     text-transform: uppercase;
+}
 
+/*extra small devices*/
+@media screen and (max-width: 479px) {
+.section-padding{
+    padding: 15px;
+}
+}
 
+/*small devices*/
+@media (min-width: 480px) and (max-width: 767px) {
+.section-padding{
+    padding: 25px 50px;
+}
+}
 
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+.section-padding{
+    padding: 25px;
+}
+}
+
+/* Medium Devices, */
+@media (min-width : 992px) and (max-width: 1199px){
+.section-padding{
+    padding: 50px 100px;
+}
+}
+
+/* Desktops */
+@media only screen and (min-width : 1200px) {
+.section-padding{
+    padding: 50px 100px;
+}
+}
+
+.white-bg{
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.pay-icon1{
+    color: #2885BA;
+    /*color: #b3b6b7 ;*/
+    margin-right: 10px;
+    font-size: 30px;
+    vertical-align: -10%;
+}
+.pay-head{
+    color:#2885BA;
+    /*color: #b3b6b7 ;*/
+    margin-bottom: 10px;
+    padding-bottom:10px; 
+    border-bottom: 2px solid #2885BA;
+    /*border-bottom: 2px solid #b3b6b7;*/
+}
+.pay-icon{
+    margin-right:15px;
+    color: white;
+}
+.section1{
+    background-color: #2885BA;
+    /*background-color: #b3b6b7 ;*/
+    color:white;
+    padding: 15px;
+}
+.section1-line{
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+    margin-top: 0;
+    opacity: .2;
+}
+.right{
+    margin-left: 30px;
+}
+.top{
+    margin-top: 15px !important;
+}
+.spacing{
+    padding:15px;
+}
+.table-title{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.spacing .table{
+    color: #333;
+    margin-top: 20px;
+}
+.payment-submit{
+    background-color: #2885BA;
+    /*background-color: #008001;*/
+    color:white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid #2885BA;
+    /*border:1px solid #008001;*/
+    margin-top: 10px;
+}
+.payment-submit i{
+    margin-right: 10px;
+}
+.spacing1{
+    padding: 30px;
+    color: #333;
+}
+.succes-img{
+    height: 100px;
+    width: 100px;
 }
