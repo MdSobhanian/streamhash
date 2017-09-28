@@ -403,6 +403,25 @@ streamViewApp
 
                 })
 
+                 .state('profile.pay_per_view_success', {
+                    cache: false,
+                    url: "/pay-per-view-success/{id}",
+                    templateUrl: 'app/components/settings/pay_per_view_success.html',
+                    controller: 'payPerViewSuccessController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/payPerViewController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Pay Per View Success',
+                    }
+
+                })
+
                 .state("single_video", {
                     cache: false,
                     url: "/video/{id}",

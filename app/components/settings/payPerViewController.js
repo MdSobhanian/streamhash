@@ -58,4 +58,19 @@ angular.module('streamViewApp')
 		}
 
 	}
+])
+
+
+.controller('payPerViewSuccessController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
+
+	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+
+		$rootScope.$emit('navBar', 'black-background');
+
+		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+
+		$scope.video_id = $stateParams.id;
+
+	}
 ]);
+
