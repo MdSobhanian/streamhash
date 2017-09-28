@@ -403,6 +403,25 @@ streamViewApp
 
                 })
 
+                 .state('profile.pay_per_view_success', {
+                    cache: false,
+                    url: "/pay-per-view-success/{id}",
+                    templateUrl: 'app/components/settings/pay_per_view_success.html',
+                    controller: 'payPerViewSuccessController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/payPerViewController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Pay Per View Success',
+                    }
+
+                })
+
                 .state("single_video", {
                     cache: false,
                     url: "/video/{id}",
@@ -488,22 +507,6 @@ streamViewApp
                     data: {
                         pageTitle: 'Login'
                     }
-                })
-
-
-
-                .state('profile.test', {
-                    cache: false,
-                    url: "/test",
-                    templateUrl: 'app/components/settings/test.html',
-
-                })
-
-                .state('profile.test_1', {
-                    cache: false,
-                    url: "/test_1",
-                    templateUrl: 'app/components/settings/test_1.html',
-
                 })
 
 

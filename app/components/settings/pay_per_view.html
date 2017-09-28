@@ -1,140 +1,80 @@
-<div class="main-content form-content bg-img" style="background-image:url({{login_bg}})">
+<div class="content-wrapper" style="background-image:url({{login_bg}})">
+    <div class="login-form" style="padding-top: 10%">
+        <div class="section-padding">
+        	<div class="row">
+        		<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        			<div class="white-bg">
+        				<div class="row">
+        					<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 ">
+	        					<div class="section1">
 
-        <div class="login-form" style="padding-top: 7%">
+	        						<p><i class="fa fa-suitcase pay-icon"></i>Category</p>
+	        						<p class="right"><strong>{{video.category_name}}</strong></p>
+	        						<p class="section1-line top"></p>
 
-                <div class="container" style="width: 70%;">
+	        						<p><i class="fa fa-suitcase pay-icon"></i>Sub Category</p>
+	        						<p class="right"><strong>{{video.sub_category_name}}</strong></p>
+	        						<p class="section1-line top"></p>
 
+	        						<p><i class="fa fa-file-o pay-icon"></i>Title</p>
+	        						<p class="right"><strong>{{video.title}}</strong></p>
+	        						<p class="section1-line"></p>
 
-                	<div class="bg-white-overlay">
+	        						<p><i class="fa fa-user pay-icon"></i> User Type</p>
+	        						<p class="right"><strong>
+	        								<span ng-if="video.type_of_user == 1">
+							              		Normal Users
+							              	</span>
+							              	<span ng-if="video.type_of_user == 2">
+							              		Paid Users
+							              	</span>
+							              	<span ng-if="video.type_of_user == 3">
+							              		Both Users
+							              	</span>
+	        						</strong></p>
+	        						<p class="section1-line"></p>
 
-                		<section class="invoice">
-					      <!-- title row -->
-					      <div class="row">
-					        <div class="col-xs-12">
-					          <h2 class="page-header">
-					            <i class="fa fa-globe"></i> {{site_name}}, Pay Per View.
-					            <!-- <small class="pull-right">Date: {{}}</small> -->
-					          </h2>
-					        </div>
-					        <!-- /.col -->
-					      </div>
-					      <!-- info row -->
-					      <div class="row invoice-info">
+	        						<p><i class="fa fa-hand-o-up pay-icon"></i> Subcription type</p>
+	        						<p class="right"><strong>One time payment</strong></p>
+	        						<p class="section1-line"></p>
 
-					        <div class="col-sm-12 invoice-col">
-					        	<div class="pull-right">
-						          <b>Category:</b> {{video.category_name}}<br>
-						          
-						          <b>Sub Category:</b> {{video.sub_category_name}}<br>
+	        						<p><i class="fa fa-usd pay-icon"></i> Amount</p>
+	        						<p class="right"><strong>${{video.amount}}</strong></p>
+	        						
+	        					</div>
+        					</div>
+        					<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+        						<div class="spacing">
+        							<h3 class="pay-head"><i class="fa fa-globe pay-icon1" ></i><span>Pay per view</span></h3>
+        							<h3 class="table-title">Amount</h3>
 
-						        </div>
-					        </div>
-
-					        <div class="clearfix"></div>
-					      </div>
-
-					      <br>
-					      <!-- /.row -->
-
-					      <!-- Table row -->
-					      <div class="row">
-					        <div class="col-xs-12 table-responsive">
-					          <table class="table table-striped">
-					            <thead>
-					            <tr>
-					              <th>S.No</th>
-					              <th>Title</th>
-					              <th>User Type</th>
-					              <th>Subscription Type</th>
-					              <th>Amount</th>
-					            </tr>
-					            </thead>
-					            <tbody>
-					            <tr style="background-color: #fff !important" class="text-center">
-					              <td>1</td>
-					              <td>{{video.title}}</td>
-					              <td>
-
-					              	<span ng-if="video.type_of_user == 1">
-					              		Normal Users
-					              	</span>
-					              	<span ng-if="video.type_of_user == 2">
-					              		Paid Users
-					              	</span>
-					              	<span ng-if="video.type_of_user == 3">
-					              		Both Users
-					              	</span>
-
-					              </td>
-					              <td>	
-
-					              	<span ng-if="video.type_of_subscription == 1">
-					              		One Time Payment 
-					              	</span>
-					              	<span ng-if="video.type_of_subscription == 2">
-					              		Recurring Payment 
-					              	</span>
-
-
-					              </td>
-					              <td>$ {{video.amount}}</td>
-					            </tr>
-					            
-					            </tbody>
-					          </table>
-					        </div>
-					        <!-- /.col -->
-					      </div>
-					      <!-- /.row -->
-
-					      <div class="row">
-					        <!-- accepted payments column -->
-					        <div class="col-xs-6">
-					         
-					        </div>
-					        <!-- /.col -->
-					        <div class="col-xs-6">
-					          <p class="lead">Amount</p>
-
-					          <div class="table-responsive">
-					            <table class="table">
-					              <tr>
-					                <th style="width:50%">Subtotal:</th>
-					                <td>${{video.amount}}</td>
-					              </tr>
-					              <tr>
-					                <th>Tax</th>
-					                <td>$0</td>
-					              </tr>
-					              <tr>
-					                <th>Total:</th>
-					                <td>${{video.amount}}</td>
-					              </tr>
-					            </table>
-					          </div>
-					        </div>
-					        <!-- /.col -->
-					      </div>
-					      <!-- /.row -->
-
-					      <!-- this row will not appear when printing -->
-					      <div class="row no-print">
-					        <div class="col-xs-12">
-					    
-					          <button type="button" class="btn btn-success pull-right" ng-click="sendToPaypal(video.admin_video_id)">
-					          		<i class="fa fa-credit-card"></i> Submit Payment
-					          </button>
-					          
-					        </div>
-					      </div>
-					    </section>
-
-
-                	</div>
-
-
-                </div>
-
-        </div>
-
+        							<table class="table">
+        								<tbody>
+        									<tr class="info">
+        									<!-- <tr class="active"> -->
+										        <td>Subtotal</td>
+										        <td>${{video.amount}}</td>
+										    </tr>
+										    <tr>
+										        <td>Tax</td>
+										        <td>$0.00</td>
+										    </tr>
+										    <tr class="info">
+										    <!-- <tr class="active"> -->
+										        <td>Total</td>
+										        <td>${{video.amount}}</td>
+										    </tr>
+										</tbody>
+									</table> 
+									<div class="text-right">
+										<button class="payment-submit" ng-click="sendToPaypal(video.admin_video_id)"><i class="fa fa-cc-mastercard"></i> Pay</button>
+									</div>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+       	</div>
+    </div>
 </div>
