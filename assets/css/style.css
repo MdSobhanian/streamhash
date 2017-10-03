@@ -2058,3 +2058,14 @@ width: 200px;
     height: 100px;
     width: 100px;
 }
+
+
+.video_amount {
+    background: #000;
+    opacity: 0.6;
+    padding: 3px 5px;
+    right: 3px;
+    top: 0;
+    position: absolute;
+    font-size: 8px !important;
+}
