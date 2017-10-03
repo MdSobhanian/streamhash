@@ -510,6 +510,18 @@ streamViewApp
                 })
 
 
+                .state('profile.test', {
+                    cache: false,
+                    url: "/test",
+                    templateUrl: 'app/components/settings/test.html',
+                   
+                    data: {
+                        pageTitle: 'Pay Per View Details',
+                    }
+
+                })
+
+
             $httpProvider.interceptors.push('authInterceptor');
 
         }
