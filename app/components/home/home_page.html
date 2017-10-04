@@ -41,6 +41,11 @@
 		    						</p>
 		    					</div>
 
+		    					<div class="display_amount" ng-if="recent_video.amount > 0">
+					        		<span ng-if="recent_video.pay_per_view_status">PAID</span><span ng-if="!recent_video.pay_per_view_status">PAY</span> - ${{recent_video.amount}}
+					        	</div>
+
+
 		    					<div>
 		    						<p class="content-txt overview-des">{{recent_video.description}}</p>
 
@@ -390,7 +395,7 @@
 
 					        <div class="tile-details">
 
-					        	<div class="video_amount" ng-if="value.amount">
+					        	<div class="video_amount" ng-if="value.amount > 0">
 					        		<span ng-if="value.pay_per_view_status">PAID</span><span ng-if="!value.pay_per_view_status">PAY</span> - ${{value.amount}}
 					        	</div>
 
@@ -516,6 +521,11 @@
 							    							<span>{{value.duration}}</span>
 							    						</p>
 							    					</div>
+
+							    					<div class="display_amount" ng-if="value.amount > 0">
+										        		<span ng-if="value.pay_per_view_status">PAID</span><span ng-if="!value.pay_per_view_status">PAY</span> - ${{value.amount}}
+										        	</div>
+
 
 							    					<div>
 							    						<p class="content-txt overview-des">{{value.description}}</p>

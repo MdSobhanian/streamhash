@@ -20,7 +20,7 @@
 	        </div>
 	        <div class="tile-details">
 
-	        	<div class="video_amount" ng-if="value.amount">
+	        	<div class="video_amount" ng-if="value.amount > 0">
 	        		<span ng-if="value.pay_per_view_status">PAID</span><span ng-if="!value.pay_per_view_status">PAY</span> - ${{value.amount}}
 
 	        	</div>
@@ -137,6 +137,10 @@
 			    							<span>{{value.duration}}</span>
 			    						</p>
 			    					</div>
+
+			    					<div class="display_amount" ng-if="value.amount > 0">
+						        		<span ng-if="value.pay_per_view_status">PAID</span><span ng-if="!value.pay_per_view_status">PAY</span> - ${{value.amount}}
+						        	</div>
 
 			    					<div>
 			    						<p class="content-txt overview-des">{{value.description}}</p>
