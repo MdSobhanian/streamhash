@@ -8,6 +8,13 @@
 
 <button ng-click="loadMoreDetails()" ng-hide="true" id="load_more_details"></button>
 
+
+<div class="box video-box-row" ng-if="datas.length == 0">
+
+<p>No video found</p>
+
+</div>
+
 <div class="box video-box-row" ng-repeat="video in datas" ng-init="$parentindex = $index">
 
 	<div id="{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn(this,$index, $parentindex, video.length)" ng-mouseleave="hoverOut(this, $index, $parentindex, video.length)" class="tile col-lg-3 slide-box video-box" ng-repeat="value in video">
