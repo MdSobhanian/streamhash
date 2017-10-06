@@ -111,9 +111,9 @@ angular.module('streamViewApp')
 
 
 
- playerInstance.on('error', function() {
+        playerInstance.on('error', function() {
 
-           // jQuery("#video-player").css("display", "none");
+           jQuery("#video-player").css("display", "none");
            // jQuery('#trailer_video_setup_error').hide();
            
 
@@ -143,10 +143,10 @@ angular.module('streamViewApp')
             confirm('The video format is not supported in this browser. Please option some other browser.');
         
         });
- 
+
         playerInstance.on('setupError', function() {
 
-                   // jQuery("#video-player").css("display", "none");
+                   jQuery("#video-player").css("display", "none");
                    // jQuery('#trailer_video_setup_error').hide();
                    
 
