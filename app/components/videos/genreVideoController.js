@@ -112,7 +112,7 @@ angular.module('streamViewApp')
 
          playerInstance.on('error', function() {
 
-           // jQuery("#video-player").css("display", "none");
+            jQuery("#video-player").css("display", "none");
            // jQuery('#trailer_video_setup_error').hide();
            
 
@@ -145,7 +145,7 @@ angular.module('streamViewApp')
 
         playerInstance.on('setupError', function() {
 
-           // jQuery("#video-player").css("display", "none");
+           jQuery("#video-player").css("display", "none");
            // jQuery('#trailer_video_setup_error').hide();
            
 
