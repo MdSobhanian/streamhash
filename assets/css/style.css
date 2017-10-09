@@ -2068,7 +2068,6 @@ width: 200px;
 }
 .amount-sec{
     background-color: #E50914;
-    /*background-color: #2885BA;*/
     padding: 28.5px;
     width: 150px;
     margin:-15px 0 ;
@@ -2098,7 +2097,6 @@ width: 200px;
 .text-sec a:hover, .text-sec a:focus, .text-sec a:active{
     color:#E50914;
 }
-
 
 .video_amount {
     background: #ff0000;

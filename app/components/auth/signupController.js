@@ -90,7 +90,9 @@ angular.module('streamViewApp')
 
 								UIkit.notify({message : 'Your account has been successfully Registered', timeout : 3000, pos : 'top-center', status : 'success'});
 
-								if(memoryStorage.user_type == 1) {
+								$state.go('manage-profile.view-profile',{},{reload:true});
+
+								/*if(memoryStorage.user_type == 1) {
 
 									$state.go('manage-profile.view-profile',{},{reload:true});
 
@@ -98,7 +100,7 @@ angular.module('streamViewApp')
 
 									$state.go('profile.subscriptions',{sub_id : memoryStorage.sub_profile_id},{reload:true});
 
-								}
+								}*/
 
 								
 

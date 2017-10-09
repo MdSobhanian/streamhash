@@ -8,6 +8,13 @@
 
 <button ng-click="loadMoreDetails()" ng-hide="true" id="load_more_details"></button>
 
+
+<div class="box video-box-row" ng-if="datas.length == 0">
+
+<p>No video found</p>
+
+</div>
+
 <div class="box video-box-row" ng-repeat="video in datas" ng-init="$parentindex = $index">
 
 	<div id="{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn(this,$index, $parentindex, video.length)" ng-mouseleave="hoverOut(this, $index, $parentindex, video.length)" class="tile col-lg-3 slide-box video-box" ng-repeat="value in video">
@@ -33,7 +40,7 @@
 		        	</a>
 				</span>
 				<span ng-hide="value.pay_per_view_status">
-					<a ui-sref="profile.pay_per_view({id : value.admin_video_id})">
+					<a ui-sref="profile.payment-option({id : value.admin_video_id})">
 		        		<div class="hover-icon" id="{{$index}}_{{$parentindex}}_div">
 	        			<i class="fa fa-play"></i>
 		        		</div>
@@ -179,7 +186,7 @@
 				    						<a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
 				    					</span>
 				    					<span ng-hide="value.pay_per_view_status">
-				    						<a ui-sref="profile.pay_per_view({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
+				    						<a ui-sref="profile.payment-option({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
 				    					</span>
 
 				    				</div>
@@ -238,7 +245,7 @@
 								    						<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
 								    					</span>
 								    					<span ng-hide="genre_list.pay_per_view_status">
-								    						<a ui-sref="profile.pay_per_view({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+								    						<a ui-sref="profile.payment-option({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
 								    					</span>
 													</div>
 												</div>
@@ -372,7 +379,7 @@
 								    						<a ui-sref="single_video({id : sub_video.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
 								    					</span>
 								    					<span ng-hide="sub_video.pay_per_view_status">
-								    						<a ui-sref="profile.pay_per_view({id : sub_video.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+								    						<a ui-sref="profile.payment-option({id : sub_video.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
 								    					</span>
 													</div>
 												</div>

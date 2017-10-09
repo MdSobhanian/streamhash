@@ -90,15 +90,15 @@ angular.module('streamViewApp')
 
 							// $state.go('manage-profile.view-profile',{},{reload:true});
 
-							if(memoryStorage.user_type == 1) {
+							// if(memoryStorage.user_type == 1) {
 
 								$state.go('manage-profile.view-profile',{},{reload:true});
 
-							} else {
+							/*} else {
 
 								$state.go('profile.subscriptions',{sub_id : memoryStorage.sub_profile_id},{reload:true});
 
-							}
+							}*/
 
 						} else {
 
@@ -161,9 +161,9 @@ angular.module('streamViewApp')
 					localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 
-					// $state.go('manage-profile.view-profile', {}, {reload : true});
+					$state.go('manage-profile.view-profile', {}, {reload : true});
 
-					if(memoryStorage.user_type == 1) {
+					/*if(memoryStorage.user_type == 1) {
 
 						$state.go('manage-profile.view-profile',{},{reload:true});
 
@@ -171,7 +171,7 @@ angular.module('streamViewApp')
 
 						$state.go('profile.subscriptions',{sub_id : memoryStorage.sub_profile_id},{reload:true});
 
-					}
+					}*/
 
 				},
 				error : function(data) {

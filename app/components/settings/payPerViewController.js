@@ -11,6 +11,7 @@ angular.module('streamViewApp')
 
 		$scope.user_id = (memoryStorage.user_id != undefined && memoryStorage.user_id != '') ? memoryStorage.user_id : '';
 
+
 		$.ajax({
 
 			type : "post",
@@ -60,7 +61,6 @@ angular.module('streamViewApp')
 	}
 ])
 
-
 .controller('payPerViewSuccessController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
@@ -73,4 +73,3 @@ angular.module('streamViewApp')
 
 	}
 ]);
-

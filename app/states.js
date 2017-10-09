@@ -403,7 +403,7 @@ streamViewApp
 
                 })
 
-                 .state('profile.pay_per_view_success', {
+                .state('profile.pay_per_view_success', {
                     cache: false,
                     url: "/pay-per-view-success/{id}",
                     templateUrl: 'app/components/settings/pay_per_view_success.html',
@@ -421,6 +421,26 @@ streamViewApp
                     }
 
                 })
+
+                .state('profile.payment-option', {
+                    cache: false,
+                    url: "/payment-option/{id}",
+                    templateUrl: 'app/components/settings/payment_option.html',
+                    controller: 'paymentOptionController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/paymentOptionController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Payment Option',
+                    }
+
+                })
+
 
                 .state("single_video", {
                     cache: false,

@@ -11,12 +11,11 @@ angular.module('streamViewApp')
 
 		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
-		if ($scope.user_type) {
+		/*if ($scope.user_type) {
 
 			$state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
 
-		}
-
+		}*/
 
 		$scope.height = $(window).height();
 
@@ -44,6 +43,17 @@ angular.module('streamViewApp')
                         console.log($scope.video.pay_per_view_status);
 
                         $state.go('profile.pay_per_view', {id : $scope.video.video.admin_video_id}, {reload:true});
+
+                    }
+
+
+                    if ($scope.video.pay_per_view_status && $scope.video.video.amount <= 0) {
+
+                        if ($scope.user_type) {
+
+                            $state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+
+                        }
 
                     }
 
@@ -147,7 +157,9 @@ angular.module('streamViewApp')
             height : $scope.height,
             primary: "flash",
             autostart : true,
-
+            /* "sharing": {
+                "sites": ["reddit","facebook","twitter"]
+            },*/
             events : {
 
                 onComplete : function(event) { 
@@ -155,40 +167,78 @@ angular.module('streamViewApp')
                     history();
 
                 }
+            },
+            
+        });
+
+
+        playerInstance.on('error', function() {
+
+           jQuery("#video-player").css("display", "none");
+           // jQuery('#trailer_video_setup_error').hide();
+           
+
+            var hasFlash = false;
+            try {
+                var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+                if (fo) {
+                    hasFlash = true;
+                }
+            } catch (e) {
+                if (navigator.mimeTypes
+                        && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
+                        && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
+                    hasFlash = true;
+                }
             }
+
+            console.log(hasFlash);
+
+            if (hasFlash == false) {
+                jQuery('#flash_error_display').show();
+                return false;
+            }
+
+            // jQuery('#main_video_setup_error').css("display", "block");
+
+            confirm('The video format is not supported in this browser. Please option some other browser.');
+        
         });
 
 
         playerInstance.on('setupError', function() {
 
-                   // jQuery("#video-player").css("display", "none");
-                   // jQuery('#trailer_video_setup_error').hide();
-                   
+           jQuery("#video-player").css("display", "none");
+           // jQuery('#trailer_video_setup_error').hide();
+           
 
-                    var hasFlash = false;
-                    try {
-                        var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
-                        if (fo) {
-                            hasFlash = true;
-                        }
-                    } catch (e) {
-                        if (navigator.mimeTypes
-                                && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
-                                && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
-                            hasFlash = true;
-                        }
-                    }
+            var hasFlash = false;
+            try {
+                var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+                if (fo) {
+                    hasFlash = true;
+                }
+            } catch (e) {
+                if (navigator.mimeTypes
+                        && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
+                        && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
+                    hasFlash = true;
+                }
+            }
 
-                    if (hasFlash == false) {
-                        jQuery('#flash_error_display').show();
-                        return false;
-                    }
+            if (hasFlash == false) {
+                jQuery('#flash_error_display').show();
+                return false;
+            }
 
-                    // jQuery('#main_video_setup_error').css("display", "block");
+            // jQuery('#main_video_setup_error').css("display", "block");
 
-                    confirm('The video format is not supported in this browser. Please option some other browser.');
-                
-                });
+            confirm('The video format is not supported in this browser. Please option some other browser.');
+        
+        });
+
+
+
 
 		console.log($scope.video);
 
