@@ -13,7 +13,7 @@ angular.module('streamViewApp')
 
 		/*if ($scope.user_type) {
 
-			$state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
 		}*/
 

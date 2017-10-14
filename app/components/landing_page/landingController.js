@@ -20,7 +20,7 @@ angular.module('streamViewApp')
 
 		if ($scope.user_id) {
 
-			$state.go('profile.home',{sub_id : memoryStorage.sub_profile_id},{reload:true});
+			$state.go('profile.home',{sub_profile_id : memoryStorage.sub_profile_id},{reload:true});
 
 		} else {
 

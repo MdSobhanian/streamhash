@@ -9,7 +9,7 @@ angular.module('streamViewApp')
 
 		/*if ($scope.user_type) {
 
-			$state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
 		}*/
 
@@ -106,6 +106,11 @@ angular.module('streamViewApp')
             height : $scope.height,
             primary: "flash",
             autostart : true,
+            tracks : [{
+              file : $scope.video.trailer_subtitle,
+              kind : "captions",
+              default : true,
+            }]
         });
 
 

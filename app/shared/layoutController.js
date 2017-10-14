@@ -22,14 +22,14 @@ angular.module('streamViewApp')
              $scope.black_bg = data;
         });
 
-		if ($stateParams.sub_id == undefined || $stateParams.sub_id == '') {
+		if ($stateParams.sub_profile_id == undefined || $stateParams.sub_profile_id == '') {
 
 			$scope.sub_profile_id = memoryStorage.sub_profile_id;
 
 
 		} else {	
 
-			memoryStorage.sub_profile_id = $stateParams.sub_id;
+			memoryStorage.sub_profile_id = $stateParams.sub_profile_id;
 
 			$scope.sub_profile_id = memoryStorage.sub_profile_id;
 
@@ -108,9 +108,9 @@ angular.module('streamViewApp')
 
         });  */
 
-        $scope.sub_profile_data = function(sub_id) {
+        $scope.sub_profile_data = function(sub_profile_id) {
 
-        	sub_id = sub_id ? sub_id : $scope.sub_profile_id;
+        	sub_profile_id = sub_profile_id ? sub_profile_id : $scope.sub_profile_id;
 
 			$.ajax({
 
@@ -118,7 +118,7 @@ angular.module('streamViewApp')
 
 				url : apiUrl + "userApi/view-sub-profile",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id:sub_id},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id:sub_profile_id},
 
 				async : false,
 
@@ -146,9 +146,9 @@ angular.module('streamViewApp')
 		}
 
 
-		$scope.activeProfiles = function(sub_id) {
+		$scope.activeProfiles = function(sub_profile_id) {
 
-			sub_id = sub_id ? sub_id : $scope.sub_profile_id;
+			sub_profile_id = sub_profile_id ? sub_profile_id : $scope.sub_profile_id;
 
 			$.ajax({
 
@@ -156,7 +156,7 @@ angular.module('streamViewApp')
 
 				url : apiUrl + "userApi/active-profiles",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : sub_id},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : sub_profile_id},
 
 				async : false,
 
@@ -188,13 +188,13 @@ angular.module('streamViewApp')
 
 
 
-		$rootScope.$on('activeProfiles', function(event, sub_id) {
+		$rootScope.$on('activeProfiles', function(event, sub_profile_id) {
 
-			// console.log("sub_id"+sub_id);
+			// console.log("sub_profile_id"+sub_profile_id);
 
-			 $scope.sub_profile_data(sub_id);
+			 $scope.sub_profile_data(sub_profile_id);
 
-             $scope.activeProfiles(sub_id);
+             $scope.activeProfiles(sub_profile_id);
         });
 
 		$scope.logout = function() {
@@ -236,7 +236,7 @@ angular.module('streamViewApp')
 
 				url : apiUrl + "userApi/notifications",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : $scope.sub_profile_id},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : $scope.sub_profile_id},
 
 				async : false,
 
@@ -284,7 +284,7 @@ angular.module('streamViewApp')
 
 				url : apiUrl + "userApi/red-notifications",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_id : $scope.sub_profile_id},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : $scope.sub_profile_id},
 
 				async : false,
 

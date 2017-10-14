@@ -7,7 +7,7 @@ angular.module('streamViewApp')
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
-		$scope.sub_profile_id = memoryStorage.sub_profile_id = $stateParams.sub_id;
+		$scope.sub_profile_id = memoryStorage.sub_profile_id = $stateParams.sub_profile_id;
 
 
 		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
@@ -15,14 +15,14 @@ angular.module('streamViewApp')
 
 		/*if ($scope.user_type) {
 
-			$state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
 		}*/
 
 
 		$rootScope.$emit('footerBar', false);
 
-		$rootScope.$emit('activeProfiles',$stateParams.sub_id);
+		$rootScope.$emit('activeProfiles',$stateParams.sub_profile_id);
 
 		if ($scope.user_id) {
 

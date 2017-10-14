@@ -195,7 +195,7 @@ streamViewApp
 
                 .state("profile.home", {
                     cache: false,
-                    url: "/home/{sub_id}",
+                    url: "/home/{sub_profile_id}",
                     templateUrl: 'app/components/home/home_page.html',
                     controller: 'homePageController',
                     resolve: {
@@ -274,7 +274,7 @@ streamViewApp
 
                 .state("profile.account-settings", {
                     cache: false,
-                    url: "/account-settings/{sub_id}",
+                    url: "/account-settings/{sub_profile_id}",
                     templateUrl: 'app/components/settings/account_settings.html',
                     controller: 'settingsController',
                     resolve: {
@@ -348,7 +348,7 @@ streamViewApp
 
                 .state("profile.subscriptions", {
                     cache: false,
-                    url: "/subscriptions/{sub_id}",
+                    url: "/subscriptions/{sub_profile_id}",
                     templateUrl: 'app/components/settings/subscriptions.html',
                     controller: 'subscriptionsController',
                     resolve: {
@@ -368,7 +368,7 @@ streamViewApp
 
                 .state("profile.billing-details", {
                     cache: false,
-                    url: "/billing-details/{sub_id}",
+                    url: "/billing-details/{sub_profile_id}",
                     templateUrl: 'app/components/settings/billing_details.html',
                     controller: 'billingDetailsController',
                     resolve: {

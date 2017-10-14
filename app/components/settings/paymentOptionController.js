@@ -5,7 +5,7 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('navBar', 'black-background');
 
-		$scope.sub_id = memoryStorage.sub_profile_id;
+		$scope.sub_profile_id = memoryStorage.sub_profile_id;
 
 		if(memoryStorage.user_type == 1) {
 

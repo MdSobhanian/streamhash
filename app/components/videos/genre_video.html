@@ -1,25 +1,3 @@
-<style type="text/css">
-	
-.back_button {
-
-	position: absolute;
-
-	top :6%;
-
-	left: 2%;
-
-	color: #fff;
-
-	font-size:36px;
-
-}
-
-.back_button a {
-
-	color: #fff;
-}
-
-</style>
 <div class="content" style="position: relative;">
 
 <div style="width: 90% !important;margin: 0 auto;">
@@ -40,11 +18,47 @@
 
 <div class="back_button">
 
-<a ui-sref="profile.home({sub_id : sub_profile_id})">
+<a ui-sref="profile.home({sub_profile_id : sub_profile_id})">
 
 <i class="fa fa-arrow-circle-o-left" title="Back To Home"></i>
 
 </a>
+
+</div>
+
+<div class="embed-link">
+
+	<div class="embed_icon">
+
+	<!-- <a href="{{embed_link}}" target="_blank" title="Embedded Link"> -->
+
+	<a title="Embedded Link" ng-click="showPopup();">
+
+		<i class="fa fa-link"></i>
+
+	</a>
+
+	<div class="embed_popup" ng-show="displayPopup">
+	  <div class="new_way">
+	  		
+	  		<input type="text" name="embed_link" ng-model="embed_link" class="form-control" id="embed_link">
+
+	  		<br>
+
+	  		<div class="row text-center">
+
+	  			<button type="button" class="btn btn-success btn-sm" title="Copy Link" ng-click="copyFromTextBox()">Copy</button>
+
+	  			<button type="button" class="btn btn-danger btn-sm" title="Cancel" ng-click="closePopup()">Cancel</button>
+
+	  		</div>
+
+	  </div>
+	</div>
+
+	
+
+	</div>
 
 </div>
 

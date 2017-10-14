@@ -410,7 +410,7 @@ angular.module('streamViewApp')
 
 			url : apiUrl + "userApi/view-sub-profile",
 
-			data : {sub_id : $stateParams.id, id : memoryStorage.user_id, token :memoryStorage.access_token},
+			data : {sub_profile_id : $stateParams.id, id : memoryStorage.user_id, token :memoryStorage.access_token},
 
 			async : false,
 
@@ -515,7 +515,7 @@ angular.module('streamViewApp')
 
 				url : apiUrl + "userApi/delete-sub-profile",
 
-				data : {sub_id : id, id : memoryStorage.user_id, token : memoryStorage.access_token},
+				data : {sub_profile_id : id, id : memoryStorage.user_id, token : memoryStorage.access_token},
 
 				async : false,
 

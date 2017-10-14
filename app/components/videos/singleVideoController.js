@@ -5,6 +5,50 @@ angular.module('streamViewApp')
 
 		$scope.video = '';
 
+		$scope.displayPopup = false;
+
+		$scope.showPopup = function() {
+
+			$scope.displayPopup = true;
+
+		}
+
+		$scope.closePopup = function() {
+
+			$scope.displayPopup = false;
+
+		}
+
+
+		function copyTextToClipboard(text) {
+
+		   var textArea = document.createElement( "textarea" );
+		   textArea.value = text;
+		   document.body.appendChild( textArea );
+
+		   textArea.select();
+
+		   $("#embed_link").select();
+
+		   try {
+		      var successful = document.execCommand( 'copy' );
+		      var msg = successful ? 'successful' : 'unsuccessful';
+		      console.log('Copying text command was ' + msg);
+		   } catch (err) {
+		      console.log('Oops, unable to copy');
+		   }
+
+		   document.body.removeChild( textArea );
+		}
+
+		$scope.copyFromTextBox = function() {
+
+			var embed_link = $("#embed_link").val();
+
+			copyTextToClipboard(embed_link);
+
+		};
+
 		console.log($scope.video);
 
 		$scope.sub_profile_id = memoryStorage.sub_profile_id;
@@ -13,7 +57,7 @@ angular.module('streamViewApp')
 
 		/*if ($scope.user_type) {
 
-			$state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
 		}*/
 
@@ -51,7 +95,7 @@ angular.module('streamViewApp')
 
                         if ($scope.user_type) {
 
-                            $state.go('profile.subscriptions', {sub_id : memoryStorage.sub_profile_id}, {reload:true});
+                            $state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
                         }
 
@@ -168,6 +212,11 @@ angular.module('streamViewApp')
 
                 }
             },
+            tracks : [{
+              file : $scope.video.video_subtitle,
+              kind : "captions",
+              default : true,
+            }]
             
         });
 
