@@ -9,7 +9,7 @@
 			    <div class="overview tab-section">
 		    		
 	    			<div class="tab-section-content row no-margin">
-		    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad">
+		    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 hidden-xs no-pad">
 		    				<div class="overview-details">
 		    					<h3 class="content-tit">{{recent_video.title}}</h3>
 
@@ -66,7 +66,7 @@
 		    				</div>
 		    			</div>
 
-		    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-pad">
+		    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
 		    				<div class="linear-outer">
 		    					<div class="linear">
 		    					</div>
@@ -350,7 +350,7 @@
 			<!-- DETAILS-SECTION END -->
 		</div>
 
-		<div class="drop-tab">
+		<div class="drop-tab hidden-xs">
 
 			<ul class="nav nav-tabs" role="tablist">
 			    <li role="presentation" class="active">
@@ -383,7 +383,7 @@
 	            <a ui-sref="profile.title({title : data.key})"><h3 ng-mouseover="showArrow($keyindex)" ng-mouseleave="hideArrow($keyindex)">{{data.name}}&nbsp;&nbsp;<i class="fa fa-angle-right" style="display: none" id="{{$keyindex}}"></i></h3></a>
 	        </div>
 			<div class="box video-box-row">
-				<slick slides-to-show=5 slides-to-scroll=5 init-onload=true data="data.list" class="slider multiple-items">
+				<slick slides-to-show="{{slide_to_show}}" slides-to-scroll=="{{slide_to_scroll}}" init-onload=true data="data.list" class="slider multiple-items">
 
 					<div id="{{$index}}_{{data.key}}" ng-mouseover="hoverIn(this, $index, data.key, data.list.length)" ng-mouseleave="hoverOut(this, $index, data.key, data.list.length)" class="slide-box tile video-box" ng-repeat="value in data.list">
 
@@ -490,7 +490,7 @@
 				    					</div>
 							    		
 						    			<div class="tab-section-content row no-margin">
-							    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad">
+							    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad hidden-xs">
 							    				<div class="overview-details">
 							    					<h3 class="content-tit">{{value.title}}</h3>
 
@@ -551,7 +551,7 @@
 							    				</div>
 							    			</div>
 
-							    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-pad">
+							    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
 							    				<div class="linear-outer">
 							    					
 							    					<div class="linear">
@@ -836,7 +836,7 @@
 								<!-- DETAILS-SECTION END -->
 					</div>
 
-					<div class="drop-tab">
+					<div class="drop-tab hidden-xs">
 
 								<ul class="nav nav-tabs" role="tablist">
 								    <li role="presentation" class="active">

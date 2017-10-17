@@ -9,11 +9,18 @@
       </div>
 
       <div class="footer row no-margin">
-         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" ng-repeat="pages in allPages" >
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" ng-repeat="pages in allPages" >
           <div class="">
             <a ui-sref="static.page({id : page.type})" class="foot-link" ng-repeat="page in pages" style="text-transform: capitalize;">{{page.type}}</a>
           </div>
         </div>
+        <!-- <div ng-repeat="pages in allPages">
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" >
+            <div class="">
+              <a ui-sref="static.page({id : page.type})" class="foot-link" ng-repeat="page in pages" style="text-transform: capitalize;">{{page.type}}</a>
+            </div>
+          </div>
+        </div> -->
 
        <!--  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
           <div class="">

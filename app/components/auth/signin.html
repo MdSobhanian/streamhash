@@ -2,14 +2,6 @@
 	<nav class="navbar navbar-default form-navbar" role="navigation">
 		<div class="container">
 			<div class="navbar-header form-header">
-				 
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button> 
-
 				<a class="navbar-brand" ui-sref="static.index">
 					<img ng-src="{{site_logo.value}}">
 				</a>
@@ -54,7 +46,6 @@
 							</a>
 						</div> -->
 
-						<br>
 
 						<div class="social-login" ng-show="fb_status || google_status">
 	                        <form method="POST" action="{{socialUrl}}" ng-show="google_status">
@@ -71,13 +62,13 @@
 
 
 
-						<div class="pull-left">
+						<div class="pull-left1">
 							<div class="form-txt-block">
 								<p class="form-txt">New to {{site_name}}? <a ui-sref="static.signup" class="form-link">Sign up now.</a></p>
 							</div>
 						</div>
 
-						<div class="pull-right">
+						<div class="pull-right1">
 
 							<div class="forgot form-txt-block">
 								<a ui-sref="static.forgot" class="form-link">Forgot Password?</a>

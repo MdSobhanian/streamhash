@@ -1,0 +1,586 @@
+/*extra small devices*/
+@media screen and (max-width: 479px) {
+.section-padding{
+    padding: 15px;
+}
+.basic-title{
+  color: #fff;
+  font-size: 3em;
+  margin: 0 0 .2em;
+  line-height: 1em;
+  font-weight: 700;
+}
+.basic-para{
+  letter-spacing: .2px;
+  padding: 0 10px;
+  font-size: 1em;
+  text-transform: uppercase;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+.join-free{
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  background-color: #E50914;
+  color: #fff;
+  padding: 1em 1.2em;
+  width: 250px;
+  min-height: 44px;
+  font-weight: 400;
+  letter-spacing: 1.9px;
+  font-size: 14px;
+  margin: .5em .5em .5em 0;
+  border-radius: 4px;
+  line-height: 1em;
+}
+.basic-tabs .nav-tabs li{
+  width: 100%;
+}
+.basic-row{
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100%;
+  max-width: 1400px;
+}
+.basic-section{
+  margin-top: 0px;
+}
+.form-signup-google .btn {
+    background-color: #dc4e41;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+    width: 100%;
+}
+.form-signup-facebook .btn {
+    background-color: #3b5998;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+    width:100%;
+}
+.social-login{
+  text-align: center;
+}
+.pull-left1{
+  text-align: center;
+}
+.pull-right1{
+  text-align: center;
+}
+.list-profiles .profile-gate-label {
+    width: 100%;
+    color: #fff;
+    font-size: 2.5em;
+}
+.highlight-img{
+    height: 250px;
+    background-position: center 10%;
+    width: 100%;
+}
+.highlight{
+  position: relative;
+  height: 265px;
+}
+.header_section {
+    padding: 0px;
+    width: 100%;
+}
+.navbar-default{
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
+  background: rgba(0,0,0,.7) !important;
+}
+}
+
+/*small devices*/
+@media (min-width: 480px) and (max-width: 767px) {
+.section-padding{
+    padding: 25px 50px;
+}
+.basic-title{
+  color: #fff;
+  font-size: 3.6em;
+  margin: 0 0 .2em;
+  line-height: 1em;
+  font-weight: 700;
+}
+.basic-para{
+  letter-spacing: .2px;
+  padding: 0 10px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+.join-free{
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  background-color: #E50914;
+  color: #fff;
+  padding: 1.3em 1.6em;
+  width: 250px;
+  min-height: 44px;
+  font-weight: 400;
+  letter-spacing: 1.9px;
+  font-size: 14px;
+  margin: .5em .5em .5em 0;
+  border-radius: 4px;
+  line-height: 1em;
+}
+.basic-tabs .nav-tabs li{
+  width: 33%;
+}
+.basic-row{
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100  %;
+  max-width: 1400px;
+}
+.basic-section{
+  margin-top: 0px;
+}
+.form-signup-google .btn {
+    background-color: #dc4e41;
+    float: left;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.form-signup-facebook .btn {
+    background-color: #3b5998;
+    float: right;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.pull-left1{
+  float: left;
+}
+.pull-right1{
+  float: right;
+}
+.list-profiles .profile-gate-label {
+    width: 100%;
+    color: #fff;
+    font-size: 3em;
+}
+.highlight-img{
+    height: 350px;
+    background-position: center 10%;
+    width: 100%;
+}
+.highlight{
+  position: relative;
+  height: 365px;
+}
+.header_section {
+    padding: 0px;
+    width: 100%;
+}
+.navbar-default{
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
+  background: rgba(0,0,0,.7) !important;
+}
+
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+.section-padding{
+    padding: 25px;
+}
+.basic-title{
+  color: #fff;
+  font-size: 4.6em;
+  margin: 0 0 .2em;
+  line-height: 1em;
+  font-weight: 700;
+}
+.basic-para{
+  letter-spacing: .2px;
+  padding: 0 10px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+.join-free{
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  background-color: #E50914;
+  color: #fff;
+  padding: 1.3em 1.6em;
+  width: 250px;
+  min-height: 44px;
+  font-weight: 400;
+  letter-spacing: 1.9px;
+  font-size: 14px;
+  margin: .5em .5em .5em 0;
+  border-radius: 4px;
+  line-height: 1em;
+}
+.basic-tabs .nav-tabs li{
+  width: 33%;
+}
+.basic-row{
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100%;
+  max-width: 1400px;
+}
+.basic-section{
+  margin-top: 70px;
+}
+.form-signup-google .btn {
+    background-color: #dc4e41;
+    float: left;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.form-signup-facebook .btn {
+    background-color: #3b5998;
+    float: right;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.pull-left1{
+  float: left;
+}
+.pull-right1{
+  float: right;
+}
+.list-profiles .profile-gate-label {
+    width: 100%;
+    color: #fff;
+    font-size: 3.5em;
+}
+.highlight-img{
+    height: 500px;
+    background-position: center 10%;
+    width: 100%;
+}
+.highlight{
+  position: relative;
+  min-height: 500px;
+}
+.header_section {
+    padding: 0 45px;
+    width: 100%;
+}
+.navbar-default{
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
+}
+}
+
+/* Medium Devices, */
+@media (min-width : 992px) and (max-width: 1199px){
+.section-padding{
+    padding: 50px 100px;
+}
+.basic-title{
+  color: #fff;
+  font-size: 4.6em;
+  margin: 0 0 .2em;
+  line-height: 1em;
+  font-weight: 700;
+}
+.basic-para{
+  letter-spacing: .2px;
+  padding: 0 10px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+.join-free{
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  background-color: #E50914;
+  color: #fff;
+  padding: 1.3em 1.6em;
+  width: 250px;
+  min-height: 44px;
+  font-weight: 400;
+  letter-spacing: 1.9px;
+  font-size: 14px;
+  margin: .5em .5em .5em 0;
+  border-radius: 4px;
+  line-height: 1em;
+}
+.basic-tabs .nav-tabs li{
+  width: 33%;
+}
+.basic-row{
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100%;
+  max-width: 1400px;
+}
+.basic-section{
+  margin-top: 70px;
+}
+.form-signup-google .btn {
+    background-color: #dc4e41;
+    float: left;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.form-signup-facebook .btn {
+    background-color: #3b5998;
+    float: right;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.pull-left1{
+  float: left;
+}
+.pull-right1{
+  float: right;
+}
+.list-profiles .profile-gate-label {
+    width: 100%;
+    color: #fff;
+    font-size: 3.5em;
+}
+.highlight-img{
+    height: 500px;
+    background-position: center 10%;
+    width: 100%;
+}
+.highlight{
+  position: relative;
+  min-height: 500px;
+}
+.header_section {
+    padding: 0 45px;
+    width: 100%;
+}
+.navbar-default{
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
+}
+}
+
+/* Desktops */
+@media only screen and (min-width : 1200px) {
+.section-padding{
+    padding: 50px 100px;
+}
+.basic-title{
+  color: #fff;
+  font-size: 4.6em;
+  margin: 0 0 .2em;
+  line-height: 1em;
+  font-weight: 700;
+}
+.basic-para{
+  letter-spacing: .2px;
+  padding: 0 10px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+.join-free{
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  background-color: #E50914;
+  color: #fff;
+  padding: 1.3em 1.6em;
+  width: 250px;
+  min-height: 44px;
+  font-weight: 400;
+  letter-spacing: 1.9px;
+  font-size: 14px;
+  margin: .5em .5em .5em 0;
+  border-radius: 4px;
+  line-height: 1em;
+}
+.basic-tabs .nav-tabs li{
+  width: 33%;
+}
+.basic-row{
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 70%;
+  max-width: 1400px;
+}
+.basic-section{
+  margin-top: 70px;
+}
+.form-signup-google .btn {
+    background-color: #dc4e41;
+    float: left;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.form-signup-facebook .btn {
+    background-color: #3b5998;
+    float: right;
+    font-size: 12px;
+    text-transform: inherit;
+    width: auto;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+.pull-left1{
+  float: left;
+}
+.pull-right1{
+  float: right;
+} 
+.list-profiles .profile-gate-label {
+    width: 100%;
+    color: #fff;
+    font-size: 3.5em;
+}
+.highlight-img{
+    height: 500px;
+    background-position: center 10%;
+    width: 100%;
+}
+.highlight{
+  position: relative;
+  min-height: 500px;
+}
+.header_section {
+    padding: 0 45px;
+    width: 100%;
+}
+.navbar-default{
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
+}
+}
+

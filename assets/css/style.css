@@ -16,7 +16,29 @@ body{
 	color: #fff;
     height: 100%
 }
-
+p, h1,h2,h3,h4,h5,h6{
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+a {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    text-decoration: none !important;
+}
+img {
+    -webkit-transition: 0.4s ease-in-out;
+    -moz-transition: 0.4s ease-in-out;
+    -ms-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    display: inline-block !important;
+}
 .push {
     height: 150px;
 }
@@ -105,18 +127,6 @@ input:focus,textarea:focus{
 .navbar-brand img{
 	height: 40px;
 }
-.header_section {
-    padding: 0 45px;
-    width: 100%;
-}
-
-.navbar-default{
-	border-radius: 0;
-	background: transparent;
-	border: none;
-	margin-bottom: 0;
-}
-
 .scroll{
     background: rgba(0,0,0,.7);
 }
@@ -415,12 +425,6 @@ input:focus,textarea:focus{
 	animation-direction: alternate;
 }
 
-.highlight-img{
-    height: 500px;
-    background-position: center 10%;
-    width: 100%;
-}
-
 .rotate-img{
 	
 }
@@ -492,12 +496,6 @@ input:focus,textarea:focus{
 .bold{
 	font-weight: bold;
 }
-
-.highlight{
-	position: relative;
-	min-height: 500px;
-}
-
 .drop-tab{
 	position: absolute;
     bottom: 0;
@@ -1277,13 +1275,6 @@ landing-page css
   float: left;
 }
 
-.basic-title{
-  color: #fff;
-  font-size: 4.6em;
-  margin: 0 0 .2em;
-  line-height: 1em;
-  font-weight: 700;
-}
 
 .logo img{
   width: auto;
@@ -1293,6 +1284,7 @@ landing-page css
 
 .signin{
   float: right;
+  margin-top: 10px;
 }
 
 .signin a{
@@ -1321,36 +1313,13 @@ landing-page css
 }
 
 .text-wrap{
-  margin-top: 25%;
+  /*margin-top: 25%;*/
   /*position: absolute;*/
+  height:600px;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
 }
-
-.basic-para{
-  letter-spacing: .2px;
-  padding: 0 10px;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  line-height: 23px;
-  margin-bottom: 20px;
-}
-
-.join-free{
-  display: block;
-  padding: 10px;
-  text-transform: uppercase;
-  background-color: #E50914;
-  color: #fff;
-  padding: 1.3em 1.6em;
-  width: 250px;
-  min-height: 44px;
-  font-weight: 400;
-  letter-spacing: 1.9px;
-  font-size: 14px;
-  margin: .5em .5em .5em 0;
-  border-radius: 4px;
-  line-height: 1em;
-}
-
 .join-free:hover,
 .join-free:active,
 .join-free:focus{
@@ -1385,16 +1354,13 @@ landing-page css
   border-color: transparent;
 }
 
-.basic-tabs .nav-tabs li{
-  width: 33%;
-}
-
 .basic-tabs .nav-tabs li>a{
   color: #777;
   background-color: #141414;
   font-size: 16px;
   font-weight: 700;
   border-color: transparent;
+  outline: none;
 }
 
 .basic-tabs .nav-tabs>li.active>a,
@@ -1411,35 +1377,26 @@ landing-page css
   text-align: left;
   margin-bottom: 20px;
 }
-
-.basic-section{
-  margin-top: 70px;
-}
-
-.basic-row{
-  margin: 0 auto;
-  padding: 40px 0;
-  width: 70%;
-  max-width: 1400px;
-}
-
 .cancel-image img{
   width: auto;
-  height: 300px;
+  height:auto;
+  max-width: 100%;
 }
 
 .device-join-txt{
     font-size: 19px;
     margin-bottom: 0;
+    margin-top: 10px;
 }
 
 .device-join{
-    padding: 45px 0;
+    padding:40px 0 50px 0;
 }
 
 .device-join-link{
     background: #E50914;
     padding: 10px 20px;
+    margin-top: 10px;
     margin-left: 20px;
     display: inline-block;
     color: #fff;
@@ -1477,7 +1434,7 @@ landing-page css
 }
 
 .price-head{
-    padding: 30px 0;
+    padding: 50px 0;
 }
 
 .price-link{
@@ -1653,48 +1610,14 @@ color: white;
 border-radius: 2px;
 text-decoration: none;
 }
-
-.form-signup-google .btn {
-    background-color: #dc4e41;
-    float: left;
-    font-size: 12px;
-    text-transform: inherit;
-    width: auto;
-    border: medium none;
-    border-radius: 0;
-    color: #fff;
-    display: inline-block;
-    font-family: "Montserrat",sans-serif;
-    font-weight: normal;
-    line-height: 40px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
+.clear-both{
+    clear: both;
 }
-
 
 .form-signup-google .btn i, .form-signup-facebook .btn i {
     font-size: 16px;
     padding-right: 10px;
     vertical-align: middle;
-}
-
-.form-signup-facebook .btn {
-    background-color: #3b5998;
-    float: right;
-    font-size: 12px;
-    text-transform: inherit;
-    width: auto;
-    border: medium none;
-    border-radius: 0;
-    color: #fff;
-    display: inline-block;
-    font-family: "Montserrat",sans-serif;
-    font-weight: normal;
-    line-height: 40px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
 }
 .form-signup-google .btn i, .form-signup-facebook .btn i {
     font-size: 16px;
@@ -1925,9 +1848,9 @@ overflow: hidden;
 }
 
 .navbar-brand {
-    float: left;
+float: left;
 height: 50px;
-padding: 10px 0px 0px 0px;
+padding: 10px 0px 0px 15px;
 font-size: 18px;
 line-height: 20px;
 width: 200px;
@@ -1955,40 +1878,6 @@ width: 200px;
     text-transform: uppercase;
 }
 
-/*extra small devices*/
-@media screen and (max-width: 479px) {
-.section-padding{
-    padding: 15px;
-}
-}
-
-/*small devices*/
-@media (min-width: 480px) and (max-width: 767px) {
-.section-padding{
-    padding: 25px 50px;
-}
-}
-
-/* Tablets */
-@media (min-width: 768px) and (max-width: 991px) {
-.section-padding{
-    padding: 25px;
-}
-}
-
-/* Medium Devices, */
-@media (min-width : 992px) and (max-width: 1199px){
-.section-padding{
-    padding: 50px 100px;
-}
-}
-
-/* Desktops */
-@media only screen and (min-width : 1200px) {
-.section-padding{
-    padding: 50px 100px;
-}
-}
 
 .white-bg{
     background-color: white;
