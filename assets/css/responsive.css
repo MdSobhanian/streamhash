@@ -111,10 +111,14 @@
 }
 .navbar-default{
   border-radius: 0;
-  background: transparent;
   border: none;
   margin-bottom: 0;
-  background: rgba(0,0,0,.7) !important;
+  background: rgba(0,0,0,.8) !important;
+}
+.tab-section{
+  height: 250px;
+    background-position: center;
+    width: 100%;
 }
 }
 
@@ -228,12 +232,15 @@
 }
 .navbar-default{
   border-radius: 0;
-  background: transparent;
   border: none;
   margin-bottom: 0;
-  background: rgba(0,0,0,.7) !important;
+  background: rgba(0,0,0,.8) !important;
 }
-
+.tab-section{
+  height: 350px;
+    background-position: center;
+    width: 100%;
+}
 }
 
 /* Tablets */
@@ -349,6 +356,11 @@
   background: transparent;
   border: none;
   margin-bottom: 0;
+}
+.tab-section{
+  height: 500px;
+    background-position: center;
+    width: 100%;
 }
 }
 
@@ -466,6 +478,11 @@
   border: none;
   margin-bottom: 0;
 }
+.tab-section{
+  height: 500px;
+    background-position: center;
+    width: 100%;
+}
 }
 
 /* Desktops */
@@ -581,6 +598,11 @@
   background: transparent;
   border: none;
   margin-bottom: 0;
+}
+.tab-section{
+    height: 500px;
+    background-position: center;
+    width: 100%;
 }
 }
 

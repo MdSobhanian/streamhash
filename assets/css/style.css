@@ -143,7 +143,12 @@ input:focus,textarea:focus{
     color: #E50914;	
 	font-weight: bold;
 }
-
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:active, .navbar-default .navbar-toggle:focus{
+    background-color: transparent;
+}
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: #ddd;
+}
 .mega-dropdown {
     position: static !important;
     padding-top: 10px;
@@ -668,12 +673,6 @@ input:focus,textarea:focus{
 }
 
 /*episode section*/
-
-.tab-section{
-	height: 500px;
-    background-position: center;
-    width: 100%;
-}
 
 .tab-overlay{
 	position: absolute;
@@ -1986,7 +1985,9 @@ width: 200px;
 .text-sec a:hover, .text-sec a:focus, .text-sec a:active{
     color:#E50914;
 }
-
+.card-list{
+    padding: 0;
+}
 .video_amount {
     background: #ff0000;
     opacity: 0.6;
