@@ -20,6 +20,42 @@ angular.module('streamViewApp')
 		}*/
 
 
+
+		$scope.window_width = $(window).width();
+
+        if ($scope.window_width > 991) {
+
+            $scope.slide_to_show = 5;
+
+            $scope.slide_to_scroll = 5;
+
+        }
+
+         if ($scope.window_width > 767 && $scope.window_width < 992) {
+
+        $scope.slide_to_show = 4;
+
+        $scope.slide_to_scroll = 4;
+
+        }  
+
+        if ($scope.window_width > 479 && $scope.window_width < 768) {
+
+        $scope.slide_to_show = 3;
+
+        $scope.slide_to_scroll = 3;
+
+        }  
+
+        if ($scope.window_width < 480) {
+
+        $scope.slide_to_show = 2;
+
+        $scope.slide_to_scroll = 2;
+
+        }    
+
+
 		$rootScope.$emit('footerBar', false);
 
 		$rootScope.$emit('activeProfiles',$stateParams.sub_profile_id);

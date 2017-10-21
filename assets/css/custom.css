@@ -95,7 +95,7 @@
     color: grey;
     display: block;
     text-align: center;
-    font-size: 1.3vw;
+    font-size: 1.3em;
     margin: .8em 0;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
@@ -110,7 +110,7 @@
 .profile-button {
     display: block;
     margin: 2em 0 1em 0;
-    font-size: 1.3vw;
+    font-size: 1.3em;
 }
 
 .profile-button a, .profile-button span {
@@ -132,13 +132,6 @@
 .list-profiles {
     max-width: 100%;
 }
-
-.list-profiles .profile-gate-label {
-    width: 100%;
-    color: #fff;
-    font-size: 3.5vw;
-}
-
 .list-profiles .choose-profile, .list-profiles .profile-gate-label {
     opacity: 1;
     -webkit-transition: opacity .4s ease-out;
@@ -217,7 +210,7 @@
     color: grey;
     display: block;
     text-align: center;
-    font-size: 1.3vw;
+    font-size: 1.3em;
     margin: .8em 0;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
