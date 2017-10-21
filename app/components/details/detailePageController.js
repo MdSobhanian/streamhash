@@ -10,6 +10,8 @@ angular.module('streamViewApp')
 
 		$anchorScroll();
 
+		$scope.title = $stateParams.title;
+
 
 		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
