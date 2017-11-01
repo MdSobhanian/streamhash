@@ -474,6 +474,8 @@ angular.module('streamViewApp')
 
 								memoryStorage.no_of_account = data.plan.no_of_account;
 
+								memoryStorage.access_token = data.user.token; 
+
 								$scope.one_time_subscription = memoryStorage.one_time_subscription;
 
 								localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
