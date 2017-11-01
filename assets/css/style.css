@@ -128,7 +128,7 @@ input:focus,textarea:focus{
 	height: 40px;
 }
 .scroll{
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.7) !important;
 }
 
 .navbar-default .navbar-nav>li>a{
@@ -1046,7 +1046,12 @@ input:focus,textarea:focus{
     overflow: hidden;
     text-transform: capitalize;
 }
+.browse-icon{
+    font-size: 35px;
+    margin-top: -25px;
+    margin-left: 15px;
 
+}
 .video-season{
     font-size: 7px;
     margin-top: 2px;
@@ -1486,7 +1491,7 @@ footer{
 }
 
 .black-background{
-    background-color: #000;
+    background-color: #000 !important;
 }
 
 .account-header{
@@ -1854,9 +1859,16 @@ font-size: 18px;
 line-height: 20px;
 width: 200px;
 }
-
-
-
+.navbar-brand1 {
+float: left;
+height: 50px;
+padding: 10px 0px 0px 15px;
+width:auto;
+}
+.navbar-brand1 img{
+   width: 100%;
+   height: 100%;
+}
 .bg-white-overlay {
 
     background: #fff;
@@ -2005,4 +2017,46 @@ width: 200px;
     width: 100px;
     text-align: center;
     margin-bottom: 8PX;
+}
+.search-icon1{
+    color:white;
+    vertical-align: 22%;
+    font-size: 24px;
+}
+.search-section{
+    background: rgba(0,0,0,.8);
+    text-align: center;
+    padding:15px;
+    display: none;
+}
+.search-section form{
+    width:85%;
+    margin:0 auto; 
+}
+.search-section input{
+    border-color:white !important;
+    background: black;
+    border-radius: 0;
+    height: 35px;
+    border-right:0;
+}
+.search-section input:focus{
+    box-shadow: none !important;
+    border-color: white !important;
+}
+.search-section .input-group-btn button{
+    background-color: black;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 0;
+    border-left: 0;
+}
+.search-section .input-group-btn button i {
+    color:white;
+}
+.top-close-icon{
+    float: right;
+    font-size: 22px;
+    margin-top: -32px;
+    color:  #fff !important;
 }
