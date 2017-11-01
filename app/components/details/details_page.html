@@ -11,7 +11,11 @@
 
 <div class="box video-box-row" ng-if="datas.length == 0">
 
-<p>No video found</p>
+<p ng-if="title == 'wishlist'">You have not added any video to wishlist Yet</p>
+
+<p ng-if="title == 'watchlist'"> You haven’t watched anything yet</p>
+
+<p ng-if="title != 'watchlist' && title != 'wishlist'">No videos found</p>
 
 </div>
 

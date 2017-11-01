@@ -1324,6 +1324,35 @@ landing-page css
   /*justify-content: center;*/
   align-items: center;
 }
+
+
+.basic-para{
+  letter-spacing: .2px;
+  padding: 0 10px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+
+.join-free{
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  background-color: #E50914;
+  color: #fff;
+  padding: 1.3em 1.6em;
+  width: 270px;
+  min-height: 44px;
+  font-weight: 400;
+  letter-spacing: 1.9px;
+  font-size: 14px;
+  margin: .5em .5em .5em 0;
+  border-radius: 4px;
+  line-height: 1em;
+}
+
+
 .join-free:hover,
 .join-free:active,
 .join-free:focus{

@@ -466,3 +466,81 @@
     margin-right: 3px;
 
 }
+
+.back_button {
+
+    position: absolute;
+
+    top :6%;
+
+    left: 2%;
+
+    color: #fff;
+
+    font-size:36px;
+
+}
+
+.back_button a {
+
+    color: #fff;
+}
+
+.embed-link {
+
+
+    position: absolute;
+
+    right: 1%;
+
+    bottom: 0;
+
+    color: #fff;
+
+    font-size:36px;
+
+}
+
+.embed-link a {
+
+    color: #fff;
+    cursor: pointer;
+}
+
+.new_way {
+  position: relative;
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+}
+
+.new_way::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: calc(92% - 10px);
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  
+  /* The points are: left top, right top, center bottom */
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.embed_icon{
+
+    position: relative;
+
+}
+
+.embed_popup {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 60px;
+}
