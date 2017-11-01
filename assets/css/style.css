@@ -165,7 +165,7 @@ input:focus,textarea:focus{
     border-top: 2px solid #fff;
 }
 .open .dropdown-menu{
-    height:200px !important;
+    max-height:300px !important;
     overflow-y: auto !important;
 }
 .navbar-nav>li>.dropdown-menu:after {
