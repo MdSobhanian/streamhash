@@ -139,7 +139,7 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     position: absolute !important;
-    height:350px !important;
+    height:200px !important;
     overflow-y: auto !important;
 }
 .border-right{
@@ -306,7 +306,7 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     position: absolute !important;
-    height:350px !important;
+    height:200px !important;
     overflow-y: auto !important;
 }
 .border-right{
