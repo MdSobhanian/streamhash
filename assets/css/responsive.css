@@ -139,6 +139,8 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     position: absolute !important;
+    height:350px !important;
+    overflow-y: auto !important;
 }
 .border-right{
   border-right: 0 !important;
@@ -304,6 +306,8 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     position: absolute !important;
+    height:350px !important;
+    overflow-y: auto !important;
 }
 .border-right{
   border-right: 0 !important;

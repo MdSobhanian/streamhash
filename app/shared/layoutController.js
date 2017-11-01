@@ -2,8 +2,23 @@ angular.module('streamViewApp')
 .controller('main_headerCtrl', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams','$location', '$interval',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams,$location,$interval) {
+			
+				$scope.searchShow = function() {
 
-		// $scope.settings = $rootScope.site_settings;
+					// alert("showing");
+
+					$("#header-section").slideUp();
+					$("#top-search-section").slideDown();
+				}
+
+				$scope.hideSearch = function() {
+					// alert("Hiding");
+					$("#top-search-section").slideUp();
+					$("#header-section").slideDown();
+					
+				}
+	  		
+		$scope.settings = $rootScope.site_settings;
 
 		/*$scope.site_settings = ($rootScope.site_settings) ? (($rootScope.site_settings[2] != undefined) ? $rootScope.site_settings[2]  : '' ): '';
     	$scope.site_name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0]  : '' ): '';
