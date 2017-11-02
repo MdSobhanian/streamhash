@@ -1189,7 +1189,7 @@ login css
 
 .form-content{
    /* background-image: url(../img/login-bg.jpg);*/
-    min-height: 700px;
+    min-height: 750px;
 }
 
 .login-form-inner{
@@ -2091,4 +2091,95 @@ width:56px;
     font-size: 22px;
     margin-top: -32px;
     color:  #fff !important;
+}
+.invoice-img{
+    height:80px;
+    width:80px;
+    margin-top: -55px;
+}
+.plan-img1{
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height:120px;
+    background-color: white;
+}
+
+.white-bg1{
+    background-color: white;
+}
+.black-clr{
+    color: #333;
+}
+.paynow-btn1{
+    background: #E50914;
+    padding: 10px 25px ;
+    border: none;
+    color: white;
+    border-radius: 0;
+    margin: 10px 0;
+}
+.paynow-btn1:hover, .paynow-btn1:focus, .paynow-btn1:active{
+    background: #ff0a16 ;
+}
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 17px;
+  width:17px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+  vertical-align: 52%;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background:#E50914;
+}
+.option-input:checked::before {
+  /*height: 40px;
+  width: 40px;*/
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 18px;
+  text-align: center;
+  line-height:19px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input.radio {
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
+}
+.black-clr label{
+    margin-right: 10px;
+    font-weight: normal;
 }
