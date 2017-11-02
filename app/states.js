@@ -530,16 +530,25 @@ streamViewApp
                 })
 
 
-                .state('profile.test', {
+                 .state('profile.invoice', {
                     cache: false,
-                    url: "/test",
-                    templateUrl: 'app/components/settings/test.html',
-                   
+                    url: "/invoice",
+                    templateUrl: 'app/components/settings/invoice/invoice.html',
+                    controller: 'invoiceController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/invoice/invoiceController.js',
+
+                            ]);
+                        }]
+                    },
                     data: {
-                        pageTitle: 'Pay Per View Details',
+                        pageTitle: 'Invoice Details',
                     }
 
                 })
+
 
 
             $httpProvider.interceptors.push('authInterceptor');
