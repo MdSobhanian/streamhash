@@ -91,7 +91,7 @@
 .pull-right1{
   text-align: center;
 }
-.list-profiles .profile-gate-label {
+.list-profiles .profile-gate-label, .profile-actions-container h1 {
     width: 100%;
     color: #fff;
     font-size: 2.5em;
@@ -113,12 +113,58 @@
   border-radius: 0;
   border: none;
   margin-bottom: 0;
-  background: rgba(0,0,0,.8) !important;
+  background: black !important;
 }
 .tab-section{
   height: 250px;
     background-position: center;
     width: 100%;
+}
+.nav > li{
+  display: inline-block !important;
+}
+.left-align{
+  float: left;
+}
+.right-align{
+  float: right;
+}
+.open .dropdown-menu {
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: rgba(0,0,0,.8) !important;
+    border-top: 2px solid white !important;
+    border-right: 0 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: absolute !important;
+    max-height:300px !important;
+    overflow-y: auto !important;
+}
+.border-right{
+  border-right: 0 !important;
+}
+.sub-drop1{
+  padding-bottom: 0 !important;
+}
+.sub-drop2{
+  padding-top: 0 !important;
+}
+.navbar-right .dropdown-menu {
+    right: 15px;
+    left: auto;
+}
+.notifications {
+    min-width:200px;
+}
+.centered-div{
+    transform: scale(1); 
+    opacity: 1; transition-duration: 450ms; 
+    transition-delay: 200ms; 
+    width: 100%;
+    padding:15px;
+    margin:auto;
 }
 }
 
@@ -212,7 +258,7 @@
 .pull-right1{
   float: right;
 }
-.list-profiles .profile-gate-label {
+.list-profiles .profile-gate-label , .profile-actions-container h1{
     width: 100%;
     color: #fff;
     font-size: 3em;
@@ -234,12 +280,58 @@
   border-radius: 0;
   border: none;
   margin-bottom: 0;
-  background: rgba(0,0,0,.8) !important;
+  background:black !important;
 }
 .tab-section{
   height: 350px;
     background-position: center;
     width: 100%;
+}
+.nav > li{
+  display: inline-block !important;
+}
+.left-align{
+  float: left;
+}
+.right-align{
+  float: right;
+}
+.open .dropdown-menu {
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: rgba(0,0,0,.8) !important;
+    border-top: 2px solid white !important;
+    border-right: 0 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: absolute !important;
+    max-height:300px !important;
+    overflow-y: auto !important;
+}
+.border-right{
+  border-right: 0 !important;
+}
+.sub-drop1{
+  padding-bottom: 0 !important;
+}
+.sub-drop2{
+  padding-top: 0 !important;
+}
+.navbar-right .dropdown-menu {
+    right: 15px;
+    left: auto;
+}
+.notifications {
+    min-width: 200 !important;
+}
+.centered-div{
+    transform: scale(1); 
+    opacity: 1; transition-duration: 450ms; 
+    transition-delay: 200ms; 
+    width:100%;
+    padding:15px;
+    margin:auto;
 }
 }
 
@@ -333,7 +425,7 @@
 .pull-right1{
   float: right;
 }
-.list-profiles .profile-gate-label {
+.list-profiles .profile-gate-label, .profile-actions-container h1 {
     width: 100%;
     color: #fff;
     font-size: 3.5em;
@@ -361,6 +453,13 @@
   height: 500px;
     background-position: center;
     width: 100%;
+}
+.centered-div{
+    transform: scale(1); 
+    opacity: 1; transition-duration: 450ms; 
+    transition-delay: 200ms; 
+    width: 40%;
+    margin:auto;
 }
 }
 
@@ -454,7 +553,7 @@
 .pull-right1{
   float: right;
 }
-.list-profiles .profile-gate-label {
+.list-profiles .profile-gate-label , .profile-actions-container h1{
     width: 100%;
     color: #fff;
     font-size: 3.5em;
@@ -482,6 +581,13 @@
   height: 500px;
     background-position: center;
     width: 100%;
+}
+.centered-div{
+    transform: scale(1); 
+    opacity: 1; transition-duration: 450ms; 
+    transition-delay: 200ms; 
+    width: 40%;
+    margin:auto;
 }
 }
 
@@ -575,7 +681,7 @@
 .pull-right1{
   float: right;
 } 
-.list-profiles .profile-gate-label {
+.list-profiles .profile-gate-label , .profile-actions-container h1{
     width: 100%;
     color: #fff;
     font-size: 3.5em;
@@ -603,6 +709,13 @@
     height: 500px;
     background-position: center;
     width: 100%;
+}
+.centered-div{
+    transform: scale(1); 
+    opacity: 1; transition-duration: 450ms; 
+    transition-delay: 200ms; 
+    width: 40%;
+    margin:auto;
 }
 }
 
