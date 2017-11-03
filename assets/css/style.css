@@ -2183,3 +2183,6 @@ width:56px;
     margin-right: 10px;
     font-weight: normal;
 }
+.auto-margin{
+    margin: 0 auto;
+}
