@@ -37,13 +37,13 @@ angular.module('streamViewApp')
 
 			$scope.signup = function() {
 
-					$scope.login_by = 'manual';
+				$scope.login_by = 'manual';
 
-					$scope.device_type = 'web';
+				$scope.device_type = 'web';
 
-					$scope.device_token = '123456';
+				$scope.device_token = '123456';
 
-					$.ajax({
+				$.ajax({
 
 					type : "post",
 

@@ -42,7 +42,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -81,7 +81,7 @@ angular.module('streamViewApp')
 
 					console.log(data.message);
 
-					// UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+					//UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -120,7 +120,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -237,7 +237,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -354,7 +354,7 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}
@@ -424,7 +424,7 @@ angular.module('streamViewApp')
 						} else {
 
 							console.log(data.error_messages);
-							// UIkit.notify({message: data.error_messages, status : 'danger', pos : 'top-center', timeout : 5000});
+							UIkit.notify({message: data.error_messages, status : 'danger', pos : 'top-center', timeout : 5000});
 						}
 					}
 				},
@@ -438,7 +438,6 @@ angular.module('streamViewApp')
 		}
 
 		$scope.subscription_index();
-
 
 		$scope.user_id = (memoryStorage.user_id != undefined && memoryStorage.user_id != '') ? memoryStorage.user_id : '';
 
@@ -486,7 +485,7 @@ angular.module('streamViewApp')
 
 							} else {
 								
-								UIkit.notify({message : "Oops! something went wrong", timeout : 3000, pos : 'top-center', status : 'danger'});
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 							}
 						},
 						complete : function() {
@@ -536,7 +535,7 @@ angular.module('streamViewApp')
 
 					console.log(data.message);
 
-					// UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -569,9 +568,9 @@ angular.module('streamViewApp')
 
 				} else {
 
-					console.log(data.message);
+					console.log(data.error_messages);
 
-					// UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}

@@ -81,11 +81,13 @@ angular.module('streamViewApp')
 
 					$scope.video = data.model;
 
+                    $scope.embed_link = apiUrl+"embed?v_t=2&u_id="+data.video.unique_id;
+                    
                     $scope.ios_video = data.ios_video;
 
 				} else {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}

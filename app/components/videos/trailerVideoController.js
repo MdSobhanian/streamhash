@@ -39,7 +39,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -180,37 +180,5 @@ angular.module('streamViewApp')
                 });
 
 		console.log($scope.trailer_video);
-
-
-		/*$.ajax({
-
-			type : "post",
-
-			url : apiUrl + "userApi/addHistory",
-
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id, sub_profile_id:memoryStorage.sub_profile_id},
-
-			async : false,
-
-			success : function (data) {
-
-				if (data.success) {
-					
-
-				} else {
-
-					console.log('Something Went Wrong, Please Try again later');
-
-					return false;
-				}
-			},
-			error : function (data) {
-
-				console.log('Something Went Wrong, Please Try again later');
-
-			},
-		});*/
-
-
 	}
 ]);

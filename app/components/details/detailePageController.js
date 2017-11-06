@@ -51,7 +51,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -110,7 +110,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -375,7 +375,7 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}
