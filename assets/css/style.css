@@ -364,7 +364,7 @@ input:focus,textarea:focus{
 }
 
 .padding15{
-	padding: 15px 0 !important;
+	padding: 10px 0 0 0 !important;
 }
 
 .nav-profile-menu{
@@ -2182,4 +2182,7 @@ width:56px;
 .black-clr label{
     margin-right: 10px;
     font-weight: normal;
+}
+.auto-margin{
+    margin: 0 auto;
 }

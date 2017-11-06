@@ -16,6 +16,7 @@ angular.module('streamViewApp')
 					$("#top-search-section").slideUp();
 					$("#header-section").slideDown();
 					
+
 				}
 	  		
 		$scope.settings = $rootScope.site_settings;
@@ -260,6 +261,8 @@ angular.module('streamViewApp')
 				$location.path('/home/'+memoryStorage.sub_profile_id).replace();
 
 			}
+			$scope.search_key ={};
+			console.log("reset");
 		}
 
 		
