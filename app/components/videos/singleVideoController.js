@@ -237,14 +237,14 @@ angular.module('streamViewApp')
         var browser = getBrowser();
 
 
-        if ((browser == 'Safari') || is_mobile) {
+        if ((browser == 'Safari') || (browser == 'Opera') || is_mobile) {
 
         	var video = $scope.video.ios_video;
 
         } else {
 
         	var video = $scope.video.main_video;
-            
+
         }
 
 
