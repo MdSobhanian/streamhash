@@ -151,11 +151,15 @@ angular.module('streamViewApp')
 					if (data.data.length > 0) {
 
 						$scope.datas = data;
+
+						$scope.no_results_found = "";
  
 					} else {
 
 						$scope.no_results_found = "img/no-results.gif";
 					}
+
+					console.log($scope.no_results_found);
 
 				} else {
 
