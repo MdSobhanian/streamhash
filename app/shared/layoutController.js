@@ -3,21 +3,21 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams,$location,$interval) {
 			
-				$scope.searchShow = function() {
+		$scope.searchShow = function() {
 
-					// alert("showing");
+			// alert("showing");
 
-					$("#header-section").slideUp();
-					$("#top-search-section").slideDown();
-				}
+			$("#header-section").slideUp();
+			$("#top-search-section").slideDown();
+		}
 
-				$scope.hideSearch = function() {
-					// alert("Hiding");
-					$("#top-search-section").slideUp();
-					$("#header-section").slideDown();
-					
+		$scope.hideSearch = function() {
+			// alert("Hiding");
+			$("#top-search-section").slideUp();
+			$("#header-section").slideDown();
+			
 
-				}
+		}
 	  		
 		$scope.settings = $rootScope.site_settings;
 
@@ -262,6 +262,7 @@ angular.module('streamViewApp')
 
 			}
 			$scope.search_key ={};
+			
 			console.log("reset");
 		}
 
