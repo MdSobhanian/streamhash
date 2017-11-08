@@ -377,7 +377,7 @@
 	</div>
 	<!-- END OF HIGHLIGHT -->
 
-	<div style="margin: 2% 0% 0% 4%" ng-init="load()">
+	<div style="margin: 2% 0% 0% 4%">
 		<div class="post slide-area" ng-repeat="data in datas" ng-if="data.list.length > 0" ng-init="$keyindex = $index">
 			<div class="box-head">
 	            <a ui-sref="profile.title({title : data.key})"><h3 ng-mouseover="showArrow($keyindex)" ng-mouseleave="hideArrow($keyindex)">{{data.name}}&nbsp;&nbsp;<i class="fa fa-angle-right" style="display: none" id="{{$keyindex}}"></i></h3></a>

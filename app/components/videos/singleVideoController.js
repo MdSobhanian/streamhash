@@ -95,7 +95,7 @@ angular.module('streamViewApp')
 
                     if ($scope.video.pay_per_view_status && $scope.video.video.amount <= 0) {
 
-                        if ($scope.user_type) {
+                        if (!$scope.user_type) {
 
                             $state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
@@ -340,7 +340,7 @@ angular.module('streamViewApp')
 
             // jQuery('#main_video_setup_error').css("display", "block");
 
-            confirm('The video format is not supported in this browser. Please option some other browser.');
+           // confirm('The video format is not supported in this browser. Please option some other browser.');
         
         });
 
@@ -406,12 +406,9 @@ angular.module('streamViewApp')
 
             // jQuery('#main_video_setup_error').css("display", "block");
 
-            confirm('The video format is not supported in this browser. Please option some other browser.');
+            // confirm('The video format is not supported in this browser. Please option some other browser.');
         
         });
-
-
-
 
 		console.log($scope.video);
 

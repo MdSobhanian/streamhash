@@ -409,11 +409,11 @@ angular.module('streamViewApp')
 				success : function(data) {
 
 					// console.log(data);
-					$scope.subscriptions = data;
+					//$scope.subscriptions = data.data;
 
 					if(data.success == true) {
 
-						$scope.subscriptions = data;
+						$scope.subscriptions = data.data;
 
 					} else {
 
@@ -424,7 +424,8 @@ angular.module('streamViewApp')
 						} else {
 
 							console.log(data.error_messages);
-							UIkit.notify({message: data.error_messages, status : 'danger', pos : 'top-center', timeout : 5000});
+
+							UIkit.notify({message: 'Something Went wrong, Please try again later', status : 'danger', pos : 'top-center', timeout : 5000});
 						}
 					}
 				},

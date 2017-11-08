@@ -107,16 +107,6 @@ angular.module('streamViewApp')
 					},
 				});
 
-				$scope.load = function() {
-
-					/*jQuery('.post').addClass("hidden").viewportChecker({
-
-					    classToAdd: 'visible animated fadeInDown',
-					    
-					    offset: 100    
-					}); */
-
-				};
 
 				$scope.showArrow = function(id) {
 

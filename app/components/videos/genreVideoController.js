@@ -275,7 +275,7 @@ angular.module('streamViewApp')
 
             // jQuery('#main_video_setup_error').css("display", "block");
 
-            confirm('The video format is not supported in this browser. Please option some other browser.');
+            // confirm('The video format is not supported in this browser. Please option some other browser.');
         
         });
 
@@ -306,7 +306,7 @@ angular.module('streamViewApp')
 
             // jQuery('#main_video_setup_error').css("display", "block");
 
-            confirm('The video format is not supported in this browser. Please option some other browser.');
+            // confirm('The video format is not supported in this browser. Please option some other browser.');
         
         });
 
