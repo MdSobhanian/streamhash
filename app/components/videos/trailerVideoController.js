@@ -13,7 +13,49 @@ angular.module('streamViewApp')
 
 		}*/
 
-		console.log($scope.trailer_video);
+        $scope.displayPopup = false;
+
+        $scope.showPopup = function() {
+
+            $scope.displayPopup = true;
+
+        }
+
+        $scope.closePopup = function() {
+
+            $scope.displayPopup = false;
+
+        }
+
+
+        function copyTextToClipboard(text) {
+
+           var textArea = document.createElement( "textarea" );
+           textArea.value = text;
+           document.body.appendChild( textArea );
+
+           textArea.select();
+
+           $("#embed_link").select();
+
+           try {
+              var successful = document.execCommand( 'copy' );
+              var msg = successful ? 'successful' : 'unsuccessful';
+              console.log('Copying text command was ' + msg);
+           } catch (err) {
+              console.log('Oops, unable to copy');
+           }
+
+           document.body.removeChild( textArea );
+        }
+
+        $scope.copyFromTextBox = function() {
+
+            var embed_link = $("#embed_link").val();
+
+            copyTextToClipboard(embed_link);
+
+        };
 
 		$scope.sub_profile_id = memoryStorage.sub_profile_id;
 
@@ -34,6 +76,8 @@ angular.module('streamViewApp')
 				if (data.success) {
 
 					$scope.video = data;
+
+                    $scope.embed_link = apiUrl+"embed?v_t=1&u_id="+data.video.unique_id;
 
 					console.log($scope.video.trailer_video);
 

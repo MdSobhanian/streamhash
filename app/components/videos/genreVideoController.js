@@ -81,7 +81,7 @@ angular.module('streamViewApp')
 
 					$scope.video = data.model;
 
-                    $scope.embed_link = apiUrl+"embed?v_t=2&u_id="+data.video.unique_id;
+                    $scope.embed_link = apiUrl+"g_embed?u_id="+data.model.unique_id;
                     
                     $scope.ios_video = data.ios_video;
 
@@ -239,7 +239,7 @@ angular.module('streamViewApp')
             primary: "flash",
             autostart : true,
             tracks : [{
-              file : $scope.video->subtitle,
+              file : $scope.video.subtitle,
               kind : "captions",
               default : true,
             }]
