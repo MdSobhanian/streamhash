@@ -532,7 +532,7 @@ streamViewApp
 
                  .state('profile.invoice', {
                     cache: false,
-                    url: "/invoice",
+                    url: "/invoice/{subscription_id}",
                     templateUrl: 'app/components/settings/invoice/invoice.html',
                     controller: 'invoiceController',
                     resolve: {
