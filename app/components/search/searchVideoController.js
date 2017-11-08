@@ -308,7 +308,13 @@ angular.module('streamViewApp')
 				}
 		}
 
-		 $scope.getSeasons = function(genre_id, idx, key, divid, loader) {
+		 $scope.getSeasons = function(genre_id, idx, key, divid, loader, main_id) {
+
+		 
+				if (genre_id == '' || genre_id  == undefined) {
+
+					genre_id = main_id;
+				}
 
 				$.ajax({
 
