@@ -50,19 +50,19 @@ var streamViewApp = angular.module('streamViewApp', [
   'slick',
 ]);
 
-var route_url = "http://localhost/streamview-base/version_2/streamview-v1.2-angular/#";
+/*var route_url = "http://localhost/streamview-base/version_2/streamview-v1.2-angular/#";
 
 var apiUrl = "http://localhost:8000/";
 
 var angularUrl = "http://localhost/streamview-base/version_2/streamview-v1.2-angular/#/";
 
-
-/*var route_url = "http://demo.streamhash.com/#";
+*/
+var route_url = "http://demo.streamhash.com/#";
 
 var apiUrl = "http://adminview.streamhash.com/";
 
 var angularUrl = "http://demo.streamhash.com/#/";
-*/
+
 streamViewApp
     .run([
         '$rootScope',
@@ -170,7 +170,67 @@ streamViewApp
   function ($scope, $http, $rootScope, $stateParams) {
     $scope.site_icon = ($rootScope.site_settings) ? (($rootScope.site_settings[2] != undefined) ? $rootScope.site_settings[2]  : '' ): '';
 
-console.log($scope.site_icon);
+    var header_scripts = $.grep($rootScope.site_settings, function(e){ return e.key == 'header_scripts'; });
+
+    var header_script = "";
+
+    if (header_scripts.length == 0) {
+
+        console.log("not found");
+        
+    } else if (header_scripts.length == 1) {
+
+      // access the foo property using result[0].foo
+
+      header_script = header_scripts[0].value;
+
+      if (header_script != '' || header_script != null || header_script != undefined) {
+        
+      } else {
+
+        header_script = '';
+
+      }
+
+    } else {
+
+      // multiple items found
+      header_script = "";
+
+    }
+
+    $("#header_scripts").html(header_script);
+
+    var body_end_scripts = $.grep($rootScope.site_settings, function(e){ return e.key == 'body_end_scripts'; });
+
+    var body_end_script = "";
+
+    if (body_end_scripts.length == 0) {
+
+        console.log("not found");
+        
+    } else if (body_end_scripts.length == 1) {
+
+      // access the foo property using result[0].foo
+
+      body_end_script = body_end_scripts[0].value;
+
+      if (body_end_script != '' || body_end_script != null || body_end_script != undefined) {
+        
+      } else {
+
+        body_end_script = '';
+
+      }
+
+    } else {
+
+      // multiple items found
+      body_end_script = "";
+
+    }
+
+    $("#body_scripts").html(body_end_script);
   }
 ]);
 
