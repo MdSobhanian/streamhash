@@ -117,267 +117,270 @@ angular.module('streamViewApp')
 			},
 		});
 
+        if (!$scope.user_type) {
 
-		jwplayer.key="M2NCefPoiiKsaVB8nTttvMBxfb1J3Xl7PDXSaw==";
+    		jwplayer.key="M2NCefPoiiKsaVB8nTttvMBxfb1J3Xl7PDXSaw==";
 
-		var playerInstance = jwplayer("video-player");
+    		var playerInstance = jwplayer("video-player");
 
 
-		var is_mobile = false;
+    		var is_mobile = false;
 
-        var isMobile = {
-            Android: function() {
-                return navigator.userAgent.match(/Android/i);
-            },
-            BlackBerry: function() {
-                return navigator.userAgent.match(/BlackBerry/i);
-            },
-            iOS: function() {
-                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-            },
-            Opera: function() {
-                return navigator.userAgent.match(/Opera Mini/i);
-            },
-            Windows: function() {
-                return navigator.userAgent.match(/IEMobile/i);
-            },
-            any: function() {
-                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i);
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+
+
+            function getBrowser() {
+
+                // Opera 8.0+
+                var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+                // Firefox 1.0+
+                var isFirefox = typeof InstallTrigger !== 'undefined';
+
+                // Safari 3.0+ "[object HTMLElementConstructor]" 
+                var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+
+                // Internet Explorer 6-11
+                var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+                // Edge 20+
+                var isEdge = !isIE && !!window.StyleMedia;
+
+                // Chrome 1+
+                var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+                // Blink engine detection
+                var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+                var b_n = '';
+
+                switch(true) {
+
+                    case isFirefox :
+
+                            b_n = "Firefox";
+
+                            break;
+                    case isChrome :
+
+                            b_n = "Chrome";
+
+                            break;
+
+                    case isSafari :
+
+                            b_n = "Safari";
+
+                            break;
+                    case isOpera :
+
+                            b_n = "Opera";
+
+                            break;
+
+                    case isIE :
+
+                            b_n = "IE";
+
+                            break;
+
+                    case isEdge : 
+
+                            b_n = "Edge";
+
+                            break;
+
+                    case isBlink : 
+
+                            b_n = "Blink";
+
+                            break;
+
+                    default :
+
+                            b_n = "Unknown";
+
+                            break;
+
+                }
+
+                return b_n;
+
             }
-        };
 
 
-        function getBrowser() {
+            if(isMobile.any()) {
 
-            // Opera 8.0+
-            var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-
-            // Firefox 1.0+
-            var isFirefox = typeof InstallTrigger !== 'undefined';
-
-            // Safari 3.0+ "[object HTMLElementConstructor]" 
-            var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
-
-            // Internet Explorer 6-11
-            var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-            // Edge 20+
-            var isEdge = !isIE && !!window.StyleMedia;
-
-            // Chrome 1+
-            var isChrome = !!window.chrome && !!window.chrome.webstore;
-
-            // Blink engine detection
-            var isBlink = (isChrome || isOpera) && !!window.CSS;
-
-            var b_n = '';
-
-            switch(true) {
-
-                case isFirefox :
-
-                        b_n = "Firefox";
-
-                        break;
-                case isChrome :
-
-                        b_n = "Chrome";
-
-                        break;
-
-                case isSafari :
-
-                        b_n = "Safari";
-
-                        break;
-                case isOpera :
-
-                        b_n = "Opera";
-
-                        break;
-
-                case isIE :
-
-                        b_n = "IE";
-
-                        break;
-
-                case isEdge : 
-
-                        b_n = "Edge";
-
-                        break;
-
-                case isBlink : 
-
-                        b_n = "Blink";
-
-                        break;
-
-                default :
-
-                        b_n = "Unknown";
-
-                        break;
+                var is_mobile = true;
 
             }
 
-            return b_n;
 
-        }
-
-
-        if(isMobile.any()) {
-
-            var is_mobile = true;
-
-        }
+            var browser = getBrowser();
 
 
-        var browser = getBrowser();
+            if ((browser == 'Safari') || (browser == 'Opera') || is_mobile) {
+
+            	var video = $scope.video.ios_video;
+
+            } else {
+
+            	var video = $scope.video.main_video;
+
+            }
 
 
-        if ((browser == 'Safari') || (browser == 'Opera') || is_mobile) {
+            function history() {
+                
+                $.ajax({
 
-        	var video = $scope.video.ios_video;
+                    type : "post",
 
-        } else {
+                    url : apiUrl + "userApi/addHistory",
 
-        	var video = $scope.video.main_video;
+                    data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id, sub_profile_id:memoryStorage.sub_profile_id},
 
-        }
+                    async : false,
 
+                    success : function (data) {
 
-        function history() {
-            
-            $.ajax({
+                        if (data.success) {
+                            
 
-                type : "post",
+                        } else {
 
-                url : apiUrl + "userApi/addHistory",
+                            console.log(data.error_messages);
 
-                data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id, sub_profile_id:memoryStorage.sub_profile_id},
+                            return false;
+                        }
+                    },
+                    error : function (data) {
 
-                async : false,
+                        console.log('Something Went Wrong, Please Try again later');
 
-                success : function (data) {
+                    },
+                });
 
-                    if (data.success) {
-                        
+            }
 
-                    } else {
+    		playerInstance.setup({
+                sources: [{
+                    file: video
+                  }],
+                // file: "{{$trailerstreamUrl}}",
+                image: $scope.video.video.default_image,
+                width: "100%",
+                height : $scope.height,
+                primary: "flash",
+                autostart : true,
+                /* "sharing": {
+                    "sites": ["reddit","facebook","twitter"]
+                },*/
+                events : {
 
-                        console.log(data.error_messages);
+                    onComplete : function(event) { 
 
-                        return false;
+                        history();
+
                     }
                 },
-                error : function (data) {
-
-                    console.log('Something Went Wrong, Please Try again later');
-
-                },
+                tracks : [{
+                  file : $scope.video.video_subtitle,
+                  kind : "captions",
+                  default : true,
+                }]
+                
             });
 
-        }
 
-		playerInstance.setup({
-            sources: [{
-                file: video
-              }],
-            // file: "{{$trailerstreamUrl}}",
-            image: $scope.video.video.default_image,
-            width: "100%",
-            height : $scope.height,
-            primary: "flash",
-            autostart : true,
-            /* "sharing": {
-                "sites": ["reddit","facebook","twitter"]
-            },*/
-            events : {
 
-                onComplete : function(event) { 
+            playerInstance.on('error', function() {
 
-                    history();
+               jQuery("#video-player").css("display", "none");
+               // jQuery('#trailer_video_setup_error').hide();
+               
 
+                var hasFlash = false;
+                try {
+                    var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+                    if (fo) {
+                        hasFlash = true;
+                    }
+                } catch (e) {
+                    if (navigator.mimeTypes
+                            && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
+                            && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
+                        hasFlash = true;
+                    }
                 }
-            },
-            tracks : [{
-              file : $scope.video.video_subtitle,
-              kind : "captions",
-              default : true,
-            }]
+
+                console.log(hasFlash);
+
+                if (hasFlash == false) {
+                    jQuery('#flash_error_display').show();
+                    return false;
+                }
+
+                // jQuery('#main_video_setup_error').css("display", "block");
+
+                // confirm('The video format is not supported in this browser. Please option some other browser.');
             
-        });
+            });
 
 
+            playerInstance.on('setupError', function() {
 
-        playerInstance.on('error', function() {
+               jQuery("#video-player").css("display", "none");
+               // jQuery('#trailer_video_setup_error').hide();
+               
 
-           jQuery("#video-player").css("display", "none");
-           // jQuery('#trailer_video_setup_error').hide();
-           
-
-            var hasFlash = false;
-            try {
-                var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
-                if (fo) {
-                    hasFlash = true;
+                var hasFlash = false;
+                try {
+                    var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+                    if (fo) {
+                        hasFlash = true;
+                    }
+                } catch (e) {
+                    if (navigator.mimeTypes
+                            && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
+                            && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
+                        hasFlash = true;
+                    }
                 }
-            } catch (e) {
-                if (navigator.mimeTypes
-                        && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
-                        && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
-                    hasFlash = true;
+
+                if (hasFlash == false) {
+                    jQuery('#flash_error_display').show();
+                    return false;
                 }
-            }
 
-            console.log(hasFlash);
+                // jQuery('#main_video_setup_error').css("display", "block");
 
-            if (hasFlash == false) {
-                jQuery('#flash_error_display').show();
-                return false;
-            }
+                // confirm('The video format is not supported in this browser. Please option some other browser.');
+            
+            });
 
-            // jQuery('#main_video_setup_error').css("display", "block");
+    		console.log($scope.video);
 
-            // confirm('The video format is not supported in this browser. Please option some other browser.');
-        
-        });
-
-
-        playerInstance.on('setupError', function() {
-
-           jQuery("#video-player").css("display", "none");
-           // jQuery('#trailer_video_setup_error').hide();
-           
-
-            var hasFlash = false;
-            try {
-                var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
-                if (fo) {
-                    hasFlash = true;
-                }
-            } catch (e) {
-                if (navigator.mimeTypes
-                        && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
-                        && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
-                    hasFlash = true;
-                }
-            }
-
-            if (hasFlash == false) {
-                jQuery('#flash_error_display').show();
-                return false;
-            }
-
-            // jQuery('#main_video_setup_error').css("display", "block");
-
-            // confirm('The video format is not supported in this browser. Please option some other browser.');
-        
-        });
-
-		console.log($scope.video);
+        }
 
 
 
