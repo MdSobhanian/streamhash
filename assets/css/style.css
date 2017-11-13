@@ -164,10 +164,10 @@ input:focus,textarea:focus{
     background: rgba(0,0,0,.9);
     border-top: 2px solid #fff;
 }
-.open .dropdown-menu{
+/*.open .dropdown-menu{
     max-height:300px !important;
     overflow-y: auto !important;
-}
+}*/
 .navbar-nav>li>.dropdown-menu:after {
     content: "";
     border-bottom: 7px solid #fff;
@@ -361,14 +361,17 @@ input:focus,textarea:focus{
 
 .border-bot{
 	border-bottom: 1px solid #aaa;
+    padding: 10px 10px 0 10px !important; 
+    max-height:250px !important;
+    overflow-y: auto !important;
 }
 
 .padding15{
-	padding: 10px 0 0 0 !important;
+	padding: 10px 10px 0 10px  !important;
 }
 
 .nav-profile-menu{
-	padding: 0 15px !important;
+	/*padding: 0 15px !important;*/
 }
 
 .nav-profile-img{
@@ -583,16 +586,18 @@ input:focus,textarea:focus{
 
 .my-list i{
 	color: #fff;
-    border: 2px solid #FFF;
-    padding: 5px 7px;
+    /*border: 2px solid #FFF;
+    padding: 5px 7px;*/
     border-radius: 100%;
     margin-right: 10px;
     position: absolute;
     transition: transform 150ms ease,-webkit-transform 150ms ease,-moz-transform 150ms ease,-o-transform 150ms ease;
 }
-
+.my-list-icon{
+    transition: transform 150ms ease,-webkit-transform 150ms ease,-moz-transform 150ms ease,-o-transform 150ms ease;
+}
 .my-list:hover > .my-list-icon{
-	background-color: #fff;
+	/*background-color: #fff;*/
 	color: #000;
     -webkit-transform: scale(1.15,1.15);
     -moz-transform: scale(1.15,1.15);
@@ -603,9 +608,9 @@ input:focus,textarea:focus{
 
 .my-list-txt{
 	position: absolute;
-    left: 35px;
+    left:42px;
     right: 0;
-    top: 4px;
+    top:11px;
     /* left: 0; */
     width: 118px;
     text-transform: uppercase;
@@ -618,12 +623,14 @@ input:focus,textarea:focus{
     transform: translate(-50%,-50%);
     z-index: 50;
 }
-
+.padding2{
+    padding: 2px;
+}
 .play-icon{
 	color: #fff;
 	font-size: 45px;
     border: 3px solid #fff;
-    padding: 14px;
+    padding: 15px 30px;
     display: inline-block;
     border-radius: 100%;
     height: 95px;
@@ -1062,12 +1069,12 @@ input:focus,textarea:focus{
 }
 
 .video-season span{
-    margin: 0 2px;
+    margin:2px;
 }
 
 .video-epi-count{
     border: 1px solid #fff;
-    padding: 0 2px;
+    padding: 2px 4px;
 }
 
 .tile-content .rating-symbol{
@@ -1076,7 +1083,7 @@ input:focus,textarea:focus{
 }
 
 .glyphicon {
-    top : 0px !important;
+    top : -1px !important;
 }
 
 .video-des-inner{
@@ -1087,7 +1094,7 @@ input:focus,textarea:focus{
     text-overflow: ellipsis;
     height: 8px;
     line-height: 8px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     text-shadow: 0 1px 1px rgba(0,0,0,.7);
    /* margin-top: 5px;*/
     font-size: .6vw;
@@ -1232,8 +1239,8 @@ login css
 }
 
 .form-btn:hover,
-.form-btn:focus{
-    background: #ff0a16;
+.form-btn:focus, .form-btn:active{
+    background: #ff0a16 !important;
 }
 
 .face-link img{
@@ -1242,7 +1249,7 @@ login css
 }
 
 .form-link:hover,
-.form-link:focus{
+.form-link:focus,.form-link:active{
     color: #0080FF;
 }
 
@@ -2185,4 +2192,96 @@ width:56px;
 }
 .auto-margin{
     margin: 0 auto;
+}
+.billing-white-bg{
+    background-color: white;
+}
+.billing-head{
+    color: white;
+    margin:0;
+}
+.billing-sub-head{
+    color: white;
+    margin:15px 0;
+}
+.billing-para{
+    margin-left: 25px;
+}
+.bill-line{
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    margin: 15px 0;
+}
+.billing-history{
+    height: 550px;
+    padding:15px;
+    overflow-y: auto;
+}
+.billing-head1{
+    color: #333;
+    margin: 0;
+}
+.billing-card{
+    margin-bottom: 15px;
+    text-align: center;
+    border:1px solid #d0d3d4;
+}
+.card-head{
+    padding:10px;
+    background-color: #E50914;
+}
+.card-head h3{
+    color: white;
+    text-transform: capitalize;
+    margin: 0;
+}
+.card-white-bg{
+    background-color: white;
+    color:#333;
+    padding: 15px 15px 0 15px;
+}
+.billing-total{
+    padding:10px;
+    background-color: #E50914;
+    color: white;
+    margin-bottom: 15px;
+}
+.billing-total h3{
+    margin: 0;
+}
+.content-panel{
+    margin-top: 25px;
+}
+.embed-bg{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+   /* height: 300px;*/
+}
+.embed-overlay{
+    background-color: rgba(0,0,0,.8);
+}
+#embed-popup .modal-header , #embed-popup .modal-footer {
+    border:0;
+}
+#embed-popup textarea{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    resize: none;
+}
+#embed-popup textarea:focus{
+    border-color: white;
+    box-shadow: none;
+}
+#embed-popup .close{
+    color: white;
+}
+.white-clr{
+    color: white !important;
+}
+.white-clr:hover{
+    color: white !important;
+}
+.zero-padding{
+    padding:0;
 }
