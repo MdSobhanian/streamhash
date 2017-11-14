@@ -47,7 +47,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -106,7 +106,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -125,7 +125,13 @@ angular.module('streamViewApp')
 				});
 			}
 
-			 $scope.getSeasons = function(genre_id, sub, idx, key, divid, loader) {
+			 $scope.getSeasons = function(genre_id, sub, idx, key, divid, loader,main_id) {
+
+			 	
+				if (genre_id == '' || genre_id  == undefined) {
+
+					genre_id = main_id;
+				}
 
 				$.ajax({
 
@@ -157,7 +163,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -196,7 +202,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}

@@ -53,7 +53,7 @@ streamViewApp.directive('autocomplete', function() {
         link : function (scope, element, attrs, ngModelCtrl) {
               element.autocomplete({
 
-                source: apiUrl+"userApi/searchall",
+                source: apiUrl+"userApi/searchall?id="+memoryStorage.user_id,
 
                 select:function (event,ui) {
                     

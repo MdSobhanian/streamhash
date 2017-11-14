@@ -1,6 +1,6 @@
 <div class="content" id="page_content">
 
-<div style="margin-top:80px !important ;margin:5%; padding: 10px;">
+<div style="margin-top:80px !important;margin:5%; padding: 10px;">
 
 <div class="box-head" style="margin-bottom: 2%;">
    <h3>"{{title}}" Search Results</h3>
@@ -9,7 +9,9 @@
 
 <!-- <p>{{no_results_found}}</p>
  -->
-<div class="text-center"  style="margin-top:40px !important"> 
+
+
+<div class="text-center"  style="margin-top:40px !important"  ng-if="no_results_found"> 
 	<img src="{{no_results_found}}" class="img-responsive auto-margin">
 </div>
 
@@ -208,7 +210,7 @@
 								<h3 class="content-tit">{{value.sub_category_name}}</h3>
 								<form class="season-select">
 									<div class="form-group">
-									     <select class="form-control" id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{$index}},{{$parentindex}},'_sessions', '_loader_seasons');">
+									     <select class="form-control" id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{$index}},{{$parentindex}},'_sessions', '_loader_seasons', value.genre_id);">
 										    <option value="">Select Seasons</option>
 										    <option value="{{genrename.genre_id}}" ng-repeat="genrename in value.genre_names">
 										    {{genrename.genre_name}}

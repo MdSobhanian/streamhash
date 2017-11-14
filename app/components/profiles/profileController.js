@@ -61,7 +61,9 @@ angular.module('streamViewApp')
 						window.localStorage.setItem('logged_in', false);
 
 						memoryStorage = {};
+
 						localStorage.removeItem("sessionStorage");
+
 						localStorage.clear();
 
 						// UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
@@ -238,7 +240,7 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}
@@ -356,7 +358,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -428,7 +430,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -488,7 +490,7 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}
@@ -535,7 +537,7 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}

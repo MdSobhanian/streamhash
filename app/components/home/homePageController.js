@@ -89,7 +89,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -107,16 +107,6 @@ angular.module('streamViewApp')
 					},
 				});
 
-				$scope.load = function() {
-
-					/*jQuery('.post').addClass("hidden").viewportChecker({
-
-					    classToAdd: 'visible animated fadeInDown',
-					    
-					    offset: 100    
-					}); */
-
-				};
 
 				$scope.showArrow = function(id) {
 
@@ -397,7 +387,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -459,7 +449,7 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 							return false;
 						}
@@ -478,7 +468,12 @@ angular.module('streamViewApp')
 				});
 			}
 
-			$scope.getSeasons = function(genre_id, idx, key, divid, loader) {
+			$scope.getSeasons = function(genre_id, idx, key, divid, loader, main_id) {
+
+				if (genre_id == '' || genre_id  == undefined) {
+
+					genre_id = main_id;
+				}
 
 				$.ajax({
 

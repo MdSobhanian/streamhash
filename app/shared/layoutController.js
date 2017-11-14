@@ -3,21 +3,21 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams,$location,$interval) {
 			
-				$scope.searchShow = function() {
+		$scope.searchShow = function() {
 
-					// alert("showing");
+			// alert("showing");
 
-					$("#header-section").slideUp();
-					$("#top-search-section").slideDown();
-				}
+			$("#header-section").slideUp();
+			$("#top-search-section").slideDown();
+		}
 
-				$scope.hideSearch = function() {
-					// alert("Hiding");
-					$("#top-search-section").slideUp();
-					$("#header-section").slideDown();
-					
+		$scope.hideSearch = function() {
+			// alert("Hiding");
+			$("#top-search-section").slideUp();
+			$("#header-section").slideDown();
+			
 
-				}
+		}
 	  		
 		$scope.settings = $rootScope.site_settings;
 
@@ -78,7 +78,7 @@ angular.module('streamViewApp')
 
 				} else {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 					return false;
 				}
@@ -146,11 +146,31 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+						if (data.error_code == 104) {
 
-						$state.go('manage-profile.view-profile', {}, {reload:true});
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-						return false;
+							window.localStorage.setItem('logged_in', false);
+
+							memoryStorage = {};
+
+							localStorage.removeItem("sessionStorage");
+							
+							localStorage.clear();
+
+							$state.go('static.index', {}, {reload:true});
+
+							return false;
+
+						} else {
+
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							$state.go('manage-profile.view-profile', {}, {reload:true});
+
+							return false;
+
+						}
 					}
 				},
 				error : function (data) {
@@ -184,7 +204,7 @@ angular.module('streamViewApp')
 
 					} else {
 
-						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 						return false;
 					}
@@ -242,6 +262,7 @@ angular.module('streamViewApp')
 
 			}
 			$scope.search_key ={};
+			
 			console.log("reset");
 		}
 
