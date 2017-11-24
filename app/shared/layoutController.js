@@ -19,12 +19,38 @@ angular.module('streamViewApp')
 
 		}
 	  		
-		$scope.settings = $rootScope.site_settings;
 
-		/*$scope.site_settings = ($rootScope.site_settings) ? (($rootScope.site_settings[2] != undefined) ? $rootScope.site_settings[2]  : '' ): '';
-    	$scope.site_name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0]  : '' ): '';
-    	$scope.site_url = ($rootScope.site_settings) ? (($rootScope.site_settings[14] != undefined) ? $rootScope.site_settings[14]  : '' ): '';*/
-    	$scope.site_logo = ($rootScope.site_settings) ? (($rootScope.site_settings[1] != undefined) ? $rootScope.site_settings[1]  : '' ): '';
+    	var site_logo = $.grep($rootScope.site_settings, function(e){ return e.key == 'site_logo'; });
+
+	    var logo = "";
+
+	    if (site_logo.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (site_logo.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      logo = site_logo[0].value;
+
+	      if (logo != '' || logo != null || logo != undefined) {
+	        
+	      } else {
+
+	        logo = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      logo = "";
+
+	    }
+
+	    $scope.site_logo = logo;
+
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
@@ -90,39 +116,6 @@ angular.module('streamViewApp')
 			},
 		});
 
-	    /* $("#auto_complete_search").autocomplete({
-
-            source: apiUrl+"/user/searchall",
-            
-            minLength: 1,
-            select: function(event, ui){
-
-                // set the value of the currently focused text box to the correct value
-
-                if (event.type == "autocompleteselect"){
-                    
-                    // console.log( "logged correctly: " + ui.item.value );
-
-                    var username = ui.item.value;
-
-                    if(ui.item.value == 'View All') {
-
-                        // console.log('View AALLLLLLLLL');
-
-                        // window.location.href = "{{route('search-all', array('q' => 'all'))}}";
-
-                    } else {
-                        // console.log("User Submit");
-
-                        jQuery('#auto_complete_search').val(ui.item.value);
-
-                        // jQuery('#userSearch').submit();
-                    }
-
-                }                        
-            }      // select
-
-        });  */
 
         $scope.sub_profile_data = function(sub_profile_id) {
 

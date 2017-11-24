@@ -7,10 +7,37 @@ angular.module('streamViewApp')
 
 		// $(document.body).css('background-color', '#141414');
 
+		var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'login_bg'; });
 
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+	    var bg_image = "";
 
-		// $rootScope.$emit('footerBar', 'true');
+	    if (login_bg.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (login_bg.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      bg_image = login_bg[0].value;
+
+	      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+	        
+	      } else {
+
+	        bg_image = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      bg_image = "";
+
+	    }
+
+	    $scope.login_bg = bg_image;
+
 
 		$scope.id = memoryStorage.user_id;
 

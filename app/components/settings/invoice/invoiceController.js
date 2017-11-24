@@ -5,9 +5,70 @@ angular.module('streamViewApp')
 
 		$rootScope.$emit('navBar', 'black-background');
 
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+		var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'login_bg'; });
 
-		$scope.site_name = ($rootScope.site_settings) ? (($rootScope.site_settings[0] != undefined) ? $rootScope.site_settings[0].value  : '' ): '';
+	    var bg_image = "";
+
+	    if (login_bg.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (login_bg.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      bg_image = login_bg[0].value;
+
+	      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+	        
+	      } else {
+
+	        bg_image = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      bg_image = "";
+
+	    }
+
+	    $scope.login_bg = bg_image;
+
+	    
+
+	    var site_name = $.grep($rootScope.site_settings, function(e){ return e.key == 'site_name'; });
+
+	    var name = "";
+
+	    if (site_name.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (site_name.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      name = site_name[0].value;
+
+	      if (name != '' || name != null || name != undefined) {
+	        
+	      } else {
+
+	        name = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      name = "";
+
+	    }
+
+	    $scope.site_name = name;
+
 
 		$scope.user_id = (memoryStorage.user_id != undefined && memoryStorage.user_id != '') ? memoryStorage.user_id : '';
 
