@@ -57,7 +57,7 @@ angular.module('streamViewApp')
 	    $scope.site_name = name;
 
 
-	    var home_bg_image = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_bg_image'; });
+	    var home_bg_image = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_page_bg_image'; });
 
 	    var bg_image = "";
 

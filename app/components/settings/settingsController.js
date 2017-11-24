@@ -7,7 +7,7 @@ angular.module('streamViewApp')
 
 		// $(document.body).css('background-color', '#141414');
 
-		var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'login_bg'; });
+		var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
 
 	    var bg_image = "";
 
