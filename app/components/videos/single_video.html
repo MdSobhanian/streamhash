@@ -1,4 +1,4 @@
-
+<!-- http://adminview.streamhash.com/embed?v_t=2&u_id=45a0862c455212 -->
 <div class="content" style="position: relative;">
 
 <div style="width: 90% !important;margin: 0 auto;">
@@ -9,8 +9,8 @@
 
 
 <div class="embed-responsive embed-responsive-16by9" id="flash_error_display" style="display: none;">
-   <div style="width: 100%;background: black; color:#fff;">
-         <div style="text-align: center;align-items: center;">Flash is missing. Download it from <a target="_blank" href="http://get.adobe.com/flashplayer/" class="underline">Adobe</a>.</div>
+   <div style="width: 100%;background: black; color:#fff; align-items: center; justify-content: center; padding:15px;text-align: center;margin-top:25%;">
+        <div>Flash is missing. Download it from <a target="_blank" href="http://get.adobe.com/flashplayer/" class="underline">Adobe</a>.</div>
    </div>
 </div>
 
@@ -35,14 +35,14 @@
 
 	<!-- <a href="{{embed_link}}" target="_blank" title="Embedded Link"> -->
 
-	<a title="Embedded Link" ng-click="showPopup();">
+	<a title="Embedded Link" ng-click="showPopup();" data-toggle="modal" data-target="#embed-popup">
 
 		<i class="fa fa-link"></i>
 
 	</a>
 
-	<div class="embed_popup" ng-show="displayPopup">
-	  <div class="new_way">
+	<!-- <div class="embed_popup" ng-show="displayPopup">
+	  	<div class="new_way">	
 	  		
 	  		<input type="text" name="embed_link" ng-model="embed_link" class="form-control" id="embed_link">
 
@@ -56,10 +56,37 @@
 
 	  		</div>
 
-	  </div>
+	  	</div>
+	</div> -->
+
+	<div class="modal fade embed-top" id="embed-popup" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content embed-bg" style="background-image: url(img/img7.jpg);">
+				<div class="embed-overlay">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Video Name</h4>
+					</div>
+					<div class="modal-body">
+						<textarea type="text" row="" name="embed_link" ng-model="embed_link" class="form-control" id="embed_link"></textarea>
+					</div>
+					<div class="modal-footer">
+						<div class="text-right">
+
+				  			<button type="button" class="payment-submit" title="Copy Link" ng-click="copyFromTextBox()">Copy</button>
+
+				  			<!-- <button type="button" class="btn btn-danger btn-sm" title="Cancel" ng-click="closePopup()"  data-dismiss="modal">Cancel</button> -->
+
+				  		</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
-	
 
 	</div>
 

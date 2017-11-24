@@ -5,7 +5,10 @@
 				<div class="basic-header">
 				
 					<div class="logo">
-						<a ui-sref="static.index"><img ng-src="{{site_logo.value}}"></a>
+						<a ui-sref="static.index">
+							<img ng-src="{{site_logo.value}}" class="hidden-xxs">
+							<img src="img/mobile-logo.png" class="visible-xxs">
+						</a>
 					</div>
 
 					<div class="signin">

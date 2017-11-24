@@ -497,7 +497,7 @@
 
     color: #fff;
 
-    font-size:36px;
+    font-size:30px;
 
 }
 
@@ -510,8 +510,8 @@
 .new_way {
   position: relative;
   background: #fff;
-  width: 300px;
-  padding: 20px;
+  /*width: 300px;*/
+  /*padding: 20px;*/
   color: #000;
   text-align: center;
   font-size: 12px;

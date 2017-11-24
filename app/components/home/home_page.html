@@ -55,11 +55,19 @@
 		    					<div id="my-list-txt_{{recent_video.admin_video_id}}_989">
 		    					
 		    						<a ng-click="addWishlist(recent_video.admin_video_id, recent_video.admin_video_id, 989)" class="my-list bold" id="" ng-if="!recent_video.wishlist_status" style="cursor: pointer;">
-		    							<i class="fa fa-plus my-list-icon"></i>
+		    							<span class="fa-stack fa-lg my-list-icon">
+										  	<i class="fa fa-circle-thin fa-stack-2x"></i>
+										  	<i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i>
+										</span>
+		    							<!-- <i class="fa fa-plus my-list-icon"></i> -->
 		    							<span class="my-list-txt">My List</span> 
 		    						</a>
 		    						<a ng-click="removeWishlist(recent_video.wishlist_status, recent_video.admin_video_id,recent_video.admin_video_id, 989)" class="my-list bold" ng-if="recent_video.wishlist_status" style="cursor: pointer;">
-		    							<i class="fa fa-check my-list-icon"></i>
+		    							<span class="fa-stack fa-lg my-list-icon">
+										  	<i class="fa fa-circle-thin fa-stack-2x"></i>
+										  	<i class="fa fa-check fa-stack-1x fa-inverse padding2"></i>
+										</span>
+		    							<!-- <i class="fa fa-check my-list-icon"></i> -->
 		    							<span class="my-list-txt">My List</span> 
 		    						</a>
 		    					</div>
