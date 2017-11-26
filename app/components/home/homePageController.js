@@ -5,296 +5,214 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
 
-		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
-		$scope.sub_profile_id = memoryStorage.sub_profile_id = $stateParams.sub_profile_id;
+		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
+		if ($scope.user_id && $scope.access_token) {
 
-		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
+			$scope.sub_profile_id = memoryStorage.sub_profile_id = $stateParams.sub_profile_id;
 
+			$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
-		/*if ($scope.user_type) {
 
-			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+			$scope.window_width = $(window).width();
 
-		}*/
+	        if ($scope.window_width > 991) {
 
+	            $scope.slide_to_show = 5;
 
+	            $scope.slide_to_scroll = 5;
 
-		$scope.window_width = $(window).width();
+	        }
 
-        if ($scope.window_width > 991) {
+	        if ($scope.window_width > 767 && $scope.window_width < 992) {
 
-            $scope.slide_to_show = 5;
+		        $scope.slide_to_show = 4;
 
-            $scope.slide_to_scroll = 5;
+		        $scope.slide_to_scroll = 4;
 
-        }
+	        }  
 
-         if ($scope.window_width > 767 && $scope.window_width < 992) {
+	        if ($scope.window_width > 479 && $scope.window_width < 768) {
 
-        $scope.slide_to_show = 4;
+		        $scope.slide_to_show = 3;
 
-        $scope.slide_to_scroll = 4;
+		        $scope.slide_to_scroll = 3;
 
-        }  
+	        }  
 
-        if ($scope.window_width > 479 && $scope.window_width < 768) {
+	        if ($scope.window_width < 480) {
 
-        $scope.slide_to_show = 3;
+		        $scope.slide_to_show = 2;
 
-        $scope.slide_to_scroll = 3;
+		        $scope.slide_to_scroll = 2;
 
-        }  
+	        }    
 
-        if ($scope.window_width < 480) {
 
-        $scope.slide_to_show = 2;
+			$rootScope.$emit('footerBar', false);
 
-        $scope.slide_to_scroll = 2;
+			$rootScope.$emit('activeProfiles',$stateParams.sub_profile_id);
 
-        }    
+			$.ajax({
 
+				type : "post",
 
-		$rootScope.$emit('footerBar', false);
+				url : apiUrl + "userApi/home",
 
-		$rootScope.$emit('activeProfiles',$stateParams.sub_profile_id);
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : memoryStorage.sub_profile_id},
 
-		if ($scope.user_id) {
+				async : false,
 
+				beforeSend : function() {
 
-				$.ajax({
+					$("#before_loader").show();
 
-					type : "post",
+				},
 
-					url : apiUrl + "userApi/home",
+				success : function (data) {
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : memoryStorage.sub_profile_id},
+					if (data.success) {
 
-					async : false,
+						$scope.datas = data.data;
 
-					beforeSend : function() {
+						$scope.recent_video = data.recent_video;
 
-						$("#before_loader").show();
+					} else {
 
-					},
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					success : function (data) {
+						return false;
+					}
+				},
+				error : function (data) {
 
-						if (data.success) {
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-							$scope.datas = data.data;
+				},
 
-							$scope.recent_video = data.recent_video;
+				complete : function(data) {
 
-						} else {
+					$("#before_loader").hide();
 
-							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+				},
+			});
 
-							return false;
-						}
-					},
-					error : function (data) {
 
-						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+			$scope.showArrow = function(id) {
 
-					},
+				$("#"+id).css('line-height', 0);
 
-					complete : function(data) {
+				$("#"+id).fadeIn()
 
-						$("#before_loader").hide();
+			};
 
-					},
-				});
+			$scope.hideArrow = function(id) {
 
+				$("#"+id).fadeOut();
 
-				$scope.showArrow = function(id) {
+			};
 
-					$("#"+id).css('line-height', 0);
+			$scope.showVideoDrop = function(event, idx, key) {
 
-					$("#"+id).fadeIn()
 
-				};
+			    $(".video-drop").hide();
 
-				$scope.hideArrow = function(id) {
+			    $("#"+idx+"_"+key+"_video_drop").show();
 
-					$("#"+id).fadeOut();
+			    // $('#'+idx+"_"+key).addClass('active_img');
 
-				};
+			    //console.log($('#'+idx+"_"+key).closest('.slide-box').siblings().find('tile-img').addClass('active_img'));
 
-				$scope.showVideoDrop = function(event, idx, key) {
+			    $('#'+idx+"_"+key+"_img").addClass('active_img');
 
-				   /* $parent_box = $(event).closest('.slide-area');
+			    $('#'+idx+"_"+key+"_desc").hide();	
 
-				    $silde_box = $(event).closest('.slide-box');
+				$('#'+idx+"_"+key+"_div").addClass('play_icon_div');	
 
-				    $silde_box.addClass('active_img');
 
-				    //$silde_box.css('height', '145px !important');
+			};
 
-				    $parent_box.siblings().find('.video-drop').hide();*/
+			
 
-				    // $("#"+idx+"_"+id+"_video").fadeIn();
-
-				    // $parent_box.find('.video-drop').toggle();
-
-				    $(".video-drop").hide();
-
-				    $("#"+idx+"_"+key+"_video_drop").show();
-
-				    // $('#'+idx+"_"+key).addClass('active_img');
-
-				    //console.log($('#'+idx+"_"+key).closest('.slide-box').siblings().find('tile-img').addClass('active_img'));
-
-				    $('#'+idx+"_"+key+"_img").addClass('active_img');
-
-				    $('#'+idx+"_"+key+"_desc").hide();	
-
-					$('#'+idx+"_"+key+"_div").addClass('play_icon_div');	
-
-
-				};
-
+			$scope.hoverIn = function(event, id, key, length) {
 				
 
-				$scope.hoverIn = function(event, id, key, length) {
-					
 
-					/*console.log($(".video-drop").attr('id'));
+				var video_drop = $(".video-drop").is(":visible");
 
-					console.log($("#"+id+"_"+key+"_video_drop"));
+				if (!video_drop) {
 
-					if ($("#"+id+"_"+key+"_video_drop") != $(".video-drop").attr('id')) {
+					$('#'+id+"_"+key).addClass('transition-class');
 
-						$(".video-drop").hide();
-					}
-*/
-					var video_drop = $(".video-drop").is(":visible");
+					$('#'+id+"_"+key+"_desc").show();
 
-					if (!video_drop) {
-
-						$('#'+id+"_"+key).addClass('transition-class');
-
-						$('#'+id+"_"+key+"_desc").show();
-
-						$('#'+id+"_"+key+"_div").removeClass('play_icon_div');
+					$('#'+id+"_"+key+"_div").removeClass('play_icon_div');
 
 
-					} else {
+				} else {
 
-						for(var i = 0; i < length ; i++) {
+					for(var i = 0; i < length ; i++) {
 
-							$("#"+i+"_"+key+"_video_drop").hide();
+						$("#"+i+"_"+key+"_video_drop").hide();
 
-							// $('#'+i+"_"+key).removeClass('active_img');
+						// $('#'+i+"_"+key).removeClass('active_img');
 
-							$('#'+i+"_"+key+"_img").removeClass('active_img');
+						$('#'+i+"_"+key+"_img").removeClass('active_img');
 
-							$('#'+i+"_"+key+"_div").removeClass('play_icon_div');
+						$('#'+i+"_"+key+"_div").removeClass('play_icon_div');
 
-							$('#'+i+"_"+key+"_desc").show();	
+						$('#'+i+"_"+key+"_desc").show();	
 
-						}
-
-						$('#'+id+"_"+key+"_img").addClass('active_img');
-
-						$('#'+id+"_"+key+"_desc").hide();	
-
-						$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
-
-						$("#"+id+"_"+key+"_video_drop").show();
 					}
 
-				};
+					$('#'+id+"_"+key+"_img").addClass('active_img');
 
-				$scope.hoverOut = function(event, id, key, length) {
-					
-					var video_drop = $(".video-drop").is(":visible");
+					$('#'+id+"_"+key+"_desc").hide();	
+
+					$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
+
+					$("#"+id+"_"+key+"_video_drop").show();
+				}
+
+			};
+
+			$scope.hoverOut = function(event, id, key, length) {
+				
+				var video_drop = $(".video-drop").is(":visible");
 
 
 
-					if (video_drop) {
+				if (video_drop) {
 
-						for(var i = 0; i < length ; i++) {
+					for(var i = 0; i < length ; i++) {
 
-							$("#"+i+"_"+key+"_video_drop").hide();
+						$("#"+i+"_"+key+"_video_drop").hide();
 
-							$('#'+i+"_"+key+"_img").removeClass('active_img');
+						$('#'+i+"_"+key+"_img").removeClass('active_img');
 
-							$('#'+i+"_"+key+"_div").removeClass('play_icon_div');
+						$('#'+i+"_"+key+"_div").removeClass('play_icon_div');
 
-							$('#'+i+"_"+key+"_desc").show();
+						$('#'+i+"_"+key+"_desc").show();
 
-						}
-
-						// $('#'+id+"_"+key).addClass('active_img');
-
-						$('#'+id+"_"+key+"_img").addClass('active_img');
-
-						$('#'+id+"_"+key+"_desc").hide();
-
-						$('#'+id+"_"+key+"_div").addClass('play_icon_div');
-
-						$("#"+id+"_"+key+"_video_drop").show();
-						
-					} 
-
-					$('#'+id+"_"+key).removeClass('transition-class');
-					
-				};
-
-							
-				/*$('.video-box').hover(function() {
-
-					console.log("ff");
-
-				 	for(var i = 0; i < 6; i++) {
-
-				 		$("#"+i).removeClass('active_img');
-
-				 	}
-
-				 	console.log("ddd");
-
-					var id_val = $(this).attr('id');
-
-					var video_drop = $(".video-drop").is(":visible");
-
-					if (!video_drop) {
-
-						$(this).addClass('transition-class');
-
-					} else {
-
-						$(this).addClass('active_img');
 					}
 
-					// $scope.callRoute(id_val);
+					// $('#'+id+"_"+key).addClass('active_img');
 
-				}, function() {
+					$('#'+id+"_"+key+"_img").addClass('active_img');
 
-				    $(this).removeClass('transition-class');
+					$('#'+id+"_"+key+"_desc").hide();
 
-				    var video_drop = $(".video-drop").is(":visible");
+					$('#'+id+"_"+key+"_div").addClass('play_icon_div');
 
+					$("#"+id+"_"+key+"_video_drop").show();
+					
+				} 
 
-				});
-			*/
-			/*		$scope.callRoute = function(id) {
-
-						$rootScope.$apply(function() {
-
-							$location.path('/home/'+id);
-
-						});
-
-					};
-
-					$scope.showArrow = function(this) {
-
-						$(this).children('.fa-angle-right').show();
-					};
-			*/
+				$('#'+id+"_"+key).removeClass('transition-class');
+				
+			};
 
 			$scope.dynamicContent = function(index, key, id) {
 
@@ -527,7 +445,16 @@ angular.module('streamViewApp')
 
 		} else {
 
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
 			$state.go('static.index', {}, {reload:true});
+
 		}
 
 	}

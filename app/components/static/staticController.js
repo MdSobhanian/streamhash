@@ -37,26 +37,26 @@ angular.module('streamViewApp')
 	    $scope.site_logo = logo;
 
 
-	$.ajax({
-        url : apiUrl+'userApi/getPage/'+$stateParams.id,
-        type : 'get',
-        
-        async : false,
-        beforeSend : function() {
+		$.ajax({
+	        url : apiUrl+'userApi/getPage/'+$stateParams.id,
+	        type : 'get',
+	        
+	        async : false,
+	        beforeSend : function() {
 
-			$("#before_loader").show();
+				$("#before_loader").show();
 
-		},
-        success : function(data) {
-          $scope.page = data;
-        },
+			},
+	        success : function(data) {
+	          $scope.page = data;
+	        },
 
-        complete : function(data) {
+	        complete : function(data) {
 
-			$("#before_loader").hide();
+				$("#before_loader").hide();
 
-		},
-    })
+			},
+	    })
 
 
 	}
