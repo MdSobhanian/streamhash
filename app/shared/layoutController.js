@@ -228,16 +228,47 @@ angular.module('streamViewApp')
 
 		$scope.logout = function() {
 
-			window.localStorage.setItem('logged_in', false);
 
-			memoryStorage = {};
-			localStorage.removeItem("sessionStorage");
-			localStorage.clear();
+			$.ajax({
 
-			UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
+				type : "post",
+
+				url : apiUrl + "userApi/delete_logged_device",
+
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+				async : false,
+
+				success : function (data) {
+
+					if (data.success) {
+
+						window.localStorage.setItem('logged_in', false);
+
+						memoryStorage = {};
+						
+						localStorage.removeItem("sessionStorage");
+
+						localStorage.clear();
+
+						UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
 
 
-			$state.go('static.index', {}, {reload:true});
+						$state.go('static.index', {}, {reload:true});
+
+					} else {
+
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+					}
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+			});
 
 		};
 
