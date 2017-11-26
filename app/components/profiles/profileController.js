@@ -119,6 +119,43 @@ angular.module('streamViewApp')
 
 		$scope.no_of_account = 0;
 
+
+		$.ajax({
+				type : 'get',
+
+				url : apiUrl+'userApi/userDetails',
+
+				data : {id : $stateParams.id, token : $stateParams.token},
+
+				success : function(data) {
+					memoryStorage.access_token = data.token;
+
+					memoryStorage.user_id = $stateParams.id;
+
+					memoryStorage.user_type = data.user_type;
+
+					memoryStorage.login_by = data.login_by;
+					
+					memoryStorage.user_picture = data.picture;
+
+					memoryStorage.user_name = data.name;
+
+					memoryStorage.sub_profile_id = data.sub_profile_id;
+
+					memoryStorage.one_time_subscription = data.one_time_subscription;
+
+					localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+
+					// $state.go('manage-profile.view-profile', {}, {reload : true});
+
+
+				},
+				error : function(data) {
+					
+				}
+		});
+
 		$.ajax({
 
 			type : "post",
