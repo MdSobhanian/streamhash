@@ -125,12 +125,12 @@ angular.module('streamViewApp')
 
 				url : apiUrl+'userApi/userDetails',
 
-				data : {id : $stateParams.id, token : $stateParams.token},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
 
 				success : function(data) {
 					memoryStorage.access_token = data.token;
 
-					memoryStorage.user_id = $stateParams.id;
+					memoryStorage.user_id = data.id;
 
 					memoryStorage.user_type = data.user_type;
 
