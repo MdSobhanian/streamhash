@@ -29,7 +29,9 @@
         						<h2 class="select-amount">${{video.amount}}</h2>
         					</div>
         					<div class="text-sec">
-        						<h4>Pay per video (<span ng-if="video.type_of_subscription == 1">One Time Payment</span><span ng-if="video.type_of_subscription == 2">Recurring Payment</span>)</h4>
+        						<h4>Pay per video (<span ng-if="video.type_of_user == 1">One Time Payment</span><span ng-if="video.type_of_subscription == 2">Recurring Payment</span>)</h4>
+
+                                <p ng-if="video.type_of_user == 2"><small>If you subscribe also , you need to pay for this selected video</small></p>
                                
         						<a ui-sref="profile.pay_per_view({id : video.admin_video_id})" class="text-uppercase"><P>Click here to pay per video</P></a>
         					</div>
