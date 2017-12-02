@@ -50,13 +50,6 @@ var streamViewApp = angular.module('streamViewApp', [
   'slick',
 ]);
 
-/*var route_url = "http://localhost/streamview-base/version_2/streamview-v1.2-angular/#";
-
-var apiUrl = "http://localhost:8000/";
-
-var angularUrl = "http://localhost/streamview-base/version_2/streamview-v1.2-angular/#/";
-
-*/
 var route_url = "http://demo.streamhash.com/#";
 
 var apiUrl = "http://adminview.streamhash.com/";

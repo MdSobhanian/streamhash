@@ -5,20 +5,18 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location, $anchorScroll) {
 
-		// $location.hash('page_content');
+        $scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
-		$anchorScroll();
+        $scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
-		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
+        if ($scope.user_id && $scope.access_token) {
 
-		/*if ($scope.user_type) {
+			$anchorScroll();
 
-			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
-
-		}*/
+			$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
 
-		$scope.addWishlist = function(id, $index, key) {
+			$scope.addWishlist = function(id, $index, key) {
 
 				$.ajax({
 
@@ -47,9 +45,26 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+							if(data.error_code 	== 101 || data.error_code == 103 || data.error_code == 104) {
 
-							return false;
+					            window.localStorage.setItem('logged_in', false);
+
+					            memoryStorage = {};
+					            
+					            localStorage.removeItem("sessionStorage");
+
+					            localStorage.clear();
+
+					            $state.go('static.index', {}, {reload:true});
+
+
+							} else {
+
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								return false;
+
+							}
 						}
 					},
 					error : function (data) {
@@ -106,9 +121,26 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+							if(data.error_code 	== 101 || data.error_code == 103 || data.error_code == 104) {
 
-							return false;
+					            window.localStorage.setItem('logged_in', false);
+
+					            memoryStorage = {};
+					            
+					            localStorage.removeItem("sessionStorage");
+
+					            localStorage.clear();
+
+					            $state.go('static.index', {}, {reload:true});
+
+
+							} else {
+
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								return false;
+
+							}
 						}
 					},
 					error : function (data) {
@@ -125,7 +157,7 @@ angular.module('streamViewApp')
 				});
 			}
 
-			 $scope.getSeasons = function(genre_id, sub, idx, key, divid, loader,main_id) {
+			$scope.getSeasons = function(genre_id, sub, idx, key, divid, loader,main_id) {
 
 			 	
 				if (genre_id == '' || genre_id  == undefined) {
@@ -163,9 +195,26 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+							if(data.error_code 	== 101 || data.error_code == 103 || data.error_code == 104) {
 
-							return false;
+					            window.localStorage.setItem('logged_in', false);
+
+					            memoryStorage = {};
+					            
+					            localStorage.removeItem("sessionStorage");
+
+					            localStorage.clear();
+
+					            $state.go('static.index', {}, {reload:true});
+
+
+							} else {
+
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								return false;
+
+							}
 						}
 					},
 					error : function (data) {
@@ -184,185 +233,167 @@ angular.module('streamViewApp')
 			}
 
 
-		$.ajax({
+			$.ajax({
 
-			type : "post",
+				type : "post",
 
-			url : apiUrl + "userApi/browse",
+				url : apiUrl + "userApi/browse",
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, key : $stateParams.browse, sub_profile_id : memoryStorage.sub_profile_id},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, key : $stateParams.browse, sub_profile_id : memoryStorage.sub_profile_id},
 
-			async : false,
+				async : false,
 
-			success : function (data) {
+				success : function (data) {
 
-				if (data.success) {
+					if (data.success) {
 
-					$scope.datas = data;
+						$scope.datas = data;
 
-				} else {
+					} else {
 
-					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					return false;
-				}
-			},
-			error : function (data) {
+						return false;
+					}
+				},
+				error : function (data) {
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-			},
-		});
-
-
-		/*$scope.hoverIn = function(id, key) {
-
-			$('#'+id+"_"+key).addClass('transition-class');
-
-			$('#'+id+"_"+key).css('overflow', 'hidden');
-
-			
-
-		};
-
-		$scope.hoverOut = function(id, key) {
-
-			$('#'+id+"_"+key).removeClass('transition-class');
-
-		};*/
-
-		$scope.showVideoDrop = function(event, sub, idx, key) {
-
-		   /* $parent_box = $(event).closest('.slide-area');
-
-		    $silde_box = $(event).closest('.slide-box');
-
-		    $silde_box.addClass('active_img');
-
-		    //$silde_box.css('height', '145px !important');
-
-		    $parent_box.siblings().find('.video-drop').hide();*/
-
-		    // $("#"+idx+"_"+id+"_video").show();
-
-		    // $parent_box.find('.video-drop').toggle();
-
-		    $("#"+sub+'_'+idx+"_"+key+"_video_drop").show();
-
-		    $('#'+sub+'_'+idx+"_"+key).removeClass('transition-class');
-
-		    $('#'+sub+'_'+idx+"_"+key+"_img").addClass('active_img');
-
-		    $('#'+sub+'_'+idx+"_"+key+"_desc").hide();	
-
-			$('#'+sub+'_'+idx+"_"+key+"_div").addClass('play_icon_div');	
+				},
+			});
 
 
-		};
+			$scope.showVideoDrop = function(event, sub, idx, key) {
+
+			    $("#"+sub+'_'+idx+"_"+key+"_video_drop").show();
+
+			    $('#'+sub+'_'+idx+"_"+key).removeClass('transition-class');
+
+			    $('#'+sub+'_'+idx+"_"+key+"_img").addClass('active_img');
+
+			    $('#'+sub+'_'+idx+"_"+key+"_desc").hide();	
+
+				$('#'+sub+'_'+idx+"_"+key+"_div").addClass('play_icon_div');	
+
+
+			};
 
 		
 
-		$scope.hoverIn = function(event, sub, id, key, length) {
+			$scope.hoverIn = function(event, sub, id, key, length) {
 
-			var video_drop = $(".video-drop").is(":visible");
+				var video_drop = $(".video-drop").is(":visible");
 
-			console.log(video_drop);
+				console.log(video_drop);
 
-			if (!video_drop) {
+				if (!video_drop) {
 
-				$('#'+sub+'_'+id+"_"+key).addClass('transition-class');
+					$('#'+sub+'_'+id+"_"+key).addClass('transition-class');
 
-			} else {
+				} else {
 
-				for(var i = 0; i < length ; i++) {
+					for(var i = 0; i < length ; i++) {
 
-					$("#"+sub+'_'+i+"_"+key+"_video_drop").hide();
+						$("#"+sub+'_'+i+"_"+key+"_video_drop").hide();
 
-					$('#'+sub+'_'+i+"_"+key+"_img").removeClass('active_img');
+						$('#'+sub+'_'+i+"_"+key+"_img").removeClass('active_img');
 
 
-					$('#'+sub+'_'+i+"_"+key+"_desc").show();	
+						$('#'+sub+'_'+i+"_"+key+"_desc").show();	
+
+							$('#'+sub+'_'+i+"_"+key+"_div").removeClass('play_icon_div');	
+
+					}
+
+					console.log('#'+sub+'_'+id+"_"+key+"_img");
+
+					$('#'+sub+'_'+id+"_"+key+"_img").addClass('active_img');
+
+					$("#"+sub+'_'+id+"_"+key+"_video_drop").show();
+
+					$('#'+sub+'_'+id+"_"+key+"_desc").hide();	
+
+					$('#'+sub+'_'+id+"_"+key+"_div").addClass('play_icon_div');	
+				}
+
+			};
+
+			$scope.hoverOut = function(event, sub, id, key, length) {
+				
+				var video_drop = $(".video-drop").is(":visible");
+
+				if (video_drop) {
+
+					for(var i = 0; i < length ; i++) {
+
+						$("#"+sub+'_'+i+"_"+key+"_video_drop").hide();
+
+						$('#'+sub+'_'+i+"_"+key+"_img").removeClass('active_img');
+
+						$('#'+sub+'_'+i+"_"+key+"_desc").show();	
 
 						$('#'+sub+'_'+i+"_"+key+"_div").removeClass('play_icon_div');	
 
-				}
+					}
 
-				console.log('#'+sub+'_'+id+"_"+key+"_img");
+					$('#'+sub+'_'+id+"_"+key+"_img").addClass('active_img');
 
-				$('#'+sub+'_'+id+"_"+key+"_img").addClass('active_img');
+					$("#"+sub+'_'+id+"_"+key+"_video_drop").show();
 
-				$("#"+sub+'_'+id+"_"+key+"_video_drop").show();
+					$('#'+sub+'_'+id+"_"+key+"_desc").hide();	
 
-				$('#'+sub+'_'+id+"_"+key+"_desc").hide();	
+					$('#'+sub+'_'+id+"_"+key+"_div").addClass('play_icon_div');	
+					
+				} 
 
-				$('#'+sub+'_'+id+"_"+key+"_div").addClass('play_icon_div');	
+				$('#'+sub+'_'+id+"_"+key).removeClass('transition-class');
+				
+			};
+
+			$scope.dynamicContent = function(sub, index, key, id) {
+
+					$("#"+sub+"_"+index+"_"+key+"_overview").hide();
+					$("#"+sub+"_"+index+"_"+key+"_episodes").hide();
+					$("#"+sub+"_"+index+"_"+key+"_trailers").hide();
+					$("#"+sub+"_"+index+"_"+key+"_more-like").hide();
+					$("#"+sub+"_"+index+"_"+key+"_details").hide();
+
+					if (id == "overview") {
+
+						$("#"+sub+"_"+index+"_"+key+"_overview").show();
+
+					} else if (id == "episodes") {
+
+						$("#"+sub+"_"+index+"_"+key+"_episodes").show();
+
+					} else if (id == "trailers") {
+
+						$("#"+sub+"_"+index+"_"+key+"_trailers").show();
+						
+					} else if (id == "more-like") {
+
+						$("#"+sub+"_"+index+"_"+key+"_more-like").show();
+						
+					} else {
+
+						$("#"+sub+"_"+index+"_"+key+"_details").show();
+					}
 			}
 
-		};
+		} else {
 
-		$scope.hoverOut = function(event, sub, id, key, length) {
-			
-			var video_drop = $(".video-drop").is(":visible");
+            window.localStorage.setItem('logged_in', false);
 
-			if (video_drop) {
+            memoryStorage = {};
+            
+            localStorage.removeItem("sessionStorage");
 
-				for(var i = 0; i < length ; i++) {
+            localStorage.clear();
 
-					$("#"+sub+'_'+i+"_"+key+"_video_drop").hide();
+            $state.go('static.index', {}, {reload:true});
 
-					$('#'+sub+'_'+i+"_"+key+"_img").removeClass('active_img');
-
-					$('#'+sub+'_'+i+"_"+key+"_desc").show();	
-
-					$('#'+sub+'_'+i+"_"+key+"_div").removeClass('play_icon_div');	
-
-				}
-
-				$('#'+sub+'_'+id+"_"+key+"_img").addClass('active_img');
-
-				$("#"+sub+'_'+id+"_"+key+"_video_drop").show();
-
-				$('#'+sub+'_'+id+"_"+key+"_desc").hide();	
-
-				$('#'+sub+'_'+id+"_"+key+"_div").addClass('play_icon_div');	
-				
-			} 
-
-			$('#'+sub+'_'+id+"_"+key).removeClass('transition-class');
-			
-		};
-
-		$scope.dynamicContent = function(sub, index, key, id) {
-
-				$("#"+sub+"_"+index+"_"+key+"_overview").hide();
-				$("#"+sub+"_"+index+"_"+key+"_episodes").hide();
-				$("#"+sub+"_"+index+"_"+key+"_trailers").hide();
-				$("#"+sub+"_"+index+"_"+key+"_more-like").hide();
-				$("#"+sub+"_"+index+"_"+key+"_details").hide();
-
-				if (id == "overview") {
-
-					$("#"+sub+"_"+index+"_"+key+"_overview").show();
-
-				} else if (id == "episodes") {
-
-					$("#"+sub+"_"+index+"_"+key+"_episodes").show();
-
-				} else if (id == "trailers") {
-
-					$("#"+sub+"_"+index+"_"+key+"_trailers").show();
-					
-				} else if (id == "more-like") {
-
-					$("#"+sub+"_"+index+"_"+key+"_more-like").show();
-					
-				} else {
-
-					$("#"+sub+"_"+index+"_"+key+"_details").show();
-				}
-		}
-
-
+        }
 	}
 
 ]);

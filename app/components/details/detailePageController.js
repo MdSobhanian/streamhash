@@ -5,23 +5,19 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location,  $anchorScroll) {
 
-		// $location.hash('page_content');
+		$scope.user_id = (memoryStorage.user_id != undefined && memoryStorage.user_id != '') ? memoryStorage.user_id : '';
 
+		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
-		$anchorScroll();
+		if ($scope.user_id && $scope.access_token) {
 
-		$scope.title = $stateParams.title;
+			$anchorScroll();
 
+			$scope.title = $stateParams.title;
 
-		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
+			$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
-		/*if ($scope.user_type) {
-
-			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
-
-		}*/
-
-		$scope.addWishlist = function(id, $index, key) {
+			$scope.addWishlist = function(id, $index, key) {
 
 				$.ajax({
 
@@ -129,144 +125,128 @@ angular.module('streamViewApp')
 				});
 			}
 
-		$scope.showVideoDrop = function(event, idx, key) {
+			$scope.showVideoDrop = function(event, idx, key) {
 
-		   /* $parent_box = $(event).closest('.slide-area');
+			    $("#"+idx+"_"+key+"_video_drop").show();
 
-		    $silde_box = $(event).closest('.slide-box');
+			    $('#'+idx+"_"+key).removeClass('transition-class');
 
-		    $silde_box.addClass('active_img');
+			    $('#'+idx+"_"+key+"_img").addClass('active_img');
 
-		    //$silde_box.css('height', '145px !important');
+			    $('#'+idx+"_"+key+"_desc").hide();	
 
-		    $parent_box.siblings().find('.video-drop').hide();*/
+				$('#'+idx+"_"+key+"_div").addClass('play_icon_div');	
 
-		    // $("#"+idx+"_"+id+"_video").fadeIn();
+			};
 
-		    // $parent_box.find('.video-drop').toggle();
+			$scope.hoverIn = function(event, id, key, length) {
 
-		    $("#"+idx+"_"+key+"_video_drop").show();
+				//$(".video-drop").hide();
 
-		    $('#'+idx+"_"+key).removeClass('transition-class');
+				var video_drop = $(".video-drop").is(":visible");
 
-		    $('#'+idx+"_"+key+"_img").addClass('active_img');
+				if (!video_drop) {
 
-		    $('#'+idx+"_"+key+"_desc").hide();	
+					$('#'+id+"_"+key).addClass('transition-class');
 
-			$('#'+idx+"_"+key+"_div").addClass('play_icon_div');	
-
-		};
-
-		
-
-		$scope.hoverIn = function(event, id, key, length) {
-
-			//$(".video-drop").hide();
-
-			var video_drop = $(".video-drop").is(":visible");
-
-			if (!video_drop) {
-
-				$('#'+id+"_"+key).addClass('transition-class');
-
-			} else {
-
-				for(var i = 0; i < length ; i++) {
-
-					$("#"+i+"_"+key+"_video_drop").hide();
-
-					$('#'+i+"_"+key+"_img").removeClass('active_img');
-
-					$('#'+i+"_"+key+"_desc").show();	
-
-					$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
-
-				}
-
-
-				$('#'+id+"_"+key+"_img").addClass('active_img');
-
-				$("#"+id+"_"+key+"_video_drop").show();
-
-				$('#'+id+"_"+key+"_desc").hide();	
-
-				$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
-			}
-
-		};
-
-		$scope.hoverOut = function(event, id, key, length) {
-			
-			var video_drop = $(".video-drop").is(":visible");
-
-			if (video_drop) {
-
-				for(var i = 0; i < length ; i++) {
-
-					$("#"+i+"_"+key+"_video_drop").hide();
-
-					$('#'+i+"_"+key+"_img").removeClass('active_img');
-
-					$('#'+i+"_"+key+"_desc").show();	
-
-					$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
-
-				}
-
-				$('#'+id+"_"+key+"_img").addClass('active_img');
-
-				$("#"+id+"_"+key+"_video_drop").show();
-
-				$('#'+id+"_"+key+"_desc").hide();	
-
-				$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
-				
-			} 
-
-			$('#'+id+"_"+key).removeClass('transition-class');
-			
-		};
-
-		$scope.dynamicContent = function(index, key, id) {
-
-				$("#"+index+"_"+key+"_overview").hide();
-				$("#"+index+"_"+key+"_episodes").hide();
-				$("#"+index+"_"+key+"_trailers").hide();
-				$("#"+index+"_"+key+"_more-like").hide();
-				$("#"+index+"_"+key+"_details").hide();
-
-				if (id == "overview") {
-
-					$("#"+index+"_"+key+"_overview").show();
-
-				} else if (id == "episodes") {
-
-					$("#"+index+"_"+key+"_episodes").show();
-
-				} else if (id == "trailers") {
-
-					$("#"+index+"_"+key+"_trailers").show();
-					
-				} else if (id == "more-like") {
-
-					$("#"+index+"_"+key+"_more-like").show();
-					
 				} else {
 
-					$("#"+index+"_"+key+"_details").show();
+					for(var i = 0; i < length ; i++) {
+
+						$("#"+i+"_"+key+"_video_drop").hide();
+
+						$('#'+i+"_"+key+"_img").removeClass('active_img');
+
+						$('#'+i+"_"+key+"_desc").show();	
+
+						$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
+
+					}
+
+
+					$('#'+id+"_"+key+"_img").addClass('active_img');
+
+					$("#"+id+"_"+key+"_video_drop").show();
+
+					$('#'+id+"_"+key+"_desc").hide();	
+
+					$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
 				}
-		}
 
-		$(window).scroll(function() {
+			};
 
-	    	if($(window).scrollTop() == $(document).height() - $(window).height()) {
-		           // ajax call get data from server and append to the div
-		        $("#load_more_details").click();
-		    }
+			$scope.hoverOut = function(event, id, key, length) {
+				
+				var video_drop = $(".video-drop").is(":visible");
 
-		});
+				if (video_drop) {
 
-		 $scope.getSeasons = function(genre_id, idx, key, divid, loader, main_id) {
+					for(var i = 0; i < length ; i++) {
+
+						$("#"+i+"_"+key+"_video_drop").hide();
+
+						$('#'+i+"_"+key+"_img").removeClass('active_img');
+
+						$('#'+i+"_"+key+"_desc").show();	
+
+						$('#'+i+"_"+key+"_div").removeClass('play_icon_div');	
+
+					}
+
+					$('#'+id+"_"+key+"_img").addClass('active_img');
+
+					$("#"+id+"_"+key+"_video_drop").show();
+
+					$('#'+id+"_"+key+"_desc").hide();	
+
+					$('#'+id+"_"+key+"_div").addClass('play_icon_div');	
+					
+				} 
+
+				$('#'+id+"_"+key).removeClass('transition-class');
+				
+			};
+
+			$scope.dynamicContent = function(index, key, id) {
+
+					$("#"+index+"_"+key+"_overview").hide();
+					$("#"+index+"_"+key+"_episodes").hide();
+					$("#"+index+"_"+key+"_trailers").hide();
+					$("#"+index+"_"+key+"_more-like").hide();
+					$("#"+index+"_"+key+"_details").hide();
+
+					if (id == "overview") {
+
+						$("#"+index+"_"+key+"_overview").show();
+
+					} else if (id == "episodes") {
+
+						$("#"+index+"_"+key+"_episodes").show();
+
+					} else if (id == "trailers") {
+
+						$("#"+index+"_"+key+"_trailers").show();
+						
+					} else if (id == "more-like") {
+
+						$("#"+index+"_"+key+"_more-like").show();
+						
+					} else {
+
+						$("#"+index+"_"+key+"_details").show();
+					}
+			}
+
+			$(window).scroll(function() {
+
+		    	if($(window).scrollTop() == $(document).height() - $(window).height()) {
+			           // ajax call get data from server and append to the div
+			        $("#load_more_details").click();
+			    }
+
+			});
+
+			$scope.getSeasons = function(genre_id, idx, key, divid, loader, main_id) {
 
 
 				if (genre_id == '' || genre_id  == undefined) {
@@ -324,103 +304,115 @@ angular.module('streamViewApp')
 
 			}
 
-		$scope.datas =  [];
+			$scope.datas =  [];
 
-		$scope.detailsFn = function(skip, take) {
+			$scope.detailsFn = function(skip, take) {
 
-			var data = new FormData;
-			data.append('id', memoryStorage.user_id);
-			data.append('token', memoryStorage.access_token);
-			data.append('sub_profile_id', memoryStorage.sub_profile_id);
-			data.append('key', $stateParams.title);
-			data.append('skip',skip);
-			data.append('take',take);
+				var data = new FormData;
+				data.append('id', memoryStorage.user_id);
+				data.append('token', memoryStorage.access_token);
+				data.append('sub_profile_id', memoryStorage.sub_profile_id);
+				data.append('key', $stateParams.title);
+				data.append('skip',skip);
+				data.append('take',take);
 
 
-			$.ajax({
+				$.ajax({
 
-				type : "post",
+					type : "post",
 
-				url : apiUrl + "userApi/details",
+					url : apiUrl + "userApi/details",
 
-				data : data,
+					data : data,
 
-				contentType : false,
+					contentType : false,
 
-				processData: false,
+					processData: false,
 
-				async : false,
+					async : false,
 
-				beforeSend : function() {
+					beforeSend : function() {
 
-					$("#data_loader").show();
+						$("#data_loader").show();
 
-				},
+					},
 
-				success : function (data) {
+					success : function (data) {
 
-					if (data.success) {
+						if (data.success) {
 
-						// $scope.datas = data;
+							// $scope.datas = data;
 
-						if (data.data.length > 0) {
+							if (data.data.length > 0) {
 
-							$scope.title = data.title;
+								$scope.title = data.title;
 
-							if($scope.datas.length > 0) {
-								
-								$scope.datas = $.merge($scope.datas, data.data);
+								if($scope.datas.length > 0) {
+									
+									$scope.datas = $.merge($scope.datas, data.data);
 
-							} else {
+								} else {
 
-								$scope.datas = data.data;
+									$scope.datas = data.data;
 
+								}
 							}
+
+
+						} else {
+
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
 						}
+					},
+					error : function (data) {
 
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					} else {
+					},
 
-						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+					complete : function(data) {
 
-						return false;
-					}
-				},
-				error : function (data) {
+						$("#data_loader").hide();
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
-
-				},
-
-				complete : function(data) {
-
-					$("#data_loader").hide();
-
-				},
-			});
-		}
-
-		$scope.detailsFn(0, 12);
-
-		$scope.loadMoreDetails = function () {
-
-			var dataLength = $scope.datas.length;
-
-			length = 0;
-
-			for (var i = 0; i < dataLength; i++) {
-
-				length += $scope.datas[i].length;
-
+					},
+				});
 			}
 
-	        $total = length;
+			$scope.detailsFn(0, 12);
 
-			$scope.detailsFn($total, 12);
-				
+			$scope.loadMoreDetails = function () {
+
+				var dataLength = $scope.datas.length;
+
+				length = 0;
+
+				for (var i = 0; i < dataLength; i++) {
+
+					length += $scope.datas[i].length;
+
+				}
+
+		        $total = length;
+
+				$scope.detailsFn($total, 12);
+					
+			}
+
+		} else {
+
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
+			$state.go('static.index', {}, {reload:true});
+
 		}
-
-
 	}
 
 ]);

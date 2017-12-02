@@ -35,17 +35,29 @@
 	        						<p class="section1-line"></p>
 
 	        						<p><i class="fa fa-hand-o-up pay-icon"></i> Subcription type</p>
-	        						<p class="right"><strong>One time payment</strong></p>
+	        						<p class="right"><strong>
+	        							<span ng-if="video.type_of_subscription == 1">
+							              		One Time Payment
+							              	</span>
+							              	<span ng-if="video.type_of_subscription == 2">
+							              		Recurring Payment
+							              	</span>
+							              	
+	        						</strong></p>
 	        						<p class="section1-line"></p>
 
 	        						<p><i class="fa fa-usd pay-icon"></i> Amount</p>
 	        						<p class="right"><strong>${{video.amount}}</strong></p>
 	        					</div>
         					</div>
+
+        					
         					<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
         						<div class="spacing">
         							<h3 class="pay-head"><i class="fa fa-globe pay-icon1" ></i><span>Pay per view</span></h3>
         							<h3 class="table-title">Amount</h3>
+
+        							<p style="color: #000"  ng-if="video.type_of_user == 3"><small>If you subscribe also , you need to pay for this selected video</small></p>
 
         							<table class="table">
         								<tbody>

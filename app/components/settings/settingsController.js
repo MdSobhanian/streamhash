@@ -3,140 +3,188 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
-		$rootScope.$emit('navBar', 'black-background');
 
-		// $(document.body).css('background-color', '#141414');
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
+
+		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
+
+		if ($scope.user_id && $scope.access_token) {
+
+			$rootScope.$emit('navBar', 'black-background');
+
+			// $(document.body).css('background-color', '#141414');
+
+			var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
+
+		    var bg_image = "";
+
+		    if (login_bg.length == 0) {
+
+		        console.log("not found");
+		        
+		    } else if (login_bg.length == 1) {
+
+		      // access the foo property using result[0].foo
+
+		      bg_image = login_bg[0].value;
+
+		      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+		        
+		      } else {
+
+		        bg_image = '';
+
+		      }
+
+		    } else {
+
+		      // multiple items found
+		      bg_image = "";
+
+		    }
+
+		    $scope.login_bg = bg_image;
 
 
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+			$scope.id = memoryStorage.user_id;
 
-		// $rootScope.$emit('footerBar', 'true');
+			$scope.sub_profile_id = $stateParams.sub_profile_id;
 
-		$scope.id = memoryStorage.user_id;
+			$scope.login_by = memoryStorage.login_by;
 
-		$scope.sub_profile_id = $stateParams.sub_profile_id;
+			$.ajax({
 
-		$scope.login_by = memoryStorage.login_by;
+				type : "get",
 
-		$.ajax({
+				url : apiUrl + "userApi/userDetails",
 
-			type : "get",
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
 
-			url : apiUrl + "userApi/userDetails",
+				async : false,
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+				beforeSend : function() {
 
-			async : false,
+					$("#before_loader").show();
 
-			beforeSend : function() {
+				},
 
-				$("#before_loader").show();
+				success : function (data) {
 
-			},
+					if (data.success) {
 
-			success : function (data) {
+						$scope.profile = data;
 
-				if (data.success) {
+					} else {
 
-					$scope.profile = data;
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-				} else {
+						return false;
+					}
+				},
+				error : function (data) {
 
-					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					return false;
-				}
-			},
-			error : function (data) {
+				},
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+				complete : function() {
 
-			},
+					$("#before_loader").hide();
 
-			complete : function() {
+				},
+			});
 
-				$("#before_loader").hide();
+			$.ajax({
 
-			},
-		});
+				type : "post",
 
-		$.ajax({
+				url : apiUrl + "userApi/active_plan",
 
-			type : "post",
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
 
-			url : apiUrl + "userApi/active_plan",
+				async : false,
+			
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+				success : function (data) {
 
-			async : false,
-		
+					if (data.success) {
 
-			success : function (data) {
+						$scope.active_plan = data.subscription;
 
-				if (data.success) {
+					} else {
 
-					$scope.active_plan = data.subscription;
+						console.log(data.message);
 
-				} else {
+						//UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					console.log(data.message);
+						return false;
+					}
+				},
+				error : function (data) {
 
-					//UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					return false;
-				}
-			},
-			error : function (data) {
+				},
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+			});
 
-			},
+			
 
-		});
+			$.ajax({
 
-		
+				type : "post",
 
-		$.ajax({
+				url : apiUrl + "userApi/view-sub-profile",
 
-			type : "post",
+				data : {sub_profile_id : $stateParams.sub_profile_id, id : memoryStorage.user_id, token : memoryStorage.access_token},
 
-			url : apiUrl + "userApi/view-sub-profile",
+				async : false,
 
-			data : {sub_profile_id : $stateParams.sub_profile_id, id : memoryStorage.user_id, token : memoryStorage.access_token},
+				beforeSend : function() {
 
-			async : false,
+					$("#before_loader").fadeIn();
 
-			beforeSend : function() {
+				},
 
-				$("#before_loader").fadeIn();
+				success : function (data) {
 
-			},
+					if (data.success) {
 
-			success : function (data) {
+						$scope.subprofile = data.data;
 
-				if (data.success) {
+					} else {
 
-					$scope.subprofile = data.data;
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-				} else {
+						return false;
+					}
+				},
+				error : function (data) {
 
-					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-					return false;
-				}
-			},
-			error : function (data) {
+				},
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+				complete : function() {
 
-			},
+					$("#before_loader").fadeOut();
 
-			complete : function() {
+				},
+			});
 
-				$("#before_loader").fadeOut();
+		} else {
 
-			},
-		});
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
+			$state.go('static.index', {}, {reload:true});
+
+		}
 
 	}
 ])
@@ -145,60 +193,111 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
-		$rootScope.$emit('navBar', 'black-background');
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
+
+		if ($scope.user_id && $scope.access_token) {
 
 
-		$scope.changePassword = function() {
+			$rootScope.$emit('navBar', 'black-background');
 
-			$.ajax({
+			
+			var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
 
-				type : "post",
+		    var bg_image = "";
 
-				url : apiUrl + "userApi/changePassword",
+		    if (login_bg.length == 0) {
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, old_password : $scope.old_password,
-					password : $scope.password, password_confirmation : $scope.password_confirmation},
+		        console.log("not found");
+		        
+		    } else if (login_bg.length == 1) {
 
-				async : false,
+		      // access the foo property using result[0].foo
 
-				beforeSend : function() {
+		      bg_image = login_bg[0].value;
 
-					$("#before_loader").fadeIn();
+		      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+		        
+		      } else {
 
-				},
+		        bg_image = '';
 
-				success : function (data) {
+		      }
 
-					if (data.success) {
+		    } else {
 
-						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});
+		      // multiple items found
+		      bg_image = "";
 
-						$state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+		    }
 
-					} else {
+		    $scope.login_bg = bg_image;
 
-						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-						return false;
-					}
-				},
-				error : function (data) {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+			$scope.changePassword = function() {
 
-				},
+				$.ajax({
 
-				complete : function() {
+					type : "post",
 
-					$("#before_loader").fadeOut();
+					url : apiUrl + "userApi/changePassword",
 
-				},
-			});
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, old_password : $scope.old_password,
+						password : $scope.password, password_confirmation : $scope.password_confirmation},
+
+					async : false,
+
+					beforeSend : function() {
+
+						$("#before_loader").fadeIn();
+
+					},
+
+					success : function (data) {
+
+						if (data.success) {
+
+							UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});
+
+							$state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+
+						} else {
+
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
+						}
+					},
+					error : function (data) {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					},
+
+					complete : function() {
+
+						$("#before_loader").fadeOut();
+
+					},
+				});
+
+			}
+
+		} else {
+
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
+			$state.go('static.index', {}, {reload:true});
 
 		}
-
 	}
 ])
 
@@ -207,70 +306,63 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
-		$rootScope.$emit('navBar', 'black-background');
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
-		// $rootScope.$emit('footerBar', 'true');
+		if ($scope.user_id && $scope.access_token) {
 
-		$.ajax({
 
-			type : "get",
+			$rootScope.$emit('navBar', 'black-background');
 
-			url : apiUrl + "userApi/userDetails",
+			
+			var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+		    var bg_image = "";
 
-			async : false,
+		    if (login_bg.length == 0) {
 
-			beforeSend : function() {
+		        console.log("not found");
+		        
+		    } else if (login_bg.length == 1) {
 
-				$("#before_loader").show();
+		      // access the foo property using result[0].foo
 
-			},
+		      bg_image = login_bg[0].value;
 
-			success : function (data) {
+		      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+		        
+		      } else {
 
-				if (data.success) {
+		        bg_image = '';
 
-					$scope.profile = data;
+		      }
 
-				} else {
+		    } else {
 
-					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+		      // multiple items found
+		      bg_image = "";
 
-					return false;
-				}
-			},
-			error : function (data) {
+		    }
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+		    $scope.login_bg = bg_image;
 
-			},
 
-			complete : function() {
-
-				$("#before_loader").hide();
-
-			},
-		});
-
-		$scope.editProfile = function() {
+			// $rootScope.$emit('footerBar', 'true');
 
 			$.ajax({
 
-				type : "post",
+				type : "get",
 
-				url : apiUrl + "userApi/updateProfile",
+				url : apiUrl + "userApi/userDetails",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, email:$scope.profile.email, 
-						name : $scope.profile.name, mobile : $scope.profile.mobile, device_token : '123456'},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
 
 				async : false,
 
 				beforeSend : function() {
 
-					$("#before_loader").fadeIn();
+					$("#before_loader").show();
 
 				},
 
@@ -278,9 +370,7 @@ angular.module('streamViewApp')
 
 					if (data.success) {
 
-						UIkit.notify({message : "Your account has been successfully updated", timeout : 3000, pos : 'top-center', status : 'success'});						
-
-						$state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+						$scope.profile = data;
 
 					} else {
 
@@ -297,13 +387,73 @@ angular.module('streamViewApp')
 
 				complete : function() {
 
-					$("#before_loader").fadeOut();
+					$("#before_loader").hide();
 
 				},
 			});
 
-		}
+			$scope.editProfile = function() {
 
+				$.ajax({
+
+					type : "post",
+
+					url : apiUrl + "userApi/updateProfile",
+
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, email:$scope.profile.email, 
+							name : $scope.profile.name, mobile : $scope.profile.mobile, device_token : '123456'},
+
+					async : false,
+
+					beforeSend : function() {
+
+						$("#before_loader").fadeIn();
+
+					},
+
+					success : function (data) {
+
+						if (data.success) {
+
+							UIkit.notify({message : "Your account has been successfully updated", timeout : 3000, pos : 'top-center', status : 'success'});						
+
+							$state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+
+						} else {
+
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
+						}
+					},
+					error : function (data) {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					},
+
+					complete : function() {
+
+						$("#before_loader").fadeOut();
+
+					},
+				});
+
+			}
+
+		} else {
+
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
+			$state.go('static.index', {}, {reload:true});
+
+		}
 	}
 ])
 
@@ -312,65 +462,116 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
-		$rootScope.$emit('navBar', 'black-background');
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
-		$scope.login_by = memoryStorage.login_by;
+		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';		
+		if ($scope.user_id && $scope.access_token) {
 
-		$scope.deleteAccount = function() {
+			$rootScope.$emit('navBar', 'black-background');
 
-			var password = memoryStorage.login_by == 'manual' ? $scope.password : '';
+			$scope.login_by = memoryStorage.login_by;
 
-			$.ajax({
+			
+			var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
 
-				type : "post",
+		    var bg_image = "";
 
-				url : apiUrl + "userApi/deleteAccount",
+		    if (login_bg.length == 0) {
 
-				data : {password : $scope.password, id : memoryStorage.user_id, token : memoryStorage.access_token},
+		        console.log("not found");
+		        
+		    } else if (login_bg.length == 1) {
 
-				async : false,
+		      // access the foo property using result[0].foo
 
-				beforeSend : function() {
+		      bg_image = login_bg[0].value;
 
-					$("#before_loader").fadeIn();
+		      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+		        
+		      } else {
 
-				},
+		        bg_image = '';
 
-				success : function (data) {
+		      }
 
-					if (data.success) {
+		    } else {
 
-						UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});
+		      // multiple items found
+		      bg_image = "";
 
-						window.localStorage.setItem('logged_in', false);
+		    }
 
-						memoryStorage = {};
-						localStorage.removeItem("sessionStorage");
-						localStorage.clear();
+		    $scope.login_bg = bg_image;
 
-						$state.go('static.index', {}, {reload:true});
 
-					} else {
+			$scope.deleteAccount = function() {
 
-						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+				var password = memoryStorage.login_by == 'manual' ? $scope.password : '';
 
-						return false;
-					}
-				},
-				error : function (data) {
+				$.ajax({
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+					type : "post",
 
-				},
+					url : apiUrl + "userApi/deleteAccount",
 
-				complete : function() {
+					data : {password : $scope.password, id : memoryStorage.user_id, token : memoryStorage.access_token},
 
-					$("#before_loader").fadeOut();
+					async : false,
 
-				},
-			});
+					beforeSend : function() {
+
+						$("#before_loader").fadeIn();
+
+					},
+
+					success : function (data) {
+
+						if (data.success) {
+
+							UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});
+
+							window.localStorage.setItem('logged_in', false);
+
+							memoryStorage = {};
+							localStorage.removeItem("sessionStorage");
+							localStorage.clear();
+
+							$state.go('static.index', {}, {reload:true});
+
+						} else {
+
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
+						}
+					},
+					error : function (data) {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					},
+
+					complete : function() {
+
+						$("#before_loader").fadeOut();
+
+					},
+				});
+
+			}
+
+		} else {
+
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
+			$state.go('static.index', {}, {reload:true});
 
 		}
 
@@ -382,147 +583,244 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
-		$rootScope.$emit('navBar', 'black-background');
-
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
-
-		$scope.one_time_subscription = memoryStorage.one_time_subscription;
-
-		$scope.subscription_index = function(data) {
-
-			$scope.subscriptions = [];
-
-			var data = new FormData;
-			data.append('id', memoryStorage.user_id);
-			data.append('token', memoryStorage.access_token);
-
-			$.ajax({
-				url : apiUrl+"userApi/subscription_index",
-				type : 'post',
-				contentType : false,
-				processData: false,
-				beforeSend: function(xhr){
-					$("#before_loader").fadeIn();
-				},
-				async : false,
-				data : data,
-				success : function(data) {
-
-					// console.log(data);
-					//$scope.subscriptions = data.data;
-
-					if(data.success == true) {
-
-						$scope.subscriptions = data.data;
-
-					} else {
-
-						if (data.error_code == 101) {
-
-							$state.go('static.index', {}, {reload:true});
-
-						} else {
-
-							console.log(data.error_messages);
-
-							UIkit.notify({message: 'Something Went wrong, Please try again later', status : 'danger', pos : 'top-center', timeout : 5000});
-						}
-					}
-				},
-				complete : function() {
-		    		$("#before_loader").fadeOut();
-		    	},
-		    	error : function(result) {
-
-		    	}
-			});
-		}
-
-		$scope.subscription_index();
-
-		$scope.user_id = (memoryStorage.user_id != undefined && memoryStorage.user_id != '') ? memoryStorage.user_id : '';
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
+		if ($scope.user_id && $scope.access_token) {
+
+			$rootScope.$emit('navBar', 'black-background');
+
+		
+			var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
+
+		    var bg_image = "";
+
+		    if (login_bg.length == 0) {
+
+		        console.log("not found");
+		        
+		    } else if (login_bg.length == 1) {
+
+		      // access the foo property using result[0].foo
+
+		      bg_image = login_bg[0].value;
+
+		      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+		        
+		      } else {
+
+		        bg_image = '';
+
+		      }
+
+		    } else {
+
+		      // multiple items found
+		      bg_image = "";
+
+		    }
+
+		    $scope.login_bg = bg_image;
+
+
+			$scope.one_time_subscription = memoryStorage.one_time_subscription;
+
+			$scope.subscription_index = function(data) {
+
+				$scope.subscriptions = [];
+
+				var data = new FormData;
+				data.append('id', memoryStorage.user_id);
+				data.append('token', memoryStorage.access_token);
+
+				$.ajax({
+					url : apiUrl+"userApi/subscription_index",
+					type : 'post',
+					contentType : false,
+					processData: false,
+					beforeSend: function(xhr){
+						$("#before_loader").fadeIn();
+					},
+					async : false,
+					data : data,
+					success : function(data) {
+
+						// console.log(data);
+						//$scope.subscriptions = data.data;
+
+						if(data.success == true) {
+
+							$scope.subscriptions = data.data;
+
+						} else {
+
+							if (data.error_code == 101) {
+
+								$state.go('static.index', {}, {reload:true});
+
+							} else {
+
+								console.log(data.error_messages);
+
+								UIkit.notify({message: 'Something Went wrong, Please try again later', status : 'danger', pos : 'top-center', timeout : 5000});
+							}
+						}
+					},
+					complete : function() {
+			    		$("#before_loader").fadeOut();
+			    	},
+			    	error : function(result) {
+
+			    	}
+				});
+			}
+
+			$scope.subscription_index();
+
+		} else {
+
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
+			$state.go('static.index', {}, {reload:true});
+
+		}
 	}
 ])
 .controller('billingDetailsController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
-		$rootScope.$emit('navBar', 'black-background');
+		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
-		$scope.login_bg = ($rootScope.site_settings) ? (($rootScope.site_settings[47] != undefined) ? $rootScope.site_settings[47].value  : '' ): '';
+		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
+		if ($scope.user_id && $scope.access_token) {
 
-		$.ajax({
+			$rootScope.$emit('navBar', 'black-background');
 
-			type : "post",
-
-			url : apiUrl + "userApi/active_plan",
-
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
-
-			async : false,
 		
+			var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
 
-			success : function (data) {
+		    var bg_image = "";
 
-				if (data.success) {
+		    if (login_bg.length == 0) {
 
-					$scope.active_plan = data;
+		        console.log("not found");
+		        
+		    } else if (login_bg.length == 1) {
 
-				} else {
+		      // access the foo property using result[0].foo
 
-					console.log(data.message);
+		      bg_image = login_bg[0].value;
 
-					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+		      if (bg_image != '' || bg_image != null || bg_image != undefined) {
+		        
+		      } else {
 
-					return false;
-				}
-			},
-			error : function (data) {
+		        bg_image = '';
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+		      }
 
-			},
+		    } else {
 
-		});
+		      // multiple items found
+		      bg_image = "";
+
+		    }
+
+		    $scope.login_bg = bg_image;
 
 
-		$.ajax({
 
-			type : "post",
+			$.ajax({
 
-			url : apiUrl + "userApi/subscribed_plans",
+				type : "post",
 
-			data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+				url : apiUrl + "userApi/active_plan",
 
-			async : false,
-		
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
 
-			success : function (data) {
+				async : false,
+			
 
-				if (data.success) {
+				success : function (data) {
 
-					$scope.subscribed_plans = data;
+					if (data.success) {
 
-				} else {
+						$scope.active_plan = data;
 
-					console.log(data.error_messages);
+					} else {
 
-					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+						console.log(data.message);
 
-					return false;
-				}
-			},
-			error : function (data) {
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+						return false;
+					}
+				},
+				error : function (data) {
 
-			},
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-		});
+				},
+
+			});
+
+
+			$.ajax({
+
+				type : "post",
+
+				url : apiUrl + "userApi/subscribed_plans",
+
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+				async : false,
+			
+
+				success : function (data) {
+
+					if (data.success) {
+
+						$scope.subscribed_plans = data;
+
+					} else {
+
+						console.log(data.error_messages);
+
+						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+					}
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+
+			});
+
+		} else {
+
+			window.localStorage.setItem('logged_in', false);
+
+			memoryStorage = {};
+			
+			localStorage.removeItem("sessionStorage");
+
+			localStorage.clear();
+
+			$state.go('static.index', {}, {reload:true});
+
+		}
 
 	}
 

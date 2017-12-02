@@ -57,8 +57,6 @@ streamViewApp.directive('autocomplete', function() {
 
                 select:function (event,ui) {
                     
-                    console.log(ui);
-
                     ngModelCtrl.$setViewValue(ui.item);
 
                     // scope.$apply();
@@ -68,9 +66,14 @@ streamViewApp.directive('autocomplete', function() {
 
                         var searchKey = $("#search-box").val();
 
+
                         if(ui.item.value == 'View All') {
 
                             // console.log('View AALLLLLLLLL');
+
+                           // searchKey.replace("%20", " ");
+
+                            searchKey = encodeURIComponent(searchKey.trim());
 
                             window.location.href = angularUrl+"search/"+searchKey;
 
@@ -79,7 +82,13 @@ streamViewApp.directive('autocomplete', function() {
 
                             // jQuery('#auto_complete_search').val(ui.item.value);
 
-                            window.location.href = angularUrl+"search/"+ui.item.value;
+                            var searchKey = ui.item.value;
+
+                            searchKey = decodeURI(searchKey);
+
+                            alert(searchKey);
+
+                            window.location.href = angularUrl+"search/"+searchKey;
 
                            
                         }
@@ -92,3 +101,4 @@ streamViewApp.directive('autocomplete', function() {
         }
     }
 });
+
