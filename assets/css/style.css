@@ -596,11 +596,11 @@ input:focus,textarea:focus{
 .my-list:hover > .my-list-icon{
 	/*background-color: #fff;*/
 	color: #000;
-    -webkit-transform: scale(1.15,1.15);
+   /* -webkit-transform: scale(1.15,1.15);
     -moz-transform: scale(1.15,1.15);
     -ms-transform: scale(1.15,1.15);
     -o-transform: scale(1.15,1.15);
-    transform: scale(1.15,1.15);
+    transform: scale(1.15,1.15);*/
 }
 
 .my-list-txt{
