@@ -86,8 +86,6 @@ streamViewApp.directive('autocomplete', function() {
 
                             searchKey = decodeURI(searchKey);
 
-                            alert(searchKey);
-
                             window.location.href = angularUrl+"search/"+searchKey;
 
                            
