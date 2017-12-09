@@ -156,13 +156,22 @@
 				    					</div>
 
 				    					<div id="my-list-txt_{{subkey}}_{{$index}}_{{$parentindex}}">
-			    					
+			    							
 				    						<a ng-click="addWishlist(value.admin_video_id, subkey, $index, $parentindex)" class="my-list bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
-				    							<i class="fa fa-plus my-list-icon"></i>
+				    							<!-- <i class="fa fa-plus my-list-icon"></i> -->
+				    							<span class="fa-stack fa-lg my-list-icon">
+												  	<i class="fa fa-circle-thin fa-stack-2x"></i>
+												  	<i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i>
+												</span>
 				    							<span class="my-list-txt">My List</span> 
 				    						</a>
+
 				    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,subkey, $index, $parentindex)" class="my-list bold" ng-if="value.wishlist_status" style="cursor: pointer;">
-				    							<i class="fa fa-check my-list-icon"></i>
+				    							<!-- <i class="fa fa-check my-list-icon"></i> -->
+				    							<span class="fa-stack fa-lg my-list-icon">
+												  	<i class="fa fa-circle-thin fa-stack-2x"></i>
+												  	<i class="fa fa-check fa-stack-1x fa-inverse padding2"></i>
+												</span>
 				    							<span class="my-list-txt">My List</span> 
 				    						</a>
 				    					</div>
