@@ -30,7 +30,7 @@ angular.module('streamViewApp')
 
 					beforeSend : function() {
 
-						$("#my-list-txt_"+$index+"_"+key).html('<a class="my-list bold"><i class="fa fa-plus my-list-icon"></i><span class="my-list-txt">Adding</span></a>');
+						$("#my-list-txt_"+$index+"_"+key).html('<a class="my-list bold"><span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x fa-inverse padding2"></i></span><span class="my-list-txt">Adding</span></a>');
 
 					},
 
@@ -39,10 +39,9 @@ angular.module('streamViewApp')
 						if (data.success) {
 
 							$("#my-list-txt_"+$index+"_"+key).html('<a onclick="angular.element(this).scope().removeWishlist('+data.wishlist_id+', '+id+', '+$index+', '+"'"+key+"'"+')" class="my-list bold" id="remove-my-list-txt" style="cursor: pointer;">'+
-							    							'<i class="fa fa-check my-list-icon"></i>'+
+							    							'<span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x fa-inverse padding2"></i></span>'+
 							    							'<span class="my-list-txt">My List</span>'+
 							    						'</a>');
-
 						} else {
 
 							if(data.error_code 	== 101 || data.error_code == 103 || data.error_code == 104) {
@@ -103,21 +102,22 @@ angular.module('streamViewApp')
 					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id,sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
-
+					
 					beforeSend : function() {
 
-						$("#my-list-txt_"+$index+"_"+key).html('<a class="my-list bold"><i class="fa fa-check my-list-icon"></i><span class="my-list-txt">Removing</span></a>');
+						$("#my-list-txt_"+$index+"_"+key)
+						.html('<a class="my-list bold"><span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i></span><span class="my-list-txt">Removing</span></a>');
 
 					},
-
 					success : function (data) {
 
 						if (data.success) {
 
 							$("#my-list-txt_"+$index+"_"+key).html('<a onclick="angular.element(this).scope().addWishlist('+admin_video_id+', '+$index+', '+"'"+key+"'"+')" class="my-list bold" style="cursor: pointer;">'+
-							    							'<i class="fa fa-plus my-list-icon"></i>'+
+							    							'<span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i></span>'+
 							    							'<span class="my-list-txt">My List</span>'+
 							    						'</a>');
+
 
 						} else {
 
