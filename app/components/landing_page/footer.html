@@ -4,18 +4,87 @@
 
 <footer>
     <div class="container"> 
-      <div class="foot-head">
-        <a style="text-decoration: none" class="foot-link">Questions? Contact Us</a>
-      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top">
+          <div class="foot-head">
+            <a style="text-decoration: none" class="foot-link">Questions? Contact Us</a>
+          </div>
 
-      <div class="footer row no-margin">
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" ng-repeat="pages in allPages" >
-          <div class="">
-            <a ui-sref="static.page({id : page.type})" class="foot-link" ng-repeat="page in pages" style="text-transform: capitalize;">{{page.type}}</a>
+          <div class="footer row no-margin">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" ng-repeat="pages in allPages" >
+              <div class="">
+                <a ui-sref="static.page({id : page.type})" class="foot-link" ng-repeat="page in pages" style="text-transform: capitalize;">{{page.heading}}</a>
+              </div>
+            </div>
+         
           </div>
         </div>
-     
-      </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="row"> 
+            <div class="col-12 col-xs-6 col-sm-6 col-md-6 col-lg-6 top " ng-show="appstore || playstore">
+              <ul class="foot-app" >Get the latest App:
+                <li ng-if="appstore">
+                  <a target="_blank" href="{{appstore}}"><img src="assets/img/ios-app.png"></a>
+                </li>
+                <li ng-if="playstore">
+                  <a target="_blank" href="{{playstore}}"><img src="assets/img/android.png"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 col-xs-6 col-sm-6 col-md-6 col-lg-6 top" ng-show="facebook_link || twitter_link || linkedin_link || pinterest_link || google_plus_link">
+              <p class="no-margin small-size">Find Us On</p>
+              <ul class="foot-share">
+
+                <li ng-if="facebook_link">
+                  <a href="{{facebook_link}}" target="_blank">
+                              <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x social-fb"></i>
+                                  <i class="fa fa-facebook fa-stack-1x fa-inverse foot-share2"></i>
+                              </span>
+                          </a>
+
+                </li>
+                <li ng-if="twitter_link">
+                  <a href="{{twitter_link}}" target="_blank">
+                              <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x social-twitter"></i>
+                                  <i class="fa fa-twitter fa-stack-1x fa-inverse foot-share2"></i>
+                              </span>
+                          </a>
+                </li>
+                <li ng-if="linkedin_link">
+                  <a href="{{linkedin_link}}" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x social-linkedin"></i>
+                                <i class="fa fa fa-linkedin fa-stack-1x fa-inverse foot-share2"></i>
+                            </span>
+                        </a>
+                </li>
+                <li ng-if="pinterest_link">
+                  <a href="{{pinterest_link}}" target="_blank">
+                              <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x social-pinterest"></i>
+                                  <i class="fa fa fa-pinterest fa-stack-1x fa-inverse foot-share2"></i>
+                              </span>
+                          </a>
+                </li>
+
+                <li ng-if="google_plus_link">
+
+                  <a href="{{google_plus_link}}" target="_blank">
+                              <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x social-google-icon"></i>
+                                  <i class="fa fa fa-google fa-stack-1x fa-inverse foot-share2"></i>
+                              </span>
+                          </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+
     </div>
     
   </footer>

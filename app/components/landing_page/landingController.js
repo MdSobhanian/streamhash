@@ -116,6 +116,9 @@ angular.module('streamViewApp')
 
 	    $scope.site_logo = logo;
 
+
+	    
+
 		
 	}
 
