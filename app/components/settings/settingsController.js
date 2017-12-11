@@ -707,6 +707,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		$scope.sub_profile_id = $stateParams.sub_profile_id;
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
