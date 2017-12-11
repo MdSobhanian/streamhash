@@ -163,7 +163,7 @@ angular.module('streamViewApp')
 							memoryStorage.user_picture = data.picture;
 
 							memoryStorage.user_name = data.name;
-
+							
 							memoryStorage.user_type = data.user_type;
 
 							memoryStorage.one_time_subscription = data.one_time_subscription;
