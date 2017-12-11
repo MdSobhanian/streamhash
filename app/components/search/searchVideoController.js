@@ -11,6 +11,8 @@ angular.module('streamViewApp')
 
 		if ($scope.user_id && $scope.access_token) {
 
+			$rootScope.$emit('search_clear', true);
+
 			$anchorScroll();
 
 			$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;

@@ -307,9 +307,21 @@ angular.module('streamViewApp')
 
 			};
 
+			$rootScope.$on('search_clear', function(event) {
+
+				console.log("clear");
+				
+				$scope.search_key = '';
+
+				$("#search_key").val('');
+
+				$("#search-box").val('');
+
+	        });
+
 			$scope.getSearchModel = function(word) {
 
-				console.log(word);
+				$scope.search_key = '';
 
 				if (word != '' && word != undefined) {
 
@@ -320,9 +332,7 @@ angular.module('streamViewApp')
 					$location.path('/home/'+memoryStorage.sub_profile_id).replace();
 
 				}
-				$scope.search_key ={};
-				
-				console.log("reset");
+
 			}
 
 			
