@@ -98,6 +98,8 @@ angular.module('streamViewApp')
 
 							UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});				
 
+							$state.go('static.signin', {}, {reload:true});
+
 						} else {
 
 							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
