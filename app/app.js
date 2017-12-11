@@ -224,6 +224,41 @@ streamViewApp
     }
 
     $("#body_scripts").html(body_end_script);
+
+
+    
+    /******************** Google Analytics Scripts *****************/
+
+    var google_analytics = $.grep($rootScope.site_settings, function(e){ return e.key == 'google_analytics'; });
+
+    var google_analytic = "";
+
+    if (google_analytics.length == 0) {
+
+        console.log("not found");
+        
+    } else if (google_analytics.length == 1) {
+
+      // access the foo property using result[0].foo
+
+      google_analytic = google_analytics[0].value;
+
+      if (google_analytic != '' || google_analytic != null || google_analytic != undefined) {
+        
+      } else {
+
+        google_analytic = '';
+
+      }
+
+    } else {
+
+      // multiple items found
+      google_analytic = "";
+
+    }
+
+    $("#google_analytics").html(google_analytic);
   }
 ]);
 
