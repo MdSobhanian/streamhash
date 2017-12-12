@@ -282,7 +282,7 @@ angular.module('streamViewApp')
 										localStorage.removeItem("sessionStorage");
 
 										localStorage.clear();
-										
+
 										$state.go('static.index', {}, {reload:true});
 
 									} else {
@@ -545,7 +545,7 @@ angular.module('streamViewApp')
 
 			$scope.deleteAccount = function() {
 
-				var password = memoryStorage.login_by == 'manual' ? $scope.password : '';
+				$scope.password = memoryStorage.login_by == 'manual' ? $scope.password : '';
 
 				$.ajax({
 
@@ -553,7 +553,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/deleteAccount",
 
-					data : {password : $scope.password, id : memoryStorage.user_id, token : memoryStorage.access_token},
+					data : { password : $scope.password, id : memoryStorage.user_id, token : memoryStorage.access_token},
 
 					async : false,
 
