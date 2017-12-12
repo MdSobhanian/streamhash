@@ -547,13 +547,15 @@ angular.module('streamViewApp')
 
 				$scope.password = memoryStorage.login_by == 'manual' ? $scope.password : '';
 
+				console.log($scope.password);
+
 				$.ajax({
 
 					type : "post",
 
 					url : apiUrl + "userApi/deleteAccount",
 
-					data : { password : $scope.password, id : memoryStorage.user_id, token : memoryStorage.access_token},
+					data : { id : memoryStorage.user_id, token : memoryStorage.access_token, password : $scope.password},
 
 					async : false,
 
