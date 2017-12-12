@@ -549,6 +549,19 @@ angular.module('streamViewApp')
 
 				console.log($scope.password);
 
+				if( memoryStorage.login_by == 'manual') {
+
+					if ($scope.password == '' || $scope.password == undefined) {
+
+
+						UIkit.notify({message :"Please fill the password field", timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						return false;
+
+					}
+
+				}
+
 				$.ajax({
 
 					type : "post",
