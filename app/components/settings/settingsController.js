@@ -261,15 +261,43 @@ angular.module('streamViewApp')
 
 							UIkit.notify({message : data.message + "Please login and continue your account details.", timeout : 3000, pos : 'top-center', status : 'success'});
 
-							window.localStorage.setItem('logged_in', false);
+							$.ajax({
 
-							memoryStorage = {};
-							
-							localStorage.removeItem("sessionStorage");
+								type : "post",
 
-							localStorage.clear();
+								url : apiUrl + "userApi/delete_logged_device",
 
-							$state.go('static.index', {}, {reload:true});
+								data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+								async : false,
+
+								success : function (data) {
+
+									if (data.success) {
+
+										window.localStorage.setItem('logged_in', false);
+
+										memoryStorage = {};
+										
+										localStorage.removeItem("sessionStorage");
+
+										localStorage.clear();
+										
+										$state.go('static.index', {}, {reload:true});
+
+									} else {
+
+										UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+										return false;
+									}
+								},
+								error : function (data) {
+
+									UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								},
+							});
 
 							// $state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
