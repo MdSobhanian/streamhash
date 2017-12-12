@@ -461,6 +461,13 @@ streamViewApp
                     }
                 })
 
+                .state('profile.payment-failure', {
+                    // cache: false,
+                    url: "/payment-failure",
+                    templateUrl: 'app/components/settings/payment-failure.html'
+                   
+                })
+
                 .state("trailer_video", {
                     cache: false,
                     url: "/trailer_video/{id}",

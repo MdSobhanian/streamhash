@@ -24,7 +24,7 @@
 .card-progress {
     
     border-radius: 4px 4px 0 0;
-    color: #fff;
+    color: #000;
     display: block;
     height: 58px;
     left: 0;
@@ -42,6 +42,12 @@
 
 }
 
+.black-bg{
+    background-color: #000;
+}
+.red-bg{
+    background-color: #E50914;
+}
 .orange {
     background-color: #ff0a16;
 }

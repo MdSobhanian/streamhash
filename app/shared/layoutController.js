@@ -453,6 +453,11 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 
-
+		setTimeout(function(){
+			$scope.height = $(".footer").outerHeight();
+			console.log($scope.height);
+			$(".height").height($scope.height);
+		}, 100);
+		
 	}
 ])

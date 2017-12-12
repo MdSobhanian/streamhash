@@ -2280,3 +2280,7 @@ min-height: 100%;
 .zero-padding{
     padding:0;
 }
+.failure-img{
+    height: 150px;
+    width: auto;
+}

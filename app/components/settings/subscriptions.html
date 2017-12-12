@@ -33,8 +33,7 @@
                       
                         <ul class="card-actions">
                             <li class="card-action resume">
-                              <!--   <a class="btn btn-md" ng-class="{'orange-btn': (subscription.popular_status == 1) , 'pink-btn': (subscription.popular_status == 0)}" ng-click="sendToPaypal(subscription.id, subscription.amount)" >Pay Now</a> -->
-
+                            
                               <a class="btn btn-md" ng-class="{'orange-btn': (subscription.popular_status == 1) , 'pink-btn': (subscription.popular_status == 0)}" ui-sref="profile.invoice({subscription_id:subscription.id})">Pay Now</a>
                               
                             </li>
@@ -54,3 +53,58 @@
 
 <div class="clearfix"></div>
 
+<!-- <div class="content-wrapper">
+
+        <div class="login-form" style="padding-top:135px;">
+
+                <div class="container">
+
+                <ul class="card-list row">
+                    <li class="col-md-4 card course syllabus topic-javascript" ng-repeat="subscription in subscriptions" ng-hide="one_time_subscription == 1 && subscription.amount == 0">
+
+                        <a class="card-box">
+                            <div class="card-progress">
+                               {{subscription.title}}
+                            </div>
+
+                            <div class="black-bg">
+                                <strong class="card-type">Plan</strong>
+                                <h3 class="card-title">${{subscription.amount}} / {{subscription.plan}} month</h3>
+                            </div>
+                            <strong class="card-type">Maintain Account</strong>
+                            <h3 class="card-title"><i class="fa fa-user-plus"></i> {{subscription.no_of_account}}</h3>
+
+                             <p class="card-description">
+                            {{subscription.description}}
+
+                         
+                            </p>
+
+                         
+                        </a>
+
+                        <div class="clearfix"></div>
+                      
+                        <ul class="card-actions">
+                            <li class="card-action resume">
+                            
+                              <a class="btn btn-md" ng-class="{'orange-btn': (subscription.popular_status == 1) , 'pink-btn': (subscription.popular_status == 0)}" ui-sref="profile.invoice({subscription_id:subscription.id})">Pay Now</a>
+                              
+                            </li>
+                           
+                        </ul>
+
+
+                    </li>
+                </ul>
+
+
+
+                </div>
+
+        </div>
+</div>
+
+<div class="clearfix"></div>
+
+ -->
