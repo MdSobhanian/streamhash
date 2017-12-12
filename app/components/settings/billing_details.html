@@ -144,15 +144,15 @@
 		        			<p class="bill-line"></p>
 
 		        			<h4 class="billing-sub-head"><i class="fa fa-hand-o-right"></i> &nbsp;Next Billing Date</h4>
-		        			<p class="billing-para">19-05-2019 07:47 PM </p>
+		        			<p class="billing-para">{{active_plan.data.expiry_date}}</p>
 		        			<p class="bill-line"></p>
 
-		        			<h4 class="billing-sub-head"><i class="fa fa-tags  fa-rotate-90"></i> &nbsp;Regular Price</h4>
-		        			<p class="billing-para">$ 1.00 / Months</p>
+		        			<h4 class="billing-sub-head"><i class="fa fa-tags  fa-rotate-90"></i> &nbsp;{{active_plan.subscription.title}}</h4>
+		        			<p class="billing-para">${{active_plan.data.amount}} / {{active_plan.subscription.plan}} Months</p>
 
 		        			<p class="bill-line"></p>
 
-		        			<a  class="text-right white-clr"><h4><i class="fa fa-angle-double-right"></i>&nbsp; View Plan Details</h4></a>
+		        			<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="text-right white-clr"><h4><i class="fa fa-angle-double-right"></i>&nbsp; View Plan Details</h4></a>
 	        			</div>
 	        		</div>
 
@@ -160,66 +160,42 @@
 	        			<h3 class="billing-head1"><i class="fa fa-clock-o"></i> &nbsp;Billing History</h3>
 	        			<p class="bill-line"></p>
 
-	        			<div class="billing-card">
+	        			<div class="billing-card" ng-repeat="plan in subscribed_plans.plans">
 	        				<div class="card-head">
-	        					<h3>Free Trial</h3>
+	        					<h3>{{plan.plan_name}}</h3>
 	        				</div>
 	        				<div class="card-white-bg">
 	        					<div class="table-responsive">
   									<table class="table table-bordered">
   										<tbody>
 											<tr>
-												<td>Start Date</td>
-												<td>20-07-2017</td>
+												<td>Subscribed Date</td>
+												<td>{{plan.date}}</td>
 											</tr>
 											<tr>
-												<td>End date</td>
-												<td>19-08-2017 07:47 PM</td>
+												<td>Expiry Date</td>
+												<td>{{plan.expiry_date}}</td>
 											</tr>
 											<tr>
 												<td>No Of Account</td>
-												<td>1</td>
+												<td>{{plan.no_of_account}}</td>
+											</tr>
+											<tr>
+												<td>No Of Month</td>
+												<td>{{plan.no_of_month}}</td>
 											</tr>
 											<tr>
 												<td>Amount</td>
-												<td>$ 0.00</td>
+												<td>${{plan.amount}}</td>
 											</tr>
 										</tbody>
   									</table>
   								</div>
 	        				</div>
 	        			</div>
-	        			<div class="billing-card">
-	        				<div class="card-head">
-	        					<h3>Premium</h3>
-	        				</div>
-	        				<div class="card-white-bg">
-	        					<div class="table-responsive">
-  									<table class="table table-bordered">
-  										<tbody>
-											<tr>
-												<td>Start Date</td>
-												<td>20-07-2017</td>
-											</tr>
-											<tr>
-												<td>End date</td>
-												<td>19-08-2017 07:47 PM</td>
-											</tr>
-											<tr>
-												<td>No Of Account</td>
-												<td>1</td>
-											</tr>
-											<tr>
-												<td>Amount</td>
-												<td>$100.00</td>
-											</tr>
-										</tbody>
-  									</table>
-  								</div>
-	        				</div>
-	        			</div>
+	        			
 	        			<div class="billing-total text-right">
-	        				<h3>Total - $ 100.00</h3>
+	        				<h3>Total - ${{subscribed_plans.amount}}</h3>
 	        			</div>
 	        		</div>
         		</div>

@@ -95,6 +95,14 @@ angular.module('streamViewApp')
 
 						$scope.video = data.video;
 
+						if (data.pay_per_view_status) {
+
+							UIkit.notify({message : 'Already you paid the amount for the particular video', timeout : 3000, pos : 'top-center', status : 'success'});
+
+							$state.go('single_video', {id : $scope.video.admin_video_id}, {reload:true});
+
+						}
+
 					} else {
 
 						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});

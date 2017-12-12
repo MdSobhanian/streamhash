@@ -61,12 +61,6 @@ angular.module('streamViewApp')
 
     		$scope.user_type = (memoryStorage.user_type == undefined || memoryStorage.user_type == 0 ) ? true : false;
 
-    		/*if ($scope.user_type) {
-
-    			$state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
-
-    		}*/
-
     		$scope.height = $(window).height();
 
     		$.ajax({
@@ -123,9 +117,47 @@ angular.module('streamViewApp')
     			},
     		});
 
-            if (!$scope.user_type) {
 
-        		jwplayer.key="M2NCefPoiiKsaVB8nTttvMBxfb1J3Xl7PDXSaw==";
+            if (!$scope.user_type || $scope.video.pay_per_view_status) {
+
+                var JWPLAYER_KEY = $.grep($rootScope.site_settings, function(e){ return e.key == 'JWPLAYER_KEY'; });
+
+                var jwplayer_key = "";
+
+                if (JWPLAYER_KEY.length == 0) {
+
+                    console.log("not found");
+                    
+                } else if (JWPLAYER_KEY.length == 1) {
+
+                  // access the foo property using result[0].foo
+
+                  jwplayer_key = JWPLAYER_KEY[0].value;
+
+                  if (jwplayer_key != '' || jwplayer_key != null || jwplayer_key != undefined) {
+                    
+                  } else {
+
+                    jwplayer_key = '';
+
+                  }
+
+                } else {
+
+                  // multiple items found
+                  jwplayer_key = "";
+
+                }
+
+                jwplayer.key = jwplayer_key;
+
+                if (jwplayer_key == "") {
+
+                    UIkit.notify({message :"Configure JWPLAYER KEY, Please Contact Admin", timeout : 3000, pos : 'top-center', status : 'danger'});
+
+                    return false;
+
+                }
 
         		var playerInstance = jwplayer("video-player");
 
@@ -384,7 +416,7 @@ angular.module('streamViewApp')
                 
                 });
 
-        		console.log($scope.video);
+        		//console.log($scope.video);
 
             }
 
