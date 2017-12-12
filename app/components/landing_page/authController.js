@@ -4,17 +4,14 @@ angular.module('streamViewApp')
 	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$http',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
-<<<<<<< HEAD
 		
 		setTimeout(function(){
 			$scope.height = $(".footer").outerHeight();
 			console.log($scope.height);
 			$(".height").height($scope.height);
 		}, 100);
-=======
 
-
-var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'appstore'; });
+		var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'appstore'; });
 
 	    var app_store = "";
 
@@ -235,11 +232,8 @@ var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'ap
 	    }
 
 	    $scope.pinterest_link = pinterest_link_url;
->>>>>>> b0d8d0b7ac17c00e2bcac372d9568b691bd898e1
 
-	}
-
-	
+	}	
 	
 	// $scope.allPages = $rootScope.allPages;
 ]);

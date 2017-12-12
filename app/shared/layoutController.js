@@ -683,16 +683,15 @@ var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'ap
 
 	    }
 
-<<<<<<< HEAD
+	    $scope.pinterest_link = pinterest_link_url;
+
 		setTimeout(function(){
 			$scope.height = $(".footer").outerHeight();
 			console.log($scope.height);
 			$(".height").height($scope.height);
 		}, 100);
 		
-=======
-	    $scope.pinterest_link = pinterest_link_url;
+	   
 
->>>>>>> b0d8d0b7ac17c00e2bcac372d9568b691bd898e1
 	}
 ])

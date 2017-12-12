@@ -2282,13 +2282,10 @@ min-height: 100%;
 .zero-padding{
     padding:0;
 }
-<<<<<<< HEAD
 .failure-img{
     height: 150px;
     width: auto;
 }
-=======
-
 
 .foot-link, .foot-app, .foot-share{
     padding: 0; 
@@ -2386,4 +2383,3 @@ min-height: 100%;
     margin: 10px 0;
 }
 }
->>>>>>> b0d8d0b7ac17c00e2bcac372d9568b691bd898e1
