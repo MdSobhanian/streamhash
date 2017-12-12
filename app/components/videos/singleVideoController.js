@@ -69,7 +69,8 @@ angular.module('streamViewApp')
 
     			url : apiUrl + "userApi/singleVideo",
 
-    			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id},
+    			data : {id : memoryStorage.user_id, token : memoryStorage.access_token, 
+                    admin_video_id : $stateParams.id, device_type : 'web'},
 
     			async : false,
 
