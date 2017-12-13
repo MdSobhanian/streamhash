@@ -3,7 +3,7 @@
     <div class="login-form" style="padding-top: 100px;padding-bottom: 40px;">
 
     	<div class="container">
-        	<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 billing-white-bg">
+        	<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 billing-white-bg" ng-if="paid_videos.length > 0">
 	        	<div class="row">
 	        		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 zero-padding billing-bg-img" style="background-image: url(img/billing-back.jpg);">
 	        			<div class="pay-details-bg text-center">
@@ -55,6 +55,10 @@
 	        		</div>
         		</div>
         	</div>
+
+        	<div class="text-center"  style="margin-top:40px !important"  ng-if="paid_videos.length <= 0"> 
+				<img src="img/no-results.gif" class="img-responsive auto-margin">
+			</div>
         </div>
 
     </div>
