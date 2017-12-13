@@ -60,6 +60,37 @@ angular.module('streamViewApp')
 		    $scope.site_logo = logo;
 
 
+		    var site_icon = $.grep($rootScope.site_settings, function(e){ return e.key == 'site_icon'; });
+
+		    var icon = "";
+
+		    if (site_icon.length == 0) {
+
+		        console.log("not found");
+		        
+		    } else if (site_icon.length == 1) {
+
+		      // access the foo property using result[0].foo
+
+		      icon = site_icon[0].value;
+
+		      if (icon != '' || icon != null || icon != undefined) {
+		        
+		      } else {
+
+		        icon = '';
+
+		      }
+
+		    } else {
+
+		      // multiple items found
+		      icon = "";
+
+		    }
+
+		    $scope.site_icon = icon;
+		    
 			$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? true : false;
 
 			if (!$scope.user_id) {

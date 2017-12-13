@@ -2445,3 +2445,10 @@ min-height: 100%;
     margin: 10px 0;
 }
 }
+
+
+.details_section_tab {
+
+    max-height: 450px;
+overflow: auto;
+}

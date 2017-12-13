@@ -116,19 +116,31 @@ angular.module('streamViewApp')
 
 					beforeSend : function() {
 
-						$("#before_loader").show();
+						$("#sign_up_button").html("Signing In...");
+
+						$("#sign_up_button").attr("disabled", true);
 
 					},
 
 					success : function (data) {
 
+						setTimeout(function(){
+
+							$("#sign_up_button").attr("disabled", false);
+
+							$("#sign_up_button").html("Sign Up");
+
+						}, 2000);
+
 						if (data.success) {
+
 
 							if (data.verification_control == 1) {
 
 								UIkit.notify({message : 'Your account has been successfully Registered, Please Verify your email and Sign In', timeout : 3000, pos : 'top-center', status : 'success'});
 
 								$state.go('static.signin',{},{reload:true});
+
 
 							} else {
 
@@ -181,7 +193,7 @@ angular.module('streamViewApp')
 
 					complete : function(data) {
 
-						$("#before_loader").hide();
+						//$("#before_loader").hide();
 
 					},
 				});
