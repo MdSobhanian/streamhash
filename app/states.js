@@ -471,8 +471,18 @@ streamViewApp
                 .state('profile.payment-details', {
                     // cache: false,
                     url: "/payment-details",
-                    templateUrl: 'app/components/settings/payment-details.html'
-                   
+                    templateUrl: 'app/components/settings/payment-details.html',
+                    controller: 'paidVideoController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/paidVideoController.js',
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Paid Video Details',
+                    }
                 })
 
                 .state("trailer_video", {

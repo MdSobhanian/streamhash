@@ -3,13 +3,13 @@
     <div class="login-form" style="padding-top: 100px;padding-bottom: 40px;">
 
     	<div class="container">
-        	<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 billing-white-bg">
+        	<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 billing-white-bg" ng-if="paid_videos.length > 0">
 	        	<div class="row">
 	        		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 zero-padding billing-bg-img" style="background-image: url(img/billing-back.jpg);">
 	        			<div class="pay-details-bg text-center">
 	        				<div>
-	        					<div class="pay-profile-img" style="background-image: url(img/img1.jpg);"></div>
-	        					<h3 class="white-clr text-center mb-0">User Name</h3>
+	        					<div class="pay-profile-img" style="background-image: url({{profile.picture}});"></div>
+	        					<h3 class="white-clr text-center mb-0">{{profile.name}}</h3>
 	        				</div>
 	        			</div>
 	        		</div>
@@ -18,71 +18,35 @@
 	        			<h3 class="billing-head1"><i class="fa fa-clock-o"></i> &nbsp;Payment History</h3>
 	        			<p class="bill-line1"></p>
 
-	        			<div class="payment-details top">
+	        			<div class="payment-details top" ng-repeat="video in paid_videos">
 	        				<div class="relative">
-		        				<div class="payment-vide-img" style="background-image: url(img/img1.jpg);">
-		        					<h4 class="payment-video-title">Video Title</h4>
+		        				<div class="payment-vide-img" style="background-image: url({{video.picture}});">
+		        					<h4 class="payment-video-title">{{video.title}}</h4>
 		        				</div>
-		        				<div class="video-amount">$999.00</div>
+		        				<div class="video-amount">{{video.currency}}{{video.amount}}</div>
 	        				</div>
 							<div class="table-responsive">    				
 								<table class="table">
 								    <tbody>
 								      	<tr>
 								        	<td>Payment ID</td>
-								        	<td>1234567899</td>
+								        	<td>{{video.payment_id}}</td>
 								      	</tr>
 								      	<tr>
 									        <td>Paid date</td>
-									        <td>dd/mm/yyyy</td>
+									        <td>{{video.paid_date}}</td>
 								      	</tr>
-								      	<tr>
+								      	<!-- <tr>
 								       		<td>Status</td>
-								       	 	<td>Something</td>	
-								     	</tr>
+								       	 	<td>{{}}</td>	
+								     	</tr> -->
 								     	<tr>
-								       		<td>Subscriptiion Type</td>
-								       	 	<td>Something</td>	
+								       		<td>Subscription Type</td>
+								       	 	<td>{{video.type_of_subscription}}</td>	
 								     	</tr>
 								     	<tr>
 								       		<td>User Type</td>
-								       	 	<td>Something</td>	
-								     	</tr>
-								    </tbody>
-								 </table>
-							 </div>	    
-	        			</div>
-
-
-	        			<div class="payment-details top">
-	        				<div class="relative">
-		        				<div class="payment-vide-img" style="background-image: url(img/img1.jpg);">
-		        					<h4 class="payment-video-title">Video Title</h4>
-		        				</div>
-		        				<div class="video-amount">$999.00</div>
-	        				</div>
-							<div class="table-responsive">    				
-								<table class="table">
-								    <tbody>
-								      	<tr>
-								        	<td>Payment ID</td>
-								        	<td>1234567899</td>
-								      	</tr>
-								      	<tr>
-									        <td>Paid date</td>
-									        <td>dd/mm/yyyy</td>
-								      	</tr>
-								      	<tr>
-								       		<td>Status</td>
-								       	 	<td>Something</td>	
-								     	</tr>
-								     	<tr>
-								       		<td>Subscriptiion Type</td>
-								       	 	<td>Something</td>	
-								     	</tr>
-								     	<tr>
-								       		<td>User Type</td>
-								       	 	<td>Something</td>	
+								       	 	<td>{{video.type_of_user}}</td>	
 								     	</tr>
 								    </tbody>
 								 </table>
@@ -91,6 +55,10 @@
 	        		</div>
         		</div>
         	</div>
+
+        	<div class="text-center"  style="margin-top:40px !important"  ng-if="paid_videos.length <= 0"> 
+				<img src="img/no-results.gif" class="img-responsive auto-margin">
+			</div>
         </div>
 
     </div>
