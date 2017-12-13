@@ -85,12 +85,22 @@ angular.module('streamViewApp')
 
 					beforeSend : function() {
 
-						$("#before_loader").show();
+						$("#forgot_password_button").html("Request Sending ..");
+
+						$("#forgot_password_button").attr("disabled", true);
 
 					},
 
 
 					success : function (data) {
+
+						setTimeout(function(){
+
+							$("#forgot_password_button").attr("disabled", false);
+
+							$("#forgot_password_button").html("Submit");
+
+						}, 2000);
 
 						if (data.success) {
 
@@ -115,7 +125,7 @@ angular.module('streamViewApp')
 
 					complete : function() {
 
-						$("#before_loader").hide();
+						//$("#before_loader").hide();
 
 					},
 

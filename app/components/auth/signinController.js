@@ -146,11 +146,21 @@ angular.module('streamViewApp')
 
 					beforeSend : function() {
 
-						$("#before_loader").show();
+						$("#sign_in_button").html("Loging In...");
+
+						$("#sign_in_button").attr("disabled", true);
 
 					},
 
 					success : function (data) {
+
+						setTimeout(function(){
+
+							$("#sign_in_button").attr("disabled", false);
+
+							$("#sign_in_button").html("Sign In");
+
+						}, 2000);
 
 						if (data.success) {
 
@@ -201,7 +211,7 @@ angular.module('streamViewApp')
 
 					complete : function(data) {
 
-						$("#before_loader").hide();
+						// $("#before_loader").hide();
 
 					},
 				});
