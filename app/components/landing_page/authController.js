@@ -5,11 +5,11 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
 		
-		setTimeout(function(){
-			$scope.height = $(".footer").outerHeight();
-			console.log($scope.height);
-			$(".height").height($scope.height);
-		}, 100);
+		// setTimeout(function(){
+		// 	$scope.height = $(".footer").outerHeight();
+		// 	console.log($scope.height);
+		// 	$(".height").height($scope.height);
+		// }, 100);
 
 		var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'appstore'; });
 

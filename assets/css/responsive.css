@@ -189,6 +189,9 @@
 .navbar-nav .open .dropdown-menu{
   width: 160px;
 }
+.height{
+  height:332px;
+}
 }
 
 /*small devices*/
@@ -376,6 +379,9 @@
     position: static !important;
     padding-top:13px;
 }
+.height{
+  height:332px;
+}
 }
 
 /* Tablets */
@@ -529,6 +535,9 @@
 .mega-dropdown {
     position: static !important;
     padding-top:5px;
+}
+.height{
+  height:287px;
 }
 }
 
@@ -684,6 +693,9 @@
     position: static !important;
     padding-top:5px;
 }
+.height{
+  height:205px;
+}
 }
 
 /* Desktops */
@@ -838,7 +850,9 @@
     position: static !important;
     padding-top:5px;
 }
-
+.height{
+  height: 185px;
+}
 }
 
 @media screen and (max-width:360px) {
@@ -847,6 +861,9 @@
 }
 .visible-xxs{
     display: block;
+}
+.height{
+  height: 375px;
 }
 }
 

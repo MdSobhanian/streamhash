@@ -2418,6 +2418,14 @@ min-height: 100%;
     color: #999;
     margin-bottom: 0;
 }
+.sub-black-bg{
+    background-color: black;
+    padding: 30px;
+}
+.sub-red-bg{
+    background-color:#E50914;
+    padding: 30px;
+}
 @media screen and (max-width:767px) {
 .foot-link > li > a{
     color: white;

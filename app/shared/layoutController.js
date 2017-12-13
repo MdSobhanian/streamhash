@@ -716,11 +716,11 @@ var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'ap
 
 	    $scope.pinterest_link = pinterest_link_url;
 
-		setTimeout(function(){
-			$scope.height = $(".footer").outerHeight();
-			console.log($scope.height);
-			$(".height").height($scope.height);
-		}, 100);
+		// setTimeout(function(){
+		// 	$scope.height = $(".footer").outerHeight();
+		// 	console.log($scope.height);
+		// 	$(".height").height($scope.height);
+		// }, 100);
 		
 	   
 
