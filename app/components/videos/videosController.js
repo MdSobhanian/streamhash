@@ -38,10 +38,13 @@ angular.module('streamViewApp')
 
 						if (data.success) {
 
-							$("#my-list-txt_"+subkey+"_"+$index+"_"+key).html('<a onclick="angular.element(this).scope().removeWishlist('+data.wishlist_id+', '+id+', '+ subkey +', '+$index+', '+"'"+key+"'"+')" class="my-list bold" id="remove-my-list-txt" style="cursor: pointer;">'+
-							    							'<span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x fa-inverse padding2"></i></span>'+
-							    							'<span class="my-list-txt">My List</span>'+
-							    						'</a>');
+							setTimeout(function(){
+
+								$("#my-list-txt_"+subkey+"_"+$index+"_"+key).html('<a onclick="angular.element(this).scope().removeWishlist('+data.wishlist_id+', '+id+', '+ subkey +', '+$index+', '+"'"+key+"'"+')" class="my-list bold" id="remove-my-list-txt" style="cursor: pointer;">'+
+								    							'<span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x fa-inverse padding2"></i></span>'+
+								    							'<span class="my-list-txt">My List</span>'+
+								    						'</a>');
+							}, 2000);
 						} else {
 
 							if(data.error_code 	== 101 || data.error_code == 103 || data.error_code == 104) {
@@ -115,10 +118,14 @@ angular.module('streamViewApp')
 
 						if (data.success) {
 
+							setTimeout(function(){
+
 							$("#my-list-txt_"+sub+"_"+$index+"_"+key).html('<a onclick="angular.element(this).scope().addWishlist('+admin_video_id+', '+sub+', '+$index+', '+"'"+key+"'"+')" class="my-list bold" style="cursor: pointer;">'+
 							    							'<span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i></span>'+
 							    							'<span class="my-list-txt">My List</span>'+
 							    						'</a>');
+
+							}, 2000);
 
 
 						} else {
