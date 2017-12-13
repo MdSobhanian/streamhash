@@ -468,6 +468,13 @@ streamViewApp
                    
                 })
 
+                .state('profile.payment-details', {
+                    // cache: false,
+                    url: "/payment-details",
+                    templateUrl: 'app/components/settings/payment-details.html'
+                   
+                })
+
                 .state("trailer_video", {
                     cache: false,
                     url: "/trailer_video/{id}",

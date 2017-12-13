@@ -2075,6 +2075,7 @@ min-height: 100%;
     border-radius: 0;
     height: 35px;
     border-right:0;
+    color: white;
 }
 .search-section input:focus{
     box-shadow: none !important;
@@ -2208,6 +2209,10 @@ min-height: 100%;
     border-bottom: 1px solid rgba(0,0,0,.2);
     margin: 15px 0;
 }
+.bill-line1{
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    margin-top: 15px;
+}
 .billing-history{
     height: 550px;
     padding:15px;
@@ -2305,6 +2310,7 @@ min-height: 100%;
 }
 .foot-app{
     font-size:16px;
+    color: #999;
 }
 .foot-app > li {
     list-style: none;
@@ -2315,6 +2321,9 @@ min-height: 100%;
 .foot-share > li {
     list-style: none;
     display: inline-block;
+}
+.foot-clr{
+    color: #999;
 }
 .foot-share > li > a > img{
     height: 30px;
@@ -2355,6 +2364,59 @@ min-height: 100%;
 }
 .grey-clr{
     color: #666666 !important;
+}
+.pay-profile-img{
+    height: 150px;
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border:3px solid #fff;
+    margin: 0 auto;
+}
+.mt-0{
+    margin-top: 0;   
+}
+.mb-0{
+    margin-bottom: 0;
+}
+.theme-clr{
+    color: #E50914;
+}
+.payment-details {
+    border: 1px solid #ddd;
+}
+.payment-vide-img{
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+.payment-video-title{
+    margin: 0;
+    padding:10px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    background-color: rgba(0,0,0,.8);
+}
+.video-amount{
+    padding:5px 10px;
+    margin: 0;
+    background-color: rgba(0,0,0,.8);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.relative{
+    position: relative;
+}
+.payment-details .table, .payment-details .table-responsive{
+    color: #999;
+    margin-bottom: 0;
 }
 @media screen and (max-width:767px) {
 .foot-link > li > a{

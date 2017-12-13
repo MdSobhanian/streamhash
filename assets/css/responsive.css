@@ -166,6 +166,10 @@
     padding:15px;
     margin:auto;
 }
+.pay-details-bg{
+    background-color:  rgba(0,0,0,.8);
+    padding: 15px;
+}
 .billing-bg{
     background-color:  rgba(0,0,0,.8);
     padding: 15px;
@@ -352,6 +356,10 @@
     padding:15px;
     margin:auto;
 }
+.pay-details-bg{
+    background-color:  rgba(0,0,0,.8);
+    padding: 15px;
+}
 .billing-bg{
     background-color:  rgba(0,0,0,.8);
     padding: 15px;
@@ -495,6 +503,14 @@
     transition-delay: 200ms; 
     width: 40%;
     margin:auto;
+}
+.pay-details-bg{
+    background-color:  rgba(0,0,0,.8);
+    padding: 15px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .billing-bg{
     background-color:rgba(0,0,0,.8);
@@ -642,6 +658,14 @@
     width: 40%;
     margin:auto;
 }
+.pay-details-bg{
+    background-color:  rgba(0,0,0,.8);
+    padding: 15px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .billing-bg{
     background-color:rgba(0,0,0,.8);
     padding: 15px;
@@ -787,6 +811,14 @@
     transition-delay: 200ms; 
     width: 40%;
     margin:auto;
+}
+.pay-details-bg{
+    background-color:  rgba(0,0,0,.8);
+    padding: 15px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .billing-bg{
     background-color:rgba(0,0,0,.8);
