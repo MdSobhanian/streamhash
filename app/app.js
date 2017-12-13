@@ -56,6 +56,8 @@ var apiUrl = "http://adminview.streamhash.com/";
 
 var angularUrl = "http://demo.streamhash.com/#/";
 
+
+
 streamViewApp
     .run([
         '$rootScope',
@@ -226,7 +228,7 @@ streamViewApp
 
     $("#header_scripts").html(header_script);
 
-    var body_end_scripts = $.grep($rootScope.site_settings, function(e){ return e.key == 'body_end_scripts'; });
+    var body_end_scripts = $.grep($rootScope.site_settings, function(e){ return e.key == 'body_scripts'; });
 
     var body_end_script = "";
 
