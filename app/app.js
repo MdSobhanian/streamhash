@@ -161,7 +161,39 @@ streamViewApp.run(function($rootScope, $templateCache) {
 streamViewApp
 .controller('siteCtrl', ['$scope', '$http', '$rootScope',
   function ($scope, $http, $rootScope, $stateParams) {
-    $scope.site_icon = ($rootScope.site_settings) ? (($rootScope.site_settings[2] != undefined) ? $rootScope.site_settings[2]  : '' ): '';
+
+
+    var site_icon = $.grep($rootScope.site_settings, function(e){ return e.key == 'site_icon'; });
+
+    var icon = "";
+
+    if (site_icon.length == 0) {
+
+        console.log("not found");
+        
+    } else if (site_icon.length == 1) {
+
+      // access the foo property using result[0].foo
+
+      icon = site_icon[0].value;
+
+      if (icon != '' || icon != null || icon != undefined) {
+        
+      } else {
+
+        icon = '';
+
+      }
+
+    } else {
+
+      // multiple items found
+      icon = "";
+
+    }
+
+    $scope.site_icon = icon;
+
 
     var header_scripts = $.grep($rootScope.site_settings, function(e){ return e.key == 'header_scripts'; });
 
@@ -224,6 +256,38 @@ streamViewApp
     }
 
     $("#body_scripts").html(body_end_script);
+
+
+    var google_analytics = $.grep($rootScope.site_settings, function(e){ return e.key == 'google_analytics'; });
+
+    var google_analytics_val = "";
+
+    if (google_analytics.length == 0) {
+
+        console.log("not found");
+        
+    } else if (google_analytics.length == 1) {
+
+      // access the foo property using result[0].foo
+
+      google_analytics_val = google_analytics[0].value;
+
+      if (google_analytics_val != '' || google_analytics_val != null || google_analytics_val != undefined) {
+        
+      } else {
+
+        google_analytics_val = '';
+
+      }
+
+    } else {
+
+      // multiple items found
+      google_analytics_val = "";
+
+    }
+
+    $("#google_analytics").html(google_analytics_val);
   }
 ]);
 

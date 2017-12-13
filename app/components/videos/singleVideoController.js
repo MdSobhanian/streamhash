@@ -119,7 +119,7 @@ angular.module('streamViewApp')
     		});
 
 
-            if (!$scope.user_type || $scope.video.pay_per_view_status) {
+            if (!$scope.user_type || $scope.video.pay_per_view_status && $scope.video.video.amount <= 0) {
 
                 var JWPLAYER_KEY = $.grep($rootScope.site_settings, function(e){ return e.key == 'JWPLAYER_KEY'; });
 
