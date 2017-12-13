@@ -35,45 +35,44 @@ angular.module('streamViewApp')
 
 		$.ajax({
 
-				type : "get",
+			type : "post",
 
-				url : apiUrl + "userApi/userDetails",
+			url : apiUrl + "userApi/view-sub-profile",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+			data : {sub_profile_id : memoryStorage.sub_profile_id, id : memoryStorage.user_id, token :memoryStorage.access_token},
 
-				async : false,
+			async : false,
 
-				beforeSend : function() {
+			beforeSend : function() {
 
-					$("#before_loader").show();
+				$("#before_loader").fadeIn();
 
-				},
+			},
 
-				success : function (data) {
+			success : function (data) {
 
-					if (data.success) {
+				if (data.success) {
 
-						$scope.profile = data;
+					$scope.profile = data.data;
 
-					} else {
+				} else {
 
-						UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+					UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-						return false;
-					}
-				},
-				error : function (data) {
+					return false;
+				}
+			},
+			error : function (data) {
 
-					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+				UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-				},
+			},
 
-				complete : function() {
+			complete : function() {
 
-					$("#before_loader").hide();
+				$("#before_loader").fadeOut();
 
-				},
-			});
-
+			},
+		});
 	}
 ]);
