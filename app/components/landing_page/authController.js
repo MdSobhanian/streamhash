@@ -235,5 +235,5 @@ angular.module('streamViewApp')
 
 	}	
 	
-	// $scope.allPages = $rootScope.allPages;
+	$scope.allPages = $rootScope.allPages;
 ]);

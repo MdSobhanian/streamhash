@@ -1031,7 +1031,7 @@ input:focus,textarea:focus{
     border: 2px solid #fff;
     width: 40px;
     height: 40px;
-    padding: 8px;
+    padding:9px 8px 8px 11px;
     text-align: center;
     display: inline-block;
     transition: transform 150ms ease,-webkit-transform 150ms ease,-moz-transform 150ms ease,-o-transform 150ms ease;
@@ -2359,9 +2359,9 @@ min-height: 100%;
     color: #bd081c;
 }
 
-.spacing{
+/*.spacing{
     padding:40px 15px;
-}
+}*/
 .grey-clr{
     color: #666666 !important;
 }
@@ -2392,6 +2392,9 @@ min-height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
+}
+.theme-bg{
+    background-color: #E50914;
 }
 .payment-video-title{
     margin: 0;
