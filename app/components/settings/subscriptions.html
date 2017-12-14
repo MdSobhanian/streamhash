@@ -67,7 +67,7 @@
                                {{subscription.title}}
                             </div>
 
-                            <div class="sub-black-bg">
+                            <div ng-class="{'sub-red-bg': (subscription.popular_status == 1) , 'sub-black-bg': (subscription.popular_status == 0)}" class="sub-black-bg">
                             <!-- <div class="sub-red-bg"> -->
                                 <strong class="card-type white-clr">Plan</strong>
                                 <h3 class="card-title white-clr">${{subscription.amount}} / {{subscription.plan}} month</h3>

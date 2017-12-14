@@ -180,9 +180,20 @@ angular.module('streamViewApp')
 
 						} else {
 
-							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-							return false;
+							if (data.error_code == 3001) {
+
+								UIkit.notify({message : 'Your account has been successfully Registered, Please Verify your email and Sign In', timeout : 3000, pos : 'top-center', status : 'success'});
+
+								$state.go('static.signin',{},{reload:true});
+
+							} else {
+
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								return false;
+
+							}
 						}
 					},
 					error : function (data) {
