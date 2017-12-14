@@ -1,15 +1,8 @@
 angular.module('streamViewApp')
-.controller('authController', [
-
-	'$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$http',
+.controller('authController', [ '$scope', '$http', '$rootScope', '$window', '$state', '$stateParams', '$location', '$http',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
 		
-		// setTimeout(function(){
-		// 	$scope.height = $(".footer").outerHeight();
-		// 	console.log($scope.height);
-		// 	$(".height").height($scope.height);
-		// }, 100);
 
 		var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'appstore'; });
 
@@ -233,7 +226,9 @@ angular.module('streamViewApp')
 
 	    $scope.pinterest_link = pinterest_link_url;
 
+	    $scope.allPages = $rootScope.allPages;
+
 	}	
 	
-	$scope.allPages = $rootScope.allPages;
+	
 ]);
