@@ -265,7 +265,7 @@ angular.module('streamViewApp')
 
 								type : "post",
 
-								url : apiUrl + "userApi/delete_logged_device",
+								url : apiUrl + "userApi/logout",
 
 								data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
 
