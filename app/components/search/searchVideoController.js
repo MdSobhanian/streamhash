@@ -167,7 +167,7 @@ angular.module('streamViewApp')
 	 
 						} else {
 
-							$scope.no_results_found = "img/no-results.gif";
+							$scope.no_results_found = "img/no-results.png";
 						}
 
 						console.log($scope.no_results_found);
