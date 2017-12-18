@@ -33,19 +33,23 @@
 			<div class="basic-tabs-title">									
 				<ul class="nav nav-tabs" role="tablist">
 				
-					<li role="presentation">
-						<a href="#home" aria-controls="home" role="tab" data-toggle="tab">	
+					<!-- Added styles for android app approval -->
+
+					<li role="presentation" style="display: none;">
+						<a href="#home" aria-controls="home" role="tab" data-toggle="tab" >	
 							<i class="fa fa-clipboard tab-icon hidden-xs"></i>
 							<span class="tab-wrap">No commitments Cancel online at anytime</span>
 						</a>
 					</li>
-				    <li role="presentation" class="active">
+					<!-- Added styles for android app approval -->
+
+				    <li role="presentation" class="active" style="display: none;">
 				    	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
 				    		<i class="fa fa-mobile tab-icon hidden-xs"></i>
 				    		<span class="tab-wrap">Browse Anywhere</span>
 				    	</a>
 				    </li>
-				    <li role="presentation">
+				    <li role="presentation" class="active">
 				    	<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
 				    		<i class="fa fa-tag tab-icon hidden-xs"></i>
 				    		<span class="tab-wrap">About {{site_name}}</span>
@@ -68,7 +72,10 @@
 							</div><!--end of column-->
 
 							<div class="col-sm-6">
-								<div class="cancel-image">
+
+								<!-- Added style for android app approval -->
+
+								<div class="cancel-image" style="display: none;">
 									<img src="img/cancel.png">
 								</div><!--end of cancel-image-->
 							</div><!--end of col-sm-6-->
