@@ -33,23 +33,19 @@
 			<div class="basic-tabs-title">									
 				<ul class="nav nav-tabs" role="tablist">
 				
-					<!-- Added styles for android app approval -->
-
-					<li role="presentation" style="display: none;">
+					<li role="presentation">
 						<a href="#home" aria-controls="home" role="tab" data-toggle="tab" >	
 							<i class="fa fa-clipboard tab-icon hidden-xs"></i>
 							<span class="tab-wrap">No commitments Cancel online at anytime</span>
 						</a>
 					</li>
-					<!-- Added styles for android app approval -->
-
-				    <li role="presentation" style="display: none;">
+				    <li role="presentation" class="active">
 				    	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
 				    		<i class="fa fa-mobile tab-icon hidden-xs"></i>
 				    		<span class="tab-wrap">Browse Anywhere</span>
 				    	</a>
 				    </li>
-				    <li role="presentation" class="active">
+				    <li role="presentation" >
 				    	<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
 				    		<i class="fa fa-tag tab-icon hidden-xs"></i>
 				    		<span class="tab-wrap">About {{site_name}}</span>
@@ -62,7 +58,7 @@
 		<div class="basic-tabs-inner">
 			<div class="container">
 			  	<div class="tab-content">
-					<div role="tabpanel" class="tab-pane fade" id="home" style="display: none;">
+					<div role="tabpanel" class="tab-pane fade" id="home">
 						<div class="row basic-row no-margin">
 							<div class="col-sm-6 basic-section">
 								<div class="online-cancel">
@@ -73,16 +69,14 @@
 
 							<div class="col-sm-6">
 
-								<!-- Added style for android app approval -->
-
-								<div class="cancel-image" style="display: none;">
+								<div class="cancel-image" >
 									<img src="img/cancel.png">
 								</div><!--end of cancel-image-->
 							</div><!--end of col-sm-6-->
 						</div><!--end of row-->
 					</div><!--end of tab-panel-->
 
-				  	<div role="tabpanel" class="tab-pane fade " id="profile" style="display: none;">
+				  	<div role="tabpanel" class="tab-pane fade in active " id="profile" >
 				  		<div class="all-device">
 				  			<div class="device-join">
 				  				<p class="device-join-txt">
@@ -135,7 +129,7 @@
 					</div><!--end of tab-panel-->
 
 
-				  	<div role="tabpanel" class="tab-pane fade in active" id="messages">
+				  	<div role="tabpanel" class="tab-pane fade" id="messages">
 
 				  		<div class="">
 				  			<div class="price-head text-center">
