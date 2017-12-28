@@ -422,6 +422,25 @@ streamViewApp
 
                 })
 
+                .state('profile.subscription-success', {
+                    cache: false,
+                    url: "/subscription-success",
+                    templateUrl: 'app/components/settings/subscription-success.html',
+                    controller: 'subscriptionSuccessController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/subscriptionController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Subscription Success',
+                    }
+
+                })
+
                 .state('profile.payment-option', {
                     cache: false,
                     url: "/payment-option/{id}",
