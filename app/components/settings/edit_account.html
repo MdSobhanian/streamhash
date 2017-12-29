@@ -12,7 +12,7 @@
 					    <input type="name" class="form-control" placeholder="Enter Your Name" required ng-model="profile.name">
 					</div>
 
-					<div class="form-group" ng-f="profile.login_by == 'manual'">
+					<div class="form-group" ng-if="profile.login_by == 'manual'">
 					    <label for="exampleInputEmail1">Email address</label>
 					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required ng-model="profile.email">
 					</div>
