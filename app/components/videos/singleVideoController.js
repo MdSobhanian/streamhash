@@ -63,6 +63,8 @@ angular.module('streamViewApp')
 
     		$scope.height = $(window).height();
 
+            $scope.page_not_changed = true;
+
     		$.ajax({
 
     			type : "post",
@@ -89,6 +91,8 @@ angular.module('streamViewApp')
 
                             console.log($scope.video.pay_per_view_status);
 
+                            $scope.page_not_changed = false;
+
                             $state.go('profile.pay_per_view', {id : $scope.video.video.admin_video_id}, {reload:true});
 
                         }
@@ -97,6 +101,8 @@ angular.module('streamViewApp')
                         if ($scope.video.pay_per_view_status && $scope.video.video.amount <= 0) {
 
                             if ($scope.user_type) {
+
+                                $scope.page_not_changed = false;
 
                                 $state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
@@ -119,7 +125,8 @@ angular.module('streamViewApp')
     		});
 
 
-            if (!$scope.user_type || $scope.video.pay_per_view_status && $scope.video.video.amount <= 0) {
+            if ($scope.page_not_changed) {
+
 
                 var JWPLAYER_KEY = $.grep($rootScope.site_settings, function(e){ return e.key == 'JWPLAYER_KEY'; });
 
