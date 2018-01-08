@@ -119,6 +119,10 @@ angular.module('streamViewApp')
 
 				if (confirm('Are you sure want to subscribe the plan ?')) {
 
+					$("#pay_now_subscription").html("Request Sending...");
+
+					$("#pay_now_subscription").attr('disabled', true);
+
 					if (amt == 0) {
 
 						var data = new FormData;

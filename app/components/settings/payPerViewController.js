@@ -123,6 +123,10 @@ angular.module('streamViewApp')
 
 				if (confirm('Are you sure want to proceed to see the video ?')) {
 
+					$("#payment_ppv_button").html("Request Sending...");
+
+					$("#payment_ppv_button").attr('disabled', true);
+
 					window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id;
 
 				} else {
