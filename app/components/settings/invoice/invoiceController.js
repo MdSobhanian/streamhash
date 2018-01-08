@@ -117,59 +117,63 @@ angular.module('streamViewApp')
 
 			$scope.sendToPaypal = function(id, amt) {
 
-				if (amt == 0) {
+				if (confirm('Are you sure want to subscribe the plan ?')) {
 
-					var data = new FormData;
-					data.append('id', memoryStorage.user_id);
-					data.append('token', memoryStorage.access_token);
-					data.append('plan_id', id);
+					if (amt == 0) {
 
-					$.ajax({
-							url : apiUrl+"userApi/zero_plan",
-							type : 'post',	
-							contentType : false,
-							processData: false,
-							beforeSend: function(xhr){
-								$(".fond").show();
-							},
-							async : false,
-							data : data,
-							success : function(data) {
-								// console.log("Result "+data);
-								if (data.success == true) {
+						var data = new FormData;
+						data.append('id', memoryStorage.user_id);
+						data.append('token', memoryStorage.access_token);
+						data.append('plan_id', id);
 
-									memoryStorage.one_time_subscription = 1;
+						$.ajax({
+								url : apiUrl+"userApi/zero_plan",
+								type : 'post',	
+								contentType : false,
+								processData: false,
+								beforeSend: function(xhr){
+									$(".fond").show();
+								},
+								async : false,
+								data : data,
+								success : function(data) {
+									// console.log("Result "+data);
+									if (data.success == true) {
 
-									memoryStorage.user_type = 1;
+										memoryStorage.one_time_subscription = 1;
 
-									memoryStorage.no_of_account = data.plan.no_of_account;
+										memoryStorage.user_type = 1;
 
-									memoryStorage.access_token = data.user.token; 
+										memoryStorage.no_of_account = data.plan.no_of_account;
 
-									$scope.one_time_subscription = memoryStorage.one_time_subscription;
+										memoryStorage.access_token = data.user.token; 
 
-									localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+										$scope.one_time_subscription = memoryStorage.one_time_subscription;
 
-									UIkit.notify({message : "Successfully, subscribed to view videos", timeout : 3000, pos : 'top-center', status : 'success'});
+										localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
-									$state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+										UIkit.notify({message : "Successfully, subscribed to view videos", timeout : 3000, pos : 'top-center', status : 'success'});
 
-								} else {
-									
-									UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
-								}
-							},
-							complete : function() {
-					    		$(".fond").hide();
-					    	},
-					    	error : function(result) {
+										$state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
-					    	}
-					}); 
+									} else {
+										
+										UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+									}
+								},
+								complete : function() {
+						    		$(".fond").hide();
+						    	},
+						    	error : function(result) {
 
-				} else {
+						    	}
+						}); 
 
-					window.location.href=apiUrl+"paypal/"+id+'/'+$scope.user_id;
+					} else {
+
+						window.location.href=apiUrl+"paypal/"+id+'/'+$scope.user_id;
+
+					}
 
 				}
 
