@@ -443,7 +443,7 @@ streamViewApp
 
                 .state('profile.payment-option', {
                     cache: false,
-                    url: "/payment-option/{id}",
+                    url: "/payment-potion/{id}",
                     templateUrl: 'app/components/settings/payment_option.html',
                     controller: 'paymentOptionController',
                     resolve: {
@@ -555,6 +555,21 @@ streamViewApp
                         }]
                     }, 
                 })
+
+
+                .state("static.social_login_failure",{
+                    cache: false,
+                    url:"/social_login_failure",
+                    controller: 'staticFailureController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/auth/signinController.js',
+                            ]);
+                        }]
+                    }, 
+                })
+
 
                 .state("static.social_login", {
                     cache: false,
