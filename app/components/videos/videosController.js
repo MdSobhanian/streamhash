@@ -102,7 +102,7 @@ angular.module('streamViewApp')
 
 					url : apiUrl + "userApi/deleteWishlist",
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : id,sub_profile_id:memoryStorage.sub_profile_id},
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, wishlist_id : admin_video_id,sub_profile_id:memoryStorage.sub_profile_id},
 
 					async : false,
 					
