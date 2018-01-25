@@ -25,7 +25,7 @@
 
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block">
-										<p class="account-section-text">{{profile.email}}</p>
+										<p class="account-section-text" ng-if="profile.login_by == 'manual'">{{profile.email}}</p>
 										<p class="account-section-text account-gray-text">
 										Password <span>********</span>
 										</p>

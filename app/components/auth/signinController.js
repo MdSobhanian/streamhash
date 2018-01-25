@@ -276,4 +276,14 @@ angular.module('streamViewApp')
 				}
 		});
 	}
+])
+
+.controller('staticFailureController', ['$scope', '$http', '$rootScope', '$window', '$location', '$state', '$stateParams',
+	function ($scope, $http, $rootScope, $window, $location, $state, $stateParams) {
+
+		UIkit.notify({message : 'Sorry, Your Account is disabled. Please contact admin.', timeout : 5000, pos : 'top-center', status : 'danger'});
+
+		$state.go('static.signin', {}, {reload:true});
+
+	}
 ]);
