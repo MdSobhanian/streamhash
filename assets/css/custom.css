@@ -312,16 +312,33 @@
     vertical-align: middle;
 }
 
-.profile-entry input[type="text"] {
-    background: #666 none repeat scroll 0 0;
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    color: #fff;
-    /*font-size: 1.3vw;*/
-    height: 2em;
-    margin: 0 0.8em 0 0;
-    padding: 0.2em 0.6em;
-    width: 18em;
+@media screen and (max-width: 360px) {
+    .profile-entry input[type="text"] {
+        background: #666 none repeat scroll 0 0;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+        color: #fff;
+        /*font-size: 1.3vw;*/
+        height: 2em;
+        margin: 0 0.8em 0 0;
+        padding: 0.2em 0.6em;
+        width:12em;
+    }
+}
+
+@media screen and (min-width:361px) {
+    .profile-entry input[type="text"] {
+        background: #666 none repeat scroll 0 0;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+        color: #fff;
+        /*font-size: 1.3vw;*/
+        height: 2em;
+        margin: 0 0.8em 0 0;
+        padding: 0.2em 0.6em;
+        width: 18em;
+    }
+
 }
 .profile-entry input[type="text"]::-moz-placeholder {
     color: #ccc;
