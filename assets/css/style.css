@@ -1047,12 +1047,12 @@ input:focus,textarea:focus{
     border-radius: 100%;
     border: 2px solid #fff;
     width: 40px;
+    
     height: 40px;
     padding:9px 8px 8px 11px;
     text-align: center;
     display: inline-block;
     transition: transform 150ms ease,-webkit-transform 150ms ease,-moz-transform 150ms ease,-o-transform 150ms ease;
-
 }
 
 .hover-icon i:hover,
