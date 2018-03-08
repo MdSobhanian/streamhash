@@ -2526,3 +2526,10 @@ min-height: 100%;
     float: left;
     margin-left: 3px;
 }
+
+
+.disabled_class {
+
+    pointer-events: none;
+   cursor: default;
+}

@@ -233,6 +233,25 @@ streamViewApp
                     }
                 })
 
+                .state("profile.spam_videos", {
+                    cache: false,
+                    url: "/spam/videos",
+                    templateUrl: 'app/components/spam_videos/spam_videos.html',
+                    controller: 'spamVideosController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'assets/css/home.css',
+                                'app/components/spam_videos/spamVideosController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Spam Videos'
+                    }
+                })
+
                  .state("profile.browse", {
                     cache: false,
                     url: "/browse/{browse}",

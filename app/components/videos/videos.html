@@ -178,13 +178,13 @@
 				    						</a>
 				    					</div>
 				    					<div class="banner-icon-sec">
-				    						<a href="#" class="banner-icon">
-				    							<i class="fa fa-thumbs-up"></i>
+				    						<a id="like_{{subkey}}_{{$index}}_{{$parentindex}}" style="cursor: pointer;" class="banner-icon" ng-show="value.is_liked == 1 || value.is_liked == 0" ng-click="likeVideo(value.admin_video_id, subkey, $index, $parentindex)">
+			    								<i class="fa fa-thumbs-up"></i>
 				    						</a>
-				    						<a href="#" class="banner-icon">
+				    						<a id="dis_like_{{subkey}}_{{$index}}_{{$parentindex}}" style="cursor: pointer;" class="banner-icon" ng-show="value.is_liked == -1 || value.is_liked == 0" ng-click="dislikeVideo(value.admin_video_id, subkey, $index, $parentindex)">
 				    							<i class="fa fa-thumbs-down"></i>
 				    						</a>
-				    						<a href="#" class="banner-icon1">
+				    						<a ng-click="spamVideo(value.admin_video_id)" style="cursor: pointer;" class="banner-icon1">
 				    							<i class="fa fa-exclamation "></i>
 				    						</a>
 				    					</div>

@@ -1,0 +1,274 @@
+<div class="content" id="page_content">
+
+<div style="margin-top:80px !important; margin:5%; padding: 10px;">
+
+<div class="box-head" style="margin-bottom: 2%;">
+   <h3>Spam Videos</h3>
+</div>
+
+<button ng-click="loadMoreDetails()" ng-hide="true" id="load_more_details"></button>
+
+
+<div class="box video-box-row" ng-if="datas.length == 0">
+
+<p>You have not added any videos to Spam videos section</p>
+
+
+</div>
+
+<div class="box video-box-row" ng-repeat="video in datas" ng-init="$parentindex = $index">
+
+	<div id="{{$index}}_{{$parentindex}}" ng-mouseover="hoverIn(this,$index, $parentindex, video.length)" ng-mouseleave="hoverOut(this, $index, $parentindex, video.length)" class="tile col-lg-3 col-md-3 col-sm-3 col-xs-6 slide-box video-box" ng-repeat="value in video">
+    	<div class="video-box-outer">
+    	
+	        <div class="tile-media" id="{{$index}}_{{$parentindex}}_img">
+	          	<img class="tile-img" ng-src="{{value.default_image}}" alt=""/><!-- 3rd image-->
+	          	<!-- <img class="tile-img first" ng-src="{{value.default_image}}" alt=""/>
+	          	<img class="tile-img first" ng-src="{{value.default_image}}" alt=""/> -->
+	        </div>
+	        <div class="tile-details">
+
+	        	<div class="video_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
+	        		<span>PAY - ${{value.amount}}</span>
+	        	</div>
+
+	        	<span ng-show="value.pay_per_view_status">
+					<a ng-click="alert('Remove the video from Spam list, And continue to watch the video');">
+					<!-- ui-sref="single_video({id : value.admin_video_id})"-->
+		        		<div class="hover-icon" id="{{$index}}_{{$parentindex}}_div">
+	        			<i class="fa fa-play"></i>
+		        		</div>
+		        	</a>
+				</span>
+				<span ng-hide="value.pay_per_view_status">
+					<a ng-click="alert('Remove the video from Spam list, And continue to watch the video');">
+					<!-- ui-sref="profile.payment-option({id : value.admin_video_id})"-->
+		        		<div class="hover-icon" id="{{$index}}_{{$parentindex}}_div">
+	        			<i class="fa fa-play"></i>
+		        		</div>
+		        	</a>
+				</span>
+
+	        	
+
+				<div class="tile-content" id="{{$index}}_{{$parentindex}}_desc">
+		            <h3 class="tile-tit">{{value.title}}</h3>
+
+		            <div class="row no-margin">
+						<div class="pull-left">
+							<div>
+								<div class="rating-symbol glyphicon"
+								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
+									
+								</div>
+								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
+									
+								</div>
+							</div>
+						</div>
+						<p class="video-season">
+							<span>{{value.publish_time}}</span>
+							<span class="video-epi-count"><i class="fa fa-eye"></i>&nbsp;{{value.watch_count}}</span>
+							<span>{{value.duration}}</span>
+						</p>
+					</div>
+
+					<div class="row no-margin">
+						<div class="video-des col-lg-10 col-md-10 col-sm-10 col-xs-10 no-pad">
+							<p class="video-des-inner">{{value.description}}</p>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<a ng-click="showVideoDrop(this, $index, $parentindex,video.length)" class="arrow">
+							<img src="assets/img/down-arrow-red.png" class="arrow_down" />
+						</a>
+					</div>
+				</div>
+
+	        </div>
+	    </div>
+	    
+    </div>
+ 
+ 	<div class="clearfix"></div>
+
+ 	<div class="video-drop" style="margin-top: 1% !important;" id="{{$index}}_{{$parentindex}}_video_drop" ng-repeat="value in video">
+		<div class="tab-content">
+
+				<!-- OVERVIEW SECTION  -->
+			    <div role="tabpanel" class="tab-pane active" id="{{$index}}_{{$parentindex}}_overview">
+				    <div class="overview tab-section">
+				    	<div class="close-tab">
+    						<a style="cursor: pointer;" ng-click="closeDiv($index,$parentindex)" class="close-btn">
+    							<i class="fa fa-times"></i>
+    						</a>
+    					</div>
+			    		
+		    			<div class="tab-section-content row no-margin">
+			    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad hidden-xs">
+			    				<div class="overview-details">
+			    					<h3 class="content-tit">{{value.title}}</h3>
+
+			    					<div class="row no-margin">
+			    						<div class="pull-left">
+			    							<div>
+			    								<div class="rating-symbol glyphicon"
+			    								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
+			    									
+			    								</div>
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
+			    									
+			    								</div>
+			    							</div>
+			    						</div>
+			    						<p class="content-txt bold seasons">
+			    							<span>{{value.publish_time}}</span>
+			    							<span class="epi-count">{{value.watch_count}}</span>
+			    							<span>{{value.duration}}</span>
+			    						</p>
+			    					</div>
+
+			    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
+						        		<!-- <span ng-if="value.pay_per_view_status">PAID</span> -->
+						        		<span>PAY - ${{value.amount}}</span> 
+						        	</div>
+
+			    					<div>
+			    						<p class="content-txt overview-des">{{value.description}}</p>
+
+			    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
+			    					</div>
+
+			    					
+
+			    					<div class="pull-left">
+			    					
+			    						<a ng-click="unSpamVideo(value.admin_video_id)" class="my-list bold"  style="cursor: pointer;">
+			    							<i class="fa fa-exclamation my-list-icon"></i>
+			    							<!-- <span class="fa-stack fa-lg my-list-icon">
+											  	<i class="fa fa-circle-thin fa-stack-2x"></i>
+											  	<i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i>
+											</span> -->
+			    							<span class="my-list-txt">Unspam</span> 
+			    						</a>
+			    						
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
+			    				<div class="linear-outer">
+			    					
+			    					<div class="linear">
+			    					</div>
+			    					<div class="rotate-img-outer">	
+		    					
+			    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in value.images"></div>
+				    				</div>
+
+				    				<div class="play-icon-outer">
+				    					<!-- <a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>-->
+
+				    					<span ng-show="value.pay_per_view_status">
+				    						<a  ng-click="alert('Remove the video from Spam list, And continue to watch the video');" class="play-icon"><i class="fa fa-play"></i></a>
+				    					</span>
+				    					<span ng-hide="value.pay_per_view_status">
+				    						<a ng-click="alert('Remove the video from Spam list, And continue to watch the video');" class="play-icon"><i class="fa fa-play"></i></a>
+				    					</span>
+
+				    				</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    							    
+				    </div>
+				</div>
+				<!-- OVERVIEW SECTION END -->
+
+				<!-- DETAILS-SECTION -->
+				<div role="tabpanel" class="tab-pane" id="{{$index}}_{{$parentindex}}_details">
+					<div class="details-section tab-section tab-bg bg-img" style="background-image: url({{value.default_image}});">
+						<div class="tab-overlay">
+
+							<div class="details-section-inner tab-section-content tab-sec-inner contain-width details_section_tab">
+								<h3 class="content-tit">{{value.sub_category_name}}</h3>
+
+								<div class="details-row row no-margin">
+
+									<p ng-bind-html="value.details"></p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- DETAILS-SECTION END -->
+		</div>
+
+		<div class="drop-tab hidden-xs">
+
+			<ul class="nav nav-tabs" role="tablist">
+			    <li role="presentation" class="active">
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+			    </li>
+
+
+			    <li role="presentation" ng-if="value.details">
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
+			    </li>
+		  	</ul>		
+			
+		</div>
+	</div>
+
+</div>
+
+<div class="clearfix"></div>
+
+<div id="data_loader" style="margin-top: 5px;text-align: center;display: none">
+	<img src="assets/img/ellipsis.svg" style="width: 40px;">
+</div>
+
+</div>
+
+<style type="text/css">
+.box-head h3{
+
+    font-size: 18px;
+	color: #e5e5e5;
+	font-weight: 700;
+	text-decoration: none;
+	display: inline-block;
+
+	margin:0;
+
+}
+
+.video-box-row {
+
+	font-size : 14px;
+
+	white-space: normal;
+}
+
+
+</style>
