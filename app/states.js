@@ -487,6 +487,13 @@ streamViewApp
                    
                 })
 
+                .state('profile.add-card', {
+                    // cache: false,
+                    url: "/add-card",
+                    templateUrl: 'app/components/settings/add-card.html'
+                   
+                })
+
                 .state('profile.payment-details', {
                     // cache: false,
                     url: "/payment-details",

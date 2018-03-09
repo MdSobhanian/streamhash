@@ -34,7 +34,7 @@ angular.module('streamViewApp')
 
 					beforeSend : function() {
 
-						$("#my-list-txt_"+$index+"_"+key).html('<a class="my-list bold"><span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x fa-inverse padding2"></i></span><span class="my-list-txt">Adding</span></a>');
+						$("#my-list-txt_"+$index+"_"+key).html('<a class="my-list bold"><i class="fa fa-check my-list-icon"></i><span class="my-list-txt">Adding</span></a>');
 
 					},
 
@@ -45,7 +45,7 @@ angular.module('streamViewApp')
 							setTimeout(function(){
 
 								$("#my-list-txt_"+$index+"_"+key).html('<a onclick="angular.element(this).scope().removeWishlist('+data.wishlist_id+', '+id+', '+$index+', '+"'"+key+"'"+')" class="my-list bold" id="remove-my-list-txt" style="cursor: pointer;">'+
-							    							'<span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x fa-inverse padding2"></i></span>'+
+							    							'<i class="fa fa-check my-list-icon"></i>'+
 							    							'<span class="my-list-txt">My List</span>'+
 							    						'</a>');
 
@@ -98,7 +98,7 @@ angular.module('streamViewApp')
 					beforeSend : function() {
 
 						$("#my-list-txt_"+$index+"_"+key)
-						.html('<a class="my-list bold"><span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i></span><span class="my-list-txt">Removing</span></a>');
+						.html('<a class="my-list bold"><i class="fa fa-plus my-list-icon"></i><span class="my-list-txt">Removing</span></a>');
 
 					},
 
@@ -111,7 +111,7 @@ angular.module('streamViewApp')
 							setTimeout(function(){
 
 								$("#my-list-txt_"+$index+"_"+key).html('<a onclick="angular.element(this).scope().addWishlist('+admin_video_id+', '+$index+', '+"'"+key+"'"+')" class="my-list bold" style="cursor: pointer;">'+
-							    							'<span class="fa-stack fa-lg my-list-icon"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i></span>'+
+							    							'<i class="fa fa-plus fa-stack-1x my-list-icon"></i>'+
 							    							'<span class="my-list-txt">My List</span>'+
 							    						'</a>');
 
