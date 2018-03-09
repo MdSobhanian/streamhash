@@ -135,6 +135,43 @@
 						<!-- Account section content -->
 					</div>
 					<!-- Account Section End -->
+					<!-- Account Section -->
+					<div class="account-section row no-margin">
+
+						<!-- Accound section header -->
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<div class="account-section-header">
+								<h3 class="account-section-title">Card Details</h3>
+							</div>
+						</div>
+
+						<!-- Account section content -->
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+							<div class="account-section-content row no-margin">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="account-section-content-block">
+										<p class="account-section-text">{{active_plan.title ? active_plan.title : '-'}}</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
+									<div class="account-section-content-block text-right">
+										<div>
+											<a ui-sref="profile.add-card({sub_profile_id : sub_profile_id})" class="account-section-link">Add Card</a>
+										</div>											
+									</div>
+
+									<div class="account-section-content-block text-right">
+										<div>
+											<a ui-sref="profile.billing-details({sub_profile_id : sub_profile_id})" class="account-section-link">Card Details</a>
+										</div>											
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Account section content -->
+					</div>
 				</div>
 			</div>
 		</div>

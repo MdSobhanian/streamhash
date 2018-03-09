@@ -508,7 +508,7 @@ streamViewApp
 
                 .state('profile.add-card', {
                     // cache: false,
-                    url: "/add-card",
+                    url: "/add-card/{sub_profile_id}",
                     templateUrl: 'app/components/settings/add-card.html'
                    
                 })
