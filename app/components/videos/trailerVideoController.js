@@ -263,7 +263,9 @@ angular.module('streamViewApp')
 
             } else {
 
-            	var video = $scope.video.trailer_video;
+            	// var video = $scope.video.trailer_video;
+
+                var video = common_url+'smil/'+$scope.video.trailer_rtmp_smil;
             }
 
 
