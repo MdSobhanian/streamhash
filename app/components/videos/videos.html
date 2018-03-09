@@ -205,10 +205,39 @@
 				    						<a id="dis_like_{{subkey}}_{{$index}}_{{$parentindex}}" style="cursor: pointer;" class="banner-icon" ng-show="value.is_liked == -1 || value.is_liked == 0" ng-click="dislikeVideo(value.admin_video_id, subkey, $index, $parentindex)">
 				    							<i class="fa fa-thumbs-down"></i>
 				    						</a>
-				    						<a ng-click="spamVideo(value.admin_video_id)" style="cursor: pointer;" class="banner-icon1">
+				    						<a data-toggle="modal" data-target="#myModal_{{subkey}}_{{$index}}_{{$parentindex}}" title="Report as Spam" style="cursor: pointer;" class="banner-icon1">
 				    							<i class="fa fa-exclamation "></i>
 				    						</a>
 				    					</div>
+
+				    					<div class="modal fade" id="myModal_{{subkey}}_{{$index}}_{{$parentindex}}" role="dialog">
+										    <div class="modal-dialog">
+										      	<!-- Modal content-->
+										      	<div class="modal-content" style="background-color: #333;">
+										        	<div class="modal-header">
+										          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+										          		<h4 class="modal-title bold">Report This Video</h4>
+										        	</div>
+										        	<div class="modal-body">
+										        		<form ng-submit="spamVideo(value.admin_video_id, subkey, $index, $parentindex)">
+											          		<div class="radio radio-danger" ng-repeat="spam_reason in spam_reasons">
+											                    <input type="radio" name="reason" id="reason_{{subkey}}_{{$index}}_{{$parentindex}}" value="{{spam_reason.value}}">
+											                    <label for="radio1">
+											                        {{spam_reason.value}}
+											                    </label>
+											                </div>
+
+											                {{spam_reason_value}}
+											                <p class="small bold text-center">If you report this video, you won't see again the same video in anywhere in your account except "Spam Videos". If you want to continue to report this video as same. Click continue and proceed the same.</p>
+											                <div class="text-right">
+											                	<button type="submit" class="payment-submit">Submit</button>
+											                </div>
+										                </form>
+										        	</div>
+										        	
+										      	</div>
+										    </div>
+										</div>
 				    				</div>
 				    			</div>
 

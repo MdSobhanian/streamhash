@@ -56,7 +56,7 @@ angular.module('streamViewApp')
 
 							if (data.success) {
 								
-								UIkit.notify({message : "You have removied the video from spam, now you can watch the video", timeout : 3000, pos : 'top-center', status : 'success'});
+								UIkit.notify({message : "You have removed the video from spam, now you can watch the video", timeout : 3000, pos : 'top-center', status : 'success'});
 
 								$state.reload();
 

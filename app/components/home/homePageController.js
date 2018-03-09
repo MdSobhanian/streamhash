@@ -539,10 +539,51 @@ angular.module('streamViewApp')
 				});
 			}
 
+			$.ajax({
 
-			$scope.spamVideo = function(admin_video_id) {
+				type : "get",
+
+				url : apiUrl + "userApi/spam-reasons",
+
+				beforeSend : function() {
+
+					//$("#my-list-txt_"+$index+"_"+key).html('<a class="my-list bold"><i class="fa fa-plus my-list-icon"></i><span class="my-list-txt">Removing</span></a>');
+
+				},
+
+				success : function (data) {
+
+
+					if (data.success) {
+						
+						$scope.spam_reasons = data.data;
+
+					} else {
+
+						//UIkit.notify({message : data.error_messages, timeout : 5000, pos : 'top-center', status : 'danger'});
+
+						return false;
+					}
+				},
+				error : function (data) {
+
+					UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+				},
+
+				/*complete : function(data) {
+
+					$("#before_loader").hide();
+
+				},*/
+			
+			});
+
+			$scope.spamVideo = function(admin_video_id, index, key) {
 
 				if (confirm('Are you sure want to spam the video ?')) {
+
+					var reason = $('input[name=reason]:checked').val();
 
 					$.ajax({
 
@@ -550,7 +591,7 @@ angular.module('streamViewApp')
 
 						url : apiUrl + "userApi/add_spam",
 
-						data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : admin_video_id,sub_profile_id:memoryStorage.sub_profile_id , reason : 'not nice'},
+						data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : admin_video_id,sub_profile_id:memoryStorage.sub_profile_id , reason : reason},
 
 						async : false,
 
@@ -567,8 +608,11 @@ angular.module('streamViewApp')
 								
 								UIkit.notify({message : "You have marked the video as spam, the video won't appear anywhere except spam videos section", timeout : 3000, pos : 'top-center', status : 'success'});
 
-								$state.reload();
+								// window.setTimeout(function() {
 
+								window.location.reload();
+
+								// }, 1000);
 
 							} else {
 
@@ -591,6 +635,7 @@ angular.module('streamViewApp')
 					});
 
 				}	
+			
 			}
 
 			$scope.getSeasons = function(genre_id, idx, key, divid, loader, main_id) {

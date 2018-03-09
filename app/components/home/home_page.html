@@ -108,7 +108,7 @@
 		    							<i class="fa fa-thumbs-down"></i>
 		    						</a>
 
-		    						<a ng-click="spamVideo(recent_video.admin_video_id)" class="banner-icon1" style="cursor: pointer;"  data-toggle="modal" data-target="#myModal">
+		    						<a class="banner-icon1" style="cursor: pointer;"  data-toggle="modal" data-target="#myModal" title="Report as Spam">
 		    							<i class="fa fa-exclamation"></i>
 		    						</a>
 		    						
@@ -126,58 +126,18 @@
 						          		<h4 class="modal-title bold">Report This Video</h4>
 						        	</div>
 						        	<div class="modal-body">
-						        		<form>
-							          		<div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio1" value="option1">
+						        		<form ng-submit="spamVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
+							          		<div class="radio radio-danger" ng-repeat="spam_reason in spam_reasons">
+							                    <input type="radio" name="reason" id="reason_{{recent_video.admin_video_id}}_{{recent_video.admin_video_id}}_989" value="{{spam_reason.value}}">
 							                    <label for="radio1">
-							                        Sexual content 
+							                        {{spam_reason.value}}
 							                    </label>
 							                </div>
-							                <div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio2" value="option2" checked="">
-							                    <label for="radio2">
-							                        Violent or repulsive content. 
-							                    </label>
-							                </div>
-							                <div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio3" value="option2" checked="">
-							                    <label for="radio3">
-							                        Hateful or abusive content. 
-							                    </label>
-							                </div>
-							                <div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio4" value="option2" checked="">
-							                    <label for="radio4">
-							                        Harmful dangerous acts. 
-							                    </label>
-							                </div>
-							                <div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio5" value="option2" checked="">
-							                    <label for="radio5">
-							                       Child abuse. 
-							                    </label>
-							                </div>
-							                <div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio6" value="option2" checked="">
-							                    <label for="radio6">
-							                        Spam or misleading.
-							                    </label>
-							                </div>
-							                <div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio7" value="option2" checked="">
-							                    <label for="radio7">
-							                       Infringes my rights. 
-							                    </label>
-							                </div>
-							                <div class="radio radio-danger">
-							                    <input type="radio" name="radio2" id="radio8" value="option2" checked="">
-							                    <label for="radio8">
-							                        Captions issue. 
-							                    </label>
-							                </div>
+
+							                {{spam_reason_value}}
 							                <p class="small bold text-center">If you report this video, you won't see again the same video in anywhere in your account except "Spam Videos". If you want to continue to report this video as same. Click continue and proceed the same.</p>
 							                <div class="text-right">
-							                	<button type="button" class="payment-submit">Submit</button>
+							                	<button type="submit" class="payment-submit">Submit</button>
 							                </div>
 						                </form>
 						        	</div>
@@ -708,12 +668,41 @@
 							    						<a id="dis_like_{{$index}}_{{data.key}}" style="cursor: pointer;" class="banner-icon" ng-show="value.is_liked == -1 || value.is_liked == 0" ng-click="dislikeVideo(value.admin_video_id, $index, data.key)">
 							    							<i class="fa fa-thumbs-down"></i>
 							    						</a>
-							    						<a ng-click="spamVideo(value.admin_video_id)" style="cursor: pointer;" class="banner-icon1">
+							    						<a style="cursor: pointer;" class="banner-icon1"  data-toggle="modal" data-target="#myModal_{{$index}}_{{data.key}}" title="Report as Spam">
 							    							<i class="fa fa-exclamation "></i>
 							    						</a>
 							    					</div>
 							    				</div>
 							    			</div>
+
+							    			<div class="modal fade" id="myModal_{{$index}}_{{data.key}}" role="dialog">
+											    <div class="modal-dialog">
+											      	<!-- Modal content-->
+											      	<div class="modal-content" style="background-color: #333;">
+											        	<div class="modal-header">
+											          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+											          		<h4 class="modal-title bold">Report This Video</h4>
+											        	</div>
+											        	<div class="modal-body">
+											        		<form ng-submit="spamVideo(value.admin_video_id, $index, data.key)">
+												          		<div class="radio radio-danger" ng-repeat="spam_reason in spam_reasons">
+												                    <input type="radio" name="reason" id="reason_{{value.admin_video_id}}_{{$index}}_{{data.key}}" value="{{spam_reason.value}}">
+												                    <label for="radio1">
+												                        {{spam_reason.value}}
+												                    </label>
+												                </div>
+
+												                {{spam_reason_value}}
+												                <p class="small bold text-center">If you report this video, you won't see again the same video in anywhere in your account except "Spam Videos". If you want to continue to report this video as same. Click continue and proceed the same.</p>
+												                <div class="text-right">
+												                	<button type="submit" class="payment-submit">Submit</button>
+												                </div>
+											                </form>
+											        	</div>
+											        	
+											      	</div>
+											    </div>
+											</div>
 
 							    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
 							    				<div class="linear-outer">
