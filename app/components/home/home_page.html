@@ -14,6 +14,9 @@
 		    					<h3 class="content-tit">{{recent_video.title}}</h3>
 
 		    					<div class="row no-margin">
+		    						<!-- <div class="pull-left">
+		    							nvfvfj
+		    						</div> -->
 		    						<div class="pull-left">
 		    							<div>
 		    								<div class="rating-symbol glyphicon"
@@ -78,6 +81,7 @@
 
 		    						<a id="like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;" class="banner-icon" ng-show="recent_video.is_liked == 1 || recent_video.is_liked == 0" ng-click="likeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
 		    							<i class="fa fa-thumbs-up"></i>
+
 		    						</a>
 		    						<a id="dis_like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;" class="banner-icon" ng-show="recent_video.is_liked == -1 || recent_video.is_liked == 0" ng-click="dislikeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
 		    							<i class="fa fa-thumbs-down"></i>
@@ -86,10 +90,91 @@
 		    						<a ng-click="spamVideo(recent_video.admin_video_id)" class="banner-icon1" style="cursor: pointer;">
 		    							<i class="fa fa-exclamation"></i>
 		    						</a>
+
+		    						<a href="#" class="white-icon">
+		    							<i class="fa fa-thumbs-up"></i><span>25</span>
+		    						</a>
+		    						<a href="#" class="white-icon">
+		    							<i class="fa fa-thumbs-down"></i><span>25</span>
+		    						</a>
+		    						<!-- <a class="white-icon" data-toggle="modal" data-target="#myModal">
+		    							<i class="fa fa-exclamation-circle"></i>
+		    						</a> -->
 		    					</div>
 		    				</div>
 		    			</div>
 
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog">
+						      	<!-- Modal content-->
+						      	<div class="modal-content" style="background-color: #333;">
+						        	<div class="modal-header">
+						          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+						          		<h4 class="modal-title bold">Report This Video</h4>
+						        	</div>
+						        	<div class="modal-body">
+						        		<form>
+							          		<div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio1" value="option1">
+							                    <label for="radio1">
+							                        Sexual content 
+							                    </label>
+							                </div>
+							                <div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio2" value="option2" checked="">
+							                    <label for="radio2">
+							                        Violent or repulsive content. 
+							                    </label>
+							                </div>
+							                <div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio3" value="option2" checked="">
+							                    <label for="radio3">
+							                        Hateful or abusive content. 
+							                    </label>
+							                </div>
+							                <div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio4" value="option2" checked="">
+							                    <label for="radio4">
+							                        Harmful dangerous acts. 
+							                    </label>
+							                </div>
+							                <div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio5" value="option2" checked="">
+							                    <label for="radio5">
+							                       Child abuse. 
+							                    </label>
+							                </div>
+							                <div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio6" value="option2" checked="">
+							                    <label for="radio6">
+							                        Spam or misleading.
+							                    </label>
+							                </div>
+							                <div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio7" value="option2" checked="">
+							                    <label for="radio7">
+							                       Infringes my rights. 
+							                    </label>
+							                </div>
+							                <div class="radio radio-danger">
+							                    <input type="radio" name="radio2" id="radio8" value="option2" checked="">
+							                    <label for="radio8">
+							                        Captions issue. 
+							                    </label>
+							                </div>
+							                <p class="small bold text-center">If you report this video, you won't see again the same video in anywhere in your account except "Spam Videos". If you want to continue to report this video as same. Click continue and proceed the same.</p>
+							                <div class="text-right">
+							                	<button type="button" class="payment-submit">Submit</button>
+							                </div>
+						                </form>
+						        	</div>
+						        	
+						      	</div>
+						    </div>
+						</div>
+
+						
 		    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
 		    				<div class="linear-outer">
 		    					<div class="linear">
