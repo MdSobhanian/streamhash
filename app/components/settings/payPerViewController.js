@@ -148,9 +148,13 @@ angular.module('streamViewApp')
 
 								success : function (data) {
 
+									$("#payment_ppv_button").html("Pay Now");
+
+									$("#payment_ppv_button").attr('disabled', false);
+
 									if (data.success) {
 
-										$state.go('profile.profile.pay_per_view_success', {id : id}, {reload:true});
+										$state.go('profile.pay_per_view_success', {id : id}, {reload:true});
 
 									} else {
 
