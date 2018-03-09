@@ -128,8 +128,8 @@
 						        	<div class="modal-body">
 						        		<form ng-submit="spamVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
 							          		<div class="radio radio-danger" ng-repeat="spam_reason in spam_reasons">
-							                    <input type="radio" name="reason" id="reason_{{recent_video.admin_video_id}}_{{recent_video.admin_video_id}}_989" value="{{spam_reason.value}}">
-							                    <label for="radio1">
+							                    <input type="radio" name="reason" id="reason_{{$index}}_{{recent_video.admin_video_id}}_989" value="{{spam_reason.value}}">
+							                    <label for="reason_{{$index}}_{{recent_video.admin_video_id}}_989">
 							                        {{spam_reason.value}}
 							                    </label>
 							                </div>
@@ -687,7 +687,7 @@
 											        		<form ng-submit="spamVideo(value.admin_video_id, $index, data.key)">
 												          		<div class="radio radio-danger" ng-repeat="spam_reason in spam_reasons">
 												                    <input type="radio" name="reason" id="reason_{{value.admin_video_id}}_{{$index}}_{{data.key}}" value="{{spam_reason.value}}">
-												                    <label for="radio1">
+												                    <label for="reason_{{value.admin_video_id}}_{{$index}}_{{data.key}}">
 												                        {{spam_reason.value}}
 												                    </label>
 												                </div>
