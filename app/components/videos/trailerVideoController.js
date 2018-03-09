@@ -285,7 +285,7 @@ angular.module('streamViewApp')
                 primary: "flash",
                 autostart : true,
                 tracks : [{
-                  file : common_url+'subtitle/'+$scope.video.trailer_subtitle_name,
+                  file : common_url+'subtitles/'+$scope.video.trailer_subtitle_name,
                   kind : "captions",
                   default : true,
                 }]

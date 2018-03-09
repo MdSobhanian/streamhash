@@ -354,7 +354,7 @@ angular.module('streamViewApp')
                         }
                     },
                     tracks : [{
-                      file : common_url+'subtitle/'+$scope.video.video_subtitle_name,
+                      file : common_url+'subtitles/'+$scope.video.video_subtitle_name,
                       kind : "captions",
                       default : true,
                     }]
