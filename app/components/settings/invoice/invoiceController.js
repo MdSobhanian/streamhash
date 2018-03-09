@@ -116,6 +116,10 @@ angular.module('streamViewApp')
 
 
 			$scope.sendToPaypal = function(id, amt) {
+				
+
+				$scope.type_of_payment = $("input[name='type_of_payment']:checked").val();
+
 
 				if (confirm('Are you sure want to subscribe the plan ?')) {
 
@@ -175,7 +179,46 @@ angular.module('streamViewApp')
 
 					} else {
 
-						window.location.href=apiUrl+"paypal/"+id+'/'+$scope.user_id;
+						if ($scope.type_of_payment == 1) {
+
+							window.location.href=apiUrl+"paypal/"+id+'/'+$scope.user_id;
+
+						} else {
+
+							$.ajax({
+
+								type : "post",
+
+								url : apiUrl + "userApi/stripe_payment",
+
+								data : {id : $scope.user_id, token : $scope.access_token, sub_profile_id : memoryStorage.sub_profile_id, subscription_id : id},
+
+								async : false,
+							
+
+								success : function (data) {
+
+									if (data.success) {
+
+										$state.go('profile.subscription-success', {}, {reload:true});
+
+									} else {
+
+										UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+										return false;
+									}
+								},
+								error : function (data) {
+
+									UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								},
+
+							});
+
+
+						}
 
 					}
 

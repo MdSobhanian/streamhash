@@ -121,13 +121,53 @@ angular.module('streamViewApp')
 
 			$scope.sendToPaypal = function(id) {
 
+				$scope.type_of_payment = $("input[name='type_of_payment']:checked").val();
+
 				if (confirm('Are you sure want to proceed to see the video ?')) {
 
 					$("#payment_ppv_button").html("Request Sending...");
 
 					$("#payment_ppv_button").attr('disabled', true);
 
-					window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id;
+					if ($scope.type_of_payment == 1) {
+
+						window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id;
+
+					} else {
+
+						$.ajax({
+
+								type : "post",
+
+								url : apiUrl + "userApi/stripe_ppv",
+
+								data : {id : $scope.user_id, token : $scope.access_token, admin_video_id : id},
+
+								async : false,
+							
+
+								success : function (data) {
+
+									if (data.success) {
+
+										$state.go('profile.profile.pay_per_view_success', {id : id}, {reload:true});
+
+									} else {
+
+										UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+										return false;
+									}
+								},
+								error : function (data) {
+
+									UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								},
+
+							});
+
+					}
 
 				} else {
 
