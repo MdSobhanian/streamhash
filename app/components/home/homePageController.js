@@ -421,6 +421,10 @@ angular.module('streamViewApp')
 
 							// setTimeout(function(){
 
+								$("#like_count_"+$index+"_"+key).html(data.like_count);
+
+								$("#dis_like_count_"+$index+"_"+key).html(data.dislike_count);
+
 								if (data.delete) {
 
 
@@ -489,6 +493,11 @@ angular.module('streamViewApp')
 						if (data.success) {
 
 							// setTimeout(function(){
+
+								$("#like_count_"+$index+"_"+key).html(data.like_count);
+
+								$("#dis_like_count_"+$index+"_"+key).html(data.dislike_count);
+
 								if (data.delete) {
 
 									UIkit.notify({message : "I'm glad you removed the video from dislike", timeout : 3000, pos : 'top-center', status : 'success'});

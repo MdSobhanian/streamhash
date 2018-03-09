@@ -554,6 +554,7 @@ input:focus,textarea:focus{
     height: 66px;
     line-height: 17px;
     font-size: 13px;
+    margin-top: 8px;
 }
 
 .awards{
@@ -2512,7 +2513,7 @@ min-height: 100%;
     margin-top: 5px;
 }
 .banner-icon1{
-    padding:  7px 10px 8px 13px;
+    padding:  7px 14px 8px 13px;
     border:1px solid #bbb;   
     border-radius: 50%;
     margin-right:5px;

@@ -146,10 +146,31 @@
 				    						</p>
 				    					</div>
 
-				    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
-							        		<!-- <span ng-if="value.pay_per_view_status">PAID</span> -->
-							        		<span>PAY - ${{value.amount}}</span>
-							        	</div>
+				    					<div>
+
+				    						<div class="pull-left">
+
+					    						<a class="white-icon">
+					    							<i class="fa fa-thumbs-up"></i><span id="like_count_{{subkey}}_{{$index}}_{{$parentindex}}">{{value.like_count}}</span>
+					    						</a>
+					    						<a class="white-icon">
+					    							<i class="fa fa-thumbs-down"></i><span id="dis_like_count_{{subkey}}_{{$index}}_{{$parentindex}}">{{value.dis_like_count}}</span>
+					    						</a>
+
+					    					</div>
+
+
+				    						<div class="pull-left">
+
+						    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status" style="margin-left: 5px;">
+									        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
+									        		<span>PAY - ${{value.amount}}</span>
+									        	</div>
+
+								        	</div>
+
+								        	<div class="clearfix"></div>
+			    						</div>
 
 				    					<div>
 				    						<p class="content-txt overview-des">{{value.description}}</p>

@@ -166,6 +166,11 @@ angular.module('streamViewApp')
 
 						if (data.success) {
 
+							$("#like_count_"+$index+"_"+key).html(data.like_count);
+
+							$("#dis_like_count_"+$index+"_"+key).html(data.dislike_count);
+
+
 							// setTimeout(function(){
 
 								if (data.delete) {
@@ -233,6 +238,11 @@ angular.module('streamViewApp')
 						$("#dis_like_"+$index+"_"+key).removeClass('disabled_class');
 
 						if (data.success) {
+
+							$("#like_count_"+$index+"_"+key).html(data.like_count);
+
+							$("#dis_like_count_"+$index+"_"+key).html(data.dislike_count);
+
 
 							// setTimeout(function(){
 								if (data.delete) {
