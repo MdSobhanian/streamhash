@@ -509,15 +509,37 @@ streamViewApp
                 .state('profile.add-card', {
                     // cache: false,
                     url: "/add-card/{sub_profile_id}",
-                    templateUrl: 'app/components/settings/add-card.html'
-                   
+                    templateUrl: 'app/components/settings/add-card.html',
+                    controller: 'addCardController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'assets/js/card.js',
+                                'js!https://js.stripe.com/v2/',
+                                'app/components/settings/cardController.js',
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Add Card',
+                    }
                 })
 
                 .state('profile.card-list', {
                     // cache: false,
-                    url: "/card-list",
-                    templateUrl: 'app/components/settings/card-list.html'
-                   
+                    url: "/card-list/{sub_profile_id}",
+                    templateUrl: 'app/components/settings/card-list.html',
+                    controller: 'cardDetailsController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'app/components/settings/cardController.js',
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Card Details',
+                    }
                 })
 
                 .state('profile.payment-details', {

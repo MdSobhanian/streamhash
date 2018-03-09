@@ -172,6 +172,9 @@ angular.module('streamViewApp')
 				},
 			});
 
+
+			
+
 		} else {
 
 			window.localStorage.setItem('logged_in', false);
