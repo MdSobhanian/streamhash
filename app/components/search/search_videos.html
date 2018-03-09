@@ -223,7 +223,7 @@
 									        		<form ng-submit="spamVideo(value.admin_video_id, $index, $parentindex)">
 										          		<div class="radio radio-danger" ng-repeat="spam_reason in spam_reasons">
 										                    <input type="radio" name="reason" id="reason_{{value.admin_video_id}}_{{$index}}_{{$parentindex}}" value="{{spam_reason.value}}">
-										                    <label for="radio1">
+										                    <label for="reason_{{value.admin_video_id}}_{{$index}}_{{$parentindex}}">
 										                        {{spam_reason.value}}
 										                    </label>
 										                </div>
