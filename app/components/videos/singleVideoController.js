@@ -286,13 +286,15 @@ angular.module('streamViewApp')
 
                 if ((browser == 'Safari') || (browser == 'Opera') || is_mobile) {
 
-                	var video = $scope.video.ios_video;
+                    var video = $scope.video.ios_video;
+
+                    // var video = $scope.video.video_rtmp_smil ? common_url+'smil/hls/'+$scope.video.video_rtmp_smil : $scope.video.ios_video;
 
                 } else {
 
-                	// var video = $scope.video.main_video;
+                    // var video = $scope.video.main_video;
 
-                    var video = common_url+'smil/'+$scope.video.video_rtmp_smil;
+                    var video = $scope.video.video_rtmp_smil ? common_url+'smil/'+$scope.video.video_rtmp_smil : $scope.video.main_video; 
 
                 }
 
@@ -352,7 +354,7 @@ angular.module('streamViewApp')
                         }
                     },
                     tracks : [{
-                      file : $scope.video.video_subtitle,
+                      file : common_url+'subtitle/'+$scope.video.video_subtitle_name,
                       kind : "captions",
                       default : true,
                     }]

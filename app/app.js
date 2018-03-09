@@ -56,7 +56,7 @@ var apiUrl = "http://adminview.streamhash.com/";
 
 var angularUrl = "http://demo.streamhash.com/#/";
 
-var common_url = "http://demo.streamhash.com/";
+var common_url = "http://demo.streamhash.com/assets/";
 
 streamViewApp
     .run([

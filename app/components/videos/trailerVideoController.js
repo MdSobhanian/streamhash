@@ -261,12 +261,16 @@ angular.module('streamViewApp')
 
                 var video = $scope.video.ios_trailer_video;
 
+                // var video = $scope.video.trailer_video_rtmp_smil ? common_video_url+'smil/hls/'+$scope.video.trailer_video_rtmp_smil : $scope.video.ios_trailer_video;
+
             } else {
 
-            	// var video = $scope.video.trailer_video;
+                // var video = $scope.video.trailer_video;
 
-                var video = common_url+'smil/'+$scope.video.trailer_rtmp_smil;
+                var video = $scope.video.trailer_video_rtmp_smil ? common_video_url+'smil/'+$scope.video.trailer_video_rtmp_smil : $scope.video.trailer_video;
             }
+
+
 
 
 
@@ -281,7 +285,7 @@ angular.module('streamViewApp')
                 primary: "flash",
                 autostart : true,
                 tracks : [{
-                  file : $scope.video.trailer_subtitle,
+                  file : common_url+'subtitle/'+$scope.video.trailer_subtitle_name,
                   kind : "captions",
                   default : true,
                 }]
