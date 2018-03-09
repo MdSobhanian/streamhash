@@ -1048,7 +1048,7 @@ input:focus,textarea:focus{
 
 .hover-icon{
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%,-50%);
     color: #ff0000;
@@ -2704,4 +2704,35 @@ min-height: 100%;
 }
 .radio-danger input[type="radio"]:checked + label::after {
     background-color:  #E50914; 
+}
+.spam{
+    border-bottom: 1px solid #555 !important;
+}
+.card-list-left img{
+    float: left;
+    width: 80px;
+    height: auto;
+}
+.card-list-right{
+    float: left;
+    width: calc(100% - 90px);
+    text-align: left;
+    margin-left: 10px;
+}
+.card-list-right i{
+    color: #333;
+    font-size: 18px;
+}
+.captalize{
+    text-transform: capitalize;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.line{
+    border-bottom: 1px solid #ddd;
+    margin-top: 10px;
+}
+.mt-30{
+    margin-top: 30px;
 }

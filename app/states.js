@@ -513,6 +513,13 @@ streamViewApp
                    
                 })
 
+                .state('profile.card-list', {
+                    // cache: false,
+                    url: "/card-list",
+                    templateUrl: 'app/components/settings/card-list.html'
+                   
+                })
+
                 .state('profile.payment-details', {
                     // cache: false,
                     url: "/payment-details",
