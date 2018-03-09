@@ -42,12 +42,33 @@
 		    							<span class="epi-count"><i class="fa fa-eye"></i>&nbsp;{{recent_video.watch_count}}</span>
 		    							<span>{{recent_video.duration}}</span>
 		    						</p>
-		    					</div>
+		    					</div>	
 
-		    					<div class="display_amount" ng-if="recent_video.amount > 0 && !recent_video.pay_per_view_status">
-					        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
-					        		<span>PAY - ${{recent_video.amount}}</span>
-					        	</div>
+		    					<div>
+
+		    						<div class="pull-left">
+
+			    						<a class="white-icon">
+			    							<i class="fa fa-thumbs-up"></i><span id="like_count_{{recent_video.admin_video_id}}_989">{{recent_video}}</span>
+			    						</a>
+			    						<a class="white-icon">
+			    							<i class="fa fa-thumbs-down"></i><span id="dis_like_count_{{recent_video.admin_video_id}}_989">{{}}</span>
+			    						</a>
+
+			    					</div>
+
+
+		    						<div class="pull-left">
+
+				    					<div class="display_amount" ng-if="recent_video.amount > 0 && !recent_video.pay_per_view_status" style="margin-left: 5px;">
+							        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
+							        		<span>PAY - ${{recent_video.amount}}</span>
+							        	</div>
+
+						        	</div>
+
+						        	<div class="clearfix"></div>
+	    						</div>
 
 
 		    					<div>
@@ -87,19 +108,10 @@
 		    							<i class="fa fa-thumbs-down"></i>
 		    						</a>
 
-		    						<a ng-click="spamVideo(recent_video.admin_video_id)" class="banner-icon1" style="cursor: pointer;">
+		    						<a ng-click="spamVideo(recent_video.admin_video_id)" class="banner-icon1" style="cursor: pointer;"  data-toggle="modal" data-target="#myModal">
 		    							<i class="fa fa-exclamation"></i>
 		    						</a>
-
-		    						<a href="#" class="white-icon">
-		    							<i class="fa fa-thumbs-up"></i><span>25</span>
-		    						</a>
-		    						<a href="#" class="white-icon">
-		    							<i class="fa fa-thumbs-down"></i><span>25</span>
-		    						</a>
-		    						<!-- <a class="white-icon" data-toggle="modal" data-target="#myModal">
-		    							<i class="fa fa-exclamation-circle"></i>
-		    						</a> -->
+		    						
 		    					</div>
 		    				</div>
 		    			</div>
