@@ -531,6 +531,42 @@ angular.module('streamViewApp')
                 
                 });
 
+                var socket_url = $.grep($rootScope.site_settings, function(e){ return e.key == 'socket_url'; });
+
+                var socket_url = "";
+
+                if (socket_url.length == 0) {
+
+                    console.log("not found");
+                    
+                } else if (socket_url.length == 1) {
+
+                  // access the foo property using result[0].foo
+
+                  socket_url = socket_url[0].value;
+
+                  if (socket_url != '' || socket_url != null || socket_url != undefined) {
+                    
+                  } else {
+
+                    socket_url = '';
+
+                  }
+
+                } else {
+
+                  // multiple items found
+                  socket_url = "";
+
+                }
+
+                if (socket_url == "") {
+
+                    UIkit.notify({message :"Configure Socket Url, Please Contact Admin", timeout : 3000, pos : 'top-center', status : 'danger'});
+
+                    return false;
+
+                }
 
                 var socketState = false;
 
@@ -547,7 +583,7 @@ angular.module('streamViewApp')
 
                 sockets.prototype.initialize = function() {
 
-                    this.socket = io('http://localhost:3003/', { 
+                    this.socket = io(socket_url, { 
 
                             query: "user_id="+memoryStorage.user_id+"&video_id="+$stateParams.id 
 
