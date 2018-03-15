@@ -61,7 +61,7 @@ angular.module('streamViewApp')
 
 				url : apiUrl + "userApi/home",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : memoryStorage.sub_profile_id},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, sub_profile_id : memoryStorage.sub_profile_id, device_type : 'web'},
 
 				async : false,
 

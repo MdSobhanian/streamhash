@@ -491,6 +491,7 @@ streamViewApp
                                 'lazy_notify',
                                 'app/components/videos/singleVideoController.js',
                                 'assets/jwplayer/jwplayer.js',
+                                'js!https://cdn.socket.io/socket.io-1.4.5.js',
                             ]);
                         }]
                     },

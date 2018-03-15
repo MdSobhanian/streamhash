@@ -99,6 +99,8 @@ streamViewApp
 
                   $('.page').addClass(hideClass);
 
+                  $rootScope.$emit('disconnect', true);
+
                   $anchorScroll(0);
                 });
 

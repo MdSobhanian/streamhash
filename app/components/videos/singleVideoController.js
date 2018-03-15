@@ -9,6 +9,7 @@ angular.module('streamViewApp')
 
         if ($scope.user_id && $scope.access_token) {
 
+
     		$scope.video = '';
 
     		$scope.displayPopup = false;
@@ -54,6 +55,7 @@ angular.module('streamViewApp')
     			copyTextToClipboard(embed_link);
 
     		};
+
 
     		console.log($scope.video);
 
@@ -126,6 +128,90 @@ angular.module('streamViewApp')
 
 
             if ($scope.page_not_changed) {
+
+            // save video in continous
+                memoryStorage.continous_watch_video_id = $stateParams.id;
+
+                memoryStorage.continous_sub_profile_id = memoryStorage.sub_profile_id;
+
+                localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+
+                function save_video_in_continous(sub_profile_id, admin_video_id) {
+
+                    $.ajax({
+
+                        type : "post",
+
+                        url : apiUrl + "userApi/save/watching/video",
+
+                        data : {id : memoryStorage.user_id, 
+                            token : memoryStorage.access_token, 
+                            admin_video_id : admin_video_id, 
+                            sub_profile_id : sub_profile_id},
+
+                        async : false,
+
+                        success : function (data) {
+
+                            if (data.success) {
+
+                                console.log(data);
+
+                            } else {
+
+                                console.log(data.error_messages);
+
+                                return false;
+                            }
+                        },
+                        error : function (data) {
+
+                            UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+                        },
+                    });
+                
+                }
+
+                function on_complete_video_delete(sub_profile_id, admin_video_id) {
+
+                    $.ajax({
+
+                        type : "post",
+
+                        url : apiUrl + "userApi/oncomplete/video",
+
+                        data : {id : memoryStorage.user_id, 
+                            token : memoryStorage.access_token, 
+                            admin_video_id : admin_video_id, 
+                            sub_profile_id : sub_profile_id},
+
+                        async : false,
+
+                        success : function (data) {
+
+                            if (data.success) {
+
+                                console.log(data);
+
+                                $rootScope.$emit('disconnect');
+
+                            } else {
+
+                                console.log(data.error_messages);
+
+                                return false;
+                            }
+                        },
+                        error : function (data) {
+
+                            UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+                        },
+                    });
+                
+                }
 
 
                 var JWPLAYER_KEY = $.grep($rootScope.site_settings, function(e){ return e.key == 'JWPLAYER_KEY'; });
@@ -351,7 +437,11 @@ angular.module('streamViewApp')
 
                             history();
 
-                        }
+                            on_complete_video_delete(memoryStorage.continous_sub_profile_id, memoryStorage.continous_watch_video_id);
+
+                        },
+
+
                     },
                     tracks : [{
                       file : common_url+'subtitles/'+$scope.video.video_subtitle_name,
@@ -361,13 +451,24 @@ angular.module('streamViewApp')
                     
                 });
 
+                if ($scope.video.seek > 0) {  
 
+                    playerInstance.on('firstFrame', function() { 
+                        // console.log(seek);
+
+                        //seek = 15;
+                        playerInstance.seek($scope.video.seek);
+                        
+                    });
+
+                }
 
                 playerInstance.on('error', function() {
 
                    //jQuery("#video-player").css("display", "none");
                    // jQuery('#trailer_video_setup_error').hide();
-                   
+                    
+                    $rootScope.$emit('disconnect');
 
                     var hasFlash = false;
                     try {
@@ -399,7 +500,9 @@ angular.module('streamViewApp')
 
                 playerInstance.on('setupError', function() {
 
-                   jQuery("#video-player").css("display", "none");
+                    $rootScope.$emit('disconnect');
+
+                    jQuery("#video-player").css("display", "none");
                    // jQuery('#trailer_video_setup_error').hide();
                    
 
@@ -428,7 +531,89 @@ angular.module('streamViewApp')
                 
                 });
 
-        		//console.log($scope.video);
+
+                var socketState = false;
+
+                sockets = function () {
+
+                    this.socket = undefined;
+
+                }
+
+                sockets.prototype.disconnect_video = function(data) {
+                    
+                    this.socket.emit('disconnect', data); 
+                }   
+
+                sockets.prototype.initialize = function() {
+
+                    this.socket = io('http://localhost:3003/', { 
+
+                            query: "user_id="+memoryStorage.user_id+"&video_id="+$stateParams.id 
+
+                    });
+
+                    this.socket.on('connected', function (data) {
+
+                        socketState = true;
+
+                        console.log('Connected');
+
+                        console.log(data);
+                    });
+
+                    this.socket.on('disconnect', function (data) {
+
+                        socketState = false;
+
+                        console.log('Disconnected from server');
+
+                    });
+           
+                }
+
+
+                sockets.prototype.continueWatchingVideo = function(data) {
+                    
+                    data = {};
+
+                    data.sub_profile_id = memoryStorage.continous_sub_profile_id;
+
+                    data.admin_video_id = memoryStorage.continous_watch_video_id;
+
+                    data.id = memoryStorage.user_id;
+
+                    data.token = memoryStorage.access_token;
+
+                    data.duration = $(".jw-text-elapsed").html();
+
+                    this.socket.emit('save_continue_watching_video', data); 
+
+                }
+
+
+                socketClient = new sockets();
+
+                socketClient.initialize();
+
+                function continueWatchingVideo(text) {
+
+                    socketClient.continueWatchingVideo();
+
+                }
+            
+                var intervalId = window.setInterval(function(){
+
+                    continueWatchingVideo();
+
+                }, 3000); // Every 3 sec
+
+
+                $rootScope.$on('disconnect', function() {
+
+                    clearInterval(intervalId);
+
+                });
 
             }
 
