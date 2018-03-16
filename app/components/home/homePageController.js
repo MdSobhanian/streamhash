@@ -428,7 +428,7 @@ angular.module('streamViewApp')
 								if (data.delete) {
 
 
-									UIkit.notify({message : "We are very sorry you removed the video from like", timeout : 3000, pos : 'top-center', status : 'success'});
+									// UIkit.notify({message : "We are very sorry you removed the video from like", timeout : 3000, pos : 'top-center', status : 'success'});
 
 									$("#dis_like_"+$index+"_"+key).show();
 
@@ -438,7 +438,7 @@ angular.module('streamViewApp')
 
 								} else {
 
-									UIkit.notify({message : "I'm glad you liked the video", timeout : 3000, pos : 'top-center', status : 'success'});
+									// UIkit.notify({message : "I'm glad you liked the video", timeout : 3000, pos : 'top-center', status : 'success'});
 
 									$("#dis_like_"+$index+"_"+key).fadeOut(500);
 
@@ -500,7 +500,7 @@ angular.module('streamViewApp')
 
 								if (data.delete) {
 
-									UIkit.notify({message : "I'm glad you removed the video from dislike", timeout : 3000, pos : 'top-center', status : 'success'});
+									// UIkit.notify({message : "I'm glad you removed the video from dislike", timeout : 3000, pos : 'top-center', status : 'success'});
 
 									$("#like_"+$index+"_"+key).show(500);
 
@@ -510,7 +510,7 @@ angular.module('streamViewApp')
 
 								} else {
 
-									UIkit.notify({message : "You disliked the video", timeout : 3000, pos : 'top-center', status : 'warning'});
+									// UIkit.notify({message : "You disliked the video", timeout : 3000, pos : 'top-center', status : 'warning'});
 
 									$("#like_"+$index+"_"+key).fadeOut(500);
 
