@@ -583,7 +583,7 @@ angular.module('streamViewApp')
 
                 sockets.prototype.initialize = function() {
 
-                    this.socket = io(socket_url, { 
+                    this.socket = io(get_socket_url, { 
 
                             query: "user_id="+memoryStorage.user_id+"&video_id="+$stateParams.id 
 
