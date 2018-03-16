@@ -187,6 +187,8 @@ angular.module('streamViewApp')
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
+		$scope.sub_profile_id = ($stateParams.sub_profile_id != '' && $stateParams.sub_profile_id != undefined) ? $stateParams.sub_profile_id : memoryStorage.sub_profile_id;
+
 		if ($scope.user_id && $scope.access_token) {
 
 			var stripe_publishable_key = $.grep($rootScope.site_settings, function(e){ return e.key == 'stripe_publishable_key'; });
