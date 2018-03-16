@@ -533,7 +533,7 @@ angular.module('streamViewApp')
 
                 var socket_url = $.grep($rootScope.site_settings, function(e){ return e.key == 'socket_url'; });
 
-                var socket_url = "";
+                var get_socket_url = "";
 
                 if (socket_url.length == 0) {
 
@@ -543,24 +543,24 @@ angular.module('streamViewApp')
 
                   // access the foo property using result[0].foo
 
-                  socket_url = socket_url[0].value;
+                  get_socket_url = socket_url[0].value;
 
-                  if (socket_url != '' || socket_url != null || socket_url != undefined) {
+                  if (get_socket_url != '' || get_socket_url != null || get_socket_url != undefined) {
                     
                   } else {
 
-                    socket_url = '';
+                    get_socket_url = '';
 
                   }
 
                 } else {
 
                   // multiple items found
-                  socket_url = "";
+                  get_socket_url = "";
 
                 }
 
-                if (socket_url == "") {
+                if (get_socket_url == "") {
 
                     UIkit.notify({message :"Configure Socket Url, Please Contact Admin", timeout : 3000, pos : 'top-center', status : 'danger'});
 
