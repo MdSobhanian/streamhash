@@ -488,7 +488,10 @@
 .new-epi {
     font-weight: bold;
     padding: 5px;
-    font-size: 18px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .footer_ul li{
