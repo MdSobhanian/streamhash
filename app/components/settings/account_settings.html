@@ -4,9 +4,22 @@
 		<div class="container">
 			
 			<div class="account-layout-inner padding50">
-				<h1 class="account-header">My Account</h1>
-				<div class="account-content">
+				<div class="pull-left"><h1 class="account-header">My Account</h1></div>
 
+				<div class="pull-right">
+					<label class="switch" ng-if="profile.email_notification" title="Disable Email Notifications">
+					  <input type="checkbox" name="email_notification" checked  onchange="angular.element(this).scope().emailNotification(this.id)" id="disable_notify">
+					  <span class="slider"></span>
+					</label>
+					<label class="switch" ng-if="!profile.email_notification" title="Enable Email Notifications">
+					  <input type="checkbox" name="email_notification" onchange="angular.element(this).scope().emailNotification(this.id)" id="enable_notify">
+					  <span class="slider"></span>
+					</label>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="account-content">
 					<!-- Account Section -->
 					<div class="account-section row no-margin">
 
@@ -14,7 +27,6 @@
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 							<div class="account-section-header">
 								<h3 class="account-section-title">Profile</h3>
-								
 							</div>
 						</div>
 

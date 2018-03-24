@@ -94,6 +94,48 @@ angular.module('streamViewApp')
 				},
 			});
 
+
+
+			$scope.emailNotification = function(id) {
+
+				var notification = $("#"+id).is(':checked');
+
+				notification = notification ? 1 : 0;
+
+
+				$.ajax({
+
+					type : "post",
+
+					url : apiUrl + "userApi/email/notification",
+
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token,
+						notification : notification},
+			
+					success : function (data) {
+
+						if (data.success) {
+
+							//$scope.profile.email_notification = data.subscription;
+
+							console.log(data.message);
+
+						} else {
+
+							console.log(data.error_messages);
+
+							return false;
+						}
+					},
+					error : function (data) {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					},
+
+				});
+			}
+
 			$.ajax({
 
 				type : "post",
