@@ -9,11 +9,11 @@
 				<div class="pull-right">
 					<label class="switch" ng-if="profile.email_notification" title="Disable Email Notifications">
 					  <input type="checkbox" name="email_notification" checked  onchange="angular.element(this).scope().emailNotification(this.id)" id="disable_notify">
-					  <span class="slider"></span>
+					  <span class="switch-btn"></span>
 					</label>
 					<label class="switch" ng-if="!profile.email_notification" title="Enable Email Notifications">
 					  <input type="checkbox" name="email_notification" onchange="angular.element(this).scope().emailNotification(this.id)" id="enable_notify">
-					  <span class="slider"></span>
+					  <span class="switch-btn"></span>
 					</label>
 				</div>
 

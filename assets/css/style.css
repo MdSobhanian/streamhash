@@ -2780,7 +2780,7 @@ min-height: 100%;
 
 .switch input {display:none;}
 
-.slider {
+.switch-btn {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -2792,7 +2792,7 @@ min-height: 100%;
   transition: .4s;
 }
 
-.slider:before {
+.switch-btn:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -2804,15 +2804,15 @@ min-height: 100%;
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked + .switch-btn {
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+input:focus + .switch-btn {
   box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked + .switch-btn:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -2826,3 +2826,15 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }*/
+
+
+.home_top_class {
+
+    margin: 2% 0% 0% 4%
+
+}
+
+.top_class {
+
+    margin: 6% 0% 0% 4%    
+}
