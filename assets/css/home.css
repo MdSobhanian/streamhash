@@ -59,7 +59,8 @@
     opacity: 0.7;
     z-index: 1000;
     /*height: 74%;*/
-    height: 65%;
+    height:calc(100% - 106px);
+    
  }
 
  .arrow_down {
