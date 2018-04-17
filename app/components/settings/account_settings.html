@@ -1,4 +1,4 @@
-<div class="content-wrapper gray-background">
+<div class="content-wrapper gray-background" style="padding-top:40px;">
 
 	<div class="account-layout">
 		<div class="container">
@@ -7,13 +7,14 @@
 				<div class="pull-left"><h1 class="account-header">My Account</h1></div>
 
 				<div class="pull-right">
+					<span class="dark-clr">notification</span>
 					<label class="switch" ng-if="profile.email_notification" title="Disable Email Notifications">
 					  <input type="checkbox" name="email_notification" checked  onchange="angular.element(this).scope().emailNotification(this.id)" id="disable_notify">
-					  <span class="switch-btn"></span>
+					  <span class="switch-btn round"></span>
 					</label>
 					<label class="switch" ng-if="!profile.email_notification" title="Enable Email Notifications">
 					  <input type="checkbox" name="email_notification" onchange="angular.element(this).scope().emailNotification(this.id)" id="enable_notify">
-					  <span class="switch-btn"></span>
+					  <span class="switch-btn round"></span>
 					</label>
 				</div>
 
