@@ -2,6 +2,8 @@ angular.module('streamViewApp')
 .controller('paidVideoController', ['$scope', '$http', '$rootScope', 
 	'$window', '$state', '$stateParams',
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+ 		
+		$rootScope.$emit('body_bg_img', true);
 
 		$.ajax({
 

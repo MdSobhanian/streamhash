@@ -4,6 +4,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		$rootScope.$emit('body_bg_img', false);
+		
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
@@ -182,6 +184,8 @@ angular.module('streamViewApp')
 .controller('addCardController', ['$scope', '$http', '$rootScope', '$window', '$state',  '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+
+		$rootScope.$emit('body_bg_img', false);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 

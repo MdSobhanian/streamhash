@@ -78,29 +78,39 @@
 
 		    					<div id="my-list-txt_{{recent_video.admin_video_id}}_989" class="pull-left">
 		    					
-		    						<a ng-click="addWishlist(recent_video.admin_video_id, recent_video.admin_video_id, 989)" class="my-list bold" id="" ng-if="!recent_video.wishlist_status" style="cursor: pointer;">
-		    							<i class="fa fa-plus my-list-icon"></i>
-		    							<span class="my-list-txt">My List</span> 
+		    						<a ng-click="addWishlist(recent_video.admin_video_id, recent_video.admin_video_id, 989)" class="bold" id="" ng-if="!recent_video.wishlist_status" style="cursor: pointer;">
+		    							<button class="my-list">
+			    							<i class="fa fa-plus my-list-icon"></i>
+			    							<span class="my-list-txt">My List</span>
+		    							</button> 
 		    						</a>
-		    						<a ng-click="removeWishlist(recent_video.wishlist_status, recent_video.admin_video_id,recent_video.admin_video_id, 989)" class="my-list bold" ng-if="recent_video.wishlist_status" style="cursor: pointer;">
-		    							<i class="fa fa-check my-list-icon"></i>
-		    							<span class="my-list-txt">My List</span> 
+		    						<a ng-click="removeWishlist(recent_video.wishlist_status, recent_video.admin_video_id,recent_video.admin_video_id, 989)" class="bold" ng-if="recent_video.wishlist_status" style="cursor: pointer;">
+		    							<button class="my-list">
+			    							<i class="fa fa-check my-list-icon"></i>
+			    							<span class="my-list-txt">My List</span> 
+			    						</button>
 		    						</a>
 		    						
 		    					</div>
 
 		    					<div class="banner-icon-sec">
 
-		    						<a id="like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;" class="banner-icon" ng-show="recent_video.is_liked == 1 || recent_video.is_liked == 0" ng-click="likeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
-		    							<i class="fa fa-thumbs-up"></i>
+		    						<a id="like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;" ng-show="recent_video.is_liked == 1 || recent_video.is_liked == 0" ng-click="likeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
+		    							<button class="banner-icon">
+		    							 	<i class="fa fa-thumbs-up"></i>
+		    							</button>
 
 		    						</a>
-		    						<a id="dis_like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;" class="banner-icon" ng-show="recent_video.is_liked == -1 || recent_video.is_liked == 0" ng-click="dislikeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
-		    							<i class="fa fa-thumbs-down"></i>
+		    						<a id="dis_like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;"  ng-show="recent_video.is_liked == -1 || recent_video.is_liked == 0" ng-click="dislikeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
+		    							<button class="banner-icon">
+		    								<i class="fa fa-thumbs-down"></i>
+		    							</button>
 		    						</a>
 
-		    						<a class="banner-icon1" style="cursor: pointer;"  data-toggle="modal" data-target="#myModal" title="Report as Spam">
-		    							<i class="fa fa-exclamation"></i>
+		    						<a style="cursor: pointer;"  data-toggle="modal" data-target="#myModal" title="Report as Spam">
+		    							<button class="banner-icon">
+		    								<i class="fa fa-exclamation"></i>
+		    							</button>
 		    						</a>
 		    						
 		    					</div>
@@ -634,37 +644,35 @@
 				    					</div>
 
 				    					<div id="my-list-txt_{{$index}}_{{data.key}}" class="pull-left">
-				    						<!-- <a href="#" class="my-list bold">
-				    							<i class="fa fa-plus"></i>
-				    							<span class="my-list-txt">My List</span> 
-				    						</a> -->
 
-				    						<a ng-click="addWishlist(value.admin_video_id, $index, data.key)" class="my-list bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
-				    							<i class="fa fa-plus my-list-icon"></i>
-				    							<!-- <span class="fa-stack fa-lg my-list-icon">
-												  	<i class="fa fa-circle-thin fa-stack-2x"></i>
-												  	<i class="fa fa-plus fa-stack-1x fa-inverse padding2"></i>
-												</span> -->
-				    							<span class="my-list-txt">My List</span> 
+				    						<a ng-click="addWishlist(value.admin_video_id, $index, data.key)" class="bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
+				    							<button class="my-list">
+					    							<i class="fa fa-plus my-list-icon"></i>
+					    							<span class="my-list-txt">My List</span> 
+				    							</button>
 				    						</a>
-				    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, data.key)" class="my-list bold" ng-if="value.wishlist_status" style="cursor: pointer;">
-				    							<i class="fa fa-check my-list-icon"></i>
-				    							<!-- <span class="fa-stack fa-lg my-list-icon">
-												  	<i class="fa fa-circle-thin fa-stack-2x"></i>
-												  	<i class="fa fa-check fa-stack-1x fa-inverse padding2"></i>
-												</span> -->
-				    							<span class="my-list-txt">My List</span> 
+				    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, data.key)" class="bold" ng-if="value.wishlist_status" style="cursor: pointer;">
+				    							<button class="my-list">
+					    							<i class="fa fa-check my-list-icon"></i>
+					    							<span class="my-list-txt">My List</span> 
+					    						</button>
 				    						</a>
 				    					</div>
 				    					<div class="banner-icon-sec">
-				    						<a id="like_{{$index}}_{{data.key}}" style="cursor: pointer;" class="banner-icon" ng-show="value.is_liked == 1 || value.is_liked == 0" ng-click="likeVideo(value.admin_video_id, $index, data.key)">
-			    								<i class="fa fa-thumbs-up"></i>
+				    						<a id="like_{{$index}}_{{data.key}}" style="cursor: pointer;"  ng-show="value.is_liked == 1 || value.is_liked == 0" ng-click="likeVideo(value.admin_video_id, $index, data.key)">
+				    							<button class="banner-icon">
+			    									<i class="fa fa-thumbs-up"></i>
+			    								</button>
 				    						</a>
-				    						<a id="dis_like_{{$index}}_{{data.key}}" style="cursor: pointer;" class="banner-icon" ng-show="value.is_liked == -1 || value.is_liked == 0" ng-click="dislikeVideo(value.admin_video_id, $index, data.key)">
-				    							<i class="fa fa-thumbs-down"></i>
+				    						<a id="dis_like_{{$index}}_{{data.key}}" style="cursor: pointer;"  ng-show="value.is_liked == -1 || value.is_liked == 0" ng-click="dislikeVideo(value.admin_video_id, $index, data.key)">
+				    							<button class="banner-icon">
+				    								<i class="fa fa-thumbs-down"></i>
+				    							</button>
 				    						</a>
-				    						<a style="cursor: pointer;" class="banner-icon1"  data-toggle="modal" data-target="#myModal_{{$index}}_{{data.key}}" title="Report as Spam">
-				    							<i class="fa fa-exclamation "></i>
+				    						<a style="cursor: pointer;"  data-toggle="modal" data-target="#myModal_{{$index}}_{{data.key}}" title="Report as Spam">
+				    							<button class="banner-icon">
+				    							 	<i class="fa fa-exclamation "></i>
+				    							</button>
 				    						</a>
 				    					</div>
 				    				</div>
