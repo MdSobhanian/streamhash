@@ -2862,7 +2862,7 @@ input:checked + .switch-btn:before {
   border-radius: 50%;
 }
 .home_top_class {
-    margin: 3% 0% 0% 4%;
+    margin: 3% 0% 0% 30px;
 }
 .top_class {
     margin: 6% 0% 0% 4%    

@@ -224,7 +224,7 @@ angular.module('streamViewApp')
 		        if( value == 0 || value % showCount == 0){
 		        }
 		        else if((value + 1) % showCount == 0 && value != 0){
-		            $(".transition-class").css("margin-left", - (videoWidthDiff + 25));
+		            $(".transition-class").css("margin-left", - (videoWidthDiff + 40));
 		        }
 		        else{
 		            $(".transition-class").css("margin-left", "-60px");
