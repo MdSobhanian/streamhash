@@ -1062,8 +1062,8 @@ input:focus,textarea:focus{
 .hover-icon{
     position: absolute;
     top: 31%;
-    /*left: 50%;*/
-    left: 30px;
+    left: 50%;
+    /*left: 30px;*/
     transform: translate(-50%,-50%);
     color: #ff0000;
 }
@@ -1132,7 +1132,7 @@ input:focus,textarea:focus{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 8px;
+    height: 10px;
     /*line-height: 8px;*/
     margin-bottom: 4px;
     text-shadow: 0 1px 1px rgba(0,0,0,.7);
@@ -2862,7 +2862,7 @@ input:checked + .switch-btn:before {
   border-radius: 50%;
 }
 .home_top_class {
-    margin: 3% 0% 0% 4%
+    margin: 3% 0% 0% 4%;
 }
 .top_class {
     margin: 6% 0% 0% 4%    
@@ -2894,4 +2894,14 @@ input:checked + .switch-btn:before {
 }
 .device-txt{
     margin-bottom: 15px;
+}
+.slick-prev, .slick-next{
+    width: 30px !important;
+}
+.slick-prev {
+    left: -30px !important;
+}
+.slick-prev::before, .slick-next::before{
+    font-size: 30px !important;
+    color: #fff !important;
 }

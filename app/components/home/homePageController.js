@@ -5,6 +5,13 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
 
+		// $scope.slickConfig = {
+		// 	autoplay:false,
+		// 	infinite: false,
+		// 	dots: true
+	 //    };
+
+
 		$rootScope.$emit('body_bg_img', false);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
@@ -52,6 +59,7 @@ angular.module('streamViewApp')
 
 	        }    
 
+	        
 
 			$rootScope.$emit('footerBar', false);
 
@@ -136,12 +144,33 @@ angular.module('streamViewApp')
 
 			};
 
-			
+			var controlsWidth =30;
 
+			var win = $(window);
+
+			var windowWidth = win.width();
+
+	        if(windowWidth >= 0 && windowWidth <= 479){
+		       showCount = 2;
+		   	}
+		   	else if(windowWidth >= 480 &&  windowWidth <= 767){
+		       showCount = 3;
+		   	}
+		   	else if(windowWidth >= 768 &&  windowWidth <= 991){
+		       showCount = 4;
+		   	}
+		   	else{
+		       showCount = 5;
+		   	}
+
+		   	var videoWidth = ((windowWidth - controlsWidth - 40 ) / showCount );
+
+
+	        var videoWidthDiff = (videoWidth * 1.6 ) - videoWidth;
+
+    		
 			$scope.hoverIn = function(event, id, key, length) {
 				
-
-
 				var video_drop = $(".video-drop").is(":visible");
 
 				if (!video_drop) {
@@ -178,13 +207,47 @@ angular.module('streamViewApp')
 					$("#"+id+"_"+key+"_video_drop").show();
 				}
 
+		        // if($(".slide").index($(this)) == 0 || ($(".slide").index($(this))) % 4 == 0){
+		        //   // do nothing
+		        // }
+		        // else if(($(".slide").index($(this)) + 1) % 4 == 0 && $(".slide").index($(this)) != 0){
+		        //     $(this).parent().css("margin-left", -(videoWidthDiff - controlsWidth));
+		        // }
+		        // else{
+		        //     $(this).parent().css("margin-left", - (videoWidthDiff / 2));
+		        // }
+
+		        var value = id;
+		        
+		        console.log(value);
+
+		        if( value == 0 || value % showCount == 0){
+		        }
+		        else if((value + 1) % showCount == 0 && value != 0){
+		            $(".transition-class").css("margin-left", - (videoWidthDiff + 25));
+		        }
+		        else{
+		            $(".transition-class").css("margin-left", "-60px");
+		        }
+		   
 			};
 
 			$scope.hoverOut = function(event, id, key, length) {
+
+				var value = id;
+		        
+		        console.log(value);
+
+		        if( value == 0 || value % showCount == 0){
+		        }
+		        else if((value + 1) % showCount == 0 && value != 0){
+		            $(".transition-class").css("margin-left", "0px");
+		        }
+		        else{
+		            $(".transition-class").css("margin-left", "0px");
+		        }
 				
 				var video_drop = $(".video-drop").is(":visible");
-
-
 
 				if (video_drop) {
 
