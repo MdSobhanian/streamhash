@@ -33,7 +33,7 @@
 
 	        	<div class="video_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
 	        		<!-- <span ng-if="value.pay_per_view_status">PAID</span> -->
-	        		<span>PAY - {{value.currency}}{{value.amount}}</span>
+	        		<span>PAY - {{value.currency}} {{value.amount}}</span>
 
 	        	</div>
 	        	<span ng-show="value.pay_per_view_status">
@@ -168,7 +168,7 @@
 
 				    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status" style="margin-left: 5px;">
 							        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
-							        		<span>PAY - ${{value.amount}}</span>
+							        		<span>PAY - {{value.currency}} {{value.amount}}</span>
 							        	</div>
 
 						        	</div>
