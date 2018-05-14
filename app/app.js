@@ -50,14 +50,14 @@ var streamViewApp = angular.module('streamViewApp', [
   'slick',
 ]);
 
-var route_url = "http://demo.streamhash.com/#";
+var route_url = "http://botfingers.com/#";
 
-var apiUrl = "http://adminview.streamhash.com/";
+var apiUrl = "http://staging.botfingers.com/";
 // var apiUrl = "http://localhost:8080/http/projects/base-products/streamview-v1.2-api/public/";
 
-var angularUrl = "http://demo.streamhash.com/#/";
+var angularUrl = "http://botfingers.com/#/";
 
-var common_url = "http://demo.streamhash.com/assets/";
+var common_url = "http://botfingers.com/assets/";
 
 streamViewApp
     .run([
