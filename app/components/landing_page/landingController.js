@@ -5,6 +5,7 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location,$http) {
 
+		$rootScope.$emit('body_bg_img', false);
 
 		$scope.allPages = $rootScope.allPages;
 

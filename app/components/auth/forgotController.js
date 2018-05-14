@@ -2,7 +2,9 @@ angular.module('streamViewApp')
 .controller('forgotController', ['$scope', '$http', '$rootScope', '$window', '$state', 
 
 	function ($scope, $http, $rootScope, $window, $state) {
-
+ 
+		$rootScope.$emit('body_bg_img', true);
+ 		
 		var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
 
 	    var bg_image = "";

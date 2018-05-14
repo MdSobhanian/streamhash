@@ -185,6 +185,7 @@
     position: relative;
     text-decoration: none;
     width: 10vw;
+    transition: .3s all linear;
     /*background-position: center center;
     height: 10vw;
     width: 10vw;
@@ -204,6 +205,9 @@
     background-size: cover;
     background-color: #333;*/
 }
+.profile-link{
+    transition: .3s all linear;
+}
 .profiles-gate-container .profile-name {
     line-height: 1.2em;
     min-height: 2.4em;
@@ -215,18 +219,18 @@
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     overflow: hidden;
+    transition: .3s all linear;
 }
-
-
-.profile-icon:hover {
+.profile-link:hover .profile-name{
+    color:white;
+}
+.profile-link:hover .profile-icon{
  border:.3em solid #e5e5e5;
  cursor:pointer;
 }
-
 .profiles-gate-container .addProfileIcon :hover{
-
     background: #fff;
-        -moz-box-align: center;
+    -moz-box-align: center;
     -moz-box-pack: center;
     align-items: center;
     color: grey;
@@ -368,6 +372,12 @@
     color: #000;
     font-weight: 700;
 }
+.profile-button.preferred-action a:hover, .profile-button.preferred-action a:active, .profile-button.preferred-action a:focus,
+.profile-button.preferred-action span:hover, .profile-button.preferred-action span:active, .profile-button.preferred-action span:focus{
+    background:#e50914;
+    border: 1px solid #e50914;
+    color: #fff;
+}
 .profile-button a, .profile-button span {
     border: 1px solid grey;
     color: grey;
@@ -376,6 +386,12 @@
     letter-spacing: 2px;
     padding: 0.5em 1.5em;
     text-transform: uppercase;
+    transition: .3s all linear; 
+}
+.profile-button a:hover, .profile-button a:active, .profile-button a:focus,
+.profile-button span:hover, .profile-button span:active, .profile-button span:focus{
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 /*.profile-actions-container .profile-button {
@@ -397,9 +413,7 @@
     opacity: 0.7;
     padding: 5px 10px;
 }
-
 .edit_sub_profile {
-
     position: absolute;
     bottom:0;
     right:0;

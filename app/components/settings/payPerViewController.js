@@ -2,6 +2,7 @@ angular.module('streamViewApp')
 .controller('payPerViewController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+		$rootScope.$emit('body_bg_img', true);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
@@ -295,6 +296,8 @@ angular.module('streamViewApp')
 .controller('payPerViewSuccessController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+
+		$rootScope.$emit('body_bg_img', true);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
