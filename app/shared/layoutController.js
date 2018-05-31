@@ -495,6 +495,14 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 		
+		setTimeout(function(){
+			var footerHeight = $('.footer').outerHeight();
+			// alert($(".rights").outerHeight());
+			console.log(footerHeight);
+			$(".height").height(footerHeight);
+			// $rootScope.footerHeight = footerHeight;
+		}, 1000)
+		
 var appstore = $.grep($rootScope.site_settings, function(e){ return e.key == 'appstore'; });
 
 	    var app_store = "";

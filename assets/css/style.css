@@ -368,8 +368,9 @@ input:focus,textarea:focus{
 .border-bot{
 	border-bottom: 1px solid #aaa;
     padding: 10px 10px 0 10px !important; 
-    max-height:250px !important;
+    max-height:200px !important;
     overflow-y: auto !important;
+    overflow-x: hidden;
 }
 
 .padding15{
@@ -392,6 +393,17 @@ input:focus,textarea:focus{
 .more-profile>li>a{
 	margin-bottom: 10px;
 	display: inline-block;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.more-profile1>li>a{
+    display: inline-block;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .nav-profile-menu>li>a:hover,
@@ -485,12 +497,13 @@ input:focus,textarea:focus{
 .content-tit{
 	font-weight: bold;
     font-size: 23px;
-    /*line-height: 1.7em;*/
+    line-height: 1.7em;
     text-overflow: ellipsis;
     overflow: hidden;
     height: 40px;
     white-space: nowrap;
     margin-bottom: 0;
+    margin-top:0;
 }
 
 .star{
@@ -498,7 +511,7 @@ input:focus,textarea:focus{
 }
 
 .rating-symbol{
-	/*margin-right: 5px;*/
+	margin-top: 3px;
 }
 
 .rating-symbol:hover,
@@ -508,10 +521,11 @@ input:focus,textarea:focus{
 
 .rating-symbol.glyphicon-star{
 	color: #e1cb2b;
+    /*margin-top: 3px;*/
 }
 
 .content-txt{
-	color: #666;
+	color: #999;
     font-size: 12px;
 }
 
@@ -554,6 +568,15 @@ input:focus,textarea:focus{
 .epi-count{
 	border: 1px solid #666;
     padding: 0 5px;
+    display: table;
+    float: left;
+}
+
+.epi-count1{
+    border: 1px solid #666;
+    padding: 0 5px;
+    display: table;
+    float: left;
 }
 
 .overview-des{
@@ -562,7 +585,7 @@ input:focus,textarea:focus{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 130px;
+    height: 138px;
     line-height: 1.7em;
     font-size: 13px;
     margin-top: 8px;
@@ -691,7 +714,7 @@ input:focus,textarea:focus{
 }
 
 .drop-tab{
-	z-index: 30;
+	z-index:150;
 }
 
 .drop-tab .nav-tabs>li.active>a, 
@@ -760,14 +783,16 @@ input:focus,textarea:focus{
 	left: 0;
 	right: 0;	
 	background: rgba(0,0,0,0.5);
+    transition: .3s all linear;
 }
 
 .episode-img-inner{
 	position: absolute;
-	top: 0;
+	top:5px;
 	bottom: 0;
-	left: 0;
+	left:5px;
 	right: 0;
+    transition: .3s all linear;
 }
 
 .episode-count{
@@ -808,12 +833,14 @@ input:focus,textarea:focus{
     opacity: .7;
     border: 3px solid #fff;
     display: inline-block;
-    padding: 6px 12px;
-   /* width: 70px;
-    height: 70px;*/
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     display: none;
     transition: transform 150ms ease,-webkit-transform 150ms ease,-moz-transform 150ms ease,-o-transform 150ms ease;
+    text-align: center;
+    line-height: 43px;
+    padding-left: 4px;
 }
 
 .epi-play-icon:hover,
@@ -840,6 +867,10 @@ input:focus,textarea:focus{
     font-size: 16px;
     font-weight: bold;
     line-height: 1.7em;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .epi-des{
@@ -945,6 +976,7 @@ input:focus,textarea:focus{
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+    background-color: #000;
 }
 
 .tile-details {
@@ -1059,11 +1091,18 @@ input:focus,textarea:focus{
     /* overflow: visible !important; */
 }
 
-.hover-icon{
+.transition-class .hover-icon{
     position: absolute;
-    top: 31%;
+    top:30% !important;
     left: 50%;
     /*left: 30px;*/
+    transform: translate(-50%,-50%);
+    color: #ff0000;
+}
+.hover-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%,-50%);
     color: #ff0000;
 }
@@ -1094,12 +1133,13 @@ input:focus,textarea:focus{
     font-size: 12px;
     overflow: hidden;
     text-transform: capitalize;
+    width: 100%;
+    text-overflow: ellipsis;
 }
 .browse-icon{
-    font-size: 35px;
-    margin-top: -25px;
-    margin-left: 15px;
-
+    font-size: 21px;
+    margin-top: 4px;
+    margin-left: 20px;
 }
 .video-season{
     font-size: 7px;
@@ -1137,7 +1177,7 @@ input:focus,textarea:focus{
     margin-bottom: 4px;
     text-shadow: 0 1px 1px rgba(0,0,0,.7);
    /* margin-top: 5px;*/
-    font-size: .6vw;
+   /* font-size: .6vw;*/
 }
 
 .video-drop{
@@ -1259,7 +1299,7 @@ login css
 }
 
 .login-form .form-control{
-    height: 50px;
+    height:45px;
     border-radius: 4px;
     box-shadow: none;
 }
@@ -1273,7 +1313,7 @@ login css
 .form-btn{
     background: #E50914;
     width: 100%;
-    padding: 1.3em 1.6em;
+    padding: 1.1em 1.6em;
     border: none;
     border-radius:4px;
     margin: .5em 0;
@@ -1386,7 +1426,6 @@ landing-page css
 
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.5em;
   text-transform: uppercase;
   line-height: 23px;
@@ -1445,22 +1484,26 @@ landing-page css
   border-color: transparent;
 }
 
-.basic-tabs .nav-tabs li>a{
-  color: #777;
+.basic-tabs .nav-tabs li > a{
+  color: #777; 
   background-color: #141414;
   font-size: 16px;
   font-weight: 700;
+  border:0;
   border-color: transparent;
-  outline: none;
+  border-bottom: 5px solid transparent;
+  outline: none !important;
 }
 
-.basic-tabs .nav-tabs>li.active>a,
-.basic-tabs .nav-tabs>li.active>a:focus,
-.basic-tabs .nav-tabs>li.active>a:hover{
-  border-color: transparent;
+.basic-tabs .nav-tabs > li.active > a,
+.basic-tabs .nav-tabs > li.active > a:focus,
+.basic-tabs .nav-tabs > li.active > a:hover{
+  border: 0;
   border-bottom: 5px solid #e50914;
   color: #fff;
   background-color: #141414;
+  outline: none !important;
+  cursor: pointer;
 }
 
 .online-cancel p{
@@ -1477,7 +1520,7 @@ landing-page css
 .device-join-txt{
     font-size: 19px;
     margin-bottom: 0;
-    margin-top: 10px;
+    margin-top:0px;
 }
 
 .device-join{
@@ -1489,6 +1532,7 @@ landing-page css
     padding: 10px 20px;
     margin-top: 10px;
     margin-left: 20px;
+    margin-right: 20px;
     display: inline-block;
     color: #fff;
     border-radius: 4px;
@@ -1508,10 +1552,10 @@ landing-page css
 
 .device-img{
     height: 160px;
-    width: 250px;
+    /*width: 250px;*/
     margin: 0 auto;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     margin: 0 auto;
     background-position: center center;
 }
@@ -1590,14 +1634,15 @@ padding: 20px 0px 0px 0px;
 }
 
 .account-section-header{
-    padding: 20px 0;
+    padding: 20px 0 0 0 ;
 }
 
 .account-section-title{
     margin-top: 0;
     color: #999;
     text-transform: uppercase;
-    font-size: 19px
+    font-size: 16px;
+    margin-bottom: 0;
 }
 
 .cancel-btn{
@@ -1741,7 +1786,7 @@ min-height: 100%;
    border: none;
    font-size: 14px;
    height: 29px;
-   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   padding:2px 5px 5px 5px; /* If you add too much padding here, the options won't show in IE */
    width: 268px;
 }
 
@@ -1822,11 +1867,12 @@ min-height: 100%;
 
 .glyphicon-bell {
    
-    font-size:30px;
+    font-size: 21px;
+vertical-align: 12%;
   }
 
 .notifications {
-   min-width:420px; 
+   width:420px; 
 }
 .notifications-wrapper {
     overflow:auto;
@@ -1958,9 +2004,9 @@ min-height: 100%;
 }
 .navbar-brand1 {
     float: left;
-    height: 50px;
-    padding: 10px 0px 0px 15px;
-    width:56px;
+    height: 45px;
+    padding: 10px 0px 0px 10px;
+    width: 45px;
 }
 .navbar-brand1 img{
    width: 100%;
@@ -2112,13 +2158,13 @@ min-height: 100%;
 }
 .search-icon1{
     color:white;
-    vertical-align: 22%;
-    font-size: 24px;
+    vertical-align:42%;
+    font-size: 20px;
 }
 .search-section{
     background: rgba(0,0,0,.8);
     text-align: center;
-    padding:15px;
+    padding:10px;
     display: none;
 }
 .search-section form{
@@ -2263,7 +2309,7 @@ min-height: 100%;
     margin:15px 0;
 }
 .billing-para{
-    margin-left: 25px;
+    margin-left: 38px;
 }
 .bill-line{
     border-bottom: 1px solid rgba(0,0,0,.2);
@@ -2311,8 +2357,7 @@ min-height: 100%;
     margin: 0;
 }
 .content-panel{
-    margin-top:50px;
-    margin-bottom: 40px;
+    margin: 40px 15px;
 }
 .embed-bg{
     background-repeat: no-repeat;
@@ -2517,11 +2562,12 @@ min-height: 100%;
     margin: 10px 0;
 }
 }
-
-
-.details_section_tab {
-
-    max-height: 450px;
+.more-link{
+  height: 91px;
+  overflow: hidden;
+}
+.details-row{
+    height: 284px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -2867,16 +2913,6 @@ input:checked + .switch-btn:before {
 .top_class {
     margin: 6% 0% 0% 4%    
 }
-.edit-round{
-    height: 45px;
-    width: 45px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-}
-.edit-round i{
-    line-height: 38px;
-    font-size: 18px;
-}
 .l-height-27{
     line-height: 27px !important;
 }
@@ -2893,7 +2929,9 @@ input:checked + .switch-btn:before {
     padding-top: 2px;
 }
 .device-txt{
-    margin-bottom: 15px;
+    margin-bottom:25px;
+    margin-top: 15px;
+    color: #999;
 }
 .slick-prev, .slick-next{
     width: 30px !important;
@@ -2904,4 +2942,87 @@ input:checked + .switch-btn:before {
 .slick-prev::before, .slick-next::before{
     font-size: 30px !important;
     color: #fff !important;
+}
+.basic-tabs .nav-tabs li{
+    margin-bottom: 0;
+}
+.device-tit{
+    font-size: 22px;
+}
+.txt-overflow{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mega-dropdown-menu.dropdown-menu li > a {
+    color: #fff;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 13px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.m-0{
+    margin-top: 0 !important;
+}
+.epi-tit, .new-epi{
+    color: #fff;
+}
+.slider-frame {
+  background-color: #0f0;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slider-frame .btn {
+  width: 40px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+}
+.slider-frame .btn.prev {
+  left: 0px;
+}
+.slider-frame .btn.next {
+  right: 0px;
+}
+.slider-frame .slider-container {
+  transition: margin-left .2s ease, left .5s ease;
+  position: absolute;
+  left: 0;
+}
+.slider-frame .slider-container .slide {
+  background-color: #f00;
+  float: left;
+  position: relative;
+  top: 0;
+  transition: width .2s ease, height .2s ease, top .2s ease;
+}
+.slider-frame .slider-container .slide:nth-child(even) {
+  background-color: blue;
+}
+.hidden-cls{
+    width: 100%;
+    overflow: hidden;
+}
+.card-description{
+    padding-right: 10px;
+}
+.nav-profile-name{
+    max-width:98px;
+    /*margin-left: 10px;*/
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    margin-top: 4px;
+}
+.t-0{
+    margin-top: 0 !important;
 }

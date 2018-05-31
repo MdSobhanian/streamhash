@@ -1,44 +1,47 @@
 <div class="content-panel">
 
 	<div class="profiles-gate-container">
+		<div class="centered">
+			<div class="list-profiles">
+				<div class="profile-gate-label">Who's watching?</div>
 
-	<div class="list-profiles">
-		<div class="profile-gate-label">Who's watching?</div>
+				<ul class="choose-profile">
 
-		<ul class="choose-profile">
+					<li class="profile" ng-repeat="profile in profiles">
 
-			<li class="profile" ng-repeat="profile in profiles">
+						<div>
 
-				<div>
+							<a class="profile-link" ui-sref="profile.home({sub_profile_id : profile.id})">
+								<div class="avatar-wrapper">
+									<div class="profile-icon" style="background-image:url({{profile.picture}});"> </div>
+								</div>
 
-					<a class="profile-link" ui-sref="profile.home({sub_profile_id : profile.id})">
-						<div class="avatar-wrapper">
-							<div class="profile-icon" style="background-image:url({{profile.picture}});"> </div>
+								<span class="profile-name">{{profile.name}}</span>
+							</a>
+
 						</div>
+					</li>
 
-						<span class="profile-name">{{profile.name}}</span>
-					</a>
+					<li ng-if="profiles.length < no_of_account">
 
-				</div>
-			</li>
+						<a ui-sref="manage-profile.add-profile">
 
-			<li ng-if="profiles.length < no_of_account">
+							<div class="addProfileIcon icon-tvuiAdd">
+								<div>
+									<i class="fa fa-plus-circle"></i>
+								</div>
+							</div>
 
-				<a ui-sref="manage-profile.add-profile">
+							<span class="profile-name">Add Profile</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-					<div class="addProfileIcon icon-tvuiAdd">
-						<i class="fa fa-plus-circle"></i>
-					</div>
-
-					<span class="profile-name">Add Profile</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-
-	<span class="profile-button">
-		<a ui-sref="manage-profile.manage-profiles">Manage Profiles</a>
-	</span>
+		<span class="profile-button">
+			<a ui-sref="manage-profile.manage-profiles">Manage Profiles</a>
+		</span>
 
 	</div>
 
