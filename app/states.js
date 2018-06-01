@@ -187,7 +187,8 @@ streamViewApp
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([
                                 'app/shared/layoutController.js',
-                                'lazy_notify'
+                                'lazy_notify',
+                                'js!https://cdn.socket.io/socket.io-1.4.5.js'
                             ]);
                         }]
                     }, 
