@@ -53,7 +53,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius:4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -71,7 +71,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius: 4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -250,7 +250,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius:4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -268,7 +268,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius: 4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -440,7 +440,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius:4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -458,7 +458,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius: 4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -597,7 +597,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius:4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -615,7 +615,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius: 4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -754,7 +754,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius:4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;
@@ -772,7 +772,7 @@
     text-transform: inherit;
     width: auto;
     border: medium none;
-    border-radius: 0;
+    border-radius: 4px;
     color: #fff;
     display: inline-block;
     font-family: "Montserrat",sans-serif;

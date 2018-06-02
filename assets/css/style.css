@@ -109,7 +109,7 @@ input:focus,textarea:focus{
 }
 
 .base-color{
-	color: #E50914;
+	color: #e50914;
 }
 
 .bg-img{
@@ -139,7 +139,7 @@ input:focus,textarea:focus{
 
 .navbar-default .navbar-nav>li>a{
 	color: #fff;
-	font-size: 16px;
+	/*font-size: 16px;*/
 }
 
 .navbar-default .navbar-nav>.active>a, 
@@ -1054,19 +1054,20 @@ input:focus,textarea:focus{
 
 .hover-icon{
     position: absolute;
-    top: 35%;
-    left: 50%;
+    top: 33%;
+    /*left: 50%;*/
+    left: 30px;
     transform: translate(-50%,-50%);
     color: #ff0000;
 }
 
 .hover-icon i{
-    font-size: 17px;
+    font-size: 14px;
     border-radius: 100%;
     border: 2px solid #fff;
-    width: 40px;
-    height: 40px;
-    padding:9px 8px 8px 11px;
+    width: 35px;
+    height: 35px;
+    padding:9px 8px 8px 12px;
     text-align: center;
     display: inline-block;
     transition: transform 150ms ease,-webkit-transform 150ms ease,-moz-transform 150ms ease,-o-transform 150ms ease;
@@ -1080,7 +1081,7 @@ input:focus,textarea:focus{
 
 .tile-tit{
     margin-top: 0;
-    margin-bottom: 0px;
+    margin-bottom: 3px;
     font-weight: 700;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     font-size: 12px;
@@ -1096,7 +1097,7 @@ input:focus,textarea:focus{
 .video-season{
     font-size: 7px;
     margin-top: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 6px;
 }
 
 .video-season span{
@@ -1240,6 +1241,7 @@ login css
     margin-top: 0;
     font-size: 31px;
     color: #333;
+    margin-bottom: 20px;
 }
 
 .login-form label{
@@ -1250,10 +1252,12 @@ login css
 
 .login-form .form-control{
     height: 50px;
-    border-radius: 0;
+    border-radius: 4px;
     box-shadow: none;
 }
-
+.login-form .form-control:focus{
+    border-color: #777;
+}
 .form-link{
     font-size: 15px;
     color: #0080FF;
@@ -1264,9 +1268,10 @@ login css
     width: 100%;
     padding: 10px;
     border: none;
-    border-radius: 0;
+    border-radius:4px;
     height: 50px;
     margin: 10px 0;
+    text-transform: uppercase;
 }
 
 .form-btn:hover,
@@ -1614,8 +1619,8 @@ padding: 20px 0px 0px 0px;
 .account-section-text{
     color: #000;
     font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 5px
+    line-height:26px;
+    margin-bottom: 0px
 }
 
 .account-section-text:last-child{
@@ -1629,7 +1634,7 @@ padding: 20px 0px 0px 0px;
 
 .account-section-link{
     color: #0080FF;
-    font-size: 16px;
+    line-height:26px;
     display: inline-block;
 }
 
@@ -1892,6 +1897,7 @@ min-height: 100%;
 }
 .play_icon_div {
     top:50%;
+    left: 50%;
 }
 
 .play_icon_hover {
@@ -2009,7 +2015,7 @@ min-height: 100%;
     background-color: #E50914;
     color:white;
     padding: 5px 20px;
-    border-radius:0px;
+    border-radius:4px;
     border:1px solid #E50914;
     margin-top: 10px;
     font-size: 16px;
@@ -2082,9 +2088,9 @@ min-height: 100%;
 }
 
 .display_amount {
-    background: #ff0000;
+    background: #E50914;
     padding: 3px 5px;
-    opacity: 0.6;
+    /*opacity: 0.6;*/
     width: 100px;
     text-align: center;
     margin-bottom: 8PX;
@@ -2264,7 +2270,7 @@ min-height: 100%;
 }
 .card-head{
     padding:10px;
-    background-color: #E50914;
+    background-color: #000;
 }
 .card-head h3{
     color: white;
@@ -2278,7 +2284,7 @@ min-height: 100%;
 }
 .billing-total{
     padding:10px;
-    background-color: #E50914;
+    background-color: #000;
     color: white;
     margin-bottom: 15px;
 }
@@ -2496,7 +2502,8 @@ min-height: 100%;
 .details_section_tab {
 
     max-height: 450px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .left-30{
     margin-left:60px;
@@ -2551,9 +2558,9 @@ min-height: 100%;
     margin-right: 5px;
     padding-bottom: 3px;
 }
-.white-icon:hover i{
+/*.white-icon:hover i{
     border-bottom: 1px solid #fff;
-}
+}*/
 .payment-card-img{
     background-color: #000;
     background-repeat: no-repeat;
@@ -2773,11 +2780,15 @@ min-height: 100%;
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
-  margin-top: 35%;
+  width: 52px;
+  height: 26px;
+  margin-top: 22px;
+  vertical-align: -71%;
 }
-
+.dark-clr{
+    color: #999 !important;
+    text-transform: capitalize;
+}
 .switch input {display:none;}
 
 .switch-btn {
@@ -2795,8 +2806,8 @@ min-height: 100%;
 .switch-btn:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height:18px;
+  width:18px;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -2819,22 +2830,38 @@ input:checked + .switch-btn:before {
 }
 
 /* Rounded sliders */
-/*.slider.round {
+.switch-btn.round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.switch-btn.round:before {
   border-radius: 50%;
-}*/
-
-
-.home_top_class {
-
-    margin: 2% 0% 0% 4%
-
 }
-
+.home_top_class {
+    margin: 3% 0% 0% 4%
+}
 .top_class {
-
     margin: 6% 0% 0% 4%    
+}
+.edit-round{
+    height: 45px;
+    width: 45px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.edit-round i{
+    line-height: 38px;
+    font-size: 18px;
+}
+.l-height-27{
+    line-height: 27px !important;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.align-top{
+    vertical-align: top;
+}
+.mt-37{
+    margin-top: 37px;
 }
