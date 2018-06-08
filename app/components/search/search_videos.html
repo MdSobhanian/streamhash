@@ -147,8 +147,8 @@
 		    			<div class="overview-details" style="background-color: unset;">
 		    					<h3 class="content-tit">{{value.title}}</h3>
 
-		    					<div class="row no-margin">
-		    						<div class="pull-left hidden-xs">
+		    					<div class="row no-margin hidden-xs">
+		    						<div class="pull-left">
 		    							<div>
 		    								<div class="rating-symbol glyphicon"
 		    								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
@@ -223,7 +223,7 @@
 			    						</button>
 		    						</a>
 		    					</div>
-		    					<div class="banner-icon-sec">
+		    					<div class="banner-icon-sec hidden-xs">
 		    						<a id="like_{{$index}}_{{$parentindex}}" style="cursor: pointer;"  ng-show="value.is_liked == 1 || value.is_liked == 0" ng-click="likeVideo(value.admin_video_id, $index, $parentindex)">
 		    							<button class="banner-icon">
 	    									<i class="fa fa-thumbs-up"></i>

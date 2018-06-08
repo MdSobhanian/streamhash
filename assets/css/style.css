@@ -1135,6 +1135,7 @@ input:focus,textarea:focus{
     text-transform: capitalize;
     width: 100%;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .browse-icon{
     font-size: 21px;
@@ -3009,6 +3010,8 @@ input:checked + .switch-btn:before {
 .hidden-cls{
     width: 100%;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .card-description{
     padding-right: 10px;
