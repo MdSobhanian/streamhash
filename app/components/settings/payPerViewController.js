@@ -118,65 +118,159 @@ angular.module('streamViewApp')
 				},
 			});
 
+			$scope.coupon_amount = 0;
 
+			$scope.coupon_code = "";
+
+			$scope.apply_coupon_ppv = function(coupon_code) {
+
+				$.ajax({
+
+					type : "post",
+
+					url : apiUrl + "userApi/apply/coupon/ppv",
+
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, admin_video_id : $stateParams.id, coupon_code : coupon_code},
+
+					async : false,
+
+					success : function (data) {
+
+						if (data.success) {
+
+							$scope.coupon_amount = data.data.coupon_amount;
+
+							$scope.remaining_amount = data.data.remaining_amount;
+
+							$scope.coupon_code = coupon_code;
+
+						} else {
+
+							$scope.coupon_amount = 0;
+
+							$scope.coupon_code = "";
+
+							$scope.remaining_amount = 0;
+
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
+						}
+					},
+					error : function (data) {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					},
+				});
+
+			}
 
 			$scope.sendToPaypal = function(id) {
 
 				$scope.type_of_payment = $("input[name='type_of_payment']:checked").val();
 
-				if (confirm('Are you sure want to proceed to see the video ?')) {
+				var amt = 1;
 
-					$("#payment_ppv_button").html("Request Sending...");
+				if ($scope.coupon_code != '' && typeof($scope.coupon_code) != undefined) {
 
-					$("#payment_ppv_button").attr('disabled', true);
+					amt = $scope.remaining_amount;
 
-					if ($scope.type_of_payment == 1) {
+				}
 
-						window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id;
+				if (amt <= 0) {
 
-					} else {
+					$.ajax({
 
-						$.ajax({
+						type : "post",
 
-								type : "post",
+						url : apiUrl + "userApi/pay_ppv",
 
-								url : apiUrl + "userApi/stripe_ppv",
+						data : {id : $scope.user_id, token : $scope.access_token, admin_video_id : id, coupon_code : $scope.coupon_code},
 
-								data : {id : $scope.user_id, token : $scope.access_token, admin_video_id : id},
+						async : false,
 
-								async : false,
-							
+						success : function (data) {
 
-								success : function (data) {
+							$("#payment_ppv_button").html("Pay Now");
 
-									$("#payment_ppv_button").html("Pay Now");
+							$("#payment_ppv_button").attr('disabled', false);
 
-									$("#payment_ppv_button").attr('disabled', false);
+							if (data.success) {
 
-									if (data.success) {
+								$state.go('profile.pay_per_view_success', {id : id}, {reload:true});
 
-										$state.go('profile.pay_per_view_success', {id : id}, {reload:true});
+							} else {
 
-									} else {
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-										UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+								return false;
+							}
+						},
+						error : function (data) {
 
-										return false;
-									}
-								},
-								error : function (data) {
+							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
-									UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+						},
 
-								},
-
-							});
-
-					}
+					});
 
 				} else {
 
-					// $state.go('profile.home', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+					if (confirm('Are you sure want to proceed to see the video ?')) {
+
+						$("#payment_ppv_button").html("Request Sending...");
+
+						$("#payment_ppv_button").attr('disabled', true);
+
+						if ($scope.type_of_payment == 1) {
+
+							window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id+'/'+$scope.coupon_code;
+
+						} else {
+
+							$.ajax({
+
+									type : "post",
+
+									url : apiUrl + "userApi/stripe_ppv",
+
+									data : {id : $scope.user_id, token : $scope.access_token, admin_video_id : id, coupon_code : $scope.coupon_code},
+
+									async : false,
+								
+									success : function (data) {
+
+										$("#payment_ppv_button").html("Pay Now");
+
+										$("#payment_ppv_button").attr('disabled', false);
+
+										if (data.success) {
+
+											$state.go('profile.pay_per_view_success', {id : id}, {reload:true});
+
+										} else {
+
+											UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+											return false;
+										}
+									},
+									error : function (data) {
+
+										UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+									},
+
+								});
+
+						}
+
+					} else {
+
+						// $state.go('profile.home', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+
+					}
 
 				}
 

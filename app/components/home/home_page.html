@@ -450,7 +450,7 @@
 
 					        	<div class="video_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
 					        		<!-- <span ng-if="value.pay_per_view_status">PAID</span> -->
-					        		<span>PAY - ${{value.amount}}</span>
+					        		<span>PAY - {{value.currency}} {{value.amount}}</span>
 					        	</div>
 
 					        	<!-- <a ui-sref="single_video({id:value.admin_video_id})">
@@ -544,6 +544,7 @@
 	    					</div>
 				    		
 			    			<div class="tab-section-content row no-margin">
+
 				    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-5 no-pad overview-details">
 				    				
 				    			</div>
