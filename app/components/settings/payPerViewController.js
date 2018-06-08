@@ -225,7 +225,15 @@ angular.module('streamViewApp')
 
 						if ($scope.type_of_payment == 1) {
 
-							window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id+'/'+$scope.coupon_code;
+							if ($scope.coupon_code != '') {
+
+								window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id+'/'+$scope.coupon_code;
+
+							} else {
+
+								window.location.href=apiUrl+"videoPaypal/"+id+'/'+$scope.user_id;
+							}
+
 
 						} else {
 

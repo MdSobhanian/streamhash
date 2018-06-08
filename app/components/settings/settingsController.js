@@ -121,6 +121,10 @@ angular.module('streamViewApp')
 
 							console.log(data.message);
 
+							UIkit.notify({message : data.message, timeout : 3000, position : 'top-center', status : 'success'});
+
+							return false;
+
 						} else {
 
 							console.log(data.error_messages);
