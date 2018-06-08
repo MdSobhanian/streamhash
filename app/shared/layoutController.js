@@ -3,7 +3,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams,$location,$interval) {
 
-	
+		$rootScope.$emit('body_bg_img', false);
+
         $scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
         $scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
@@ -292,49 +293,70 @@ angular.module('streamViewApp')
 	             $scope.activeProfiles(sub_profile_id);
 	        });
 
-			$scope.logout = function() {
+	        $scope.logout = function() {
 
+	        	var details = {};
 
-				$.ajax({
+                details.id = memoryStorage.user_id;
 
-					type : "post",
+                details.token = memoryStorage.access_token;
 
-					url : apiUrl + "userApi/logout",
+				signoutAllDevice(details);
+	        }
 
-					data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+	        $scope.logoutFnCalled = 0;
 
-					async : false,
+			$scope.logoutFn = function() {
 
-					success : function (data) {
+				console.log($scope.logoutFnCalled);
 
-						if (data.success) {
+				console.log(!$scope.logoutFnCalled);
 
-							window.localStorage.setItem('logged_in', false);
+				if (!$scope.logoutFnCalled) {
 
-							memoryStorage = {};
-							
-							localStorage.removeItem("sessionStorage");
+					$.ajax({
 
-							localStorage.clear();
+						type : "post",
 
-							UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
+						url : apiUrl + "userApi/logout",
 
+						data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
 
-							$state.go('static.index', {}, {reload:true});
+						async : false,
 
-						} else {
+						success : function (data) {
 
-							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+							if (data.success) {
 
-							return false;
-						}
-					},
-					error : function (data) {
+								window.localStorage.setItem('logged_in', false);
 
-						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+								memoryStorage = {};
+								
+								localStorage.removeItem("sessionStorage");
 
-					},
-				});
+								localStorage.clear();
+
+								UIkit.notify({message : "Logged Out Successfully", status : 'success', timeout : 3000, pos : 'top-center'});
+
+								$scope.logoutFnCalled = 1;
+
+								$state.go('static.index', {}, {reload:true});
+
+							} else {
+
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								return false;
+							}
+						},
+						error : function (data) {
+
+							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						},
+					});
+
+				}
 
 			};
 
@@ -472,6 +494,104 @@ angular.module('streamViewApp')
 				});			
 
 			}
+
+
+			var socket_url = $.grep($rootScope.site_settings, function(e){ return e.key == 'socket_url'; });
+
+            var get_socket_url = "";
+
+            if (socket_url.length == 0) {
+
+                console.log("not found");
+                
+            } else if (socket_url.length == 1) {
+
+              // access the foo property using result[0].foo
+
+              get_socket_url = socket_url[0].value;
+
+              if (get_socket_url != '' || get_socket_url != null || get_socket_url != undefined) {
+                
+              } else {
+
+                get_socket_url = '';
+
+              }
+
+            } else {
+
+              // multiple items found
+              get_socket_url = "";
+
+            }
+
+            if (get_socket_url == "") {
+
+                UIkit.notify({message :"Configure Socket Url, Please Contact Admin", timeout : 3000, pos : 'top-center', status : 'danger'});
+
+                return false;
+
+            }
+
+            var socketState = false;
+
+            sockets = function () {
+
+                this.socket = undefined;
+
+            }
+
+            sockets.prototype.initialize = function() {
+
+                this.socket = io(get_socket_url, { 
+
+                        query: "user_id="+memoryStorage.user_id 
+
+                });
+
+                this.socket.on('connected', function (data) {
+
+                    socketState = true;
+
+                    console.log('Connected');
+
+                });
+
+                this.socket.on('disconnect', function (data) {
+
+                    socketState = false;
+
+                    console.log('Disconnected from server');
+
+                });
+
+                this.socket.on('signout_profiles', function(data) {
+
+                	$scope.logoutFn();
+
+                });
+
+       
+            }
+
+            sockets.prototype.signout_all_device = function(data) {
+
+                this.socket.emit('signout_from_all_device', data); 
+
+            }
+
+
+            socketClient = new sockets();
+
+            socketClient.initialize();
+
+            function signoutAllDevice(data) {
+
+            	$scope.logoutFn();
+
+                socketClient.signout_all_device(data);
+
+            }
 
 
 		} else {

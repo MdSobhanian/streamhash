@@ -1,5 +1,6 @@
-<div class="main-content form-content bg-img" style="background-image:url({{login_bg}})">
-    
+<!-- <div class="main-content form-content bg-img" style="background-image:url({{login_bg}})"> -->
+<div class="main-content">
+
     <div class="login-form" style="padding-top: 100px;padding-bottom: 40px;">
 
     	<div class="container">
@@ -48,7 +49,20 @@
 								       		<td>User Type</td>
 								       	 	<td>{{video.type_of_user}}</td>	
 								     	</tr>
-								     	<tr>
+								     	<tr ng-if="video.coupon_amount > 0">
+								       		<td>Total Amount</td>
+								       	 	<td>{{video.currency}}{{video.total_amount}}</td>	
+								     	</tr>
+								     	
+								     	<tr ng-if="video.coupon_amount > 0">
+								       		<td>Coupon Code</td>
+								       	 	<td>{{video.coupon_code}}</td>	
+								     	</tr>
+								     	<tr ng-if="video.coupon_amount > 0">
+								       		<td>Coupon Amount</td>
+								       	 	<td>{{video.currency}}{{video.coupon_amount}}</td>	
+								     	</tr>
+	<tr>
 								       		<td>Payment Mode</td>
 								       	 	<td>{{video.payment_mode}}</td>	
 								     	</tr>

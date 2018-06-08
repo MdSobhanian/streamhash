@@ -1,8 +1,9 @@
-<div class="main-content form-content bg-img" style="background-image:url({{login_bg}})">
-    
+<!-- <div class="main-content form-content bg-img" style="background-image:url({{login_bg}})"> -->
+<div class="main-content">
+
     <div class="login-form" style="padding-top: 100px;padding-bottom: 40px;">
 
-        <div class="container">
+        <div class="">
         	<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 billing-white-bg" ng-if="subscribed_plans.plans.length > 0">
 	        	<div class="row">
 	        		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 zero-padding billing-bg-img" style="background-image: url(img/billing-back.jpg);">
@@ -15,11 +16,32 @@
 		        			<p class="bill-line"></p>
 
 		        			<h4 class="billing-sub-head"><i class="fa fa-tags  fa-rotate-90"></i> &nbsp;{{active_plan.subscription.title}}</h4>
-		        			<p class="billing-para">${{active_plan.data.amount}} / {{active_plan.subscription.plan}} Months</p>
+		        			<p class="billing-para">{{active_plan.data.currency}}{{active_plan.data.amount}} / {{active_plan.subscription.plan}} Months</p>
 
 		        			<p class="bill-line"></p>
 
 		        			<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="text-right white-clr"><h4><i class="fa fa-angle-double-right"></i>&nbsp; View Plan Details</h4></a>
+
+		        		
+		        			<div ng-if="active_plan.data.is_cancelled == 0 && active_plan.data.amount > 0">
+
+		        			<p class="bill-line"></p>
+
+		        			<center><button ng-click="cancel_subscription()" class="paynow-btn1"><i class="fa fa-times"></i>&nbsp;Cancel Subscription</button>
+
+
+		        			</div>
+
+		        			<div ng-if="active_plan.data.is_cancelled == 1 && active_plan.data.amount > 0">
+
+		        			<p class="bill-line"></p>
+
+
+		        			<button disabled class="paynow-btn1"><i class="fa fa-ban"></i>&nbsp; Subscription Cancelled</button>
+		        			</center>
+
+		        			</div>
+
 	        			</div>
 	        		</div>
 
@@ -51,11 +73,28 @@
 												<td>No Of Month</td>
 												<td>{{plan.no_of_month}}</td>
 											</tr>
-											<tr>
-												<td>Amount</td>
-												<td>${{plan.amount}}</td>
+											
+
+											<tr ng-if='plan.coupon_amount > 0'>
+												<td>Total Amount</td>
+												<td>{{plan.currency}}{{plan.total_amount}}</td>
 											</tr>
+
+											<tr ng-if="video.coupon_amount > 0">
+									       		<td>Coupon Code</td>
+									       	 	<td>{{plan.coupon_code}}</td>	
+									     	</tr>
+
+											<tr ng-if='plan.coupon_amount > 0'>
+												<td>Coupon Amount</td>
+												<td>{{plan.currency}}{{plan.coupon_amount}}</td>
+											</tr>
+
 											<tr>
+												<td>Paid Amount</td>
+												<td>{{plan.currency}}{{plan.amount}}</td>
+											</tr>
+<tr>
 												<td>Payment Mode</td>
 												<td>{{plan.payment_mode}}</td>
 											</tr>
@@ -66,7 +105,7 @@
 	        			</div>
 	        			
 	        			<div class="billing-total text-right">
-	        				<h3>Total - ${{subscribed_plans.amount}}</h3>
+	        				<h3>Total - {{subscribed_plans.currency}}{{subscribed_plans.amount}}</h3>
 	        			</div>
 	        		</div>
         		</div>

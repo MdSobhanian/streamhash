@@ -3,6 +3,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		$rootScope.$emit('body_bg_img', true);
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
@@ -114,24 +116,76 @@ angular.module('streamViewApp')
 
 			});
 
+			$scope.coupon_amount = 0;
+
+			$scope.coupon_code = "";
+
+			$scope.apply_coupon_subscription = function(coupon_code) {
+
+				$.ajax({
+
+					type : "post",
+
+					url : apiUrl + "userApi/apply/coupon/subscription",
+
+					data : {id : memoryStorage.user_id, token : memoryStorage.access_token, subscription_id : $stateParams.subscription_id, coupon_code : coupon_code},
+
+					async : false,
+
+					success : function (data) {
+
+						if (data.success) {
+
+							$scope.remaining_amount = data.data.remaining_amount;
+
+							$scope.coupon_amount = data.data.coupon_amount;
+
+							$scope.coupon_code = coupon_code;
+
+						} else {
+
+							$scope.coupon_amount = 0;
+
+							$scope.coupon_code = "";
+
+							$scope.remaining_amount = 0;							
+
+							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+							return false;
+						}
+					},
+					error : function (data) {
+
+						UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					},
+				});
+
+			}
 
 			$scope.sendToPaypal = function(id, amt) {
 				
 
 				$scope.type_of_payment = $("input[name='type_of_payment']:checked").val();
 
+				if ($scope.coupon_code != '' && typeof($scope.coupon_code) != undefined) {
+
+					amt = $scope.remaining_amount;
+
+				}
+
 
 				if (confirm('Are you sure want to subscribe the plan ?')) {
 
-					$("#pay_now_subscription").html("Request Sending...");
-
-					$("#pay_now_subscription").attr('disabled', true);
+					
 
 					if (amt == 0) {
 
 						var data = new FormData;
 						data.append('id', memoryStorage.user_id);
 						data.append('token', memoryStorage.access_token);
+						data.append('coupon_code', $scope.coupon_code);
 						data.append('plan_id', id);
 
 						$.ajax({
@@ -140,7 +194,9 @@ angular.module('streamViewApp')
 								contentType : false,
 								processData: false,
 								beforeSend: function(xhr){
-									$(".fond").show();
+									$("#pay_now_subscription").html("Request Sending...");
+
+									$("#pay_now_subscription").attr('disabled', true);
 								},
 								async : false,
 								data : data,
@@ -170,7 +226,9 @@ angular.module('streamViewApp')
 									}
 								},
 								complete : function() {
-						    		$(".fond").hide();
+						    		$("#pay_now_subscription").html("Pay Now");
+
+									$("#pay_now_subscription").attr('disabled', false);
 						    	},
 						    	error : function(result) {
 
@@ -181,7 +239,14 @@ angular.module('streamViewApp')
 
 						if ($scope.type_of_payment == 1) {
 
-							window.location.href=apiUrl+"paypal/"+id+'/'+$scope.user_id;
+							if ($scope.coupon_code != '') {
+
+								window.location.href=apiUrl+"paypal/"+id+'/'+$scope.user_id+'/'+$scope.coupon_code;
+
+							} else {
+
+								window.location.href=apiUrl+"paypal/"+id+'/'+$scope.user_id;
+							}
 
 						} else {
 
@@ -191,7 +256,7 @@ angular.module('streamViewApp')
 
 								url : apiUrl + "userApi/stripe_payment",
 
-								data : {id : $scope.user_id, token : $scope.access_token, sub_profile_id : memoryStorage.sub_profile_id, subscription_id : id},
+								data : {id : $scope.user_id, token : $scope.access_token, sub_profile_id : memoryStorage.sub_profile_id, subscription_id : id, coupon_code : $scope.coupon_code},
 
 								async : false,
 							

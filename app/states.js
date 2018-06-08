@@ -187,7 +187,8 @@ streamViewApp
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([
                                 'app/shared/layoutController.js',
-                                'lazy_notify'
+                                'lazy_notify',
+                                'js!https://cdn.socket.io/socket.io-1.4.5.js'
                             ]);
                         }]
                     }, 
@@ -663,7 +664,19 @@ streamViewApp
 
                 })
 
+             //initialize get if not there
+            if (!$httpProvider.defaults.headers.get) {
+                $httpProvider.defaults.headers.get = {};    
+            }    
 
+            // Answer edited to include suggestions from comments
+            // because previous version of code introduced browser-related errors
+
+            //disable IE ajax request caching
+            $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
+            // extra
+            $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
+            $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
 
             $httpProvider.interceptors.push('authInterceptor');
 

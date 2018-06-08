@@ -3,6 +3,7 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		$rootScope.$emit('body_bg_img', false);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
@@ -119,6 +120,10 @@ angular.module('streamViewApp')
 							//$scope.profile.email_notification = data.subscription;
 
 							console.log(data.message);
+
+							UIkit.notify({message : data.message, timeout : 3000, position : 'top-center', status : 'success'});
+
+							return false;
 
 						} else {
 
@@ -237,6 +242,8 @@ angular.module('streamViewApp')
 .controller('changePasswordController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+
+		$rootScope.$emit('body_bg_img', true);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
@@ -388,6 +395,8 @@ angular.module('streamViewApp')
 .controller('editAccountController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
+
+		$rootScope.$emit('body_bg_img', true);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
@@ -545,6 +554,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		$rootScope.$emit('body_bg_img', true);
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
@@ -681,6 +692,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		$rootScope.$emit('body_bg_img', false);
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
@@ -795,6 +808,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams) {
 
+		$rootScope.$emit('body_bg_img', true);
+		
 		$scope.sub_profile_id = $stateParams.sub_profile_id;
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
@@ -837,6 +852,50 @@ angular.module('streamViewApp')
 
 		    $scope.login_bg = bg_image;
 
+		    $scope.cancel_subscription = function() {
+
+	    		if(confirm('If you are cancelled your subscription, automatic renewal wont happen. Do you want to cancel your subscription ?')) {
+
+	    			$.ajax({
+
+						type : "post",
+
+						url : apiUrl + "userApi/cancel/subscription",
+
+						data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+
+						async : false,
+					
+
+						success : function (data) {
+
+							if (data.success) {
+
+								UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});
+
+								$state.reload();
+
+							} else {
+
+								console.log(data.message);
+
+								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
+
+								return false;
+							}
+						},
+						error : function (data) {
+
+							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
+
+						},
+
+				});
+
+
+
+	    		}
+		    }
 
 
 			$.ajax({

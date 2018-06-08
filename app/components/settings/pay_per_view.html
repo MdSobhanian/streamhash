@@ -1,4 +1,6 @@
-<div class="content-wrapper" style="background-image:url({{login_bg}})">
+<div class="content-wrapper">
+<!-- <div class="content-wrapper" style="background-image:url({{login_bg}})"> -->
+
     <div class="login-form" style="padding-top:100px;padding-bottom:40px;">
         <div class="section-padding">
         	<div class="row">
@@ -47,36 +49,55 @@
 	        						<p class="section1-line"></p>
 
 	        						<p><i class="fa fa-usd pay-icon"></i> Amount</p>
-	        						<p class="right"><strong>${{video.amount}}</strong></p>
+	        						<p class="right"><strong>{{video.currency}}{{video.amount}}</strong></p>
 	        					</div>
         					</div>
 
         					
         					<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-        						<div class="spacing">
+        						<div class="spacing payment-status payment-status1">
         							<h3 class="pay-head"><i class="fa fa-globe pay-icon1" ></i><span>Pay per view</span></h3>
         							<h3 class="table-title">Amount</h3>
 
-        							<p style="color: #000"  ng-if="video.type_of_user == 3"><small>If you subscribe also , you need to pay for this selected video</small></p>
+        							<p style="color: #000" class="pay-para"  ng-if="video.type_of_user == 3"><small>If you subscribe also , you need to pay for this selected video</small></p>
 
-        							<table class="table">
+        							<table class="table payment-tabel">
         								<tbody>
         									<tr>
         									<!-- <tr class="active"> -->
 										        <td>Subtotal</td>
-										        <td>${{video.amount}}</td>
+										        <td>{{video.currency}}{{video.amount}}</td>
 										    </tr>
 										   <!--  <tr>
 										        <td>Tax</td>
 										        <td>$0.00</td>
 										    </tr> -->
-										    <tr class="info">
+										    <tr class="danger">
 										    <!-- <tr class="active"> -->
 										        <td>Total</td>
-										        <td>${{video.amount}}</td>
+										        <td>{{video.currency}}{{video.amount}}</td>
 										    </tr>
 										</tbody>
 									</table> 
+
+									<h4 class="table-title">Have a coupon ?</h4>
+
+									<table class="table">
+        								<tbody>
+        									<tr>
+        									<!-- <tr class="active"> -->
+										        <td style="width: 100px;vertical-align: middle;">Promo Code</td>
+										        <td><input type="text" name="coupon_code" id="coupon_code" ng-model="coupon_code" class="form-control" style="height: 35px;"></td>
+										        <td><button class="payment-submit" style="margin-top:0" ng-click="apply_coupon_ppv(coupon_code)">Apply</button></td>
+										    </tr>
+										    <tr class="info" ng-if="coupon_amount > 0">
+        									<!-- <tr class="active"> -->
+										        <td>Grant Total</td>
+										        <td></td>
+										        <td>{{video.currency}}{{remaining_amount}}</td>
+										    </tr>
+										</tbody>
+									</table>
 
 									<h3 class="no-margin top1 black-clr"><span><i class="fa fa-credit-card-alt icon"></i></span>Payment Options</h3>
 			   							<div class="black-clr">
@@ -91,7 +112,7 @@
 										</div>
 										<div class="clearfix"></div>
 									<div class="text-right">
-										<button class="payment-submit" ng-click="sendToPaypal(video.admin_video_id)" id="payment_ppv_button"><i class="fa fa-cc-mastercard"></i> Pay</button>
+										<button class="payment-submit payment-tabel-btn" ng-click="sendToPaypal(video.admin_video_id)" id="payment_ppv_button"><i class="fa fa-cc-mastercard"></i> Pay</button>
 									</div>
         						</div>
         					</div>
