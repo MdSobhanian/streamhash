@@ -215,6 +215,28 @@ streamViewApp
                     }
                 })
 
+                .state("profile.home1", {
+                    cache: false,
+                    url: "/home1",
+                    templateUrl: 'app/components/home/home.html',
+                    controller: 'homeController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'lazy_animation',
+                                'assets/css/home.css',
+                                'app/components/home/homeController.js',
+                                'assets/js/slider.js'
+                               // 'assets/js/homeController.js',
+
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Home'
+                    }
+                })
+
                 .state("profile.title", {
                     cache: false,
                     url: "/title/{title}",

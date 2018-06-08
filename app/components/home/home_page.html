@@ -6,115 +6,11 @@
 
 			<!-- OVERVIEW SECTION  -->
 		    <div role="tabpanel" class="tab-pane active" id="overview">
-			    <div class="overview tab-section">
+			    <div class="overview tab-section relative">
 		    		
 	    			<div class="tab-section-content row no-margin">
-		    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 hidden-xs no-pad">
-		    				<div class="overview-details">
-		    					<h3 class="content-tit">{{recent_video.title}}</h3>
 
-		    					<div class="row no-margin">
-		    						<!-- <div class="pull-left">
-		    							nvfvfj
-		    						</div> -->
-		    						<div class="pull-left">
-		    							<div class="mt-3">
-		    								<div class="rating-symbol glyphicon"
-		    								ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 1), 'glyphicon-star' : (recent_video.ratings >= 1)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 2), 'glyphicon-star' : (recent_video.ratings >= 2)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 3), 'glyphicon-star' : (recent_video.ratings >= 3)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 4), 'glyphicon-star' : (recent_video.ratings >= 4)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 5), 'glyphicon-star' : (recent_video.ratings >= 5)}">
-		    									
-		    								</div>
-		    							</div>
-		    						</div>
-		    						<p class="content-txt bold seasons">
-		    							<span class="green-clr">{{recent_video.publish_time}}</span>
-		    							<span class="epi-count">{{recent_video.age}} / <i class="fa fa-eye"></i>&nbsp;{{recent_video.watch_count}}</span>
-		    							<span>{{recent_video.duration}}</span>
-		    						</p>
-		    					</div>	
-
-		    					<div>
-
-		    						<div class="pull-left">
-
-			    						<a class="white-icon">
-			    							<i class="fa fa-thumbs-up"></i><span id="like_count_{{recent_video.admin_video_id}}_989">{{recent_video.like_count}}</span>
-			    						</a>
-			    						<a class="white-icon">
-			    							<i class="fa fa-thumbs-down"></i><span id="dis_like_count_{{recent_video.admin_video_id}}_989">{{recent_video.dis_like_count}}</span>
-			    						</a>
-
-			    					</div>
-
-
-		    						<div class="pull-left">
-
-				    					<div class="display_amount" ng-if="recent_video.amount > 0 && !recent_video.pay_per_view_status" style="margin-left: 5px;">
-							        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
-							        		<span>PAY - {{recent_video.currency}} {{recent_video.amount}}</span>
-							        	</div>
-
-						        	</div>
-
-						        	<div class="clearfix"></div>
-	    						</div>
-
-
-		    					<div>
-		    						<p class="content-txt overview-des">{{recent_video.description}}
-		    						</p>
-		    					</div>
-
-		    					<div id="my-list-txt_{{recent_video.admin_video_id}}_989" class="pull-left">
-		    					
-		    						<a ng-click="addWishlist(recent_video.admin_video_id, recent_video.admin_video_id, 989)" class="bold" id="" ng-if="!recent_video.wishlist_status" style="cursor: pointer;">
-		    							<button class="my-list">
-			    							<i class="fa fa-plus my-list-icon"></i>
-			    							<span class="my-list-txt">My List</span>
-		    							</button> 
-		    						</a>
-		    						<a ng-click="removeWishlist(recent_video.wishlist_status, recent_video.admin_video_id,recent_video.admin_video_id, 989)" class="bold" ng-if="recent_video.wishlist_status" style="cursor: pointer;">
-		    							<button class="my-list">
-			    							<i class="fa fa-check my-list-icon"></i>
-			    							<span class="my-list-txt">My List</span> 
-			    						</button>
-		    						</a>
-		    						
-		    					</div>
-
-		    					<div class="banner-icon-sec">
-
-		    						<a id="like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;" ng-show="recent_video.is_liked == 1 || recent_video.is_liked == 0" ng-click="likeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
-		    							<button class="banner-icon">
-		    							 	<i class="fa fa-thumbs-up"></i>
-		    							</button>
-
-		    						</a>
-		    						<a id="dis_like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;"  ng-show="recent_video.is_liked == -1 || recent_video.is_liked == 0" ng-click="dislikeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
-		    							<button class="banner-icon">
-		    								<i class="fa fa-thumbs-down"></i>
-		    							</button>
-		    						</a>
-
-		    						<a style="cursor: pointer;"  data-toggle="modal" data-target="#myModal" title="Report as Spam">
-		    							<button class="banner-icon">
-		    								<i class="fa fa-exclamation"></i>
-		    							</button>
-		    						</a>
-		    						
-		    					</div>
-		    				</div>
+		    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-5 no-pad overview-details">	
 		    			</div>
 
 						<!-- Modal -->
@@ -142,18 +38,15 @@
 							                </div>
 						                </form>
 						        	</div>
-						        	
 						      	</div>
 						    </div>
 						</div>
 
-						
-		    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
+		    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 no-pad">
 		    				<div class="linear-outer">
 		    					<div class="linear">
 		    					</div>
 		    					<div class="rotate-img-outer">	
-	    							
 		    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in recent_video.images"></div>
 			    				</div>
 			    				<div class="play-icon-outer">
@@ -169,6 +62,90 @@
 		    			</div>
 
 		    		</div>
+
+                    <div class="home-new-deatils">
+	    				<div class="overview-details" style="background-color: unset;">
+	    					<h3 class="content-tit">{{recent_video.title}}</h3>
+	    					<div class="row no-margin hidden-xs">
+	    						<div class="pull-left">
+	    							<div class="mt-3">
+	    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 1), 'glyphicon-star' : (recent_video.ratings >= 1)}"></div>
+
+	    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 2), 'glyphicon-star' : (recent_video.ratings >= 2)}"></div>
+
+	    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 3), 'glyphicon-star' : (recent_video.ratings >= 3)}"></div>
+
+	    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 4), 'glyphicon-star' : (recent_video.ratings >= 4)}"></div>
+
+	    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (recent_video.ratings < 5), 'glyphicon-star' : (recent_video.ratings >= 5)}"></div>
+	    							</div>
+	    						</div>
+	    						<p class="content-txt bold seasons">
+	    							<span class="green-clr">{{recent_video.publish_time}}</span>
+	    							<span class="epi-count">{{recent_video.age}} / <i class="fa fa-eye"></i>&nbsp;{{recent_video.watch_count}}</span>
+	    							<span>{{recent_video.duration}}</span>
+	    						</p>
+	    					</div>	
+
+	    					<div class="">
+	    						<div class="pull-left">
+		    						<a class="white-icon">
+		    							<i class="fa fa-thumbs-up"></i><span id="like_count_{{recent_video.admin_video_id}}_989">{{recent_video.like_count}}</span>
+		    						</a>
+		    						<a class="white-icon">
+		    							<i class="fa fa-thumbs-down"></i><span id="dis_like_count_{{recent_video.admin_video_id}}_989">{{recent_video.dis_like_count}}</span>
+		    						</a>
+		    					</div>
+
+	    						<div class="pull-left">
+			    					<div class="display_amount" ng-if="recent_video.amount > 0 && !recent_video.pay_per_view_status" style="margin-left: 5px;">
+						        		<span>PAY - ${{recent_video.amount}}</span>
+						        	</div>
+					        	</div>
+
+					        	<div class="clearfix"></div>
+							</div>
+
+	    					<div>
+	    						<p class="content-txt overview-des">{{recent_video.description}}
+	    						</p>
+	    					</div>
+
+	    					<div id="my-list-txt_{{recent_video.admin_video_id}}_989" class="pull-left">
+	    						<a ng-click="addWishlist(recent_video.admin_video_id, recent_video.admin_video_id, 989)" class="bold" id="" ng-if="!recent_video.wishlist_status" style="cursor: pointer;">
+	    							<button class="my-list">
+		    							<i class="fa fa-plus my-list-icon"></i>
+		    							<span class="my-list-txt">My List</span>
+	    							</button> 
+	    						</a>
+	    						<a ng-click="removeWishlist(recent_video.wishlist_status, recent_video.admin_video_id,recent_video.admin_video_id, 989)" class="bold" ng-if="recent_video.wishlist_status" style="cursor: pointer;">
+	    							<button class="my-list">
+		    							<i class="fa fa-check my-list-icon"></i>
+		    							<span class="my-list-txt">My List</span> 
+		    						</button>
+	    						</a>
+	    					</div>
+
+	    					<div class="banner-icon-sec">
+	    						<a id="like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;" ng-show="recent_video.is_liked == 1 || recent_video.is_liked == 0" ng-click="likeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
+	    							<button class="banner-icon">
+	    							 	<i class="fa fa-thumbs-up"></i>
+	    							</button>
+	    						</a>
+	    						<a id="dis_like_{{recent_video.admin_video_id}}_989" style="cursor: pointer;"  ng-show="recent_video.is_liked == -1 || recent_video.is_liked == 0" ng-click="dislikeVideo(recent_video.admin_video_id, recent_video.admin_video_id, 989)">
+	    							<button class="banner-icon">
+	    								<i class="fa fa-thumbs-down"></i>
+	    							</button>
+	    						</a>
+	    						<a style="cursor: pointer;"  data-toggle="modal" data-target="#myModal" title="Report as Spam">
+	    							<button class="banner-icon">
+	    								<i class="fa fa-exclamation"></i>
+	    							</button>
+	    						</a>
+	    					</div>
+	    				</div>
+    				</div>
+                    
 			    </div>
 			</div>
 			<!-- OVERVIEW SECTION END -->
@@ -209,7 +186,7 @@
 												<div class="episode-img-overlay">
 													<div class="episode-img-inner">
 
-														<span class="epi-count">{{genre_list.age}} / <i class="fa fa-eye"></i>&nbsp;{{genre_list.watch_count}}</span>
+														<div class="epi-count1">{{genre_list.age}} / <i class="fa fa-eye"></i>&nbsp;{{genre_list.watch_count}}</div>
 
 														<!-- <p class="episode-count">{{genre_list.watch_count}}</p> -->
 													</div>
@@ -230,18 +207,18 @@
 											</div>
 
 											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="pull-left">
-														<h4 class="epi-tit gray-color1">{{genre_list.title}}</h4>
+												<div class="row">
+													<div class="col-sm-12 col-md-8">
+														<h4 class="epi-tit gray-color1 txt-overflow">{{genre_list.title}}</h4>
 													</div>
 
-													<div class="pull-right">
-														<p class="bold gray-color1">{{genre_list.duration}}</p>
+													<div class="col-md-4 text-right hidden-sm">
+														<p class="bold epi-tit gray-color1 txt-overflow">{{genre_list.duration}}</p>
 													</div>
 												</div>
 
-												<div class="">
-													<p class="epi-des gray-color1">{{genre_list.description}}</p>
+												<div class=""> 
+													<p class="content-txt overview-des more-link mt-0">{{genre_list.description}}</p>
 												</div>
 											</div>
 
@@ -271,7 +248,7 @@
 							<div class="trailers-list row">
 
 								<!-- episode list box -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="trailer in recent_video.genres" ng-if="recent_video.is_genre">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 top" ng-repeat="trailer in recent_video.genres" ng-if="recent_video.is_genre">
 									<div class="episode-list-box">
 
 										<div class="episode-img bg-img" style="background-image: url({{trailer.genre_image}});">
@@ -296,7 +273,7 @@
 									</div>
 								</div>
 
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-if="recent_video.trailer_video">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 top" ng-if="recent_video.trailer_video">
 									<div class="episode-list-box">
 
 										<div class="episode-img bg-img" style="background-image: url({{recent_video.default_image}});">
@@ -339,9 +316,8 @@
 							<h3 class="content-tit">{{recent_video.sub_category_name}}</h3>
 
 							<div class="morelike-list row">
-
 								<!-- episode list box -->
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="video in recent_video.sub_videos">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 top" ng-repeat="video in recent_video.sub_videos">
 									<div class="episode-list-box">
 
 										<div class="episode-img bg-img" style="background-image: url({{video.default_image}});">
@@ -354,7 +330,6 @@
 													<!-- <a ui-sref="single_video({id : video.admin_video_id})" class="epi-play-icon">
 														<i class="fa fa-play"></i>
 													</a> -->
-
 													<span ng-show="video.pay_per_view_status">
 							    						<a ui-sref="single_video({id : video.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
 							    					</span>
@@ -364,7 +339,7 @@
 												</div>
 
 												<div class="duration_more">
-													 <span>{{video.duration}}</span>
+													<span>{{video.duration}}</span>
 												</div>
 											</div>
 										</div>
@@ -373,42 +348,34 @@
 											<div class="row no-margin">
 					    						<div class="pull-left">
 					    							<div>
-					    								<div class="rating-symbol glyphicon"
-		    								ng-class="{'glyphicon-star-empty' : (video.ratings < 1), 'glyphicon-star' : (video.ratings >= 1)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 2), 'glyphicon-star' : (video.ratings >= 2)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 3), 'glyphicon-star' : (video.ratings >= 3)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 4), 'glyphicon-star' : (video.ratings >= 4)}">
-		    									
-		    								</div>
-		    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 5), 'glyphicon-star' : (video.ratings >= 5)}">
-		    									
-		    								</div>
-					    				</div>
-					    			</div>
+					    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 1), 'glyphicon-star' : (video.ratings >= 1)}"> </div>
+
+		    											<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 2), 'glyphicon-star' : (video.ratings >= 2)}"></div>
+
+		    											<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 3), 'glyphicon-star' : (video.ratings >= 3)}"></div>
+
+		    											<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 4), 'glyphicon-star' : (video.ratings >= 4)}"></div>
+		    											<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (video.ratings < 5), 'glyphicon-star' : (video.ratings >= 5)}"></div>
+					    							</div>
+					    						</div>
 					    						<p class="content-txt bold seasons">
-					    							<span class="green-clr">{{video.publish_time}}</span>
-					    							<span class="epi-count">{{video.age}} / <i class="fa fa-eye"></i>&nbsp;{{video.watch_count}}</span>
+					    							<span class="green-clr hidden-sm">{{video.publish_time}}</span>
+					    							<span class="epi-count hidden-sm hidden-md">{{video.age}} / <i class="fa fa-eye"></i>&nbsp;{{video.watch_count}}</span>
 					    							<!-- <span>{{video.duration}}</span> -->
 					    						</p>
 					    					</div>
 
 					    					<div>
-					    						<p class="content-txt overview-des bold">{{video.description}}</p>
+					    						<p class="content-txt overview-des more-link">{{video.description}}</p>
 					    					</div>
 										</div>
 
 									</div>
 								</div>
 								<!-- episode-list-box end -->
-
 							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -423,17 +390,16 @@
 
 						<div class="details-section-inner tab-section-content tab-sec-inner contain-width details_section_tab">
 							<h3 class="content-tit">{{recent_video.title}}</h3>
-
 							<div class="details-row row no-margin">
-								
 								<p ng-bind-html="recent_video.details"></p>
-
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
 			<!-- DETAILS-SECTION END -->
+
 		</div>
 
 		<div class="drop-tab hidden-xs">
@@ -460,6 +426,7 @@
 			    </li>
 		  	</ul>				
 		</div>
+
 	</div>
 	<!-- END OF HIGHLIGHT -->
 
@@ -510,7 +477,7 @@
 								<div class="tile-content" id="{{$index}}_{{data.key}}_desc">
 						            <h3 class="tile-tit">{{value.title}}</h3>
 
-						            <div class="row no-margin">
+						            <div class="row no-margin hidden-cls">
 			    						<div class="pull-left">
 			    							<div>
 			    								<div class="rating-symbol glyphicon"
@@ -538,8 +505,8 @@
 			    						</p>
 			    					</div>
 
-			    					<div class="row no-margin">
-			    						<div class="video-des col-lg-10 col-md-10 col-sm-10 col-xs-10 no-pad">
+			    					<div class="">
+			    						<div class="video-des">
 			    							<p class="video-des-inner">{{value.description}}</p>
 			    						</div>
 			    					</div>
@@ -569,7 +536,7 @@
 				<div class="tab-content">
 					<!-- OVERVIEW SECTION  -->
 				    <div role="tabpanel" class="tab-pane active" id="{{$index}}_{{data.key}}_overview">
-					    <div class="overview tab-section">
+					    <div class="overview tab-section relative">
 					    	<div class="close-tab">
 	    						<a style="cursor: pointer;" ng-click="closeDiv($index,data.key)" class="close-btn">
 	    							<i class="fa fa-times"></i>
@@ -577,105 +544,9 @@
 	    					</div>
 				    		
 			    			<div class="tab-section-content row no-margin">
-				    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad hidden-xs">
-				    				<div class="overview-details">
-				    					<h3 class="content-tit">{{value.title}}</h3>
 
-				    					<div class="row no-margin">
-				    						<div class="pull-left">
-				    							<div class="mt-3">
-				    								<div class="rating-symbol glyphicon"
-				    								ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}">
-				    									
-				    								</div>
-				    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}">
-				    									
-				    								</div>
-				    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}">
-				    									
-				    								</div>
-				    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}">
-				    									
-				    								</div>
-				    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}">
-				    									
-				    								</div>
-				    							</div>
-				    						</div>
-				    						<p class="content-txt bold seasons">
-				    							<span class="green-clr">{{value.publish_time}}</span>
-				    							<span class="epi-count">{{value.age}} / <i class="fa fa-eye"></i>&nbsp;{{value.watch_count}}</span>
-				    							<span>{{value.duration}}</span>
-				    						</p>
-				    					</div>
-
-				    					
-							        	<div>
-
-				    						<div class="pull-left">
-
-					    						<a class="white-icon">
-					    							<i class="fa fa-thumbs-up"></i><span id="like_count_{{$index}}_{{data.key}}">{{value.like_count}}</span>
-					    						</a>
-					    						<a class="white-icon">
-					    							<i class="fa fa-thumbs-down"></i><span id="dis_like_count_{{$index}}_{{data.key}}">{{value.dis_like_count}}</span>
-					    						</a>
-
-					    					</div>
-
-
-				    						<div class="pull-left">
-
-						    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status" style="margin-left: 5px;">
-									        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
-									        		<span>PAY - {{value.currency}} {{value.amount}}</span>
-									        	</div>
-
-								        	</div>
-
-								        	<div class="clearfix"></div>
-			    						</div>
-
-
-				    					<div>
-				    						<p class="content-txt overview-des">{{value.description}}</p>
-
-				    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
-				    					</div>
-
-				    					<div id="my-list-txt_{{$index}}_{{data.key}}" class="pull-left">
-
-				    						<a ng-click="addWishlist(value.admin_video_id, $index, data.key)" class="bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
-				    							<button class="my-list">
-					    							<i class="fa fa-plus my-list-icon"></i>
-					    							<span class="my-list-txt">My List</span> 
-				    							</button>
-				    						</a>
-				    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, data.key)" class="bold" ng-if="value.wishlist_status" style="cursor: pointer;">
-				    							<button class="my-list">
-					    							<i class="fa fa-check my-list-icon"></i>
-					    							<span class="my-list-txt">My List</span> 
-					    						</button>
-				    						</a>
-				    					</div>
-				    					<div class="banner-icon-sec">
-				    						<a id="like_{{$index}}_{{data.key}}" style="cursor: pointer;"  ng-show="value.is_liked == 1 || value.is_liked == 0" ng-click="likeVideo(value.admin_video_id, $index, data.key)">
-				    							<button class="banner-icon">
-			    									<i class="fa fa-thumbs-up"></i>
-			    								</button>
-				    						</a>
-				    						<a id="dis_like_{{$index}}_{{data.key}}" style="cursor: pointer;"  ng-show="value.is_liked == -1 || value.is_liked == 0" ng-click="dislikeVideo(value.admin_video_id, $index, data.key)">
-				    							<button class="banner-icon">
-				    								<i class="fa fa-thumbs-down"></i>
-				    							</button>
-				    						</a>
-				    						<a style="cursor: pointer;"  data-toggle="modal" data-target="#myModal_{{$index}}_{{data.key}}" title="Report as Spam">
-				    							<button class="banner-icon">
-				    							 	<i class="fa fa-exclamation "></i>
-				    							</button>
-				    						</a>
-				    					</div>
-				    				</div>
+				    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-5 no-pad overview-details">
+				    				
 				    			</div>
 
 				    			<div class="modal fade" id="myModal_{{$index}}_{{data.key}}" role="dialog">
@@ -707,7 +578,7 @@
 								    </div>
 								</div>
 
-				    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
+				    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 no-pad">
 				    				<div class="linear-outer">
 				    					
 				    					<div class="linear">
@@ -728,6 +599,89 @@
 					    					</span>
 					    				</div>
 				    				</div>
+				    			</div>
+				    		</div>
+
+				    		<div class="home-new-deatils">
+				    			<div class="overview-details"  style="background-color: unset;">
+				    				<h3 class="content-tit">{{value.title}}</h3>
+			    					<div class="row no-margin  hidden-xs">
+			    						<div class="pull-left">
+			    							<div class="mt-3">
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 1), 'glyphicon-star' : (value.ratings >= 1)}"></div>
+
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 2), 'glyphicon-star' : (value.ratings >= 2)}"></div>
+
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 3), 'glyphicon-star' : (value.ratings >= 3)}"></div>
+
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 4), 'glyphicon-star' : (value.ratings >= 4)}"></div>
+
+			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (value.ratings < 5), 'glyphicon-star' : (value.ratings >= 5)}"></div>
+
+			    							</div>
+			    						</div>
+			    						<p class="content-txt bold seasons">
+			    							<span class="green-clr">{{value.publish_time}}</span>
+			    							<span class="epi-count">{{value.age}} / <i class="fa fa-eye"></i>&nbsp;{{value.watch_count}}</span>
+			    							<span>{{value.duration}}</span>
+			    						</p>
+			    					</div>
+
+						        	<div class="">
+			    						<div class="pull-left">
+				    						<a class="white-icon">
+				    							<i class="fa fa-thumbs-up"></i><span id="like_count_{{$index}}_{{data.key}}">{{value.like_count}}</span>
+				    						</a>
+				    						<a class="white-icon">
+				    							<i class="fa fa-thumbs-down"></i><span id="dis_like_count_{{$index}}_{{data.key}}">{{value.dis_like_count}}</span>
+				    						</a>
+				    					</div>
+			    						<div class="pull-left">
+					    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status" style="margin-left: 5px;">
+								        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
+								        		<span>PAY - ${{value.amount}}</span>
+								        	</div>
+							        	</div>
+							        	<div class="clearfix"></div>
+		    						</div>
+
+			    					<div>
+			    						<p class="content-txt overview-des">{{value.description}}</p>
+
+			    						<!-- <p class="content-txt awards"><i class="fa fa-trophy"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
+			    					</div>
+
+			    					<div id="my-list-txt_{{$index}}_{{data.key}}" class="pull-left">
+			    						<a ng-click="addWishlist(value.admin_video_id, $index, data.key)" class="bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
+			    							<button class="my-list">
+				    							<i class="fa fa-plus my-list-icon"></i>
+				    							<span class="my-list-txt">My List</span> 
+			    							</button>
+			    						</a>
+			    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, data.key)" class="bold" ng-if="value.wishlist_status" style="cursor: pointer;">
+			    							<button class="my-list">
+				    							<i class="fa fa-check my-list-icon"></i>
+				    							<span class="my-list-txt">My List</span> 
+				    						</button>
+			    						</a>
+			    					</div>
+			    					<div class="banner-icon-sec">
+			    						<a id="like_{{$index}}_{{data.key}}" style="cursor: pointer;"  ng-show="value.is_liked == 1 || value.is_liked == 0" ng-click="likeVideo(value.admin_video_id, $index, data.key)">
+			    							<button class="banner-icon">
+		    									<i class="fa fa-thumbs-up"></i>
+		    								</button>
+			    						</a>
+			    						<a id="dis_like_{{$index}}_{{data.key}}" style="cursor: pointer;"  ng-show="value.is_liked == -1 || value.is_liked == 0" ng-click="dislikeVideo(value.admin_video_id, $index, data.key)">
+			    							<button class="banner-icon">
+			    								<i class="fa fa-thumbs-down"></i>
+			    							</button>
+			    						</a>
+			    						<a style="cursor: pointer;"  data-toggle="modal" data-target="#myModal_{{$index}}_{{data.key}}" title="Report as Spam">
+			    							<button class="banner-icon">
+			    							 	<i class="fa fa-exclamation "></i>
+			    							</button>
+			    						</a>
+			    					</div>
 				    			</div>
 				    		</div>
 				    							    
@@ -754,7 +708,7 @@
 										</div>
 									</form>
 
-									<div class="episodes-list row">
+									<div class="episodes-list">
 
 									<div id="{{$index}}{{$keyindex}}_loader_seasons" style="margin-top: 10px;text-align: center;display: none">
 											<img src="assets/img/ellipsis.svg" style="width: 40px;">
@@ -788,18 +742,18 @@
 												</div>
 
 												<div class="episode-list-content">
-													<div class="row no-margin">
-														<div class="pull-left">
-															<h4 class="epi-tit gray-color1">{{genre_list.title}}</h4>
+													<div class="row">
+														<div class="col-md-8 col-sm-12">
+															<h4 class="epi-tit gray-color1 txt-overflow">{{genre_list.title}}</h4>
 														</div>
 
-														<div class="pull-right">
-															<p class="bold gray-color1">{{genre_list.duration}}</p>
+														<div class="col-md-4 text-right hidden-sm">
+															<p class="bold gray-color1 epi-tit txt-overflow">{{genre_list.duration}}</p>
 														</div>
 													</div>
 
 													<div class="">
-														<p class="epi-des gray-color1">{{genre_list.description}}</p>
+														<p class=" gray-color1 overview-des more-link mt-0">{{genre_list.description}}</p>
 													</div>
 												</div>
 
@@ -829,7 +783,7 @@
 									<div class="trailers-list row">
 
 										<!-- episode list box -->
-										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="trailer in value.genres" ng-if="value.is_genre">
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 top" ng-repeat="trailer in value.genres" ng-if="value.is_genre">
 											<div class="episode-list-box">
 
 												<div class="episode-img bg-img" style="background-image: url({{trailer.genre_image}});">
@@ -855,7 +809,7 @@
 										</div>
 
 
-										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-if="value.trailer_video">
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 top" ng-if="value.trailer_video">
 											<div class="episode-list-box">
 
 												<div class="episode-img bg-img" style="background-image: url({{value.default_image}});">
@@ -931,33 +885,26 @@
 													<div class="row no-margin">
 							    						<div class="pull-left">
 							    							<div>
-							    								<div class="rating-symbol glyphicon"
-			    								ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 1), 'glyphicon-star' : (sub_video.ratings >= 1)}">
-			    									
-			    								</div>
-			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 2), 'glyphicon-star' : (sub_video.ratings >= 2)}">
-			    									
-			    								</div>
-			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 3), 'glyphicon-star' : (sub_video.ratings >= 3)}">
-			    									
-			    								</div>
-			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 4), 'glyphicon-star' : (sub_video.ratings >= 4)}">
-			    									
-			    								</div>
-			    								<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 5), 'glyphicon-star' : (sub_video.ratings >= 5)}">
-			    									
-			    								</div>
+								    							<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 1), 'glyphicon-star' : (sub_video.ratings >= 1)}"></div>
+
+			    												<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 2), 'glyphicon-star' : (sub_video.ratings >= 2)}"></div>
+
+			    												<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 3), 'glyphicon-star' : (sub_video.ratings >= 3)}"></div>
+
+			    												<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 4), 'glyphicon-star' : (sub_video.ratings >= 4)}"></div>
+
+			    												<div class="rating-symbol glyphicon" ng-class="{'glyphicon-star-empty' : (sub_video.ratings < 5), 'glyphicon-star' : (sub_video.ratings >= 5)}"></div>
 							    							</div>
 							    						</div>
 							    						<p class="content-txt bold seasons">
-							    							<span class="green-clr">{{sub_video.publish_time}}</span>
-							    							<span class="epi-count">{{sub_video.age}} / <i class="fa fa-eye"></i>&nbsp;{{sub_video.watch_count}}</span>
+							    							<span class="green-clr hidden-sm">{{sub_video.publish_time}}</span>
+							    							<span class="epi-count hidden-sm hidden-md">{{sub_video.age}} / <i class="fa fa-eye"></i>&nbsp;{{sub_video.watch_count}}</span>
 							    							<!-- <span>{{sub_video.duration}}</span> -->
 							    						</p>
 							    					</div>
 
 							    					<div>
-							    						<p class="content-txt overview-des bold">{{sub_video.description}}</p>
+							    						<p class="content-txt overview-des more-link">{{sub_video.description}}</p>
 							    					</div>
 												</div>
 

@@ -40,7 +40,7 @@
 					<ul class="dropdown-menu mega-dropdown-menu">
 						<div class="row no-margin">
 
-							<li class="col-lg-3 col-md-3 col-sm-3 col-xs-12 border-right">
+							<li class="col-lg-3 col-md-4 col-sm-4 col-xs-12 border-right">
 								<ul class="sub-drop list-unstyled sub-drop1">
 									<li>
 										<a ui-sref="profile.home({sub_profile_id : sub_profile_id})">Home</a>
@@ -74,7 +74,7 @@
 							</li>
 
 
-							<li class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="data in datas">
+							<li class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng-repeat="data in datas">
 								<ul class="sub-drop list-unstyled sub-drop2">
 									<li ng-repeat="value in data">
 										<a ui-sref="profile.browse({browse:value.id})">{{value.name}}</a>
@@ -94,7 +94,7 @@
 			<ul class="nav navbar-nav navbar-right right-align">
 				<li>
 
-					<form style="padding-top: 10px;" class="hidden-xs">
+					<form style="padding-top: 9px;" class="hidden-xs">
 					  	<input id="search-box" type="text" class="search-box" name="key" autocomplete="true" ng-enter="getSearchModel(search_key)" ng-model="search_key" placeholder="Search.."/>
 					  	<label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
 					</form>
@@ -184,7 +184,7 @@
 				<li class="dropdown nav-profile">
 					<a class="dropdown-toggle hidden-xs l-height-27" data-toggle="dropdown" style="cursor: pointer;">
 						<div class="nav-profile-img bg-img" style="background-image: url({{sub_profile.picture}});"></div>
-						{{sub_profile.name}}
+						<span class="nav-profile-name t-0">{{sub_profile.name}}</span>
 					 	<strong class="caret top-4"></strong>
 					</a>
 					<a class="dropdown-toggle visible-xs" data-toggle="dropdown" style="cursor: pointer;">
@@ -194,7 +194,7 @@
 						<div class="border-bot more-profile padding15">
 							<li class="row no-margin" ng-repeat="value in profiles">
 								<a ui-sref="profile.home({sub_profile_id : value.id})"><div class="nav-profile-img bg-img" style="background-image: url({{value.picture}});"></div>
-									{{value.name}} <span ng-if="value.status == 1">(Main)</span></a>
+									<div class="nav-profile-name">{{value.name}} <span ng-if="value.status == 1">(Main)</span></div></a>
 							</li>
 
 							<li>
@@ -202,7 +202,7 @@
 							</li>
 						</div>
 
-						<div class="padding15">
+						<div class="padding15 more-profile1">
 							<li>
 								<a ui-sref="profile.account-settings({sub_profile_id : sub_profile_id})">
 									Your Account

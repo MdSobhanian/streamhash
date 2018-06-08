@@ -1,7 +1,51 @@
 /*extra small devices*/
+
+@media screen and (max-width: 479px){
+.account-header{
+  margin-bottom: 0;
+}
+.switch{
+  margin-top: 0;
+}
+}
 @media screen and (max-width: 479px) {
-.section-padding{
-    padding: 15px;
+.overview-details{
+  background: #000;
+  min-height: 250px;
+  padding: 60px 0 0 20px;
+}
+.overview-des{
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:27px;
+    line-height: 1.7em;
+    font-size: 13px;
+    margin-top: 8px;
+}
+.my-list{
+  height: 27px;
+  padding: 0 10px;
+}
+.banner-icon{
+  height: 27px;
+  width: 27px;
+}
+.banner-icon i, .banner-icon1 i{
+    font-size: 12px;
+    line-height: 21px;
+}
+.display_amount{
+  padding: 0;
+  width: 80px;
+}
+.white-icon i{
+  font-size: 14px;
+}
+.mega-dropdown-menu .row{
+    height: 300px;
+    overflow: scroll;
 }
 .basic-title{
   color: #fff;
@@ -12,7 +56,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1em;
   text-transform: uppercase;
   line-height: 23px;
@@ -35,11 +78,11 @@
   line-height: 1em;
 }
 .basic-tabs .nav-tabs li{
-  width: 100%;
+  width:33.333%;
 }
 .basic-row{
   margin: 0 auto;
-  padding: 40px 0;
+  padding:25px 0;
   width: 100%;
   max-width: 1400px;
 }
@@ -95,7 +138,7 @@
 .list-profiles .profile-gate-label, .profile-actions-container h1 {
     width: 100%;
     color: #fff;
-    font-size: 2.5em;
+    font-size: 2.3em;
 }
 .highlight-img{
     height: 250px;
@@ -181,11 +224,16 @@
     background-repeat: no-repeat;
 }
 .navbar-nav {
-    margin: 3.5px -15px
+    margin:0px -15px
+}
+.navbar-nav > li > a{
+  padding-left: 5px;
+  padding-right: 15px;
+  padding-top: 10px;
 }
 .mega-dropdown {
     position: static !important;
-    padding-top:13px;
+    /*padding-top:13px;*/
 }
 .navbar-nav .open .dropdown-menu{
   width: 160px;
@@ -199,10 +247,74 @@
 .banner-spacing1{
   padding: 0 15px;
 }
+.center-align-mob .online-cancel p{
+  text-align: center !important;
+  margin-bottom: 20px;
+  font-size:19px;
+}
+.join-free{
+  display: unset;
+  font-size: 12px;
+  padding: .8em 1.2em;
+  margin-right: 0;
+}
+.device-join-link{
+  font-size: 12px;
+  padding: .8em 1.2em;
+  letter-spacing: 1.9px;
+}
+.cancel-image{
+  margin-top: 15px;
+}
+.device-join{
+  padding:25px 0;
+}
+.price-head{
+  padding: 25px 0;
+}
+.bg-img1{
+  background-size: unset;
+}
+.centered{
+  width:100%;
+  margin:0 auto;
+}
+.home-new-deatils{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:60%;
+    z-index: 100;
+}
+.video-des-inner{
+  font-size: 7px;
+}
+.section-padding{
+    padding:25px;
+}
 }
 
 /*small devices*/
 @media (min-width: 480px) and (max-width: 767px) {
+.overview-details{
+  background: #000;
+  min-height: 350px;
+  padding: 75px 0 0 25px;
+}
+.overview-des{
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:88px;
+    line-height: 1.7em;
+    font-size: 13px;
+    margin-top: 8px;
+}
+.mega-dropdown-menu .row{
+    height: 300px;
+    overflow: scroll;
+}
 .section-padding{
     padding: 25px 50px;
 }
@@ -215,7 +327,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.2em;
   text-transform: uppercase;
   line-height: 23px;
@@ -238,7 +349,7 @@
   line-height: 1em;
 }
 .basic-tabs .nav-tabs li{
-  width: 33%;
+  width: 33.333%;
 }
 .basic-row{
   margin: 0 auto;
@@ -294,7 +405,7 @@
 .list-profiles .profile-gate-label , .profile-actions-container h1{
     width: 100%;
     color: #fff;
-    font-size: 3em;
+    font-size:2.5em;
 }
 .highlight-img{
     height: 350px;
@@ -362,7 +473,7 @@
     transform: scale(1); 
     opacity: 1; transition-duration: 450ms; 
     transition-delay: 200ms; 
-    width:100%;
+    width:80%;
     padding:15px;
     margin:auto;
 }
@@ -380,11 +491,16 @@
     background-repeat: no-repeat;
 }
 .navbar-nav {
-    margin: 3.5px -15px
+    margin: 0px -15px
+}
+.navbar-nav > li > a{
+  padding-left: 5px;
+  padding-right: 15px;
+  padding-top: 10px;
 }
 .mega-dropdown {
     position: static !important;
-    padding-top:13px;
+    /*padding-top:13px;*/
 }
 .height{
   height:332px;
@@ -395,10 +511,64 @@
 .banner-spacing1{
   padding: 0 50px;
 }
+.center-align-mob .online-cancel p{
+  text-align: center !important;
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+.center-align-mob .join-free{
+  display: unset;
+}
+.cancel-image{
+  margin-top: 15px;
+}
+.join-free{
+  display: unset;
+  font-size: 13px;
+  padding: .9em 1.2em;
+  margin-right: 0;
+}
+.device-join-link{
+  font-size: 13px;
+  padding: .9em 1.2em;
+  letter-spacing: 1.9px;
+}
+.bg-img1{
+  background-size: unset;
+}
+.centered{
+  width:80%;
+  margin:0 auto;
+}
+.home-new-deatils{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:60%;
+    z-index: 100;
+}
+.video-des-inner{
+  font-size: 7px;
+}
 }
 
 /* Tablets */
 @media (min-width: 768px) and (max-width: 991px) {
+.search-box:focus {
+  width:200px;
+}
+.video-des-inner{
+  font-size: 7px;
+}
+.drop-tab{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left:14%;
+}
+.overview-details{
+  padding: 
+}
 .section-padding{
     padding: 25px;
 }
@@ -411,7 +581,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.5em;
   text-transform: uppercase;
   line-height: 23px;
@@ -434,7 +603,7 @@
   line-height: 1em;
 }
 .basic-tabs .nav-tabs li{
-  width: 33%;
+  width: 33.333%;
 }
 .basic-row{
   margin: 0 auto;
@@ -443,7 +612,7 @@
   max-width: 1400px;
 }
 .basic-section{
-  margin-top: 70px;
+  margin-top:13px;
 }
 .form-signup-google .btn {
     background-color: #dc4e41;
@@ -490,7 +659,7 @@
 .list-profiles .profile-gate-label, .profile-actions-container h1 {
     width: 100%;
     color: #fff;
-    font-size: 3.5em;
+    font-size: 3em;
 }
 .highlight-img{
     height: 500px;
@@ -520,7 +689,7 @@
     transform: scale(1); 
     opacity: 1; transition-duration: 450ms; 
     transition-delay: 200ms; 
-    width: 40%;
+    width:55%;
     margin:auto;
 }
 .pay-details-bg{
@@ -558,10 +727,31 @@
 .banner-spacing1{
   padding: 0 70px;
 }
+.bg-img1{
+  background-size: unset;
+}
+.centered{
+  width: 70%;
+  margin:0 auto;
+}
+.home-new-deatils{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:50%;
+    z-index: 100;
+}
+.glyphicon-bell {
+    font-size: 21px;
+    vertical-align: -49%;
+}
 }
 
 /* Medium Devices, */
 @media (min-width : 992px) and (max-width: 1199px){
+.video-des-inner{
+  font-size: 8px;
+}
 .section-padding{
     padding: 50px 100px;
 }
@@ -574,7 +764,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.5em;
   text-transform: uppercase;
   line-height: 23px;
@@ -597,7 +786,7 @@
   line-height: 1em;
 }
 .basic-tabs .nav-tabs li{
-  width: 33%;
+  width: 33.333%;
 }
 .basic-row{
   margin: 0 auto;
@@ -606,7 +795,7 @@
   max-width: 1400px;
 }
 .basic-section{
-  margin-top: 70px;
+  margin-top: 39px;
 }
 .form-signup-google .btn {
     background-color: #dc4e41;
@@ -683,7 +872,7 @@
     transform: scale(1); 
     opacity: 1; transition-duration: 450ms; 
     transition-delay: 200ms; 
-    width: 40%;
+    width:50%;
     margin:auto;
 }
 .pay-details-bg{
@@ -721,10 +910,38 @@
 .banner-spacing1{
   padding: 0 100px;
 }
+.basic-tabs .nav-tabs li > a{
+  height: 140px;
+}
+.bg-img1{
+  background-size: unset;
+}
+.centered{
+  width: 70%;
+  margin:0 auto;
+}
+.home-new-deatils{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:41.66%;
+    z-index: 100;
+}
+.glyphicon-bell {
+    font-size: 21px;
+    vertical-align: -49%;
+}
 }
 
 /* Desktops */
 @media only screen and (min-width : 1200px) {
+.glyphicon-bell {
+    font-size: 21px;
+    vertical-align: -49%;
+}
+.video-des-inner{
+  font-size: 8px;
+}
 .section-padding{
     padding: 50px 100px;
 }
@@ -737,7 +954,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.5em;
   text-transform: uppercase;
   line-height: 23px;
@@ -760,7 +976,7 @@
   line-height: 1em;
 }
 .basic-tabs .nav-tabs li{
-  width: 33%;
+  width: 33.333%;
 }
 .basic-row{
   margin: 0 auto;
@@ -769,7 +985,7 @@
   max-width: 1400px;
 }
 .basic-section{
-  margin-top: 70px;
+  margin-top:36px;
 }
 .form-signup-google .btn {
     background-color: #dc4e41;
@@ -884,21 +1100,37 @@
 .banner-spacing1{
   padding: 0 100px;
 }
+.basic-tabs .nav-tabs li > a{
+  height: 140px;
+}
+.centered{
+  width: 70%;
+  margin:0 auto;
+}
+.home-new-deatils{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:33.33%;
+    z-index: 100;
+}
+}
+@media screen and (max-width:360px) {
+.height{
+  height: 375px;
+}
 }
 
-@media screen and (max-width:360px) {
+@media screen and (max-width:479px) {
 .hidden-xxs{
     display: none !important;
 }
 .visible-xxs{
     display: block;
 }
-.height{
-  height: 375px;
-}
 }
 
-@media screen and (min-width:361px) {
+@media screen and (min-width:480px) {
 .hidden-xxs{
     display: block;
 }
@@ -908,6 +1140,15 @@
 }
 
 @media (min-width : 1440px) and (max-width: 1679px){
+.more-link{
+  height: 154px;
+}
+.linear{
+  left: -1px;
+}
+.basic-section{
+  margin-top:55px;
+}
 .banner-spacing{
   padding: 0 100px;
 }
@@ -933,7 +1174,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.2em;
   text-transform: uppercase;
   line-height: 23px;
@@ -1008,7 +1248,7 @@
     width: 11vw !important;
     max-width:250px !important;
 }
-.profiles-gate-container .profile-icon {
+.profiles-gate-container .profile-icon , .profiles-gate-container .addProfileIcon{
     height: 11vw !important;
     max-height: 250px !important;
     max-width: 250px !important;
@@ -1019,9 +1259,9 @@
     margin: 1.2em 0 !important;
 } 
 .profile-button a, .profile-button span {
-    font-size: 1.2em !important;
+    font-size: 1em !important;
     letter-spacing: 2px !important;
-    padding: 0.6em 1.7em !important;
+    padding: 0.4em 1.3em !important;
 }
 .profile-metadata .main-profile-avatar {
     max-width:230px !important;
@@ -1041,7 +1281,7 @@
 }
 .profile-entry input[type="text"] {
     font-size: 1.3em !important;
-    height:3em !important;
+    height:2.2em !important;
     width:14em !important;
 }
 .account-header{
@@ -1122,6 +1362,7 @@
 }
 .search-icon{
   left: -35px;
+  font-size: 16px;
 }
 .navbar-nav>li>a{
   padding-top: 20px;
@@ -1136,6 +1377,19 @@
 }
 .dropdown-menu.nav-profile-menu{
   min-width: 200px;
+}
+.more-profile > li > a{
+  width: 180px;
+}
+.nav-profile-name{
+    max-width:128px;
+    /*margin-left: 10px;*/
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    margin-top: 4px;
 }
 .item-title{
   font-size: 1.2em;
@@ -1162,7 +1416,7 @@
   padding: 100px 0 0 65px;
 }
 .tab-sec-inner{
-  padding-top: 100px !important;
+  padding-top: 80px !important;
 }
 .content-tit{
   font-size: 1.9em;
@@ -1173,6 +1427,10 @@
 }
 .content-txt{
   font-size: 1.3em;
+  margin-bottom: 15px;
+}
+.overview-des{
+  height: 161px;
 }
 .white-icon{
   font-size: 1.3em;
@@ -1192,7 +1450,7 @@
   margin-top: 20px;
 }
 .episode-img{
-  height: 150px;
+  height: 170px;
 }
 .drop-tab .nav-tabs>li>a{
   font-size: 1.2em;
@@ -1202,6 +1460,8 @@
 }
 .details-row p{
   font-size: 1.1em;
+  line-height: 28px;
+  margin-top: 15px;
 }
 .tile {
   height: 170px;
@@ -1243,7 +1503,10 @@
   font-size: 16px;
 }
 .card-box{
-  min-height: 445px !important;
+  min-height: 465px !important;
+}
+.card-actions{
+  right: 60px !important;
 }
 .card-progress{
     font-size: 1.4em !important;
@@ -1349,9 +1612,71 @@
 .pay-para, .section1 p{
   font-size: 1.2em !important;
 }
+.epi-des {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:150px;
+    line-height:21px;
+    font-size:1.1em;
+}
+.content-panel{
+  margin: 40px 15px 80px 15px;
+}
+.epi-count1{
+  padding: 5px 10px;
+  font-size: 1.1em;
+}
+.duration_more{
+  font-size:13px;
+  padding:8px;
+}
+.details-row{
+    height: 432px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.content-panel{
+    margin: 60px 15px;
+}
+.styled-select{
+  height: 36px;
+  margin-bottom:20px;
+}
+.styled-select select{
+  height: 36px;
+}
+.card-box{
+    width: 90%;
+    margin:0 auto;
+}
+.episode-count{
+  font-size: 32px;
+}
+.content-tit{
+  line-height:2em;
+  height: unset;
+}
+.notifications{
+  width: 480px;
+}
+.notifications-wrapper{
+  max-height: 286px;
+}
 }
 
 @media (min-width : 1680px) and (max-width: 1919px){
+.more-link{
+  height:173px !important;
+}
+.linear{
+  left: -1px;
+}
+.basic-section{
+  margin-top:55px;
+}
 .banner-spacing{
   padding:0 100px;
 }
@@ -1377,7 +1702,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.5em;
   text-transform: uppercase;
   line-height: 23px;
@@ -1454,7 +1778,7 @@
     width: 12vw !important;
     max-width:300px !important;
 }
-.profiles-gate-container .profile-icon {
+.profiles-gate-container .profile-icon , .profiles-gate-container .addProfileIcon {
     height: 12vw !important;
     max-height: 300px !important;
     max-width: 300px !important;
@@ -1465,9 +1789,9 @@
     margin: 1.4em 0 !important;
 } 
 .profile-button a, .profile-button span {
-    font-size: 1.4em !important;
+    font-size: 1.1em !important;
     letter-spacing: 2px !important;
-    padding: 0.7em 1.9em !important;
+    padding: 0.5em 1.9em !important;
 }
 .profile-metadata .main-profile-avatar {
     max-width:280px !important;
@@ -1487,7 +1811,7 @@
 }
 .profile-entry input[type="text"] {
     font-size: 1.8em !important;
-    height:3.5em !important;
+    height:2.5em !important;
     width:16em !important;
 }
 .account-header{
@@ -1568,6 +1892,7 @@
 }
 .search-icon{
   left: -38px;
+  font-size: 18px;
 }
 .navbar-nav>li>a{
   padding-top: 23px;
@@ -1582,6 +1907,19 @@
 }
 .dropdown-menu.nav-profile-menu{
   min-width: 250px;
+}
+.more-profile > li > a{
+  width: 230px;
+}
+.nav-profile-name{
+    max-width:180px;
+    margin-left: 0px;
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    margin-top: 4px;
 }
 .notifications{
   min-width: 470px;
@@ -1616,9 +1954,10 @@
 }
 .overview-des{
   margin-top:20px;
+  height: 160px;
 }
 .tab-sec-inner{
-  padding-top: 150px !important;
+  padding-top: 100px !important;
 }
 .content-tit{
   font-size: 2.2em;
@@ -1652,17 +1991,19 @@
   font-size: 1.4em;
 }
 .episode-img{
-  height: 180px;
+  height: 210px;
   margin-bottom: 15px;
 }
 .drop-tab .nav-tabs>li>a{
   font-size: 1.3em;
 }
 .epi-tit, .new-epi{
-  font-size: 1.4em !important;
+  font-size: 1.5em !important;
 }
 .details-row p{
   font-size: 1.2em;
+  line-height: 34px;
+  margin-top: 20px;
 }
 .tile {
   height: 200px;
@@ -1718,7 +2059,10 @@
   font-size: 18px;
 }
 .card-box{
-  min-height: 500px !important;
+  min-height: 520px !important;
+}
+.card-actions{
+  right: 75px !important;
 }
 .card-progress{
     font-size: 1.6em !important;
@@ -1826,9 +2170,67 @@
   margin-bottom:15px;
   font-size: 1.4em !important;
 }
+.epi-des {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 166px;
+    line-height: 24px;
+    font-size:1.2em;
+}
+.content-panel{
+  margin: 40px 15px 80px 15px;
+}
+.epi-count1{
+  padding: 5px 10px;
+  font-size: 1.3em;
+}
+.duration_more{
+  font-size:15px;
+  padding:10px;
+}
+.details-row{
+  height:504px ;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.content-panel{
+    margin:80px 15px;
+}
+.styled-select{
+  height:40px;
+}
+.styled-select select{
+  height:40px;
+}
+.card-box{
+    width: 90%;
+    margin:0 auto;
+}
+.episode-count{
+  font-size:34px;
+}
+.notifications{
+  width:510px;
+}
+.notifications-wrapper{
+  max-height: 286px;
+}
 }
 
 @media (min-width : 1920px) and (max-width: 2559px){
+.more-link{
+  margin-top: 0 !important;
+  height:196px !important;
+}
+.linear{
+  left: -1px;
+}
+.basic-section{
+  margin-top:55px;
+}
 .banner-spacing{
   padding:0 100px;
 }
@@ -1854,7 +2256,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.9em;
   text-transform: uppercase;
   line-height: 23px;
@@ -1931,7 +2332,7 @@
     width: 13vw !important;
     max-width:350px !important;
 }
-.profiles-gate-container .profile-icon {
+.profiles-gate-container .profile-icon , .profiles-gate-container .addProfileIcon{
     height: 13vw !important;
     max-height: 350px !important;
     max-width: 350px !important;
@@ -1942,9 +2343,9 @@
     margin: 1.8em 0 !important;
 } 
 .profile-button a, .profile-button span {
-    font-size: 1.7em !important;
+    font-size: 1.2em !important;
     letter-spacing: 3px !important;
-    padding: 0.8em 2em !important;
+    padding: 0.6em 2em !important;
 }
 .profile-metadata .main-profile-avatar {
     max-width:330px !important;
@@ -1964,7 +2365,7 @@
 }
 .profile-entry input[type="text"] {
     font-size:2em !important;
-    height:3.5em !important;
+    height:2.5em !important;
     width:16em !important;
 }
 .account-header{
@@ -2046,6 +2447,7 @@
 }
 .search-icon{
   left: -38px;
+  font-size: 22px;
 }
 .navbar-nav>li>a{
   padding-top: 26px;
@@ -2067,6 +2469,19 @@
 }
 .dropdown-menu.nav-profile-menu{
   min-width:300px;
+}
+.more-profile > li > a{
+  width: 280px;
+}
+.nav-profile-name{
+    max-width:228px;
+    margin-left:0px;
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    margin-top: 4px;
 }
 .item-title{
   font-size: 1.5em;
@@ -2096,11 +2511,11 @@
   padding:200px 0 0 65px;
 }
 .tab-sec-inner{
-  padding-top: 200px !important;
+  padding-top: 140px !important;
 }
 .content-tit{
   font-size: 2.5em;
-  height:55px;
+  height:66px;
 }
 .rating-symbol{
   font-size: 1.5em;
@@ -2112,7 +2527,7 @@
 }
 .overview-des{
   margin-top: 20px;
-  height: 149px;
+  height: 160px;
 }
 .white-icon{
   font-size: 1.4em;
@@ -2133,17 +2548,19 @@
   font-size: 1.5em;
 }
 .episode-img{
-  height: 215px;
+  height: 260px;
   margin-bottom:30px;
 }
 .drop-tab .nav-tabs>li>a{
   font-size: 1.5em;
 }
 .epi-tit, .new-epi{
-  font-size: 1.6em !important;
+  font-size: 1.8em !important;
 }
 .details-row p{
-  font-size: 1.4em;
+  font-size: 1.3em;
+  line-height: 42px;
+  margin-top: 25px;
 }
 .slick-track{
   padding: 70px 0 !important;
@@ -2207,7 +2624,10 @@
   font-size: 20px;
 }
 .card-box{
-  min-height: 550px !important;
+  min-height: 595px !important;
+}
+.card-actions{
+  right: 85px !important;
 }
 .card-progress{
     font-size: 1.8em !important;
@@ -2324,9 +2744,80 @@
 .payment-status1 h3{
   margin-top:40px;
 }
+.epi-des {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height:220px;
+  line-height:27px;
+  font-size:1.4em;
+}
+.content-panel{
+  margin: 40px 15px 100px 15px;
+}
+.centered{
+  width: 77%;
+  margin:0 auto;
+}
+.epi-count1{
+  padding: 7px 15px;
+  font-size: 1.4em;
+}
+.duration_more{
+  font-size:17px;
+  padding:12px;
+}
+.details-row{
+  height:570px ;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.content-panel{
+    margin:90px 15px;
+}
+.styled-select{
+  height:44px;
+  background-image: url("http://localhost:8080/http/projects/base-products/streamview-angular-v1.2/assets/css/../img/arrow_icon.png");
+  background-repeat: no-repeat;
+  background-position: 96%;
+  width: 300px;
+  margin-bottom: 25px;
+}
+.styled-select select{
+  height:44px;
+  width: 320px;
+}
+.rating-symbol{
+  margin-top:6px;
+}
+.card-box{
+    width: 90%;
+    margin:0 auto;
+}
+.episode-count{
+  font-size:36px;
+}
+.notifications{
+  width:540px;
+}
+.notifications-wrapper{
+  max-height:325px;
+}
 }
 
 @media only screen and (min-width : 2560px) {
+.more-link{
+  margin-top: 0 !important;
+  height:196px !important;
+}
+.linear{
+  left: -1px;
+}
+.basic-section{
+  margin-top:55px;
+}
 .banner-spacing{
   padding:0 100px;
 }
@@ -2352,7 +2843,6 @@
 }
 .basic-para{
   letter-spacing: .2px;
-  padding: 0 10px;
   font-size: 1.9em;
   text-transform: uppercase;
   line-height: 23px;
@@ -2429,7 +2919,7 @@
     width: 13vw !important;
     max-width:350px !important;
 }
-.profiles-gate-container .profile-icon {
+.profiles-gate-container .profile-icon , .profiles-gate-container .addProfileIcon{
     height: 13vw !important;
     max-height: 350px !important;
     max-width: 350px !important;
@@ -2440,9 +2930,9 @@
     margin: 1.8em 0 !important;
 } 
 .profile-button a, .profile-button span {
-    font-size: 1.8em !important;
+    font-size: 1.4em !important;
     letter-spacing: 3px !important;
-    padding: 0.8em 2em !important;
+    padding: 0.6em 2em !important;
 }
 .profile-metadata .main-profile-avatar {
     max-width:330px !important;
@@ -2462,7 +2952,7 @@
 }
 .profile-entry input[type="text"] {
     font-size:2em !important;
-    height:3.5em !important;
+    height:2.5em !important;
     width:16em !important;
 }
 .account-header{
@@ -2544,6 +3034,7 @@
 }
 .search-icon{
   left: -38px;
+  font-size: 22px;
 }
 .navbar-nav>li>a{
   padding-top: 26px;
@@ -2565,6 +3056,19 @@
 }
 .dropdown-menu.nav-profile-menu{
   min-width:300px;
+}
+.more-profile > li > a{
+  width: 280px;
+}
+.nav-profile-name{
+    max-width:228px;
+    margin-left:0px;
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    margin-top: 4px;
 }
 .item-title{
   font-size: 1.5em;
@@ -2594,7 +3098,7 @@
   padding:200px 0 0 65px;
 }
 .tab-sec-inner{
-  padding-top: 200px !important;
+  padding-top: 140px !important;
 }
 .content-tit{
   font-size: 2.5em;
@@ -2610,7 +3114,7 @@
 }
 .overview-des{
   margin-top: 20px;
-  height: 149px;
+  height: 239px;
 }
 .white-icon{
   font-size: 1.4em;
@@ -2633,17 +3137,19 @@
   font-size: 1.5em;
 }
 .episode-img{
-  height: 215px;
+  height: 260px;
   margin-bottom:30px;
 }
 .drop-tab .nav-tabs>li>a{
   font-size: 1.5em;
 }
 .epi-tit, .new-epi{
-  font-size: 1.6em !important;
+  font-size: 1.8em !important;
 }
 .details-row p{
-  font-size: 1.4em;
+  font-size: 1.3em;
+  line-height: 42px;
+  margin-top: 25px;
 }
 .slick-track{
   padding: 70px 0 !important;
@@ -2707,7 +3213,10 @@
   font-size: 20px;
 }
 .card-box{
-  min-height: 550px !important;
+  min-height: 595px !important;
+}
+.card-actions{
+  right: 85px !important;
 }
 .card-progress{
     font-size: 1.8em !important;
@@ -2823,5 +3332,65 @@
 }
 .payment-status1 h3{
   margin-top: 40px;
+}
+.epi-des {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height:220px;
+  line-height:27px;
+  font-size:1.4em;
+}
+.content-panel{
+  margin: 40px 15px 120px 15px;
+}
+.centered{
+  width: 77%;
+  margin:0 auto;
+}
+.epi-count1{
+  padding: 7px 15px;
+  font-size: 1.5em;
+}
+.duration_more{
+  font-size:17px;
+  padding:12px;
+}
+.details-row{
+  height:570px ;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.content-panel{
+    margin:90px 15px;
+}
+.styled-select{
+  height:44px;
+  background-image: url("http://localhost:8080/http/projects/base-products/streamview-angular-v1.2/assets/css/../img/arrow_icon.png");
+  background-repeat: no-repeat;
+  background-position: 96%;
+  width: 300px;
+}
+.styled-select select{
+  height:44px;
+  width: 320px;
+}
+.rating-symbol{
+  margin-top:6px;
+}
+.card-box{
+    width: 90%;
+    margin:0 auto;
+}
+.episode-count{
+  font-size:34px;
+}
+.notifications{
+  width:540px;
+}
+.notifications-wrapper{
+  max-height:340px;
 }
 }
