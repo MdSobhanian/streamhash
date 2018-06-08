@@ -5,7 +5,7 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location) {
 
-		$rootScope.$emit('body_bg_img', true);
+		$rootScope.$emit('body_bg_img', false);
 		
 		var login_bg = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
 

@@ -55,7 +55,7 @@
 					<div class="tile-content" id="{{subkey}}_{{$index}}_{{$parentindex}}_desc">
 			            <h3 class="tile-tit">{{value.title}}</h3>
 
-			            <div class="row no-margin">
+			            <div class="row no-margin hidden-cls">
 							<div class="pull-left">
 								<div>
     								<div class="rating-symbol glyphicon"
@@ -84,7 +84,7 @@
 						</div>
 
 						<div class="row no-margin">
-							<div class="video-des col-lg-10 col-md-10 col-sm-10 col-xs-10 no-pad">
+							<div class="video-des col-xs-12 no-pad">
 								<p class="video-des-inner">{{value.description}}</p>
 							</div>
 						</div>
@@ -106,7 +106,7 @@
 
 				<!-- OVERVIEW SECTION  -->
 			    <div role="tabpanel" class="tab-pane active" id="{{subkey}}_{{$index}}_{{$parentindex}}_overview">
-				    <div class="overview tab-section">
+				    <div class="overview tab-section relative">
 				    	<div class="close-tab">
     						<a style="cursor: pointer;" ng-click="closeDiv(subkey, $index,$parentindex)" class="close-btn">
     							<i class="fa fa-times"></i>
@@ -114,11 +114,38 @@
     					</div>
 			    		
 		    			<div class="tab-section-content row no-margin">
-			    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-pad hidden-xs">
-			    				<div class="overview-details">
+			    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-5 no-pad overview-details">
+			    				
+			    			</div>
+
+			    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 no-pad">
+			    				<div class="linear-outer">
+			    					
+			    					<div class="linear">
+			    					</div>
+			    					<div class="rotate-img-outer">	
+		    					
+			    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in value.images"></div>
+				    				</div>
+
+				    				<div class="play-icon-outer">
+				    					<!-- <a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a> -->
+
+				    					<span ng-show="value.pay_per_view_status">
+				    						<a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
+				    					</span>
+				    					<span ng-hide="value.pay_per_view_status">
+				    						<a ui-sref="profile.payment-option({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
+				    					</span>
+				    				</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="home-new-deatils">
+			    				<div class="overview-details" style="background-color: unset;">
 			    					<h3 class="content-tit">{{value.title}}</h3>
 
-			    					<div class="row no-margin">
+			    					<div class="row no-margin hidden-xs">
 			    						<div class="pull-left">
 			    							<div>
 			    								<div class="rating-symbol glyphicon"
@@ -146,7 +173,7 @@
 			    						</p>
 			    					</div>
 
-			    					<div>
+			    					<div class="">
 
 			    						<div class="pull-left">
 
@@ -242,29 +269,6 @@
 									</div>
 			    				</div>
 			    			</div>
-
-			    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 no-pad">
-			    				<div class="linear-outer">
-			    					
-			    					<div class="linear">
-			    					</div>
-			    					<div class="rotate-img-outer">	
-		    					
-			    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in value.images"></div>
-				    				</div>
-
-				    				<div class="play-icon-outer">
-				    					<!-- <a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a> -->
-
-				    					<span ng-show="value.pay_per_view_status">
-				    						<a ui-sref="single_video({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
-				    					</span>
-				    					<span ng-hide="value.pay_per_view_status">
-				    						<a ui-sref="profile.payment-option({id : value.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a>
-				    					</span>
-				    				</div>
-			    				</div>
-			    			</div>
 			    		</div>
 			    							    
 				    </div>
@@ -326,17 +330,17 @@
 
 											<div class="episode-list-content">
 												<div class="row no-margin">
-													<div class="pull-left">
-														<h4 class="epi-tit gray-color1">{{genre_list.title}}</h4>
+													<div class="col-md-8 col-sm-12">
+														<h4 class="epi-tit gray-color1 txt-overflow">{{genre_list.title}}</h4>
 													</div>
 
-													<div class="pull-right">
-														<p class="bold gray-color1">{{genre_list.duration}}</p>
+													<div class="col-md-4 text-right hidden-sm">
+														<p class="bold gray-color1 epi-tit txt-overflow">{{genre_list.duration}}</p>
 													</div>
 												</div>
 
 												<div class="">
-													<p class="epi-des gray-color1">{{genre_list.description}}</p>
+													<p class=" gray-color1 overview-des more-link mt-0">{{genre_list.description}}</p>
 												</div>
 											</div>
 
@@ -366,7 +370,7 @@
 								<div class="trailers-list row">
 
 									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="trailer in value.genres" ng-if="value.is_genre">
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 top" ng-repeat="trailer in value.genres" ng-if="value.is_genre">
 										<div class="episode-list-box">
 
 											<div class="episode-img bg-img" style="background-image: url({{trailer.genre_image}});">
@@ -391,7 +395,7 @@
 										</div>
 									</div>
 
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-if="value.trailer_video">
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 top" ng-if="value.trailer_video">
 										<div class="episode-list-box">
 
 											<div class="episode-img bg-img" style="background-image: url({{value.default_image}});">
@@ -484,14 +488,14 @@
 						    							</div>
 						    						</div>
 						    						<p class="content-txt bold seasons">
-						    							<span class="green-clr">{{sub_video.publish_time}}</span>
-						    							<span class="epi-count">{{sub_video.age}} / <i class="fa fa-eye"></i>&nbsp;{{sub_video.watch_count}}</span>
+						    							<span class="green-clr hidden-sm">{{sub_video.publish_time}}</span>
+						    							<span class="epi-count hidden-sm hidden-md">{{sub_video.age}} / <i class="fa fa-eye"></i>&nbsp;{{sub_video.watch_count}}</span>
 						    							
 						    						</p>
 						    					</div>
 
 						    					<div>
-						    						<p class="content-txt overview-des bold">{{sub_video.description}}</p>
+						    						<p class="content-txt overview-des more-link">{{sub_video.description}}</p>
 						    					</div>
 											</div>
 
