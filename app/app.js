@@ -50,13 +50,14 @@ var streamViewApp = angular.module('streamViewApp', [
   'slick',
 ]);
 
-var route_url = "http://demo.streamhash.com/#";
+var route_url = "http://botfingers.com/#";
 
-var apiUrl = "http://adminview.streamhash.com/";
+var apiUrl = "http://staging.botfingers.com/";
+// var apiUrl = "http://localhost:8080/http/projects/base-products/streamview-v1.2-api/public/";
 
-var angularUrl = "http://demo.streamhash.com/#/";
+var angularUrl = "http://botfingers.com/#/";
 
-var common_url = "http://demo.streamhash.com/assets/";
+var common_url = "http://botfingers.com/assets/";
 
 streamViewApp
     .run([
@@ -81,6 +82,7 @@ streamViewApp
                 firstContentLoaded = false,
                 timer;
 
+
               $rootScope.$on('$stateChangeStart',
                 function(event, toState, toParams, fromState, fromParams) {
 
@@ -103,6 +105,7 @@ streamViewApp
 
                   $anchorScroll(0);
                 });
+
 
               // Use '$viewContentLoaded' instead of '$stateChangeSuccess'.
               // When '$stateChangeSuccess' fires the DOM has not been rendered and you cannot directly query the elements from the new HTML
@@ -141,8 +144,58 @@ streamViewApp
                     success : function(result) {
                       // console.log(result);
                       $rootScope.site_settings = result;
-                    }
-                });
+
+                       var common_bg_image = $.grep($rootScope.site_settings, function(e){ return e.key == 'common_bg_image'; });
+
+                        var common_bg = "";
+
+                        if (common_bg_image.length == 0) {
+
+                            console.log("not found");
+                            
+                        } else if (common_bg_image.length == 1) {
+
+                          // access the foo property using result[0].foo
+
+                          common_bg = common_bg_image[0].value;
+
+                          if (common_bg != '' || common_bg != null || common_bg != undefined) {
+                            
+                          } else {
+
+                            common_bg = '';
+
+                          }
+
+                        } else {
+
+                          // multiple items found
+                          common_bg = "";
+
+                        }
+
+                        $rootScope.common_bg = common_bg;
+                            }
+                        });
+
+                        $rootScope.$on("body_bg_img", function(event,data) {
+
+                            if(data) {
+
+                              $("body").css('background-image', "url("+$rootScope.common_bg+")");
+
+                              $("body").addClass('bg-img1');
+
+                            } else {
+
+                              $("body").css('background-image', "none");
+
+                              $("body").removeClass('bg-img1');
+
+                            }
+
+                        });
+
 
                 $.ajax({
                   url : apiUrl+'userApi/allPages',

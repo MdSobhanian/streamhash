@@ -4,6 +4,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 
+		$rootScope.$emit('body_bg_img', true);
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
@@ -158,6 +160,8 @@ angular.module('streamViewApp')
 .controller('viewProfilesController', ['$scope', '$http', '$rootScope', '$window', '$state', 
 
 	function ($scope, $http, $rootScope, $window, $state) {
+
+		$rootScope.$emit('body_bg_img', true);
 
 		$scope.no_of_account = 0;
 
@@ -353,6 +357,8 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state) {
 
+		$rootScope.$emit('body_bg_img', true);
+
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
@@ -470,6 +476,8 @@ angular.module('streamViewApp')
 .controller('manageProfilesController', ['$scope', '$http', '$rootScope', '$window', '$state', 
 
 	function ($scope, $http, $rootScope, $window, $state) {
+
+		$rootScope.$emit('body_bg_img', true);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
@@ -605,6 +613,8 @@ angular.module('streamViewApp')
 .controller('editProfileController', ['$scope', '$http', '$rootScope', '$window', '$state', '$stateParams',
 
 	function ($scope, $http, $rootScope, $window, $state,$stateParams) {
+
+		$rootScope.$emit('body_bg_img', true);
 
 		$scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
