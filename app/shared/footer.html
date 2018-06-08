@@ -1,13 +1,15 @@
+<div class="height"></div>
+
 <footer class="footer">
     <div class="banner-spacing"> 
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 top">
           <div class="foot-head">
             <a style="text-decoration: none" class="foot-link">Questions? Contact Us</a>
           </div>
 
           <div class="footer row no-margin">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" ng-repeat="pages in allPages" >
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" ng-repeat="pages in allPages" >
               <div class="">
                 <a ui-sref="static.page({id : page.id})" class="foot-link" ng-repeat="page in pages" style="text-transform: capitalize;">{{page.heading}}</a>
               </div>
@@ -16,7 +18,7 @@
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="row"> 
             <div class="col-12 col-xs-6 col-sm-6 col-md-6 col-lg-6 top " ng-show="appstore || playstore">
               <ul class="foot-app" >Get the latest App:

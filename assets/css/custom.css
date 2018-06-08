@@ -105,6 +105,7 @@
     font-size: 5vw;
     color: grey;
     text-align: center;
+    margin: 0 1vw;
 }
 
 .profile-button {
@@ -140,7 +141,7 @@
     transition: opacity .4s ease-out;
 }
 .list-profiles .choose-profile {
-    margin: 2em 0;
+    margin: 2em 0 0 0 ;
 }
 .list-profiles .choose-profile, .list-profiles .profile-gate-label {
     opacity: 1;
@@ -152,8 +153,11 @@
 .profiles-gate-container ul {
     padding: 0;
 }
-.profiles-gate-container li.profile:not(:last-child) {
+/*.profiles-gate-container li.profile:not(:last-child) {
     margin: 0 2vw 0 0;
+}*/
+.profiles-gate-container li.profile{
+    margin: 0 1vw 0 1vw;    
 }
 .profiles-gate-container li.profile {
     width: 10vw;
@@ -186,6 +190,7 @@
     text-decoration: none;
     width: 10vw;
     transition: .3s all linear;
+    background-repeat: no-repeat;
     /*background-position: center center;
     height: 10vw;
     width: 10vw;
@@ -228,7 +233,7 @@
  border:.3em solid #e5e5e5;
  cursor:pointer;
 }
-.profiles-gate-container .addProfileIcon :hover{
+.profiles-gate-container .addProfileIcon:hover{
     background: #fff;
     -moz-box-align: center;
     -moz-box-pack: center;
@@ -245,8 +250,12 @@
     text-align: center;
     text-decoration: none;
     width: 10vw;
+    margin-top: 0;
 }
 
+.profiles-gate-container .addProfileIcon i{
+    margin-top: -10px;
+}
 .profile-actions-container {
     position: relative;
     text-align: left;
@@ -370,7 +379,6 @@
     background: #fff none repeat scroll 0 0;
     border: 1px solid #fff;
     color: #000;
-    font-weight: 700;
 }
 .profile-button.preferred-action a:hover, .profile-button.preferred-action a:active, .profile-button.preferred-action a:focus,
 .profile-button.preferred-action span:hover, .profile-button.preferred-action span:active, .profile-button.preferred-action span:focus{
@@ -427,7 +435,7 @@
     -moz-box-pack: center;
     align-items: center;
     color: #fff;
-    font-size: 22px;
+    /*font-size: 22px;*/
 
 }
 
@@ -592,3 +600,64 @@
 
     bottom: 60px;
 }
+.edit-round{
+    height: 45px;
+    width: 45px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.edit-round i{
+    line-height: 38px;
+    font-size: 18px;
+}
+@media screen and (max-width: 767px) {
+.profile-button{
+    margin:1em 0 0 0;
+}
+.profile-button a, .profile-button span {
+    border: 1px solid grey;
+    color: grey;
+    cursor: pointer;
+    font-size: 0.6em;
+    letter-spacing: 2px;
+    padding: 0.5em 1.5em;
+    text-transform: uppercase;
+    transition: .3s all linear; 
+}
+.edit-round{
+    height: 30px;
+    width: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.edit-round i{
+    line-height: 26px;
+    font-size: 12px;
+}
+}
+@media (min-width : 768px) and (max-width: 991px){
+.profile-button{
+    margin:1.5em 0 1em 0;
+}
+.profile-button a, .profile-button span {
+    border: 1px solid grey;
+    color: grey;
+    cursor: pointer;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    padding: 0.45em 1.5em;
+    text-transform: uppercase;
+    transition: .3s all linear; 
+}
+.edit-round{
+    height: 30px;
+    width: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.edit-round i{
+    line-height: 26px;
+    font-size: 12px;
+}
+}
+
