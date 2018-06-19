@@ -402,6 +402,11 @@ angular.module('streamViewApp')
                         success : function (data) {
 
                             if (data.success) {
+
+                                if (data.navigateback) {
+
+                                    window.location.reload(true);
+                                }
                                 
 
                             } else {

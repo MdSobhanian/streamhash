@@ -144,6 +144,10 @@ angular.module('streamViewApp')
 
 							$scope.coupon_code = coupon_code;
 
+							$scope.original_coupon_amount = data.data.original_coupon_amount;	
+
+							$(".showPay").show();
+
 						} else {
 
 							$scope.coupon_amount = 0;
@@ -151,6 +155,10 @@ angular.module('streamViewApp')
 							$scope.coupon_code = "";
 
 							$scope.remaining_amount = 0;
+
+							$(".showPay").hide();
+
+							$scope.original_coupon_amount = 0;	
 
 							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
