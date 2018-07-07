@@ -852,7 +852,9 @@ angular.module('streamViewApp')
 
 		    $scope.login_bg = bg_image;
 
-		    $scope.cancel_subscription = function() {
+		    $scope.cancel_subscription = function(cancel_reason) {
+
+		    	alert(cancel_reason);
 
 	    		if(confirm('If you are cancelled your subscription, automatic renewal wont happen. Do you want to cancel your subscription ?')) {
 
@@ -862,7 +864,7 @@ angular.module('streamViewApp')
 
 						url : apiUrl + "userApi/cancel/subscription",
 
-						data : {id : memoryStorage.user_id, token : memoryStorage.access_token},
+						data : {id : memoryStorage.user_id, token : memoryStorage.access_token, cancel_reason : cancel_reason},
 
 						async : false,
 					
@@ -873,7 +875,7 @@ angular.module('streamViewApp')
 
 								UIkit.notify({message : data.message, timeout : 3000, pos : 'top-center', status : 'success'});
 
-								$state.reload();
+								setTimeout(function(){window.location.reload()}, 1000);
 
 							} else {
 
