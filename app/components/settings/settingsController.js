@@ -854,8 +854,6 @@ angular.module('streamViewApp')
 
 		    $scope.cancel_subscription = function(cancel_reason) {
 
-		    	alert(cancel_reason);
-
 	    		if(confirm('If you are cancelled your subscription, automatic renewal wont happen. Do you want to cancel your subscription ?')) {
 
 	    			$.ajax({
