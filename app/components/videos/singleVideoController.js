@@ -425,39 +425,72 @@ angular.module('streamViewApp')
 
                 }
 
-        		playerInstance.setup({
-                    /*sources: [{
-                        file: video
-                      }],*/
-                    file: video,
-                    image: $scope.video.video.default_image,
-                    width: "100%",
-                    height : $scope.height,
-                    primary: "flash",
-                    autostart : true,
-                    /* "sharing": {
-                        "sites": ["reddit","facebook","twitter"]
-                    },*/
-                    events : {
+                if ($scope.video.video_pixels) {
 
-                        onComplete : function(event) { 
+    
+                    var path = [];
 
-                            history();
+                    var splitVideo = video.split(',');
 
-                            on_complete_video_delete(memoryStorage.continous_sub_profile_id, memoryStorage.continous_watch_video_id);
+                    var splitVideoPixel = $scope.video.video_pixels.split(',');
+
+
+                    for (var i = 0 ; i < splitVideo.length; i++) {
+                        path.push({file : splitVideo[i], label : splitVideoPixel[i]});
+                    }
+
+                    playerInstance.setup({
+                        sources : path,
+                        image: $scope.video.video.default_image,
+                        width: "100%",
+                        height : $scope.height,
+                        primary: "flash",
+                        autostart : true,
+                        events : {
+                            onComplete : function(event) { 
+
+                                history();
+
+                                on_complete_video_delete(memoryStorage.continous_sub_profile_id, memoryStorage.continous_watch_video_id);
+
+                            },
 
                         },
+                        tracks : $scope.video.video_subtitle_name ? [{
+                          file : common_url+'subtitles/'+$scope.video.video_subtitle_name,
+                          kind : "captions",
+                          default : true,
+                        }] : '',
+                    });
 
+                } else {
 
-                    },
-                    tracks : [{
-                      file : common_url+'subtitles/'+$scope.video.video_subtitle_name,
-                      kind : "captions",
-                      default : true,
-                    }]
-                    
-                });
+            		playerInstance.setup({
+                        file: video,
+                        image: $scope.video.video.default_image,
+                        width: "100%",
+                        height : $scope.height,
+                        primary: "flash",
+                        autostart : true,
+                        events : {
+                            onComplete : function(event) { 
 
+                                history();
+
+                                on_complete_video_delete(memoryStorage.continous_sub_profile_id, memoryStorage.continous_watch_video_id);
+
+                            },
+
+                        },
+                        tracks : $scope.video.video_subtitle_name ? [{
+                          file : common_url+'subtitles/'+$scope.video.video_subtitle_name,
+                          kind : "captions",
+                          default : true,
+                        }] : '',
+                        
+                    });
+
+                }
                 if ($scope.video.seek > 0) {  
 
                     playerInstance.on('firstFrame', function() { 

@@ -272,28 +272,50 @@ angular.module('streamViewApp')
                // var video = $scope.video.trailer_video_rtmp_smil ? common_video_url+'smil/'+$scope.video.trailer_video_rtmp_smil : $scope.video.trailer_video;
             }
 
+            if ($scope.video.trailer_pixels) {
 
+                var trailerPath = [];
 
+                var splitTrailer = video.split(',');
 
+                var splitTrailerPixel = $scope.video.trailer_pixels.split(',');
 
-    		playerInstance.setup({
-                /*sources: [{
-                    file: video
-                  }],*/
-                file: video,
-                image: $scope.video.video.default_image,
-                width: "100%",
-                height : $scope.height,
-                primary: "flash",
-                autostart : true,
-                tracks : [{
-                  file : common_url+'subtitles/'+$scope.video.trailer_subtitle_name,
-                  kind : "captions",
-                  default : true,
-                }]
-            });
+                for (var i = 0 ; i < splitTrailer.length; i++) {
 
+                    trailerPath.push({file : splitTrailer[i], label : splitTrailerPixel[i]});
+                }
 
+                playerInstance.setup({
+                    sources : trailerPath,
+                    image: $scope.video.video.default_image,
+                    width: "100%",
+                    height : $scope.height,
+                    primary: "flash",
+                    autostart : true,
+                    tracks : $scope.video.trailer_subtitle_name ? [{
+                      file : common_url+'subtitles/'+$scope.video.trailer_subtitle_name,
+                      kind : "captions",
+                      default : true,
+                    }] : '',
+                });
+
+            } else {
+
+        		playerInstance.setup({
+                    file: video,
+                    image: $scope.video.video.default_image,
+                    width: "100%",
+                    height : $scope.height,
+                    primary: "flash",
+                    autostart : true,
+                    tracks : $scope.video.trailer_subtitle_name ? [{
+                      file : common_url+'subtitles/'+$scope.video.trailer_subtitle_name,
+                      kind : "captions",
+                      default : true,
+                    }] : '',
+                });
+
+            }
 
             playerInstance.on('error', function() {
 
