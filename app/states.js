@@ -256,6 +256,24 @@ streamViewApp
                     }
                 })
 
+                .state("profile.cast", {
+                    cache: false,
+                    url: "/cast/{cast_id}",
+                    templateUrl: 'app/components/cast_crews/cast_crews.html',
+                    controller: 'castCrewsController',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'assets/css/home.css',
+                                'app/components/cast_crews/castCrewsController.js',
+                            ]);
+                        }]
+                    },
+                    data: {
+                        pageTitle: 'Cast &amp; Crews'
+                    }
+                })
+
                 .state("profile.spam_videos", {
                     cache: false,
                     url: "/spam/videos",
@@ -485,7 +503,7 @@ streamViewApp
 
                 .state('profile.payment-option', {
                     cache: false,
-                    url: "/payment-potion/{id}",
+                    url: "/payment-option/{id}",
                     templateUrl: 'app/components/settings/payment_option.html',
                     controller: 'paymentOptionController',
                     resolve: {

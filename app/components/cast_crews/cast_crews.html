@@ -3,7 +3,7 @@
 <div style="margin-top:80px !important; margin:5%; padding: 10px;">
 
 <div class="box-head" style="margin-bottom: 2%;">
-   <h3>{{title}}</h3>
+   <h3>{{cast_details.name}}</h3>
 </div>
 
 <button ng-click="loadMoreDetails()" ng-hide="true" id="load_more_details"></button>
@@ -11,11 +11,8 @@
 
 <div class="box video-box-row" ng-if="datas.length == 0">
 
-<p ng-if="title == 'wishlist'">You have not added any video to wishlist Yet</p>
+<p ng-if="datas.length < 0 ">No videos present in this section</p>
 
-<p ng-if="title == 'watchlist'"> You haven’t watched anything yet</p>
-
-<p ng-if="title != 'watchlist' && title != 'wishlist'">No videos found</p>
 
 </div>
 
@@ -129,7 +126,7 @@
 		    					</div>
 		    					<div class="rotate-img-outer">	
 	    					
-		    						<div class="rotate-img highlight-img bg-img" style="background-image: url({{value.video_gif_image}});"></div>
+		    						<div class="rotate-img highlight-img bg-img" style="background-image: url({{value.video_gif_image}});" ></div>
 			    				</div>
 
 			    				<div class="play-icon-outer">
@@ -525,7 +522,6 @@
 					<div class="tab-overlay">
 
 						<div class="details-section-inner tab-section-content tab-sec-inner contain-width details_section_tab">
-							<h3 class="content-tit">{{value.sub_category_name}}</h3>
 
 							<div class="row col-sm-12 col-sm-12 col-lg-12 col-md-12">
 								<h4 class="epi-tit gray-color1 txt-overflow ng-binding">Cast & Crews</h4>

@@ -180,7 +180,7 @@
 			    					</div>
 			    					<div class="rotate-img-outer">	
 		    					
-			    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in value.images"></div>
+			    						<div class="rotate-img highlight-img bg-img" style="background-image: url({{value.video_gif_image}});"></div>
 				    				</div>
 
 				    				<div class="play-icon-outer">
@@ -210,7 +210,24 @@
 							<div class="details-section-inner tab-section-content tab-sec-inner contain-width details_section_tab">
 								<h3 class="content-tit">{{value.sub_category_name}}</h3>
 
+								<div class="row col-sm-12 col-sm-12 col-lg-12 col-md-12">
+									<h4 class="epi-tit gray-color1 txt-overflow ng-binding">Cast & Crews</h4>
+
+									<div class="clearfix"></div>
+
+									<p ng-repeat="cast_crew in value.cast_crews">
+
+										<a ui-sref="profile.cast({cast_id : cast_crew.cast_crew_id})">{{cast_crew.name}}</a>
+										
+									</p>
+
+								</div>
+
+								<div class="clearfix"></div>
+									
 								<div class="details-row row no-margin">
+
+									<h4 class="epi-tit gray-color1 txt-overflow ng-binding">Details</h4>
 
 									<p ng-bind-html="value.details"></p>
 

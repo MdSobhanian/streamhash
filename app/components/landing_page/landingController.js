@@ -148,10 +148,283 @@ angular.module('streamViewApp')
 
 	    $scope.site_logo = logo;
 
+	    /******************* Banner Heading ***********************************/
 
-	    
+	    var banner_heading = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_banner_heading'; });
+
+	    var home_banner_heading = "";
+
+	    if (banner_heading.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (banner_heading.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_banner_heading = banner_heading[0].value;
+
+	      if (home_banner_heading != '' || home_banner_heading != null || home_banner_heading != undefined) {
+	        
+	      } else {
+
+	        home_banner_heading = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_banner_heading = "";
+
+	    }
+
+	    $scope.banner_heading = home_banner_heading;
+		    
+		/************************************ Banner Description ***********************/
+
+		var banner_description = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_banner_description'; });
+
+	    var home_banner_description = "";
+
+	    if (banner_description.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (banner_description.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_banner_description = banner_description[0].value;
+
+	      if (home_banner_description != '' || home_banner_description != null || home_banner_description != undefined) {
+	        
+	      } else {
+
+	        home_banner_description = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_banner_description = "";
+
+	    }
+
+	    $scope.banner_description = home_banner_description;
+		    
+
+		/*************************** Home - About site ***************************/
 
 		
+
+
+		var about_site = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_about_site'; });
+
+	    var home_about_site = "";
+
+	    if (about_site.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (about_site.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_about_site = about_site[0].value;
+
+	      if (home_about_site != '' || home_about_site != null || home_about_site != undefined) {
+	        
+	      } else {
+
+	        home_about_site = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_about_site = "";
+
+	    }
+
+	    $scope.about_site = home_about_site;
+
+
+	    /************************* Home - Cancel content *************************/
+
+
+	    var cancel_content = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_cancel_content'; });
+
+	    var home_cancel_content = "";
+
+	    if (cancel_content.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (cancel_content.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_cancel_content = cancel_content[0].value;
+
+	      if (home_cancel_content != '' || home_cancel_content != null || home_cancel_content != undefined) {
+	        
+	      } else {
+
+	        home_cancel_content = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_cancel_content = "";
+
+	    }
+
+	    $scope.cancel_content = home_cancel_content;
+		    
+
+	    
+	  	/************************* Home - Desktop image *************************/
+
+
+	    var desktop_image = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_browse_desktop_image'; });
+
+	    var home_browse_desktop_image = "";
+
+	    if (desktop_image.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (desktop_image.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_browse_desktop_image = desktop_image[0].value;
+
+	      if (home_browse_desktop_image != '' || home_browse_desktop_image != null || home_browse_desktop_image != undefined) {
+	        
+	      } else {
+
+	        home_browse_desktop_image = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_browse_desktop_image = "";
+
+	    }
+
+	    $scope.desktop_image = home_browse_desktop_image;
+
+	    
+	  	/************************* Home - Tv image *************************/
+
+
+	    var tv_image = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_browse_tv_image'; });
+
+	    var home_browse_tv_image = "";
+
+	    if (tv_image.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (tv_image.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_browse_tv_image = tv_image[0].value;
+
+	      if (home_browse_tv_image != '' || home_browse_tv_image != null || home_browse_tv_image != undefined) {
+	        
+	      } else {
+
+	        home_browse_tv_image = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_browse_tv_image = "";
+
+	    }
+
+	    $scope.tv_image = home_browse_tv_image;
+
+	    /************************* Home - Mobile image *************************/
+
+
+	    var mobile_image = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_browse_mobile_image'; });
+
+	    var home_browse_mobile_image = "";
+
+	    if (mobile_image.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (mobile_image.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_browse_mobile_image = mobile_image[0].value;
+
+	      if (home_browse_mobile_image != '' || home_browse_mobile_image != null || home_browse_mobile_image != undefined) {
+	        
+	      } else {
+
+	        home_browse_mobile_image = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_browse_mobile_image = "";
+
+	    }
+
+	    $scope.mobile_image = home_browse_mobile_image;
+
+	    /************************* Home - Cancel image *************************/
+
+
+	    var cancel_image = $.grep($rootScope.site_settings, function(e){ return e.key == 'home_cancel_image'; });
+
+	    var home_cancel_image = "";
+
+	    if (cancel_image.length == 0) {
+
+	        console.log("not found");
+	        
+	    } else if (cancel_image.length == 1) {
+
+	      // access the foo property using result[0].foo
+
+	      home_cancel_image = cancel_image[0].value;
+
+	      if (home_cancel_image != '' || home_cancel_image != null || home_cancel_image != undefined) {
+	        
+	      } else {
+
+	        home_cancel_image = '';
+
+	      }
+
+	    } else {
+
+	      // multiple items found
+	      home_cancel_image = "";
+
+	    }
+
+	    $scope.cancel_image = home_cancel_image;
+	    
 	}
 
 ]);
