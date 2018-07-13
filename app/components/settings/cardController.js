@@ -268,12 +268,16 @@ angular.module('streamViewApp')
 
 							} else {
 
+								$('#save_card_btn').prop('disabled', false);
+
 								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
 								return false;
 							}
 						},
 						error : function (data) {
+
+							$('#save_card_btn').prop('disabled', false);
 
 							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
@@ -306,7 +310,7 @@ angular.module('streamViewApp')
 
 			           $form.find('button').prop('disabled', false);
 
-			           $('#save_card_btn').prop('disabled', false);
+
 
 			        } else {
 			            // token contains id, last4, and card type
