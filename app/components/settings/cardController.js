@@ -272,8 +272,8 @@ angular.module('streamViewApp')
 
 								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-								$state.reload();
-
+								setTimeout(function() { $state.reload(); }, 1000);
+								
 								return false;
 							}
 						},
