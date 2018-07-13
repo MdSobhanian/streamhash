@@ -122,6 +122,14 @@ angular.module('streamViewApp')
 
 			$scope.apply_coupon_subscription = function(coupon_code) {
 
+				if (coupon_code == undefined || coupon_code == '') {
+
+					UIkit.notify({message : "Promo Code is required", timeout : 3000, pos : 'top-center', status : 'danger'});
+
+					return false;
+
+				}
+
 				$.ajax({
 
 					type : "post",
