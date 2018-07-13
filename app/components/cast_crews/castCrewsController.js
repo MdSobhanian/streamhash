@@ -624,7 +624,8 @@ angular.module('streamViewApp')
 
 							UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-							return false;
+							$state.go('profile.home',{sub_profile_id : memoryStorage.sub_profile_id},{reload:true});
+
 						}
 					},
 					error : function (data) {

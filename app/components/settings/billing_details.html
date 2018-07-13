@@ -23,7 +23,7 @@
 		        			<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="text-right white-clr"><h4><i class="fa fa-angle-double-right"></i>&nbsp; View Plan Details</h4></a>
 
 		        		
-		        			<div ng-if="active_plan.data.is_cancelled == 0 && active_plan.data.sub_amount > 0">
+		        			<div ng-if="active_plan.data.cancelled_status == 0 && active_plan.data.sub_amount > 0">
 
 		        			<p class="bill-line"></p>
 
@@ -52,7 +52,7 @@
 							    </div>
 							</div>
 
-		        			<div ng-if="active_plan.data.is_cancelled == 1 && active_plan.data.sub_amount > 0">
+		        			<div ng-if="active_plan.data.cancelled_status == 1 && active_plan.data.sub_amount > 0">
 
 		        			<p class="bill-line"></p>
 
@@ -61,7 +61,7 @@
 
 		        			</div>
 
-		        			<!-- <div ng-if="active_plan.data.is_cancelled == 1 && active_plan.data.sub_amount > 0">
+		        			<!-- <div ng-if="active_plan.data.cancelled_status == 1 && active_plan.data.sub_amount > 0">
 
 		        			<p class="bill-line"></p>
 
@@ -86,6 +86,10 @@
 	        					<div class="table-responsive">
   									<table class="table table-bordered">
   										<tbody>
+  											<tr>
+												<td>Payment Id</td>
+												<td>{{plan.payment_id}}</td>
+											</tr>
 											<tr>
 												<td>Subscribed Date</td>
 												<td>{{plan.date}}</td>
