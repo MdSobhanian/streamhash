@@ -272,6 +272,8 @@ angular.module('streamViewApp')
 
 								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
+								$state.reload();
+
 								return false;
 							}
 						},
@@ -332,7 +334,6 @@ angular.module('streamViewApp')
 
 			    $('#payment-form').submit(function (e) {
 
-			        
 			        if ($('#stripeToken').length == 0)
 			        {
 			            var $form = $(this);
