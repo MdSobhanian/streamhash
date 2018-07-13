@@ -268,7 +268,7 @@ angular.module('streamViewApp')
 
 							} else {
 
-								$('#save_card_btn').prop('disabled', false);
+								$('#save_card_btn').attr('disabled', false);
 
 								UIkit.notify({message : data.error_messages, timeout : 3000, pos : 'top-center', status : 'danger'});
 
@@ -277,7 +277,7 @@ angular.module('streamViewApp')
 						},
 						error : function (data) {
 
-							$('#save_card_btn').prop('disabled', false);
+							$('#save_card_btn').attr('disabled', false);
 
 							UIkit.notify({message : 'Something Went Wrong, Please Try again later', timeout : 3000, pos : 'top-center', status : 'danger'});
 
@@ -308,7 +308,7 @@ angular.module('streamViewApp')
 
 			           UIkit.notify({message : response.error.message, timeout : 3000, pos : 'top-center', status : 'danger'});
 
-			           $form.find('button').prop('disabled', false);
+			           $('#save_card_btn').attr('disabled', false);
 
 
 
@@ -338,7 +338,7 @@ angular.module('streamViewApp')
 			            var $form = $(this);
 
 			            // Disable the submit button to prevent repeated clicks
-			            $form.find('button').prop('disabled', true);
+			            $('#save_card_btn').attr('disabled', true);
 
 			            console.log($form);
 
@@ -355,7 +355,7 @@ angular.module('streamViewApp')
 				UIkit.notify({message : 'Contact admin to enable stripe card.', timeout : 3000, pos : 'top-center', status : 'warning'});
 
 
-				$('#save_card_btn').prop('disabled', true);
+				$('#save_card_btn').attr('disabled', true);
 
 				return false;
 
