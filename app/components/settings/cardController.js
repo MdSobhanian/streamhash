@@ -306,6 +306,8 @@ angular.module('streamViewApp')
 
 			           $form.find('button').prop('disabled', false);
 
+			           $('#save_card_btn').prop('disabled', false);
+
 			        } else {
 			            // token contains id, last4, and card type
 			            var token = response.id;
