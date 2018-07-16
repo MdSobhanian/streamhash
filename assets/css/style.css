@@ -3029,3 +3029,27 @@ input:checked + .switch-btn:before {
 .t-0{
     margin-top: 0 !important;
 }
+.coupon-form{
+    height: 36px !important;
+    border-radius: 3px;
+}
+.coupon-form:focus{
+    box-shadow: none;
+    border-color: #777;
+}
+.mt-35{
+    margin-top: 35px;
+}
+.p-0{
+    padding: 0;
+    margin: 0;
+}
+.m-0{
+    margin: 0;
+}
+.red-bg{
+    background-color: #E50914;
+}
+.whte-bg{
+    background-color: #fff;
+}

@@ -32,8 +32,40 @@
 											</tbody>
 			   							</table>
 			   							
-			   							<div ng-if="plan.amount > 0">
-				   							<h3 class="no-margin top1 black-clr"><span><i class="fa fa-credit-card-alt icon"></i></span>Payment Options</h3>
+			   							
+
+										<div ng-if="plan.amount > 0">
+
+											<h4 class="table-title">Have a coupon ?</h4>
+
+											<table class="table">
+		        								<tbody>
+		        									<tr>
+		        									<!-- <tr class="active"> -->
+												        <td style="width: 100px;vertical-align: middle;">Promo Code</td>
+												        <td><input type="text" name="coupon_code" id="coupon_code" ng-model="coupon_code" class="form-control coupon-form"></td>
+												        <td><button class="payment-submit" style="margin-top:0" ng-click="apply_coupon_subscription(coupon_code)">Apply</button></td>
+												    </tr>
+												    <tr class="showPay" style="display: none">
+		        									<!-- <tr class="active"> -->
+												        <td>Coupon Amount</td>
+												        <td></td>
+												        <td>{{original_coupon_amount}}</td>
+												    </tr>
+												    <tr class="warning showPay" style="display: none">
+		        									<!-- <tr class="active"> -->
+												        <td>Grant Total</td>
+												        <td></td>
+												        <td>{{plan.currency}}{{remaining_amount}}</td>
+												    </tr>
+												</tbody>
+											</table>
+
+										</div>
+										<div style="clear: both;"></div>
+
+										<div ng-if="plan.amount > 0">
+				   							<h3 class="no-margin mt-35 black-clr"><span><i class="fa fa-credit-card-alt icon"></i></span>Payment Options</h3>
 				   							<div class="black-clr">
 					   							<label>
 												    <input type="radio" class="option-input radio" name="type_of_payment" checked value="1"/>
@@ -47,35 +79,6 @@
 
 										</div>
 
-										<div ng-if="plan.amount > 0">
-
-										<h4 class="table-title">Have a coupon ?</h4>
-
-											<table class="table">
-		        								<tbody>
-		        									<tr>
-		        									<!-- <tr class="active"> -->
-												        <td style="width: 100px;vertical-align: middle;">Promo Code</td>
-												        <td><input type="text" name="coupon_code" id="coupon_code" ng-model="coupon_code" class="form-control" style="height: 35px;"></td>
-												        <td><button class="payment-submit" style="margin-top:0" ng-click="apply_coupon_subscription(coupon_code)">Apply</button></td>
-												    </tr>
-												    <tr class="showPay" style="display: none">
-		        									<!-- <tr class="active"> -->
-												        <td>Coupon Amount</td>
-												        <td></td>
-												        <td>{{original_coupon_amount}}</td>
-												    </tr>
-												    <tr class="info showPay" style="display: none">
-		        									<!-- <tr class="active"> -->
-												        <td>Grant Total</td>
-												        <td></td>
-												        <td>{{plan.currency}}{{remaining_amount}}</td>
-												    </tr>
-												</tbody>
-											</table>
-
-										</div>
-										<div style="clear: both;"></div>
 										<div class="text-center"> 
 			   								<button class="paynow-btn1 top" ng-click="sendToPaypal(plan.id, plan.amount)" id="pay_now_subscription"><i class="fa fa-credit-card"></i> &nbsp; Pay Now</button>
 			   							</div>

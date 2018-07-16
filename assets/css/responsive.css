@@ -292,6 +292,9 @@
 .section-padding{
     padding:25px;
 }
+.ppv-section-height{
+  min-height:unset; 
+}
 }
 
 /*small devices*/
@@ -549,6 +552,9 @@
 }
 .video-des-inner{
   font-size: 7px;
+}
+.ppv-section-height{
+  min-height:unset; 
 }
 }
 
