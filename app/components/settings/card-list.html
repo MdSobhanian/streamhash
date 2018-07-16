@@ -16,8 +16,8 @@
                         		<div class="card-list-right">
                         			<p class="m-0"><a ng-click="deleteCard(card.card_id)" style="cursor: pointer;"><i class="fa fa-trash pull-right"></i></a></p>
                         			<h4 class="uppercase mt-0">xxxx-xxxx-xxxx-{{card.last_four}}</h4>
-                        			<a ng-if="card.is_default"><p class="theme-clr captalize">Default card</p></a>
-                                    <a ng-if="!card.is_default" ng-click="setAsDefault(card.card_id)" style="cursor: pointer;"><p class="captalize">Set as default</p></a>
+                        			<a ng-if="card.is_default == 1"><p class="theme-clr captalize">Default card</p></a>
+                                    <a ng-if="card.is_default == 0" ng-click="setAsDefault(card.card_id)" style="cursor: pointer;"><p class="captalize">Set as default</p></a>
                         		</div>
                         	</div>
                         	<div class="clearfix"></div>

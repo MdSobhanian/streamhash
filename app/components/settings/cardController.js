@@ -113,7 +113,7 @@ angular.module('streamViewApp')
 
 			$scope.setAsDefault = function(card_id) {
 
-				if (confirm('Are you sure want to delete the card ?')) {
+				if (confirm('Are you sure want to change the card as default ?')) {
 
 					$.ajax({
 
