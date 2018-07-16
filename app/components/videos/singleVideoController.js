@@ -9,6 +9,7 @@ angular.module('streamViewApp')
 
         $scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
+
         if ($scope.user_id && $scope.access_token) {
 
 
@@ -88,6 +89,10 @@ angular.module('streamViewApp')
 
                         $scope.embed_link = apiUrl+"embed?v_t=2&u_id="+data.video.unique_id;
 
+                        memoryStorage.saved_subscription_video_id = "";
+
+                        localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
                         if ($scope.video.pay_per_view_status) {
 
 
@@ -96,6 +101,10 @@ angular.module('streamViewApp')
                             console.log($scope.video.pay_per_view_status);
 
                             $scope.page_not_changed = false;
+
+                            memoryStorage.saved_subscription_video_id = $stateParams.id;
+
+                            localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
                             $state.go('profile.pay_per_view', {id : $scope.video.video.admin_video_id}, {reload:true});
 
@@ -108,11 +117,17 @@ angular.module('streamViewApp')
 
                                 $scope.page_not_changed = false;
 
+                                memoryStorage.saved_subscription_video_id = $stateParams.id;
+
+                                localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
                                 $state.go('profile.subscriptions', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
                             }
 
                         }
+
+                        
 
     				} else {
 

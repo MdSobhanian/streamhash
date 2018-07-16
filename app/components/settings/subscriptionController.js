@@ -17,6 +17,8 @@ angular.module('streamViewApp')
 
 			$scope.video_id = $stateParams.id;
 
+			$scope.admin_video_id = memoryStorage.saved_subscription_video_id > 0 ? memoryStorage.saved_subscription_video_id : '';
+			
 			$.ajax({
 
 				type : "get",
@@ -54,6 +56,8 @@ angular.module('streamViewApp')
 						memoryStorage.sub_profile_id = data.sub_profile_id;
 
 						memoryStorage.one_time_subscription = data.one_time_subscription;
+
+						memoryStorage.saved_subscription_video_id = "";
 
 						localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 

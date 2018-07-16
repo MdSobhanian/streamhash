@@ -234,7 +234,9 @@ angular.module('streamViewApp')
 
 										UIkit.notify({message : "Successfully, subscribed to view videos", timeout : 3000, pos : 'top-center', status : 'success'});
 
-										$state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
+										$state.go('profile.subscription-success', {}, {reload:true});
+
+										// $state.go('profile.account-settings', {sub_profile_id : memoryStorage.sub_profile_id}, {reload:true});
 
 									} else {
 										

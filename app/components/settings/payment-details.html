@@ -21,10 +21,15 @@
 
 	        			<div class="payment-details top" ng-repeat="video in paid_videos">
 	        				<div class="relative">
-		        				<div class="payment-vide-img" style="background-image: url({{video.picture}});">
-		        					<h4 class="payment-video-title">{{video.title}}</h4>
-		        				</div>
-		        				<div class="video-amount">{{video.currency}}{{video.amount}}</div>
+
+	        					<a ui-sref="single_video({id : video.admin_video_id})">
+
+			        				<div class="payment-vide-img" style="background-image: url({{video.picture}});">
+			        					<h4 class="payment-video-title">{{video.title}}</h4>
+			        				</div>
+			        				<div class="video-amount" style="color: #fff">{{video.currency}}{{video.amount}}</div>
+
+		        				</a>
 	        				</div>
 							<div class="table-responsive">    				
 								<table class="table">

@@ -17,7 +17,13 @@ angular.module('streamViewApp')
 
 			if(memoryStorage.user_type == 1) {
 
+	            memoryStorage.saved_subscription_video_id = $stateParams.id;
+
+                localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
 				$state.go('profile.pay_per_view', {id : $stateParams.id}, {reload:true});
+
+				return false;
 				
 			}
 
@@ -68,6 +74,10 @@ angular.module('streamViewApp')
 					if (data.success) {
 
 						$scope.video = data.video;
+
+						memoryStorage.saved_subscription_video_id = $stateParams.id;
+
+                		localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
 					} else {
 

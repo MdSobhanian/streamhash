@@ -9,7 +9,11 @@
                         <h1>Thank you!</h1>
                         <h3>Your Payment is received successfully !!</h3>
                         <p>Now you can watch Video</p>
-                        <a href="#">
+
+                        <a ui-sref="single_video({id : admin_video_id})" ng-if="admin_video_id > 0">
+                            <button class="payment-submit"><i class="fa fa-video-o"></i> View Video</button>
+                        </a>
+                        <a href="#" ng-if="admin_video_id <= 0">
                             <button class="payment-submit"><i class="fa fa-home"></i> Home</button>
                         </a>
                     </div>
