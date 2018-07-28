@@ -6,12 +6,22 @@
    <h3>{{datas.title}}</h3>
 </div>
 
+<div class="box video-box-row" ng-if="datas.length == 0">
+
+<p>No videos found</p>
+
+</div>
+
 <div class="video-full-box"  ng-repeat="(key,subcategory) in datas.data" ng-init="subkey = datas.sub_category[key]"> 
 	<div class="box-title">
 	    <div class="box-head row no-margin">
 	        <h3 class="main-title pull-left">{{key}}</h3>
 	        <a class="see-all pull-right" ui-sref="profile.title({title : datas.sub_category[key]})" style="color: #fff">See All </a>
 	    </div>
+	</div>
+
+	<div class="box video-box-row" ng-if="subcategory.length <= 0">
+		No videos found
 	</div>
 	<div class="box video-box-row" ng-repeat="video in subcategory" ng-init="$parentindex = $index">
 
