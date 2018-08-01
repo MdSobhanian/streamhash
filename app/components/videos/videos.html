@@ -134,8 +134,8 @@
 			    					<div class="linear">
 			    					</div>
 			    					<div class="rotate-img-outer">	
-		    					
-			    						<div class="rotate-img highlight-img bg-img" style="background-image: url({{value.video_gif_image}});"></div>
+		    							<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in value.images"></div>
+			    						<!-- <div class="rotate-img highlight-img bg-img" style="background-image: url({{value.video_gif_image}});"></div> -->
 				    				</div>
 
 				    				<div class="play-icon-outer">

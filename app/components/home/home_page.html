@@ -47,7 +47,8 @@
 		    					<div class="linear">
 		    					</div>
 		    					<div class="rotate-img-outer">	
-		    						<div class="rotate-img highlight-img bg-img" style="background-image: url({{recent_video.video_gif_image}});"></div>
+		    						<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in recent_video.images"></div>
+		    						<!-- <div class="rotate-img highlight-img bg-img" style="background-image: url({{recent_video.video_gif_image}});"></div> -->
 			    				</div>
 			    				<div class="play-icon-outer">
 			    					<!-- <a ui-sref="single_video({id : recent_video.admin_video_id})" class="play-icon"><i class="fa fa-play"></i></a> -->
@@ -603,8 +604,8 @@
 				    					<div class="linear">
 				    					</div>
 				    					<div class="rotate-img-outer">	
-			    					
-				    						<div class="rotate-img highlight-img bg-img" style="background-image: url({{value.video_gif_image}});"></div>
+			    							<div class="rotate-img highlight-img bg-img" ng-class="{'first' : $index == 0, 'second' : $index == 1, 'third' : $index == 2}" style="background-image: url({{image}});" ng-repeat="image in value.images"></div>
+				    						<!-- <div class="rotate-img highlight-img bg-img" style="background-image: url({{value.video_gif_image}});"></div> -->
 					    				</div>
 
 					    				<div class="play-icon-outer">
