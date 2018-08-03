@@ -1634,7 +1634,7 @@
   padding:8px;
 }
 .details-row{
-    height: 432px;
+    height:300px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -2192,7 +2192,7 @@
   padding:10px;
 }
 .details-row{
-  height:504px ;
+  height:400px ;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -2770,7 +2770,7 @@
   padding:12px;
 }
 .details-row{
-  height:570px ;
+  height:480px ;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -3359,7 +3359,7 @@
   padding:12px;
 }
 .details-row{
-  height:570px ;
+  height:483px ;
   overflow-x: hidden;
   overflow-y: auto;
 }
