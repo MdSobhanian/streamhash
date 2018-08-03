@@ -155,7 +155,9 @@
 	opacity: 0;
 	display: block !important;
 }
-
 .visible{
 	opacity: 1;
+}
+.height-250{
+    max-height: 300px;
 }
