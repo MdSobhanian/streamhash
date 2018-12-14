@@ -5,6 +5,40 @@ angular.module('streamViewApp')
 
 	function ($scope, $http, $rootScope, $window, $state, $stateParams, $location, $anchorScroll) {
 
+		$scope.window_width = $(window).width();
+
+        if ($scope.window_width > 991) {
+
+		 	$scope.epdisode_slide_to_show = 4;
+
+		    $scope.epdisode_slide_to_scroll = 4;
+
+		}  
+
+		if ($scope.window_width > 767 && $scope.window_width < 992) {
+
+	        $scope.epdisode_slide_to_show = 3;
+
+		    $scope.epdisode_slide_to_scroll = 3;
+
+        }  
+
+        if ($scope.window_width > 479 && $scope.window_width < 768) {
+
+	        $scope.epdisode_slide_to_show = 2;
+
+		    $scope.epdisode_slide_to_scroll = 2;
+
+        }  
+
+        if ($scope.window_width < 480) {
+
+	        $scope.epdisode_slide_to_show = 1;
+
+		    $scope.epdisode_slide_to_scroll = 1;
+
+        }    
+        
 		$rootScope.$emit('body_bg_img', false);
 
         $scope.user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
@@ -608,31 +642,31 @@ angular.module('streamViewApp')
 
 			$scope.dynamicContent = function(sub, index, key, id) {
 
-					$("#"+sub+"_"+index+"_"+key+"_overview").hide();
-					$("#"+sub+"_"+index+"_"+key+"_episodes").hide();
-					$("#"+sub+"_"+index+"_"+key+"_trailers").hide();
-					$("#"+sub+"_"+index+"_"+key+"_more-like").hide();
-					$("#"+sub+"_"+index+"_"+key+"_details").hide();
+					$("#"+sub+"_"+index+"_"+key+"_overview").removeClass('active');
+					$("#"+sub+"_"+index+"_"+key+"_episodes").removeClass('active');
+					$("#"+sub+"_"+index+"_"+key+"_trailers").removeClass('active');
+					$("#"+sub+"_"+index+"_"+key+"_more-like").removeClass('active');
+					$("#"+sub+"_"+index+"_"+key+"_details").removeClass('active');
 
 					if (id == "overview") {
 
-						$("#"+sub+"_"+index+"_"+key+"_overview").show();
+						$("#"+sub+"_"+index+"_"+key+"_overview").addClass('active');
 
 					} else if (id == "episodes") {
 
-						$("#"+sub+"_"+index+"_"+key+"_episodes").show();
+						$("#"+sub+"_"+index+"_"+key+"_episodes").addClass('active');
 
 					} else if (id == "trailers") {
 
-						$("#"+sub+"_"+index+"_"+key+"_trailers").show();
+						$("#"+sub+"_"+index+"_"+key+"_trailers").addClass('active');
 						
 					} else if (id == "more-like") {
 
-						$("#"+sub+"_"+index+"_"+key+"_more-like").show();
+						$("#"+sub+"_"+index+"_"+key+"_more-like").addClass('active');
 						
 					} else {
 
-						$("#"+sub+"_"+index+"_"+key+"_details").show();
+						$("#"+sub+"_"+index+"_"+key+"_details").addClass('active');
 					}
 			}
 

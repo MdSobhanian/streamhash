@@ -170,31 +170,31 @@ angular.module('streamViewApp')
 
 			$scope.dynamicContent = function(index, key, id) {
 
-					$("#"+index+"_"+key+"_overview").hide();
-					$("#"+index+"_"+key+"_episodes").hide();
-					$("#"+index+"_"+key+"_trailers").hide();
-					$("#"+index+"_"+key+"_more-like").hide();
-					$("#"+index+"_"+key+"_details").hide();
+					$("#"+index+"_"+key+"_overview").removeClass('active');
+					$("#"+index+"_"+key+"_episodes").removeClass('active');
+					$("#"+index+"_"+key+"_trailers").removeClass('active');
+					$("#"+index+"_"+key+"_more-like").removeClass('active');
+					$("#"+index+"_"+key+"_details").removeClass('active');
 
 					if (id == "overview") {
 
-						$("#"+index+"_"+key+"_overview").show();
+						$("#"+index+"_"+key+"_overview").addClass('active');
 
 					} else if (id == "episodes") {
 
-						$("#"+index+"_"+key+"_episodes").show();
+						$("#"+index+"_"+key+"_episodes").addClass('active');
 
 					} else if (id == "trailers") {
 
-						$("#"+index+"_"+key+"_trailers").show();
+						$("#"+index+"_"+key+"_trailers").addClass('active');
 						
 					} else if (id == "more-like") {
 
-						$("#"+index+"_"+key+"_more-like").show();
+						$("#"+index+"_"+key+"_more-like").addClass('active');
 						
 					} else {
 
-						$("#"+index+"_"+key+"_details").show();
+						$("#"+index+"_"+key+"_details").addClass('active');
 					}
 			}
 
@@ -321,3 +321,5 @@ angular.module('streamViewApp')
 	}
 
 ]);
+
+

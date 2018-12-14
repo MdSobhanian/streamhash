@@ -52,7 +52,7 @@ var streamViewApp = angular.module('streamViewApp', [
 
 var route_url = "http://botfingers.com/#";
 
-var apiUrl = "http://staging.botfingers.com/";
+var apiUrl = "http://adminview.streamhash.com/";
 // var apiUrl = "http://localhost:8080/http/projects/base-products/streamview-v1.2-api/public/";
 
 var angularUrl = "http://botfingers.com/#/";

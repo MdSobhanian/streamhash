@@ -3053,3 +3053,34 @@ input:checked + .switch-btn:before {
 .whte-bg{
     background-color: #fff;
 }
+.tab-content > .tab-pane{
+    display: block;
+    height: 0;
+    overflow: hidden;
+    transition: .2s all ease-in-out;
+}
+.tab-content > .active{
+    height: auto; 
+    width: 100%;
+}
+/*.tab-content>.tab-pane {display: block;visibility: hidden;}
+.tab-content>.tab-pane.active {visibility: visible;}*/
+.episode-slider .slick-track{
+    padding: 0;
+}
+.episode-slider .slick-track .episode-list-box{
+    margin:0 15px;   
+}
+.episode-slider .slick-prev, .episode-slider .slick-next{
+    background-color: transparent;
+}
+.episode-slider .slick-prev:hover, .episode-slider .slick-prev:active, .episode-slider .slick-prev:focus, 
+.episode-slider .slick-next:hover, .episode-slider .slick-next:active, .episode-slider .slick-next:focus{
+    background-color: transparent;
+}    
+.episode-slider .slick-prev::before, .episode-slider .slick-next::before{
+    font-size: 50px !important;
+}
+.episode-slider .slick-next{
+    right: -30px;
+}
