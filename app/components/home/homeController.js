@@ -307,6 +307,9 @@ angular.module('streamViewApp')
 
 					$("#"+index+"_"+key+"_details").show();
 				}
+
+				$(".episode-slider").slick('setPosition');
+
 			}
 
 			$scope.displayContent = function(id) {

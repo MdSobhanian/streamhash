@@ -404,6 +404,8 @@ angular.module('streamViewApp')
 
 					$("#"+index+"_"+key+"_details").addClass('active');
 				}
+
+				$(".episode-slider").slick('setPosition');
 			}
 
 			$scope.displayContent = function(id) {

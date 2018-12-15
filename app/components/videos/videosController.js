@@ -642,32 +642,35 @@ angular.module('streamViewApp')
 
 			$scope.dynamicContent = function(sub, index, key, id) {
 
-					$("#"+sub+"_"+index+"_"+key+"_overview").removeClass('active');
-					$("#"+sub+"_"+index+"_"+key+"_episodes").removeClass('active');
-					$("#"+sub+"_"+index+"_"+key+"_trailers").removeClass('active');
-					$("#"+sub+"_"+index+"_"+key+"_more-like").removeClass('active');
-					$("#"+sub+"_"+index+"_"+key+"_details").removeClass('active');
+				$("#"+sub+"_"+index+"_"+key+"_overview").removeClass('active');
+				$("#"+sub+"_"+index+"_"+key+"_episodes").removeClass('active');
+				$("#"+sub+"_"+index+"_"+key+"_trailers").removeClass('active');
+				$("#"+sub+"_"+index+"_"+key+"_more-like").removeClass('active');
+				$("#"+sub+"_"+index+"_"+key+"_details").removeClass('active');
 
-					if (id == "overview") {
+				if (id == "overview") {
 
-						$("#"+sub+"_"+index+"_"+key+"_overview").addClass('active');
+					$("#"+sub+"_"+index+"_"+key+"_overview").addClass('active');
 
-					} else if (id == "episodes") {
+				} else if (id == "episodes") {
 
-						$("#"+sub+"_"+index+"_"+key+"_episodes").addClass('active');
+					$("#"+sub+"_"+index+"_"+key+"_episodes").addClass('active');
 
-					} else if (id == "trailers") {
+				} else if (id == "trailers") {
 
-						$("#"+sub+"_"+index+"_"+key+"_trailers").addClass('active');
-						
-					} else if (id == "more-like") {
+					$("#"+sub+"_"+index+"_"+key+"_trailers").addClass('active');
+					
+				} else if (id == "more-like") {
 
-						$("#"+sub+"_"+index+"_"+key+"_more-like").addClass('active');
-						
-					} else {
+					$("#"+sub+"_"+index+"_"+key+"_more-like").addClass('active');
+					
+				} else {
 
-						$("#"+sub+"_"+index+"_"+key+"_details").addClass('active');
-					}
+					$("#"+sub+"_"+index+"_"+key+"_details").addClass('active');
+				}
+
+				$(".episode-slider").slick('setPosition');
+
 			}
 
 		} else {
