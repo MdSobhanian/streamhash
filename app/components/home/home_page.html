@@ -2,9 +2,11 @@
 
 	<!-- HIGHLIGHT -->
 	<div class="highlight" ng-if="recent_video">
+		
 		<div class="tab-content">
 
-			<!-- OVERVIEW SECTION  -->
+			<!-- OVERVIEW Banner SECTION  -->
+		   
 		    <div role="tabpanel" class="tab-pane active" id="overview">
 			    <div class="overview tab-section relative">
 		    		
@@ -148,10 +150,10 @@
     				</div>
                     
 			    </div>
+			
 			</div>
-			<!-- OVERVIEW SECTION END -->
 
-
+			<!-- OVERVIEW Banner SECTION END -->
 
 			<!-- EPISODES-SECTION
 			======================================== -->
@@ -180,8 +182,11 @@
 
 								<div id="seasons" class="row">
 									<!-- episode list box -->
+
 									<slick slides-to-show="{{epdisode_slide_to_show}}" slides-to-scroll="{{epdisode_slide_to_scroll}}" dots="false" class="episode-slider">
+									
 										<div ng-repeat="genre_list in recent_video.first_part">
+											
 											<div class="episode-list-box">
 
 												<div class="episode-img bg-img" style="background-image: url({{genre_list.default_image}});">
@@ -223,7 +228,9 @@
 
 											</div>
 										</div>
+
 									</slick>
+									
 
 								</div>
 								<!-- episode-list-box end -->
@@ -234,7 +241,6 @@
 				</div>
 			</div>
 			<!-- EPISODES-SECTION END-->
-
 
 
 			<!-- TRAILERS SECTION -->
@@ -382,7 +388,6 @@
 			<!-- MORE LIKE SECTION END -->
 
 
-
 			<!-- DETAILS-SECTION -->
 			<div role="tabpanel" class="tab-pane" id="details" ng-if="recent_video.details">
 				<div class="details-section tab-section tab-bg bg-img" style="background-image: url({{recent_video.default_image}});">
@@ -416,6 +421,7 @@
 
 					</div>
 				</div>
+			
 			</div>
 			<!-- DETAILS-SECTION END -->
 
@@ -719,7 +725,7 @@
 									<form class="season-select">
 										<div class="form-group styled-select black">
 										    <select id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{$index}},{{$keyindex}},'_sessions', '_loader_seasons', value.genre_id);">
-											    <option value="">Select Seasons</option>
+											    <option value="">Select Seasons </option>
 											    <option value="{{genrename.genre_id}}" ng-repeat="genrename in value.genre_names">
 											    {{genrename.genre_name}}
 											    </option>
@@ -735,47 +741,51 @@
 
 										<div id="{{$index}}{{$keyindex}}_sessions" class="row">
 
-										<slick slides-to-show="{{epdisode_slide_to_show}}" slides-to-scroll="{{epdisode_slide_to_scroll}}" dots="false" class="episode-slider">
-											<div ng-repeat="genre_list in value.first_part">
-												<div class="episode-list-box">
+											<slick slides-to-show="{{epdisode_slide_to_show}}" slides-to-scroll="{{epdisode_slide_to_scroll}}" dots="false" class="episode-slider">
 
-													<div class="episode-img bg-img" style="background-image: url({{genre_list.default_image}});">
-														<div class="episode-img-overlay">
-															<div class="episode-img-inner">
-																<span class="epi-count">{{genre_list.age}} / <i class="fa fa-eye"></i>&nbsp;{{genre_list.watch_count}}</span>
-															</div>
+												<div ng-repeat="genre_list in value.first_part">
 
-															<div class="epi-play-icon-outer">
+													<div class="episode-list-box">
 
-																<span ng-show="genre_list.pay_per_view_status">
-										    						<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
-										    					</span>
-										    					<span ng-hide="genre_list.pay_per_view_status">
-										    						<a ui-sref="profile.payment-option({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
-										    					</span>
+														<div class="episode-img bg-img" style="background-image: url({{genre_list.default_image}});">
+															<div class="episode-img-overlay">
+																<div class="episode-img-inner">
+																	<span class="epi-count">{{genre_list.age}} / <i class="fa fa-eye"></i>&nbsp;{{genre_list.watch_count}}</span>
+																</div>
+
+																<div class="epi-play-icon-outer">
+
+																	<span ng-show="genre_list.pay_per_view_status">
+											    						<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+											    					</span>
+											    					<span ng-hide="genre_list.pay_per_view_status">
+											    						<a ui-sref="profile.payment-option({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+											    					</span>
+																</div>
 															</div>
 														</div>
+
+														<div class="episode-list-content">
+															<div class="row">
+																<div class="col-md-8 col-sm-12">
+																	<h4 class="epi-tit gray-color1 txt-overflow">{{genre_list.title}}</h4>
+																</div>
+
+																<div class="col-md-4 text-right hidden-sm">
+																	<p class="bold gray-color1 epi-tit txt-overflow">{{genre_list.duration}}</p>
+																</div>
+															</div>
+
+															<div class="">
+																<p class=" gray-color1 overview-des more-link mt-0">{{genre_list.description}}</p>
+															</div>
+														</div>
+
 													</div>
-
-													<div class="episode-list-content">
-														<div class="row">
-															<div class="col-md-8 col-sm-12">
-																<h4 class="epi-tit gray-color1 txt-overflow">{{genre_list.title}}</h4>
-															</div>
-
-															<div class="col-md-4 text-right hidden-sm">
-																<p class="bold gray-color1 epi-tit txt-overflow">{{genre_list.duration}}</p>
-															</div>
-														</div>
-
-														<div class="">
-															<p class=" gray-color1 overview-des more-link mt-0">{{genre_list.description}}</p>
-														</div>
-													</div>
-
+												
 												</div>
-											</div>
-										</slick>
+
+											</slick>
 
 										</div>
 										
@@ -786,8 +796,8 @@
 							</div>
 						</div>
 					</div>
-					<!-- EPISODES-SECTION END-->
 
+					<!-- EPISODES-SECTION END-->
 
 
 					<!-- TRAILERS SECTION -->

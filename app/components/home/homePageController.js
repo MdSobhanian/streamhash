@@ -405,6 +405,11 @@ angular.module('streamViewApp')
 					$("#"+index+"_"+key+"_details").addClass('active');
 				}
 
+				$(".episode-slider").not('.slick-initialized').slick({
+					slidesToShow: $scope.epdisode_slide_to_show,
+					slidesToScroll: $scope.epdisode_slide_to_scroll,
+				});
+
 				$(".episode-slider").slick('setPosition');
 			}
 
@@ -837,6 +842,15 @@ angular.module('streamViewApp')
 							console.log($("#"+idx+key+divid));
 
 							$("#"+idx+key+divid).html(data.data);
+
+							$(".episode-slider").not('.slick-initialized').slick({
+								slidesToShow: $scope.epdisode_slide_to_show,
+								slidesToScroll: $scope.epdisode_slide_to_scroll,
+							});
+
+							$(".episode-slider").slick('setPosition');
+
+    						$('.slick-carousel-responsive').resize();
 
 						} else {
 
