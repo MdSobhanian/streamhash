@@ -372,15 +372,6 @@ angular.module('streamViewApp')
 
 						$("#"+sub+idx+key+loader).show();
 
-						$(".episode-slider").not('.slick-initialized').slick({
-								slidesToShow: $scope.epdisode_slide_to_show,
-								slidesToScroll: $scope.epdisode_slide_to_scroll,
-							});
-
-							$(".episode-slider").slick('setPosition');
-
-    						$('.slick-carousel-responsive').resize();
-
 					},
 
 					success : function (data) {
@@ -392,6 +383,15 @@ angular.module('streamViewApp')
 							console.log($("#"+sub+idx+key+divid));
 
 							$("#"+sub+idx+key+divid).html(data.data);
+
+							$(".episode-slider").not('.slick-initialized').slick({
+								slidesToShow: $scope.epdisode_slide_to_show,
+								slidesToScroll: $scope.epdisode_slide_to_scroll,
+							});
+
+							$(".episode-slider").slick('setPosition');
+
+    						$('.slick-carousel-responsive').resize();
 
 						} else {
 
