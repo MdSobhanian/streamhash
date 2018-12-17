@@ -313,49 +313,51 @@
 								<div id="{{subkey}}{{$index}}{{$parentindex}}_sessions">
 
 									<!-- episode list box -->
-									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="genre_list in value.first_part">
-										<div class="episode-list-box">
+									<slick slides-to-show="{{epdisode_slide_to_show}}" slides-to-scroll="{{epdisode_slide_to_scroll}}" dots="false" class="episode-slider">
+										<div ng-repeat="genre_list in value.first_part">
+											<div class="episode-list-box">
 
-											<div class="episode-img bg-img" style="background-image: url({{genre_list.default_image}});">
-												<div class="episode-img-overlay">
-													<div class="episode-img-inner">
-														<span class="epi-count">{{genre_list.age}} / <i class="fa fa-eye"></i>&nbsp;{{genre_list.watch_count}}</span>
-													</div>
+												<div class="episode-img bg-img" style="background-image: url({{genre_list.default_image}});">
+													<div class="episode-img-overlay">
+														<div class="episode-img-inner">
+															<span class="epi-count">{{genre_list.age}} / <i class="fa fa-eye"></i>&nbsp;{{genre_list.watch_count}}</span>
+														</div>
 
-													<div class="epi-play-icon-outer">
-														<!-- <a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon">
-															<i class="fa fa-play"></i>
-														</a> -->
+														<div class="epi-play-icon-outer">
+															<!-- <a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon">
+																<i class="fa fa-play"></i>
+															</a> -->
 
-														<span ng-show="genre_list.pay_per_view_status">
-								    						<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
-								    					</span>
-								    					<span ng-hide="genre_list.pay_per_view_status">
-								    						<a ui-sref="profile.payment-option({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
-								    					</span>
+															<span ng-show="genre_list.pay_per_view_status">
+									    						<a ui-sref="single_video({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+									    					</span>
+									    					<span ng-hide="genre_list.pay_per_view_status">
+									    						<a ui-sref="profile.payment-option({id : genre_list.admin_video_id})" class="epi-play-icon"><i class="fa fa-play"></i></a>
+									    					</span>
 
+														</div>
 													</div>
 												</div>
+
+												<div class="episode-list-content">
+													<div class="row no-margin">
+														<div class="col-md-8 col-sm-12">
+															<h4 class="epi-tit gray-color1 txt-overflow">{{genre_list.title}}</h4>
+														</div>
+
+														<div class="col-md-4 text-right hidden-sm">
+															<p class="bold gray-color1 epi-tit txt-overflow">{{genre_list.duration}}</p>
+														</div>
+													</div>
+
+													<div class="">
+														<p class=" gray-color1 overview-des more-link mt-0">{{genre_list.description}}</p>
+													</div>
+												</div>
+
 											</div>
-
-											<div class="episode-list-content">
-												<div class="row no-margin">
-													<div class="col-md-8 col-sm-12">
-														<h4 class="epi-tit gray-color1 txt-overflow">{{genre_list.title}}</h4>
-													</div>
-
-													<div class="col-md-4 text-right hidden-sm">
-														<p class="bold gray-color1 epi-tit txt-overflow">{{genre_list.duration}}</p>
-													</div>
-												</div>
-
-												<div class="">
-													<p class=" gray-color1 overview-des more-link mt-0">{{genre_list.description}}</p>
-												</div>
-											</div>
-
 										</div>
-									</div>
+									</slick>
 
 									</div>
 									<!-- episode-list-box end -->

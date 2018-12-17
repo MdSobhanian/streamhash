@@ -11,6 +11,40 @@ angular.module('streamViewApp')
 
 		$scope.access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
 
+		$scope.window_width = $(window).width();
+
+        if ($scope.window_width > 991) {
+
+		 	$scope.epdisode_slide_to_show = 4;
+
+		    $scope.epdisode_slide_to_scroll = 4;
+
+		}  
+
+		if ($scope.window_width > 767 && $scope.window_width < 992) {
+
+	        $scope.epdisode_slide_to_show = 3;
+
+		    $scope.epdisode_slide_to_scroll = 3;
+
+        }  
+
+        if ($scope.window_width > 479 && $scope.window_width < 768) {
+
+	        $scope.epdisode_slide_to_show = 2;
+
+		    $scope.epdisode_slide_to_scroll = 2;
+
+        }  
+
+        if ($scope.window_width < 480) {
+
+	        $scope.epdisode_slide_to_show = 1;
+
+		    $scope.epdisode_slide_to_scroll = 1;
+
+        }    
+
 		if ($scope.user_id && $scope.access_token) {
 
 			$rootScope.$emit('search_clear', true);
@@ -528,32 +562,39 @@ angular.module('streamViewApp')
 
 			$scope.dynamicContent = function(index, key, id) {
 
-					$("#"+index+"_"+key+"_overview").hide();
-					$("#"+index+"_"+key+"_episodes").hide();
-					$("#"+index+"_"+key+"_trailers").hide();
-					$("#"+index+"_"+key+"_more-like").hide();
-					$("#"+index+"_"+key+"_details").hide();
+					$("#"+index+"_"+key+"_overview").removeClass('active');
+					$("#"+index+"_"+key+"_episodes").removeClass('active');
+					$("#"+index+"_"+key+"_trailers").removeClass('active');
+					$("#"+index+"_"+key+"_more-like").removeClass('active');
+					$("#"+index+"_"+key+"_details").removeClass('active');
 
 					if (id == "overview") {
 
-						$("#"+index+"_"+key+"_overview").show();
+						$("#"+index+"_"+key+"_overview").addClass('active');
 
 					} else if (id == "episodes") {
 
-						$("#"+index+"_"+key+"_episodes").show();
+						$("#"+index+"_"+key+"_episodes").addClass('active');
 
 					} else if (id == "trailers") {
 
-						$("#"+index+"_"+key+"_trailers").show();
+						$("#"+index+"_"+key+"_trailers").addClass('active');
 						
 					} else if (id == "more-like") {
 
-						$("#"+index+"_"+key+"_more-like").show();
+						$("#"+index+"_"+key+"_more-like").addClass('active');
 						
 					} else {
 
-						$("#"+index+"_"+key+"_details").show();
+						$("#"+index+"_"+key+"_details").addClass('active');
 					}
+					
+					$(".episode-slider").not('.slick-initialized').slick({
+						slidesToShow: $scope.epdisode_slide_to_show,
+						slidesToScroll: $scope.epdisode_slide_to_scroll,
+					});
+
+					$(".episode-slider").slick('setPosition');
 			}
 
 		 	$scope.getSeasons = function(genre_id, idx, key, divid, loader, main_id) {
@@ -591,6 +632,15 @@ angular.module('streamViewApp')
 							console.log($("#"+idx+key+divid));
 
 							$("#"+idx+key+divid).html(data.data);
+
+							$(".episode-slider").not('.slick-initialized').slick({
+								slidesToShow: $scope.epdisode_slide_to_show,
+								slidesToScroll: $scope.epdisode_slide_to_scroll,
+							});
+
+							$(".episode-slider").slick('setPosition');
+
+    						$('.slick-carousel-responsive').resize();
 
 						} else {
 
