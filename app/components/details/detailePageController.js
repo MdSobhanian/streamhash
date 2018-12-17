@@ -505,15 +505,18 @@ angular.module('streamViewApp')
 					$("#"+index+"_"+key+"_more-like").removeClass('active');
 					$("#"+index+"_"+key+"_details").removeClass('active');
 
-					if (id == "overview") {
+
+				if (id == "overview") {
 
 						$("#"+index+"_"+key+"_overview").addClass('active');
 
-					} else if (id == "episodes") {
+
+				} else if (id == "episodes") {
 
 						$("#"+index+"_"+key+"_episodes").addClass('active');
 
-					} else if (id == "trailers") {
+
+				} else if (id == "trailers") {
 
 						$("#"+index+"_"+key+"_trailers").addClass('active');
 						
@@ -532,6 +535,7 @@ angular.module('streamViewApp')
 					});
 
 					$(".episode-slider").slick('setPosition');
+
 			}
 
 			$(window).scroll(function() {

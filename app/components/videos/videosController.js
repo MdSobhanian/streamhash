@@ -683,7 +683,8 @@ angular.module('streamViewApp')
 						slidesToScroll: $scope.epdisode_slide_to_scroll,
 					});
 
-					$(".episode-slider").slick('setPosition');
+				$(".episode-slider").slick('setPosition');
+
 
 			}
 
