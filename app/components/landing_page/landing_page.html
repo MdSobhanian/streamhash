@@ -1,161 +1,213 @@
 <div class="basic-landing">
-	<div class="landing-image bg-img" style="background-image: url({{home_bg_image}});">
-		<div class="basic-landing-image">
-			<div class="banner-spacing">
-				<div class="basic-header">
-				
-					<div class="logo">
-						<a ui-sref="static.index">
-							<img ng-src="{{site_logo}}" class="hidden-xs">
-							<img src="{{site_icon}}" class="visible-xs">
-						</a>
-					</div>
+  <div
+    class="landing-image bg-img"
+    style="background-image: url({{ home_bg_image }});"
+  >
+    <div class="basic-landing-image">
+      <div class="banner-spacing">
+        <div class="basic-header">
+          <div class="logo">
+            <a ui-sref="static.index">
+              <img ng-src="{{ site_logo }}" class="hidden-xs" />
+              <img src="{{ site_icon }}" class="visible-xs" />
+            </a>
+          </div>
 
-					<div class="signin">
-						 <a ui-sref="static.signin">Sign In</a>
-					</div>
-				</div><!--end of basic-header-->
-				<div class="clear-both"></div>
-				
-				<div class="text-wrap">
-					<div class="basic-text">
-						<h1 class="basic-title">{{banner_heading}}</h1>
-						<p class="basic-para">{{banner_description}}</p>
-						<a ui-sref="static.signup" class="join-free">Join Free for a month</a>
-					</div><!--end of text-->
-				</div><!--end of text-wrap-->
-			
-			</div><!--end of end of container-->
-		</div><!--end of basic-landing-image-->
-	</div><!--end of landing-image-->
+          <div class="signin">
+            <a ui-sref="static.signin">Sign In</a>
+          </div>
+        </div>
+        <!--end of basic-header-->
+        <div class="clear-both"></div>
 
-	<div class="basic-tabs">
-		<div class="banner-spacing1">	
-			<div class="basic-tabs-title">									
-				<ul class="nav nav-tabs" role="tablist">
-				
-					<li role="presentation">
-						<a href="#home" aria-controls="home" role="tab" data-toggle="tab" >	
-							<i class="fa fa-clipboard tab-icon hidden-xs"></i>
-							<span class="tab-wrap hidden-xs hidden-sm">No commitments Cancel online at anytime</span>
-							<span class="visible-sm">Cancel at Anytime</span>
-							<span class="visible-xs">Cancel</span>
-						</a>
-					</li>
-				    <li role="presentation" class="active">
-				    	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
-				    		<i class="fa fa-mobile tab-icon hidden-xs"></i>
-				    		<span class="tab-wrap hidden-xs hidden-sm">Browse Anywhere</span>
-				    		<span class="visible-sm">Browse Anywhere</span>
-							<span class="visible-xs">Browse</span>
-				    	</a>
-				    </li>
-				    <li role="presentation" >
-				    	<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
-				    		<i class="fa fa-tag tab-icon hidden-xs"></i>
-				    		<span class="tab-wrap hidden-xs hidden-sm">About {{site_name}}</span>
-				    		<span class="visible-sm">About {{site_name}}</span>
-							<span class="visible-xs">About</span>
-				    	</a>
-				    </li>
-				</ul>
-			</div><!--end of basic-tabs-title-->
-		</div><!--end of container-->
+        <div class="text-wrap">
+          <div class="basic-text">
+            <h1 class="basic-title">{{ banner_heading }}</h1>
+            <p class="basic-para">{{ banner_description }}</p>
+            <a ui-sref="static.signup" class="join-free"
+              >Join Free for a month</a
+            >
+          </div>
+          <!--end of text-->
+        </div>
+        <!--end of text-wrap-->
+      </div>
+      <!--end of end of container-->
+    </div>
+    <!--end of basic-landing-image-->
+  </div>
+  <!--end of landing-image-->
 
-		<div class="basic-tabs-inner">
-			<div class="banner-spacing1">
-			  	<div class="tab-content">
-					<div role="tabpanel" class="tab-pane fade" id="home">
-						<div class="row basic-row no-margin center-align-mob">
-							<div class="col-sm-6 basic-section">
-								<div class="online-cancel">
-									<p>{{cancel_content}}</p>
-									<a ui-sref="static.signup" class="join-free">Join Free for a month</a>
-								</div><!--end of section-down-->
-							</div><!--end of column-->
+  <div class="basic-tabs">
+    <div class="banner-spacing1">
+      <div class="basic-tabs-title">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation">
+            <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+              <i class="fa fa-clipboard tab-icon hidden-xs"></i>
+              <h1>{{ "TITLE" | translate }}</h1>
+              <p>{{ "MESSAGE" | translate }}</p>
+              <span class="tab-wrap hidden-xs hidden-sm"
+                >No commitments Cancel online at anytime</span
+              >
+              <span class="visible-sm">Cancel at Anytime</span>
+              <span class="visible-xs">Cancel</span>
+            </a>
+          </li>
+          <li role="presentation" class="active">
+            <a
+              href="#profile"
+              aria-controls="profile"
+              role="tab"
+              data-toggle="tab"
+            >
+              <i class="fa fa-mobile tab-icon hidden-xs"></i>
+              <span class="tab-wrap hidden-xs hidden-sm">Browse Anywhere</span>
+              <span class="visible-sm">Browse Anywhere</span>
+              <span class="visible-xs">Browse</span>
+            </a>
+          </li>
+          <li role="presentation">
+            <a
+              href="#messages"
+              aria-controls="messages"
+              role="tab"
+              data-toggle="tab"
+            >
+              <i class="fa fa-tag tab-icon hidden-xs"></i>
+              <span class="tab-wrap hidden-xs hidden-sm"
+                >About {{ site_name }}</span
+              >
+              <span class="visible-sm">About {{ site_name }}</span>
+              <span class="visible-xs">About</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--end of basic-tabs-title-->
+    </div>
+    <!--end of container-->
 
-							<div class="col-sm-6">
+    <div class="basic-tabs-inner">
+      <div class="banner-spacing1">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade" id="home">
+            <div class="row basic-row no-margin center-align-mob">
+              <div class="col-sm-6 basic-section">
+                <div class="online-cancel">
+                  <p>{{ cancel_content }}</p>
+                  <a ui-sref="static.signup" class="join-free"
+                    >Join Free for a month</a
+                  >
+                </div>
+                <!--end of section-down-->
+              </div>
+              <!--end of column-->
 
-								<div class="cancel-image" >
-									<img src="{{cancel_image}}">
-								</div><!--end of cancel-image-->
-							</div><!--end of col-sm-6-->
-						</div><!--end of row-->
-					</div><!--end of tab-panel-->
+              <div class="col-sm-6">
+                <div class="cancel-image">
+                  <img src="{{ cancel_image }}" />
+                </div>
+                <!--end of cancel-image-->
+              </div>
+              <!--end of col-sm-6-->
+            </div>
+            <!--end of row-->
+          </div>
+          <!--end of tab-panel-->
 
-				  	<div role="tabpanel" class="tab-pane fade in active " id="profile" >
-				  		<div class="all-device">
-				  			<div class="device-join">
-				  				<p class="device-join-txt">
-				  				Watch TV shows and movies anytime, anywhere — personalized for you.
-				  				<a ui-sref="static.signup" class="device-join-link">Join Free for a month</a>
-				  				</p>
-				  			</div>
+          <div role="tabpanel" class="tab-pane fade in active " id="profile">
+            <div class="all-device">
+              <div class="device-join">
+                <p class="device-join-txt">
+                  Watch TV shows and movies anytime, anywhere — personalized for
+                  you.
+                  <a ui-sref="static.signup" class="device-join-link"
+                    >Join Free for a month</a
+                  >
+                </p>
+              </div>
 
-				  			<div class="devices row no-margin">
-				  				<div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
-				  					 <div class="device-section text-center">
-				  						<div class="device-img" style="background-image: url({{desktop_image}});">
-				  							<!-- <img src="img/tv-ui.png"> -->
-				  						</div>
+              <div class="devices row no-margin">
+                <div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
+                  <div class="device-section text-center">
+                    <div
+                      class="device-img"
+                      style="background-image: url({{ desktop_image }});"
+                    >
+                      <!-- <img src="img/tv-ui.png"> -->
+                    </div>
 
-				  						<div class="device-content">
-				  							<h3 class="device-tit">Watch on your TV</h3>
-				  							<p class="device-txt">Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
-				  						</div>
-				  					</div>
-				  				</div>
+                    <div class="device-content">
+                      <h3 class="device-tit">Watch on your TV</h3>
+                      <p class="device-txt">
+                        Smart TVs, PlayStation, Xbox, Chromecast, Apple TV,
+                        Blu-ray players and more.
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-				  				<div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
-				  					 <div class="device-section text-center">
-				  						<div class="device-img" style="background-image: url({{tv_image}});">
-				  							<!-- <img src="img/tv-ui.png"> -->
-				  						</div>
+                <div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
+                  <div class="device-section text-center">
+                    <div
+                      class="device-img"
+                      style="background-image: url({{ tv_image }});"
+                    >
+                      <!-- <img src="img/tv-ui.png"> -->
+                    </div>
 
-				  						<div class="device-content">
-				  							<h3 class="device-tit">Watch instantly on any mobile device.</h3>
-				  							<p class="device-txt">Available on phone or tablet, wherever you go.</p>
-				  						</div>
-				  					</div>
-				  				</div>
+                    <div class="device-content">
+                      <h3 class="device-tit">
+                        Watch instantly on any mobile device.
+                      </h3>
+                      <p class="device-txt">
+                        Available on phone or tablet, wherever you go.
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-				  				<div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
-				  					 <div class="device-section text-center">
+                <div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
+                  <div class="device-section text-center">
+                    <div
+                      class="device-img"
+                      style="background-image: url({{ mobile_image }});"
+                    >
+                      <!-- <img src="img/tv-ui.png"> -->
+                    </div>
 
-				  						<div class="device-img" style="background-image: url({{mobile_image}});">
-				  							<!-- <img src="img/tv-ui.png"> -->
-				  						</div>
+                    <div class="device-content">
+                      <h3 class="device-tit">Use any computer</h3>
+                      <p class="device-txt">Watch right on {{ site_name }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end of row-->
+          </div>
+          <!--end of tab-panel-->
 
-				  						<div class="device-content">
-				  							<h3 class="device-tit">Use any computer</h3>
-				  							<p class="device-txt">Watch right on {{site_name}}</p>
-				  						</div>
-				  					</div>
-				  				</div>
-				  			</div>
-				  		</div><!--end of row-->
-					</div><!--end of tab-panel-->
-
-
-				  	<div role="tabpanel" class="tab-pane fade" id="messages">
-
-				  		<div class="">
-				  			<div class="price-head text-center">
-				  				<p class="device-join-txt">
-				  				{{about_site}}</p>
-				  				<a ui-sref="static.signup" class="device-join-link price-link">Join Free for a month</a>
-				  				
-				  			</div>
-				  			
-				  		</div>
-				  		
-				  		
-				  	</div>
-				  	
-				</div><!--end of tab-content-->
-
-				
-			</div><!--end of basic-tabs-->
-		</div><!--end of container-->					
-	</div><!--end of basic-tabs-->
-</div><!--end of basic-landing-->
+          <div role="tabpanel" class="tab-pane fade" id="messages">
+            <div class="">
+              <div class="price-head text-center">
+                <p class="device-join-txt">
+                  {{ about_site }}
+                </p>
+                <a ui-sref="static.signup" class="device-join-link price-link"
+                  >Join Free for a month</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of tab-content-->
+      </div>
+      <!--end of basic-tabs-->
+    </div>
+    <!--end of container-->
+  </div>
+  <!--end of basic-tabs-->
+</div>
+<!--end of basic-landing-->

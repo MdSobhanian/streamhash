@@ -1,15 +1,17 @@
 <div class="main-content">
-	<nav class="navbar navbar-default form-navbar" role="navigation">
-		<div class="banner-spacing">
-			<div class="navbar-header form-header">
-				<a class="navbar-brand" ui-sref="profile.home({sub_profile_id : sub_profile_id})">
-					<img ng-src="{{site_logo}}" class="hidden-xs">
-					<img src="{{site_icon}}" class="visible-xs">
-				</a>
-			</div>
-		</div>
-	</nav>
+  <nav class="navbar navbar-default form-navbar" role="navigation">
+    <div class="banner-spacing">
+      <div class="navbar-header form-header">
+        <a
+          class="navbar-brand"
+          ui-sref="profile.home({sub_profile_id : sub_profile_id})"
+        >
+          <img ng-src="{{ site_logo }}" class="hidden-xs" />
+          <img src="{{ site_icon }}" class="visible-xs" />
+        </a>
+      </div>
+    </div>
+  </nav>
 
-<div ui-view></div>
-
+  <div ui-view></div>
 </div>

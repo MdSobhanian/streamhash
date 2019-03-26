@@ -1,95 +1,156 @@
 <!DOCTYPE html>
-<html lang=en document-events ng-app="streamViewApp" ng-class="{'page_loading': pageLoading, 'page_loaded': pageLoaded}" ng-cloak ng-controller="siteCtrl">
-<head>
-<meta charset=UTF-8>
-<title page-title ng-bind="page_title"></title>
+<html
+  lang="en"
+  document-events
+  ng-app="streamViewApp"
+  ng-class="{'page_loading': pageLoading, 'page_loaded': pageLoaded}"
+  ng-cloak
+  ng-controller="siteCtrl"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title page-title ng-bind="page_title"></title>
 
-<meta name=viewport content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta http-equiv=X-UA-Compatible content="IE=edge">
-<meta name=mobile-web-app-capable content=yes>
+    <meta
+      name="viewport"
+      content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="mobile-web-app-capable" content="yes" />
 
+    <meta name="title" content="{{ meta_title }}" />
+    <meta name="description" content="{{ meta_description }}" />
+    <meta name="keywords" content="{{ meta_keywords }}" />
+    <meta name="author" content="{{ meta_author }}" />
 
-<meta name="title" content="{{meta_title}}">
-<meta name="description" content="{{meta_description}}">
-<meta name="keywords" content="{{meta_keywords}}">
-<meta name="author" content="{{meta_author}}">
+    <link
+      rel="stylesheet"
+      id="Montserrat-css"
+      href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700&#038;ver=4.6.4"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="Lato-css"
+      href="https://fonts.googleapis.com/css?family=Lato%3A400%2C300%2C100%2C700%2C900&#038;ver=4.6.4"
+      type="text/css"
+      media="all"
+    />
 
+    <link rel="shortcut icon" type="image/png" href="{{ site_icon }}" />
 
-<link rel="stylesheet" id="Montserrat-css" href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700&#038;ver=4.6.4" type="text/css" media="all">
-<link rel="stylesheet" id="Lato-css" href="https://fonts.googleapis.com/css?family=Lato%3A400%2C300%2C100%2C700%2C900&#038;ver=4.6.4" type="text/css" media="all">
+    <link
+      rel="stylesheet"
+      id="bootstrap.min-css"
+      href="assets/css/bootstrap.min.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="font-awesome.min-css"
+      href="assets/css/font-awesome.min.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/style.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/responsive.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="main-css"
+      href="assets/css/custom.css"
+      type="text/css"
+      media="all"
+    />
+    <link href="assets/css/star-rating.min.css" rel="stylesheet" />
 
+    <link href="assets/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="assets/css/slick.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/slick-theme.css"
+      type="text/css"
+      media="all"
+    />
 
-<link rel="shortcut icon" type="image/png" href="{{site_icon}}"/>
+    <script src="assets/js/jQuery.js"></script>
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="assets/libs/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="assets/libs/oclazyload/ocLazyLoad.min.js"></script>
+    <script src="assets/libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="assets/libs/angular-route/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/libs/slick-carousel/slick/slick.js"></script>
+    <script src="assets/libs/angular-slick/dist/slick.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/factory.js"></script>
+    <script src="app/ocLazyLoad.js"></script>
+    <script src="app/directive.js"></script>
+    <script src="app/states.js"></script>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div id="header_scripts"></div>
 
-<link rel="stylesheet" id="bootstrap.min-css" href="assets/css/bootstrap.min.css" type="text/css" media="all">
-<link rel="stylesheet" id="font-awesome.min-css" href="assets/css/font-awesome.min.css" type="text/css" media="all">
-<link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
-<link rel="stylesheet" href="assets/css/responsive.css" type="text/css" media="all">
-<link rel="stylesheet" id="main-css" href="assets/css/custom.css" type="text/css" media="all">
-<link href="assets/css/star-rating.min.css" rel="stylesheet">
+      <div id="google_analytics"></div>
 
-<link href="assets/css/owl.carousel.min.css" rel="stylesheet">
-<link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/slick.css" type="text/css" media="all">
-<link rel="stylesheet" href="assets/css/slick-theme.css" type="text/css" media="all">
+      <!--class="page-loading ng-hide"-->
+      <div id="page_preloader" class="page-loading ng-hide">
+        <img
+          src="assets/img/page_preloader.svg"
+          alt="Loader"
+          title="Loader"
+          width="48"
+          height="48"
+        />
+      </div>
 
-<script src="assets/js/jQuery.js"></script>
-<script src="assets/libs/angular/angular.min.js"></script>
-<script src="assets/libs/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="assets/libs/angular-ui-router/angular-ui-router.min.js"></script>
-<script src="assets/libs/oclazyload/ocLazyLoad.min.js"></script>
-<script src="assets/libs/angular-cookies/angular-cookies.min.js"></script>
-<script src="assets/libs/angular-route/angular-route.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-<script src="assets/js/slider.js"></script>
-<script src="assets/libs/slick-carousel/slick/slick.js"></script>
-<script src="assets/libs/angular-slick/dist/slick.js"></script>
-<script src="app/app.js"></script>
-<script src="app/factory.js"></script>
-<script src="app/ocLazyLoad.js"></script>
-<script src="app/directive.js"></script>
-<script src="app/states.js"></script>
+      <div id="before_loader" style="display: none;">
+        <img
+          src="assets/img/page_preloader.svg"
+          alt="Loader"
+          title="Loader"
+          width="48"
+          height="48"
+        />
+      </div>
 
-</head>
-<body>
+      <div ui-view></div>
+    </div>
 
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="assets/js/scripts.js"></script>
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
 
-<div class="main-wrapper"> 
+    <script src="assets/js/star-rating.min.js"></script>
 
-<div id="header_scripts"></div>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
 
-<div id="google_analytics"></div>
-
-<!--class="page-loading ng-hide"-->
-<div id=page_preloader class="page-loading ng-hide">
-	<img src="assets/img/page_preloader.svg" alt=Loader title=Loader width=48 height=48 />
-</div>
-
-
-<div id="before_loader" style="display: none;">
-	<img src="assets/img/page_preloader.svg" alt=Loader title=Loader width=48 height=48 />
-</div>
-  
-<div ui-view></div>
-
-
-</div>
-
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
-<script type="text/javascript" src="assets/js/scripts.js"></script>
-<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
-
- <script src="assets/js/star-rating.min.js"></script>
-
-
-
-<div id="body_scripts"></div>
-<!-- <script type="text/javascript" src="assets/js/slick.min.js"></script>
+    <div id="body_scripts"></div>
+    <!-- <script type="text/javascript" src="assets/js/slick.min.js"></script>
  -->
-    
 
-<!-- <script type="text/javascript">
+    <!-- <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -100,5 +161,5 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
 </script> -->
-</body>
+  </body>
 </html>
