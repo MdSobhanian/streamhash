@@ -3,6 +3,8 @@ streamViewApp
   var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ?
   memoryStorage.preferredLanguage : 'es';
 
+  console.log(preferredLanguage);
+
   $translateProvider
   .useStaticFilesLoader({
     prefix: 'app/translations/',
@@ -10,7 +12,7 @@ streamViewApp
   })
   .preferredLanguage(preferredLanguage)
   .fallbackLanguage('en')
-  .useLocalStorage()
+  // .useLocalStorage()
   .useSanitizeValueStrategy('escape')
   .useMissingTranslationHandlerLog();
 
