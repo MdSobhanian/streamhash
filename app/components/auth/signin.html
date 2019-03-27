@@ -35,7 +35,6 @@
 						<input type="text" name="device_type" ng-model="device_type" ng-hide="true">
 
 						<input type="text" name="device_token" ng-model="device_token" ng-hide="true">
-
 						
 						<div>
 							<button type="submit" class="btn form-btn" id="sign_in_button">Sign In</button>
@@ -52,11 +51,11 @@
 
 						<div class="social-login" ng-show="fb_status || google_status">
 	                        <form method="POST" action="{{socialUrl}}" ng-show="google_status">
-	                        	<input value="google" name="provider" id="provider" type="hidden">
+	                        	<input value="google" name="provider" id="provider-google" type="hidden">
 	                            <div class="form-signup-google"> <button type="submit" class="btn"><i class="fa fa-google"></i>Sign in with Google</button> </div>
 	                        </form>
 	                        <form method="POST" action="{{socialUrl}}" ng-show="fb_status">
-	                        	<input value="facebook" name="provider" id="provider" type="hidden">
+	                        	<input value="facebook" name="provider" id="provider-facebook" type="hidden">
 	                            <div class="form-signup-facebook"> <button type="submit" class="btn"><i class="fa fa-facebook"></i>Sign in with facebook</button> </div>
 	                        </form>  
 	                    </div>
