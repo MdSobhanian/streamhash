@@ -10,6 +10,8 @@ streamViewApp
   })
   .preferredLanguage(preferredLanguage)
   .fallbackLanguage('en')
+  .useLocalStorage()
+  .useSanitizeValueStrategy('escape')
   .useMissingTranslationHandlerLog();
 
 });
