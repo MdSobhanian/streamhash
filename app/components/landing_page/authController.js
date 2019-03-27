@@ -236,6 +236,37 @@ angular.module('streamViewApp')
 
 	    $scope.allPages = $rootScope.allPages;
 
+	    var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
+
+  		$scope.languages = preferredLanguage;
+
+	    $scope.getLanguage = function(lang) {
+
+	    	if (lang == '') {
+
+	    		alert("Choose any one of the language");
+
+	    		return false;
+
+	    	}
+
+	    	var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
+
+	    	if(lang == preferredLanguage) {
+
+
+	    	} else {
+
+	    		memoryStorage.preferredLanguage = lang;
+
+	    		localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+	    		window.location.reload(true);
+
+	    	}
+
+	    }
+
 	}	
 	
 	

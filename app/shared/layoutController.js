@@ -825,13 +825,35 @@ angular
       // 	$(".height").height($scope.height);
       // }, 100);
 
-      var ctrl = this;
+        var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
 
-      ctrl.language = "en";
-      ctrl.languages = ["en", "sv"];
-      ctrl.updateLanguage = function() {
-        $translate.use(ctrl.language);
-        console.log("testing");
-      };
+        $scope.languages = preferredLanguage;
+
+        $scope.getLanguage = function(lang) {
+
+        if (lang == '') {
+
+            alert("Choose any one of the language");
+
+            return false;
+
+        }
+
+        var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
+
+        if(lang == preferredLanguage) {
+
+
+        } else {
+
+            memoryStorage.preferredLanguage = lang;
+
+            localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
+
+            window.location.reload(true);
+
+        }
+
+      }
     }
   ]);
