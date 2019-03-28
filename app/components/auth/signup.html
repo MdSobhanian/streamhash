@@ -19,21 +19,21 @@
 			<div class="login-form">
 				<div class="">
 					<div class="login-form-inner grey-bg">	
-						<h3 class="login-tit">Sign Up</h3>
+						<h3 class="login-tit">{{'sign_up' | translate}}</h3>
 						<form method="post" ng-submit="signup()">
 							<div class="form-group">
-							    <label for="exampleInputEmail1">Full Name</label>
-							    <input type="name" class="form-control" placeholder="Enter Your Name" required ng-model="name">
+							    <label for="full_name">{{'full_name' | translate}}</label>
+							    <input type="name" id="full_name" class="form-control" placeholder="Enter Your Name" required ng-model="name">
 							</div>
 
 							<div class="form-group">
-							    <label for="exampleInputEmail1">Email address</label>
-							    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required ng-model="email">
+							    <label for="email_address">{{'email_address' | translate}}</label>
+							    <input type="email" class="form-control" id="email_address" aria-describedby="emailHelp" placeholder="{{'email_address_placeholder' | translate}}" required ng-model="email">
 							</div>
 
 							<div class="form-group">
-							    <label>Password</label>
-							    <input type="password" class="form-control" placeholder="Enter Password" min="6" required ng-model="password">
+							    <label>{{ 'password' | translate}}</label>
+							    <input type="password" class="form-control" placeholder="{{'password_placeholder' | translate}}" min="6" required ng-model="password">
 							</div>
 
 							<input type="text" name="login_by" ng-model="login_by" ng-hide="true">
@@ -43,25 +43,25 @@
 							<input type="text" name="device_token" ng-model="device_token" ng-hide="true">
 
 							<div>
-								<button type="submit" class="btn form-btn" id="sign_up_button">Sign Up</button>
+								<button type="submit" class="btn form-btn" id="sign_up_button">{{'sign_up' | translate}}</button>
 							</div>
 						</form>
 
 						<div class="social-login" ng-show="fb_status || google_status">
 	                        <form method="POST" action="{{socialUrl}}" ng-show="google_status">
 	                        	<input value="google" name="provider" id="provider" type="hidden">
-	                            <div class="form-signup-google"> <button type="submit" class="btn"><i class="fa fa-google"></i>Sign in with Google</button> </div>
+	                            <div class="form-signup-google"> <button type="submit" class="btn"><i class="fa fa-google"></i>{{ 'signin_with_google'| translate}}</button> </div>
 	                        </form>
 	                        <form method="POST" action="{{socialUrl}}" ng-show="fb_status">
 	                        	<input value="facebook" name="provider" id="provider" type="hidden">
-	                            <div class="form-signup-facebook"> <button type="submit" class="btn"><i class="fa fa-facebook"></i>Sign in with facebook</button> </div>
+	                            <div class="form-signup-facebook"> <button type="submit" class="btn"><i class="fa fa-facebook"></i>{{ 'signin_with_facebook'| translate}}</button> </div>
 	                        </form>  
 	                    </div>
 
 	                    <div class="clearfix"></div>
 
 							<div class="form-txt-block">
-								<p class="form-txt">Already have an Account? <a ui-sref="static.signin" class="form-link"> Sign In.</a></p>
+								<p class="form-txt">{{'already_have_account' | translate}} <a ui-sref="static.signin" class="form-link"> {{'sign_in' | translate}}.</a></p>
 							</div>
 					</div>					
 				</div>

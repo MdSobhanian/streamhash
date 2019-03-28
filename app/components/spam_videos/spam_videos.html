@@ -3,7 +3,7 @@
 <div style="margin-top:80px !important; margin:5%; padding: 10px;">
 
 <div class="box-head" style="margin-bottom: 2%;">
-   <h3>Spam Videos</h3>
+   <h3>{{'spam_videos' | translate }}</h3>
 </div>
 
 <button ng-click="loadMoreDetails()" ng-hide="true" id="load_more_details"></button>
@@ -11,7 +11,7 @@
 
 <div class="box video-box-row" ng-if="datas.length == 0">
 
-<p>You have not added any videos to Spam videos section</p>
+<p>{{'no_spam_videos_present' | translate }}</p>
 
 
 </div>
@@ -29,7 +29,7 @@
 	        <div class="tile-details">
 
 	        	<div class="video_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
-	        		<span>PAY - {{value.currency}} {{value.amount}}</span>
+	        		<span>{{'pay' | translate}} - {{value.currency}} {{value.amount}}</span>
 	        	</div>
 
 	        	<span ng-show="value.pay_per_view_status">
@@ -149,7 +149,7 @@
 
 			    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
 						        		<!-- <span ng-if="value.pay_per_view_status">PAID</span> -->
-						        		<span>PAY - {{value.currency}} {{value.amount}}</span> 
+						        		<span>{{'pay' | translate}} - {{value.currency}} {{value.amount}}</span> 
 						        	</div>
 
 			    					<div>
@@ -165,7 +165,7 @@
 			    						<a ng-click="unSpamVideo(value.admin_video_id)" class="bold"  style="cursor: pointer;">
 			    							<button class="my-list">
 				    							<i class="fa fa-exclamation my-list-icon"></i>
-				    							<span class="my-list-txt">Unspam</span> 
+				    							<span class="my-list-txt">{{'unspam' | translate}}</span> 
 			    							</button>
 			    						</a>
 			    						
@@ -211,7 +211,7 @@
 								<h3 class="content-tit">{{value.sub_category_name}}</h3>
 
 								<div class="row col-sm-12 col-sm-12 col-lg-12 col-md-12">
-									<h4 class="epi-tit gray-color1 txt-overflow ng-binding">Cast & Crews</h4>
+									<h4 class="epi-tit gray-color1 txt-overflow ng-binding">{{'cast_crews' | translate}}</h4>
 
 									<div class="clearfix"></div>
 
@@ -227,7 +227,7 @@
 									
 								<div class="details-row row no-margin">
 
-									<h4 class="epi-tit gray-color1 txt-overflow ng-binding">Details</h4>
+									<h4 class="epi-tit gray-color1 txt-overflow ng-binding">{{'details' | translate}}</h4>
 
 									<p ng-bind-html="value.details"></p>
 
@@ -243,12 +243,12 @@
 
 			<ul class="nav nav-tabs" role="tablist">
 			    <li role="presentation" class="active">
-			    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">{{'overview' | translate}}</a>
 			    </li>
 
 
 			    <li role="presentation" ng-if="value.details">
-			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">{{'details' | translate}}</a>
 			    </li>
 		  	</ul>		
 			

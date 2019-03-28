@@ -4,7 +4,7 @@
 
 		<div class="centered-div">
 			<div class="profile-actions-container">
-				<h1>Edit Profile</h1>
+				<h1>{{'edit_profile' | translate}}</h1>
 				<!-- <h2>Add a profile for another person watching Netflix.</h2> -->
 
 				<form method="post" id="sub_profile" enctype="multipart/form-data">
@@ -30,23 +30,23 @@
 				</div>
 
 				<div class="profile-button preferred-action pull-left" role="button" ng-click="editProfile()">
-					<span>Save</span>
+					<span>{{'save' | translate}}</span>
 				</div>
 				<a ui-sref="manage-profile.manage-profiles">
 					<div class="profile-button pull-left" style="margin-left: 5px;">
-						<span>Cancel</span>
+						<span>{{'cancel' | translate}}</span>
 					</div>
 				</a>
 
 				<a ng-click="deleteProfile(profile.id)" class="hidden-xxs">
 					<div class="profile-button pull-left" style="margin-left: 5px;">
-						<span>Delete Profile</span>
+						<span>{{'delete_profile' | translate}}</span>
 					</div>
 				</a>
 
 				<a ng-click="deleteProfile(profile.id)" class="visible-xxs">
 					<div class="profile-button pull-left" style="margin-left: 5px;">
-						<span>Delete</span>
+						<span>{{'delete' | translate}}</span>
 					</div>
 				</a>
 

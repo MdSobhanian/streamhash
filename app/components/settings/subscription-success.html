@@ -6,15 +6,15 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
                     <div class="white-bg spacing1 text-center payment-status">
                         <img src="assets/img/red.png" class="succes-img">
-                        <h1>Thank you!</h1>
-                        <h3>Your Payment is received successfully !!</h3>
-                        <p>Now you can watch Video</p>
+                        <h1>{{'thank_you' | translate}}!</h1>
+                        <h3>{{'subscription_success_title' | translate}}</h3>
+                        <p>{{'subscription_success_description' | translate}}</p>
 
                         <a ui-sref="single_video({id : admin_video_id})" ng-if="admin_video_id > 0">
-                            <button class="payment-submit"><i class="fa fa-video-o"></i> View Video</button>
+                            <button class="payment-submit"><i class="fa fa-video-o"></i> {{'view_video' | translate}}</button>
                         </a>
                         <a href="#" ng-if="admin_video_id <= 0">
-                            <button class="payment-submit"><i class="fa fa-home"></i> Home</button>
+                            <button class="payment-submit"><i class="fa fa-home"></i> {{'home' | translate}}</button>
                         </a>
                     </div>
                 </div>

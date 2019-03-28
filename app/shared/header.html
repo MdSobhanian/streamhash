@@ -57,7 +57,7 @@
             style="cursor: pointer;"
             class="dropdown-toggle hidden-xs"
             data-toggle="dropdown"
-            >Browse<strong class="caret"></strong
+            >{{'browse'}}<strong class="caret"></strong
           ></a>
           <a
             style="cursor: pointer;"
@@ -71,36 +71,36 @@
                 <ul class="sub-drop list-unstyled sub-drop1">
                   <li>
                     <a ui-sref="profile.home({sub_profile_id : sub_profile_id})"
-                      >Home</a
+                      >{{'home' | translate}}</a
                     >
                   </li>
 
                   <li>
-                    <a ui-sref="profile.title({title:'wishlist'})">Wishlist</a>
+                    <a ui-sref="profile.title({title:'wishlist'})">{{'wishlist' | translate}}</a>
                   </li>
 
                   <li>
                     <a ui-sref="profile.title({title:'recent'})"
-                      >Recent Uploads</a
+                      >{{'recent_uploads' | translate}}</a
                     >
                   </li>
 
                   <li>
-                    <a ui-sref="profile.title({title:'trending'})">Trending</a>
+                    <a ui-sref="profile.title({title:'trending'})">{{'trending' | translate}}</a>
                   </li>
 
                   <li>
-                    <a ui-sref="profile.title({title:'watchlist'})">History</a>
+                    <a ui-sref="profile.title({title:'watchlist'})">{{'history' | translate}}</a>
                   </li>
 
                   <li>
                     <a ui-sref="profile.title({title:'suggestion'})"
-                      >Recommended</a
+                      >{{'recommended' | translate}}</a
                     >
                   </li>
 
                   <li>
-                    <a ui-sref="profile.spam_videos">Spam Videos</a>
+                    <a ui-sref="profile.spam_videos">{{'spam_videos' | translate}}</a>
                   </li>
                 </ul>
               </li>
@@ -122,7 +122,7 @@
         </li>
 
         <li>
-            <a ui-sref="profile.title({title:'kids'})">Kids</a>
+            <a ui-sref="profile.title({title:'kids'})">{{'kids' | translate}}</a>
         </li>
       </ul>
 
@@ -253,7 +253,7 @@
 
               <div ng-if="notifications.length == 0">
                 <p style="color: #fff;padding: 15px; margin: 0;">
-                  Sorry - You dont have any notifications
+                  {{'notification_not_found' | translate}}
                 </p>
               </div>
             </div>
@@ -261,7 +261,7 @@
             <div class="notification-footer" ng-if="notifications.length > 0">
               <a ui-sref="profile.title({title:'recent'})">
                 <h4 class="menu-title pull-right">
-                  View all&nbsp;<i class="fa fa-chevron-right"></i>
+                  {{'view_all' | translate}}&nbsp;<i class="fa fa-chevron-right"></i>
                 </h4>
               </a>
               <div class="clearfix"></div>
@@ -303,13 +303,13 @@
                   ></div>
                   <div class="nav-profile-name">
                     {{ value.name }}
-                    <span ng-if="value.status == 1">(Main)</span>
+                    <span ng-if="value.status == 1">({{'main' | translate}})</span>
                   </div></a
                 >
               </li>
 
               <li>
-                <a ui-sref="manage-profile.manage-profiles">Manage Profile</a>
+                <a ui-sref="manage-profile.manage-profiles">{{'manage_profile' | translate}}</a>
               </li>
             </div>
 
@@ -318,13 +318,13 @@
                 <a
                   ui-sref="profile.account-settings({sub_profile_id : sub_profile_id})"
                 >
-                  Your Account
+                  {{'your_account' | translate}}
                 </a>
               </li>
 
               <li>
                 <a ui-sref="profile.payment-details">
-                  Payment History
+                  {{'payment_history' | translate}}
                 </a>
               </li>
 
@@ -336,7 +336,7 @@
 
               <li>
                 <a ng-click="logout()" style="cursor: pointer;">
-                  Signout
+                  {{'signout' | translate}}
                 </a>
               </li>
             </div>

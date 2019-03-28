@@ -77,7 +77,6 @@
 	"view_all":"Ver Todo",
 	"your_account":"Tu Cuenta",
 	"signout":"Cerrar sesión",
-	"payment_history":"Historial de Pagos",
 	"pay_now":"Pagar ahora",
 	"view_video":"Reproducir",
 	"thank_you":"Gracias",
@@ -173,5 +172,13 @@
 	"change_plan":"Cambiar Plan",
 	"something_error":"Algo anda mal, Porfavor intenta más tarde",
 	"days": "Days",
-	"select_language":"Choose Language"
+	"select_language":"Choose Language",
+	"details": "Details",
+	"english": "English",
+	"spanish": "Spanish",
+	"chinese": "Chinese",
+	"unspam" : "Unspam",
+	"kids" : "Kids",
+	"plan" : "Plan",
+	"maintain_account" : "Maintain Account",
 }

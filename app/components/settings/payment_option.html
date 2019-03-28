@@ -4,28 +4,28 @@
         	<div class="row">
         		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
         			<div class="white-bg  spacing1 res-spacing">
-        				<h3 class="select-head text-center text-uppercase">Select Payment</h3>
+        				<h3 class="select-head text-center text-uppercase">{{'select_payment' | translate}}</h3>
 
                         <p>
 
            
                         <span ng-if="video.type_of_user == 1 "> 
-                            <small><b>Note: </b> 
-                            You are a Normal User. If you are Paid User, you no need to pay the video payment. You can watch the video anytime. If you want to paid user, Please choose plan and continue the same.
+                            <small><b>{{'note' | translate}}: </b> 
+                            {{'normal_user_notes' | translate}}
                         </span> 
 
                         </small></p>
 
-                         <p ng-if="video.type_of_user == 2"><small><b>Note: </b> If you subscribe also , you need to pay for this selected video</small></p>
+                         <p ng-if="video.type_of_user == 2"><small><b>{{'note' | translate}}: </b> {{'ppv_notes' | translate}}</small></p>
 
         				<div class="card-1">
         					<div class="amount-sec">
-        						<h2 class="select-amount">Plans</h2>
+        						<h2 class="select-amount">{{'plans' | translate}}</h2>
         					</div>
         					<div class="text-sec">
-        						<h4 >Subscription plan</h4>
+        						<h4>{{'subscription_plan' | translate}}</h4>
                                
-        						<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="text-uppercase"><P>Click here to subscribe</P></a>
+        						<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="text-uppercase"><P>{{'click_here_to_subscribe' | translate}}</P></a>
         					</div>
         				</div>
         				<div class="card-1">
@@ -33,11 +33,11 @@
         						<h2 class="select-amount">{{video.currency}}{{video.amount}}</h2>
         					</div>
         					<div class="text-sec">
-        						<h4>Pay per video (<span ng-if="video.type_of_subscription == 1">One Time Payment</span><span ng-if="video.type_of_subscription == 2">Recurring Payment</span>)</h4>
+        						<h4>{{'pay_per_video' | translate}} (<span ng-if="video.type_of_subscription == 1">{{'one_time_payment' | translate}}</span><span ng-if="video.type_of_subscription == 2">{{'recurring_payment' | translate}}</span>)</h4>
 
                                
                                
-        						<a ui-sref="profile.pay_per_view({id : video.admin_video_id})" class="text-uppercase"><P>Click here to pay per video</P></a>
+        						<a ui-sref="profile.pay_per_view({id : video.admin_video_id})" class="text-uppercase"><P>{{'click_here_to_pay_ppv' | translate}}</P></a>
         					</div>
         				</div>
         			</div>

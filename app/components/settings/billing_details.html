@@ -8,27 +8,27 @@
 	        	<div class="row">
 	        		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 zero-padding billing-bg-img" style="background-image: url(img/billing-back.jpg);">
 	        			<div class="billing-bg">
-		        			<h3 class="billing-head txt-overflow"><i class="fa fa-calendar"></i> &nbsp;Billing Details</h3>
+		        			<h3 class="billing-head txt-overflow"><i class="fa fa-calendar"></i> &nbsp;{{'billing_details' | translate}}</h3>
 		        			<p class="bill-line"></p>
 
-		        			<h4 class="billing-sub-head txt-overflow"><i class="fa fa-hand-o-right"></i><span style="margin-left:19px;">Next Billing Date</span></h4>
+		        			<h4 class="billing-sub-head txt-overflow"><i class="fa fa-hand-o-right"></i><span style="margin-left:19px;">{{'next_billing_date' | translate}}</span></h4>
 		        			<p class="billing-para">{{active_plan.data.expiry_date}}</p>
 		        			<p class="bill-line"></p>
 
 		        			<h4 class="billing-sub-head txt-overflow"><i class="fa fa-tags  fa-rotate-90"></i><span style="margin-left:17px;">{{active_plan.subscription.title}}</span></h4>
-		        			<p class="billing-para">{{active_plan.data.currency}}{{active_plan.data.amount}} / {{active_plan.subscription.plan}} Months</p>
+		        			<p class="billing-para">{{active_plan.data.currency}}{{active_plan.data.amount}} / {{active_plan.subscription.plan}} {{'months' | translate}}</p>
 
 		        			<p class="bill-line"></p>
 
-		        			<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="text-right white-clr"><h4><i class="fa fa-angle-double-right"></i>&nbsp; View Plan Details</h4></a>
+		        			<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="text-right white-clr"><h4><i class="fa fa-angle-double-right"></i>&nbsp; {{'view_plan_details' | translate}}</h4></a>
 
 		        			<div ng-if="active_plan.data.is_cancelled == 0 && active_plan.data.subscription_amount > 0">
 
 		        			<p class="bill-line"></p>
 
-		        			<p>Pause your subscription autorenewal to take a break on the payment</p>
+		        			<p>{{'pause_subscription_notes' | translate}}</p>
 
-		        			<center><button  class="paynow-btn1" data-toggle="modal" data-target="#cancel_subscription_form"><i class="fa fa-times"></i>&nbsp;Pause Autorenewal</button>
+		        			<center><button  class="paynow-btn1" data-toggle="modal" data-target="#cancel_subscription_form"><i class="fa fa-times"></i>&nbsp;{{'pause_autorenewal' | translate}}</button>
 		        			</div>
 
 		        			<div class="modal fade" id="cancel_subscription_form" role="dialog">
@@ -37,7 +37,7 @@
 							      	<div class="modal-content" style="background-color: #333;">
 							        	<div class="modal-header spam">
 							          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-							          		<h4 class="modal-title bold">Enter reason for cancellation</h4>
+							          		<h4 class="modal-title bold">{{'enter_cancel_reason' | translate}}</h4>
 							        	</div>
 							        	<div class="modal-body">
 							        		<form ng-submit="cancel_subscription(cancel_reason)">
@@ -45,7 +45,7 @@
 								          			<textarea class="form-control" ng-model="cancel_reason" name="cancel_reason" required style="resize: none"></textarea>
 								          		</div>
 								                <div class="text-right">
-								                	<button type="submit" class="payment-submit">Submit</button>
+								                	<button type="submit" class="payment-submit">{{'submit' | translate}}</button>
 								                </div>
 							                </form>
 							        	</div>
@@ -57,9 +57,9 @@
 
 		        			<p class="bill-line"></p>
 
-		        			<p>Your subscription autorenewal is paused. Please activate autorenewal and enjoy your videos</p>
+		        			<p>{{'autorenewal_notes' | translate}}</p>
 
-		        			<center><button ng-click="enable_subscription()" class="paynow-btn1"><i class="fa fa-check"></i>&nbsp;Enable Autorenewal</button>
+		        			<center><button ng-click="enable_subscription()" class="paynow-btn1"><i class="fa fa-check"></i>&nbsp;{{'enable_autorenewal' | translate}}</button>
 
 
 		        			</div>
@@ -78,7 +78,7 @@
 	        		</div>
 
 	        		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 billing-history">
-	        			<h3 class="billing-head1"><i class="fa fa-clock-o"></i> &nbsp;Billing History</h3>
+	        			<h3 class="billing-head1"><i class="fa fa-clock-o"></i> &nbsp;{{'billing_history' | translate}}</h3>
 	        			<p class="bill-line"></p>
 
 	        			<div class="billing-card" ng-repeat="plan in subscribed_plans.plans">
@@ -90,48 +90,48 @@
   									<table class="table table-bordered">
   										<tbody>
   											<tr>
-												<td>Payment Id</td>
+												<td>{{'payment_id' | translate}}</td>
 												<td>{{plan.payment_id}}</td>
 											</tr>
 											<tr>
-												<td>Subscribed Date</td>
+												<td>{{'subscribed_date' | translate}}</td>
 												<td>{{plan.date}}</td>
 											</tr>
 											<tr>
-												<td>Expiry Date</td>
+												<td>{{'expiry_date' | translate}}</td>
 												<td>{{plan.expiry_date}}</td>
 											</tr>
 											<tr>
-												<td>No Of Account</td>
+												<td>{{'no_of_account' | translate}}</td>
 												<td>{{plan.no_of_account}}</td>
 											</tr>
 											<tr>
-												<td>No Of Month</td>
+												<td>{{'no_of_month' | translate}}</td>
 												<td>{{plan.no_of_month}}</td>
 											</tr>
 											
 
 											<tr ng-if='plan.coupon_amount > 0'>
-												<td>Total Amount</td>
+												<td>{{'total_amount' | translate}}</td>
 												<td>{{plan.currency}}{{plan.total_amount}}</td>
 											</tr>
 
 											<tr ng-if="video.coupon_amount > 0">
-									       		<td>Coupon Code</td>
+												<td>{{'coupon_code' | translate}}</td>
 									       	 	<td>{{plan.coupon_code}}</td>	
 									     	</tr>
 
 											<tr ng-if='plan.coupon_amount > 0'>
-												<td>Coupon Amount</td>
+												<td>{{'coupon_amount' | translate}}</td>
 												<td>{{plan.currency}}{{plan.coupon_amount}}</td>
 											</tr>
 
 											<tr>
-												<td>Paid Amount</td>
+												<td>{{'paid_amount' | translate}}</td>
 												<td>{{plan.currency}}{{plan.amount}}</td>
 											</tr>
 											<tr>
-												<td>Payment Mode</td>
+												<td>{{'payment_mode' | translate}}</td>
 												<td>{{plan.payment_mode}}</td>
 											</tr>
 										</tbody>
@@ -141,7 +141,7 @@
 	        			</div>
 	        			
 	        			<div class="billing-total text-right">
-	        				<h3>Total - {{subscribed_plans.currency}}{{subscribed_plans.amount}}</h3>
+	        				<h3>{{'total' | translate}} - {{subscribed_plans.currency}}{{subscribed_plans.amount}}</h3>
 	        			</div>
 	        		</div>
         		</div>

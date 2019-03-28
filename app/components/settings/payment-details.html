@@ -16,7 +16,7 @@
 	        		</div>
 
 	        		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 billing-history">
-	        			<h3 class="billing-head1"><i class="fa fa-clock-o"></i> &nbsp;Payment History</h3>
+	        			<h3 class="billing-head1"><i class="fa fa-clock-o"></i> &nbsp;{{'payment_history' | translate}}</h3>
 	        			<p class="bill-line1"></p>
 
 	        			<div class="payment-details top" ng-repeat="video in paid_videos">
@@ -35,40 +35,37 @@
 								<table class="table">
 								    <tbody>
 								      	<tr>
-								        	<td>Payment ID</td>
+								        	<td>{{'payment_id' | translate}}</td>
 								        	<td>{{video.payment_id}}</td>
 								      	</tr>
 								      	<tr>
-									        <td>Paid date</td>
+									        <td>{{'paid_date' | translate}}</td>
 									        <td>{{video.paid_date}}</td>
 								      	</tr>
-								      	<!-- <tr>
-								       		<td>Status</td>
-								       	 	<td>{{}}</td>	
-								     	</tr> -->
 								     	<tr>
-								       		<td>Subscription Type</td>
+								       		<td>{{'subscription_type' | translate}}</td>
 								       	 	<td>{{video.type_of_subscription}}</td>	
 								     	</tr>
 								     	<tr>
-								       		<td>User Type</td>
+								       		<td>{{'user_type' | translate}}</td>
 								       	 	<td>{{video.type_of_user}}</td>	
 								     	</tr>
 								     	<tr ng-if="video.coupon_amount > 0">
-								       		<td>Total Amount</td>
+								       		<td>{{'total_amount' | translate}}</td>
 								       	 	<td>{{video.currency}}{{video.total_amount}}</td>	
 								     	</tr>
 								     	
 								     	<tr ng-if="video.coupon_amount > 0">
-								       		<td>Coupon Code</td>
+								       		<td>{{'coupon_code' | translate}}</td>
 								       	 	<td>{{video.coupon_code}}</td>	
 								     	</tr>
 								     	<tr ng-if="video.coupon_amount > 0">
-								       		<td>Coupon Amount</td>
+								       		<td>{{'coupon_amount' | translate}}</td>
 								       	 	<td>{{video.currency}}{{video.coupon_amount}}</td>	
 								     	</tr>
-	<tr>
-								       		<td>Payment Mode</td>
+										
+										<tr>
+								       		<td>{{'payment_mode' | translate}}</td>
 								       	 	<td>{{video.payment_mode}}</td>	
 								     	</tr>
 								    </tbody>

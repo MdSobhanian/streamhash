@@ -37,7 +37,7 @@
 						<input type="text" name="device_token" ng-model="device_token" ng-hide="true">
 						
 						<div>
-							<button type="submit" class="btn form-btn" id="sign_in_button">Sign In</button>
+							<button type="submit" class="btn form-btn" id="sign_in_button">{{'signin' | translate}}</button>
 						</div>
 
 
@@ -52,11 +52,11 @@
 						<div class="social-login" ng-show="fb_status || google_status">
 	                        <form method="POST" action="{{socialUrl}}" ng-show="google_status">
 	                        	<input value="google" name="provider" id="provider-google" type="hidden">
-	                            <div class="form-signup-google"> <button type="submit" class="btn"><i class="fa fa-google"></i>Sign in with Google</button> </div>
+	                            <div class="form-signup-google"> <button type="submit" class="btn"><i class="fa fa-google"></i>{{ 'signin_with_google'| translate}}</button> </div>
 	                        </form>
 	                        <form method="POST" action="{{socialUrl}}" ng-show="fb_status">
 	                        	<input value="facebook" name="provider" id="provider-facebook" type="hidden">
-	                            <div class="form-signup-facebook"> <button type="submit" class="btn"><i class="fa fa-facebook"></i>Sign in with facebook</button> </div>
+	                            <div class="form-signup-facebook"> <button type="submit" class="btn"><i class="fa fa-facebook"></i>{{ 'signin_with_facebook' | translate}}</button> </div>
 	                        </form>  
 	                    </div>
 
@@ -66,14 +66,14 @@
 
 						<div class="pull-left1">
 							<div class="form-txt-block">
-								<p class="form-txt">New to {{site_name}}? <a ui-sref="static.signup" class="form-link">Sign up now.</a></p>
+								<p class="form-txt">{{'new_to' | translate}} {{site_name}}? <a ui-sref="static.signup" class="form-link">{{'sign_up_now' | translate}}</a></p>
 							</div>
 						</div>
 
 						<div class="pull-right1">
 
 							<div class="forgot form-txt-block">
-								<a ui-sref="static.forgot" class="form-link">Forgot Password?</a>
+								<a ui-sref="static.forgot" class="form-link">{{'forgot_password' | translate}}?</a>
 							</div>
 
 						</div>

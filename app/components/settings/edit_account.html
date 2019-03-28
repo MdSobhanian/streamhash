@@ -6,26 +6,26 @@
 	<div class="login-form" style="padding-top: 100px;padding-bottom: 40px;">
 		<div class="container">
 			<div class="login-form-inner grey-bg">	
-				<h3 class="login-tit">Edit Profile</h3>
+				<h3 class="login-tit">{{'edit_profile' | translate}}</h3>
 				<form method="post" ng-submit="editProfile()">
 					<div class="form-group">
-					    <label for="exampleInputEmail1">Full Name</label>
-					    <input type="name" class="form-control" placeholder="Enter Your Name" required ng-model="profile.name">
+					    <label for="exampleInputEmail1">{{'full_name' | translate}}</label>
+					    <input type="name" class="form-control" placeholder="{{'enter_your_name' | translate}}" required ng-model="profile.name">
 					</div>
 
 					<div class="form-group" ng-if="profile.login_by == 'manual'">
-					    <label for="exampleInputEmail1">Email address</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required ng-model="profile.email">
+					    <label for="exampleInputEmail1">{{'email_address' | translate}}</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{'email_address_placeholder' | translate}}" required ng-model="profile.email">
 					</div>
 
 					<div class="form-group">
-					    <label>Mobile Number</label>
-					    <input type="text" class="form-control" placeholder="Enter Mobile Number" required ng-model="profile.mobile" pattern="[0-9]{0,}" maxlength="11">
+					    <label> {{'mobile_number' | translate}}</label>
+					    <input type="text" class="form-control" placeholder="{{'mobile_number_placeholder' | translate}}" required ng-model="profile.mobile" pattern="[0-9]{0,}" maxlength="11">
 					</div>
 
 
 					<div>
-						<button type="submit" class="btn btn-primary form-btn">Save</button>
+						<button type="submit" class="btn btn-primary form-btn">{{'save' | translate}}</button>
 					</div>
 
 					

@@ -4,7 +4,7 @@
 		<div class="banner-spacing col-lg-10 col-lg-offset-1">
 			
 			<div class="account-layout-inner" style="padding-top: 15px;padding-bottom: 15px;">
-				<div class="pull-left"><h1 class="account-header">My Account</h1></div>
+				<div class="pull-left"><h1 class="account-header">{{'my_account' | translate}}</h1></div>
 
 				<div class="pull-right">
 					<span class="noti-txt">notification</span>
@@ -27,7 +27,7 @@
 						<!-- Accound section header -->
 						<div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
 							<div class="account-section-header">
-								<h3 class="account-section-title">Profile</h3>
+								<h3 class="account-section-title">{{'profile' | translate}}</h3>
 							</div>
 						</div>
 
@@ -40,10 +40,10 @@
 									<div class="account-section-content-block">
 										<p class="account-section-text" ng-if="profile.login_by == 'manual'">{{profile.email}}</p>
 										<p class="account-section-text account-gray-text">
-										Password <span>********</span>
+										{{'password' | translate}} <span>********</span>
 										</p>
 										<p class="account-section-text account-gray-text">
-										Phone <span>{{profile.mobile}}</span>
+										{{'phone' | translate}} <span>{{profile.mobile}}</span>
 										</p>
 									</div>
 								</div>
@@ -51,15 +51,15 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block text-right">
 										<div>
-											<a ui-sref="profile.edit-account({id : id})" class="account-section-link">Edit Profile</a>
+											<a ui-sref="profile.edit-account({id : id})" class="account-section-link">{{'edit_profile' | translate}}</a>
 										</div>
 										
 										<div ng-if="login_by == 'manual'">
-											<a ui-sref="profile.change-password({id : id})" class="account-section-link">Change Password</a>
+											<a ui-sref="profile.change-password({id : id})" class="account-section-link">{{'change_password' | translate}}</a>
 										</div>
 
 										<div>
-											<a ui-sref="profile.delete-account({id : id})" class="account-section-link">Delete Account</a>
+											<a ui-sref="profile.delete-account({id : id})" class="account-section-link">{{'delete_account' | translate}}</a>
 										</div>											
 									</div>
 								</div>
@@ -78,7 +78,7 @@
 						<!-- Accound section header -->
 						<div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
 							<div class="account-section-header">
-								<h3 class="account-section-title">Plan Details</h3>
+								<h3 class="account-section-title">{{'plan_details' | translate}}</h3>
 							</div>
 						</div>
 
@@ -95,13 +95,13 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block text-right">
 										<div>
-											<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="account-section-link">Change Plan</a>
+											<a ui-sref="profile.subscriptions({sub_profile_id : sub_profile_id})" class="account-section-link">{{'change_plan' | translate}}</a>
 										</div>											
 									</div>
 
 									<div class="account-section-content-block text-right">
 										<div>
-											<a ui-sref="profile.billing-details({sub_profile_id : sub_profile_id})" class="account-section-link">Billing Details</a>
+											<a ui-sref="profile.billing-details({sub_profile_id : sub_profile_id})" class="account-section-link">{{'billing_details' | translate}}</a>
 										</div>											
 									</div>
 								</div>
@@ -117,7 +117,7 @@
 						<!-- Accound section header -->
 						<div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
 							<div class="account-section-header">
-								<h3 class="account-section-title">Manage Profile</h3>
+								<h3 class="account-section-title">{{'manage_profile' | translate}}</h3>
 							</div>
 						</div>
 
@@ -137,7 +137,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block text-right">
 										<div>
-											<a ui-sref="manage-profile.view-profile" class="account-section-link">Manage Profile</a>
+											<a ui-sref="manage-profile.view-profile" class="account-section-link">{{'manage_profile' | translate}}</a>
 										</div>											
 									</div>
 								</div>
@@ -152,7 +152,7 @@
 						<!-- Accound section header -->
 						<div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
 							<div class="account-section-header">
-								<h3 class="account-section-title">Card Details</h3>
+								<h3 class="account-section-title">{{'card_details' | translate}}</h3>
 							</div>
 						</div>
 
@@ -170,13 +170,13 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad">
 									<div class="account-section-content-block text-right">
 										<div>
-											<a ui-sref="profile.add-card({sub_profile_id : sub_profile_id})" class="account-section-link">Add Card</a>
+											<a ui-sref="profile.add-card({sub_profile_id : sub_profile_id})" class="account-section-link">{{'add_card' | translate}}</a>
 										</div>											
 									</div>
 
 									<div class="account-section-content-block text-right">
 										<div>
-											<a ui-sref="profile.card-list({sub_profile_id : sub_profile_id})" class="account-section-link">Card Details</a>
+											<a ui-sref="profile.card-list({sub_profile_id : sub_profile_id})" class="account-section-link">{{'card_details' | translate}}</a>
 										</div>											
 									</div>
 								</div>

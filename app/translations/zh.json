@@ -77,7 +77,6 @@
 	"view_all":"查看全部",
 	"your_account":"你的帐户",
 	"signout":"退出",
-	"payment_history":"付款历史",
 	"pay_now":"现在付款",
 	"view_video":"观看视频",
 	"thank_you":"谢谢",
@@ -172,5 +171,13 @@
 	"plan_details":"计划细节",
 	"change_plan":"更改计划",
 	"something_error":"有问题，请稍后再试",
-	"days": "天"
+	"days": "天",
+	"details": "Details",
+	"english": "English",
+	"spanish": "Spanish",
+	"chinese": "Chinese",
+	"unspam" : "Unspam",
+	"kids" : "Kids",
+	"plan" : "Plan",
+	"maintain_account" : "Maintain Account",
 }

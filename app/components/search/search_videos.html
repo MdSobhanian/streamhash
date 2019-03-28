@@ -3,7 +3,7 @@
 <div style="margin-top:80px !important;margin:5%; padding: 10px;">
 
 <div class="box-head" style="margin-bottom: 2%;">
-   <h3>"{{title}}" Search Results</h3>
+   <h3>"{{title}}" {{'search_results' | translate}}</h3>
 </div>
 
 
@@ -30,7 +30,7 @@
 
 	        	<div class="video_amount" ng-if="value.amount > 0 && !value.pay_per_view_status">
 	        		<!-- <span ng-if="value.pay_per_view_status">PAID</span> -->
-	        		<span>PAY- {{value.currency}} {{value.amount}}</span>
+	        		<span>{{'pay' | translate}} - {{value.currency}} {{value.amount}}</span>
 
 	        	</div>
 	        	<!-- <a ui-sref="single_video({id : value.admin_video_id})">
@@ -194,7 +194,7 @@
 
 				    					<div class="display_amount" ng-if="value.amount > 0 && !value.pay_per_view_status" style="margin-left: 5px;">
 							        		<!-- <span ng-if="recent_video.pay_per_view_status">PAID</span> -->
-							        		<span>PAY - {{value.currency}} {{value.amount}}</span>
+							        		<span>{{'pay' | translate}} - {{value.currency}} - {{value.amount}}</span>
 							        	</div>
 
 						        	</div>
@@ -213,13 +213,13 @@
 		    						<a ng-click="addWishlist(value.admin_video_id, $index, $parentindex)" class="bold" id="" ng-if="!value.wishlist_status" style="cursor: pointer;">
 		    							<button class="my-list">
 			    							<i class="fa fa-plus my-list-icon"></i>
-			    							<span class="my-list-txt">My List</span>
+			    							<span class="my-list-txt">{{'my_list' | translate}}</span>
 		    							</button> 
 		    						</a>
 		    						<a ng-click="removeWishlist(value.wishlist_status, value.admin_video_id,$index, $parentindex)" class="bold" ng-if="value.wishlist_status" style="cursor: pointer;">
 		    							<button class="my-list">
 			    							<i class="fa fa-check my-list-icon"></i>
-			    							<span class="my-list-txt">My List</span> 
+			    							<span class="my-list-txt">{{'my_list' | translate}}</span> 
 			    						</button>
 		    						</a>
 		    					</div>
@@ -247,7 +247,7 @@
 								      	<div class="modal-content" style="background-color: #333;">
 								        	<div class="modal-header">
 								          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-								          		<h4 class="modal-title bold">Report This Video</h4>
+								          		<h4 class="modal-title bold">{{'report_this_video' | translate}}</h4>
 								        	</div>
 								        	<div class="modal-body">
 								        		<form ng-submit="spamVideo(value.admin_video_id, $index, $parentindex)">
@@ -259,9 +259,9 @@
 									                </div>
 
 									                {{spam_reason_value}}
-									                <p class="small bold text-center">If you report this video, you won't see again the same video in anywhere in your account except "Spam Videos". If you want to continue to report this video as same. Click continue and proceed the same.</p>
+									                <p class="small bold text-center">{{'spam_video_notes' | translate}}</p>
 									                <div class="text-right">
-									                	<button type="submit" class="payment-submit">Submit</button>
+									                	<button type="submit" class="payment-submit">{{'submit' | translate}}</button>
 									                </div>
 								                </form>
 								        	</div>
@@ -289,7 +289,7 @@
 							<form class="season-select">
 								<div class="form-group styled-select black rounde">
 								     <select id="exampleSelect1" ng-model="genres_name" ng-change="getSeasons(genres_name, {{$index}},{{$parentindex}},'_sessions', '_loader_seasons', value.genre_id);">
-									    <option value="">Select Seasons</option>
+									    <option value="">{{'select_seasons' | translate}}</option>
 									    <option value="{{genrename.genre_id}}" ng-repeat="genrename in value.genre_names">
 									    {{genrename.genre_name}}
 									    </option>
@@ -524,7 +524,7 @@
 							<h3 class="content-tit">{{value.sub_category_name}}</h3>
 
 							<div class="row col-sm-12 col-sm-12 col-lg-12 col-md-12">
-								<h4 class="epi-tit gray-color1 txt-overflow ng-binding">Cast & Crews</h4>
+								<h4 class="epi-tit gray-color1 txt-overflow ng-binding">{{'cast_crews' | translate}}</h4>
 
 								<div class="clearfix"></div>
 
@@ -540,7 +540,7 @@
 								
 							<div class="details-row row no-margin">
 
-								<h4 class="epi-tit gray-color1 txt-overflow ng-binding">Details</h4>
+								<h4 class="epi-tit gray-color1 txt-overflow ng-binding">{{'details' | translate}}</h4>
 
 								<p ng-bind-html="value.details"></p>
 
@@ -557,23 +557,23 @@
 
 			<ul class="nav nav-tabs" role="tablist">
 			    <li role="presentation" class="active">
-			    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index, $parentindex,'overview')" aria-controls="overview" role="tab" data-toggle="tab">{{'overview' | translate}}</a>
 			    </li>
 
 			    <li role="presentation" ng-if="value.is_genre">
-			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'episodes')" aria-controls="episodes" role="tab" data-toggle="tab">Episodes</a>
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'episodes')" aria-controls="episodes" role="tab" data-toggle="tab">{{'episodes' | translate}}</a>
 			    </li>
 
 			    <li role="presentation" ng-if="value.is_genre || value.trailer_video">
-			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">Trailers &amp; More</a>
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">{{'trailers' | translate}}</a>
 			    </li>
 
 			    <li role="presentation">
-			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'more-like')" aria-controls="more-like" role="tab" data-toggle="tab">More Like This</a>
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'more-like')" aria-controls="more-like" role="tab" data-toggle="tab">{{'more_like_this' | translate}}</a>
 			    </li>
 
 			    <li role="presentation" ng-if="value.details">
-			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">Details</a>
+			    	<a style="cursor:pointer" ng-click="dynamicContent($index,$parentindex,'details')" aria-controls="details" role="tab" data-toggle="tab">{{'details' | translate}}</a>
 			    </li>
 		  	</ul>		
 			

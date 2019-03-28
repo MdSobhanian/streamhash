@@ -1,21 +1,25 @@
-<!-- <div class="content-wrapper">
+<div class="content-wrapper">
 
-        <div class="login-form" style="padding-top:100px;padding-bottom: 40px;">
+    <div class="login-form" style="padding-top:100px; padding-bottom: 40px;">
 
-                <div class="container">
+            <div class="banner-spacing">
 
-                <ul class="card-list row">
-                    <li class="col-md-4 card course syllabus topic-javascript" ng-repeat="subscription in subscriptions" ng-hide="one_time_subscription == 1 && subscription.amount == 0">
+            <ul class="card-list row">
+                <li class="col-sm-6 col-md-4 card course syllabus topic-javascript" ng-repeat="subscription in subscriptions" ng-hide="one_time_subscription == 1 && subscription.amount == 0">
 
-                        <a class="card-box">
-                            <div class="card-progress" ng-class="{'orange': (subscription.popular_status == 1) , 'pink': (subscription.popular_status == 0)}">
-                               {{subscription.title}}
-                            </div>
+                    <a class="card-box">
+                        <div class="card-progress">
+                           {{subscription.title}}
+                        </div>
 
-                            <strong class="card-type">Plan</strong>
-                            <h3 class="card-title">${{subscription.amount}} / {{subscription.plan}} month</h3>
+                        <div ng-class="{'sub-red-bg': (subscription.popular_status == 1) , 'sub-black-bg': (subscription.popular_status == 0)}" class="sub-black-bg">
+                        <!-- <div class="sub-red-bg"> -->
+                            <strong class="card-type white-clr">{{'plan' | translate}}</strong>
+                            <h3 class="card-title white-clr">{{subscription.currency}} {{subscription.amount}} / {{subscription.plan}} {{'months' | translate}}</h3>
+                        </div>
 
-                            <strong class="card-type">Maintain Account</strong>
+                        <div class="spacing-30">
+                            <strong class="card-type">{{'maintain_account' | translate}}</strong>
                             <h3 class="card-title"><i class="fa fa-user-plus"></i> {{subscription.no_of_account}}</h3>
 
                              <p class="card-description">
@@ -24,90 +28,30 @@
                          
                             </p>
 
-                           
+                        </div>
+                    </a>
 
-                         
-                        </a>
+                    <div class="clearfix"></div>
+                  
+                    <ul class="card-actions">
+                        <li class="card-action resume">
 
-                        <div class="clearfix"></div>
-                      
-                        <ul class="card-actions">
-                            <li class="card-action resume">
-                            
-                              <a class="btn btn-md" ng-class="{'orange-btn': (subscription.popular_status == 1) , 'pink-btn': (subscription.popular_status == 0)}" ui-sref="profile.invoice({subscription_id:subscription.id})">Pay Now</a>
-                              
-                            </li>
-                           
-                        </ul>
+                          <a class="btn btn-md" ng-class="{'orange-btn': (subscription.popular_status == 1) , 'black-btn': (subscription.popular_status == 0)}" ui-sref="profile.invoice({subscription_id:subscription.id})">{{'pay_now' | translate}}</a>
+                          
+                        </li>
+                       
+                    </ul>
 
 
-                    </li>
-                </ul>
+                </li>
+            </ul>
 
 
 
-                </div>
+            </div>
 
-        </div>
-</div>
+    </div>
 
-<div class="clearfix"></div> -->
-
-<div class="content-wrapper">
-
-        <div class="login-form" style="padding-top:100px; padding-bottom: 40px;">
-
-                <div class="banner-spacing">
-
-                <ul class="card-list row">
-                    <li class="col-sm-6 col-md-4 card course syllabus topic-javascript" ng-repeat="subscription in subscriptions" ng-hide="one_time_subscription == 1 && subscription.amount == 0">
-
-                        <a class="card-box">
-                            <div class="card-progress">
-                               {{subscription.title}}
-                            </div>
-
-                            <div ng-class="{'sub-red-bg': (subscription.popular_status == 1) , 'sub-black-bg': (subscription.popular_status == 0)}" class="sub-black-bg">
-                            <!-- <div class="sub-red-bg"> -->
-                                <strong class="card-type white-clr">Plan</strong>
-                                <h3 class="card-title white-clr">{{subscription.currency}} {{subscription.amount}} / {{subscription.plan}} month</h3>
-                            </div>
-
-                            <div class="spacing-30">
-                                <strong class="card-type">Maintain Account</strong>
-                                <h3 class="card-title"><i class="fa fa-user-plus"></i> {{subscription.no_of_account}}</h3>
-
-                                 <p class="card-description">
-                                {{subscription.description}}
-
-                             
-                                </p>
-
-                            </div>
-                        </a>
-
-                        <div class="clearfix"></div>
-                      
-                        <ul class="card-actions">
-                            <li class="card-action resume">
-                            
-                              <!-- <a class="btn btn-md" ng-class="{'orange-btn': (subscription.popular_status == 1) , 'pink-btn': (subscription.popular_status == 0)}" ui-sref="profile.invoice({subscription_id:subscription.id})">Pay Now</a> -->
-
-                              <a class="btn btn-md" ng-class="{'orange-btn': (subscription.popular_status == 1) , 'black-btn': (subscription.popular_status == 0)}" ui-sref="profile.invoice({subscription_id:subscription.id})">Pay Now</a>
-                              
-                            </li>
-                           
-                        </ul>
-
-
-                    </li>
-                </ul>
-
-
-
-                </div>
-
-        </div>
 </div>
 
 <div class="clearfix"></div>
