@@ -825,7 +825,7 @@ angular
       // 	$(".height").height($scope.height);
       // }, 100);
 
-        var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
+        var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'default';
 
         $scope.languages = preferredLanguage;
 
@@ -839,7 +839,7 @@ angular
 
         }
 
-        var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
+        var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'default';
 
         if(lang == preferredLanguage) {
 

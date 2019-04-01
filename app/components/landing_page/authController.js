@@ -236,7 +236,7 @@ angular.module('streamViewApp')
 
 	    $scope.allPages = $rootScope.allPages;
 
-	    var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
+	    var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'default';
 
   		$scope.languages = preferredLanguage;
 
