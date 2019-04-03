@@ -1,7 +1,7 @@
 streamViewApp
 .config(function($translateProvider) {
   var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ?
-  memoryStorage.preferredLanguage : 'es';
+  memoryStorage.preferredLanguage : 'default';
 
   console.log(preferredLanguage);
 

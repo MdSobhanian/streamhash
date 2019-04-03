@@ -250,7 +250,7 @@ angular.module('streamViewApp')
 
 	    	}
 
-	    	var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'es';
+	    	var preferredLanguage = (memoryStorage.preferredLanguage != null && memoryStorage.preferredLanguage != '' && memoryStorage.preferredLanguage != undefined) ? memoryStorage.preferredLanguage : 'default';
 
 	    	if(lang == preferredLanguage) {
 
