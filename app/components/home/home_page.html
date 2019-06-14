@@ -439,7 +439,7 @@
 			    </li>
 
 			    <li role="presentation" ng-if="recent_video.is_genre || recent_video.trailer_video">
-			    	<a style="cursor:pointer" ng-click="displayContent('trailers')" aria-controls="trailers" role="tab" data-toggle="tab">{{'trailers' | translate}}</a>
+			    	<a style="cursor:pointer" ng-click="displayContent('trailers')" aria-controls="trailers" role="tab" data-toggle="tab">{{'trailers'| translate}} & {{'more'| translate }}</a>
 			    </li>
 
 			    <li role="presentation">
@@ -997,7 +997,7 @@
 					    </li>
 
 					    <li role="presentation" ng-if="value.is_genre || value.trailer_video">
-					    	<a style="cursor:pointer" ng-click="dynamicContent($index,data.key,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">{{'trailers' | translate}}</a>
+					    	<a style="cursor:pointer" ng-click="dynamicContent($index,data.key,'trailers')" aria-controls="trailers" role="tab" data-toggle="tab">{{'trailers' | translate}} & {{'more' | translate}}</a>
 					    </li>
 
 					    <li role="presentation">

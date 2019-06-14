@@ -53,13 +53,13 @@ var streamViewApp = angular.module("streamViewApp", [
   "pascalprecht.translate"
 ]);
 
-var route_url = "http://demo.streamhash.com/#";
+var route_url = "http://localhost/streamview-angularjs-base/#";
 
-var apiUrl = "http://adminview.streamhash.com/";
+var apiUrl = "http://localhost:8000/";
 
-var angularUrl = "http://demo.streamhash.com/#/";
+var angularUrl = "http://localhost/streamview-angularjs-base/#/";
 
-var common_url = "http://demo.streamhash.com/assets/";
+var common_url = "http://localhost/streamview-angularjs-base/assets/";
 
 streamViewApp.run([
   "$rootScope",
