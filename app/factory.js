@@ -8,8 +8,10 @@ streamViewApp.factory('authInterceptor', function ($q, $window, $location) {
                 var user_id = (memoryStorage.user_id != '' && memoryStorage.user_id != undefined ) ? memoryStorage.user_id : false;
 
                 var access_token = (memoryStorage.access_token != undefined && memoryStorage.access_token != '') ? memoryStorage.access_token : '';
+                
+                var logged_in = (memoryStorage.logged_in != undefined && memoryStorage.logged_in != '') ? memoryStorage.logged_in : '';
 
-                if (user_id && access_token) {
+                if (user_id && access_token && logged_in == true && logged_in == 1) {
 
                     $.ajax({
 
