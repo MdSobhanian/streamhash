@@ -537,12 +537,12 @@ angular.module('streamViewApp')
 
 				url : apiUrl + "userApi/browse",
 
-				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, key : $stateParams.browse, sub_profile_id : memoryStorage.sub_profile_id},
+				data : {id : memoryStorage.user_id, token : memoryStorage.access_token, key : $stateParams.browse, sub_profile_id : memoryStorage.sub_profile_id , device_type : 'web'},
 
 				async : false,
 
 				success : function (data) {
-
+	
 					if (data.success) {
 
 						$scope.datas = data;
