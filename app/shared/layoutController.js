@@ -333,11 +333,10 @@ angular
         $scope.logoutFnCalled = 0;
 
         $scope.logoutFn = function() {
-          console.log($scope.logoutFnCalled);
 
-          console.log(!$scope.logoutFnCalled);
 
-          if (!$scope.logoutFnCalled) {
+          if (!$scope.logoutFnCalled && memoryStorage.user_id && memoryStorage.access_token) {
+
             $.ajax({
               type: "post",
 
@@ -352,13 +351,14 @@ angular
 
               success: function(data) {
                 if (data.success) {
-                  window.localStorage.setItem("logged_in", false);
 
                   memoryStorage = {};
 
                   localStorage.removeItem("sessionStorage");
 
                   localStorage.clear();
+
+                  window.localStorage.setItem("logged_in", false);
 
                   UIkit.notify({
                     message: "Logged Out Successfully",

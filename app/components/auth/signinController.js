@@ -184,6 +184,8 @@ angular.module('streamViewApp')
 
 							localStorage.setItem('sessionStorage', JSON.stringify(memoryStorage));
 
+                  			window.localStorage.setItem("logged_in", true);
+
 							UIkit.notify({message : 'Your account has been successfully LoggedIn', timeout : 3000, pos : 'top-center', status : 'success'});
 
 							// $state.go('manage-profile.view-profile',{},{reload:true});
