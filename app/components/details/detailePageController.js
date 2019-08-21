@@ -549,7 +549,6 @@ angular.module('streamViewApp')
 
 			$scope.getSeasons = function(genre_id, idx, key, divid, loader, main_id) {
 
-
 				if (genre_id == '' || genre_id  == undefined) {
 
 					genre_id = main_id;
@@ -625,7 +624,7 @@ angular.module('streamViewApp')
 				data.append('key', $stateParams.title);
 				data.append('skip',skip);
 				data.append('take',take);
-
+				data.append('device_type', 'web');
 
 				$.ajax({
 
