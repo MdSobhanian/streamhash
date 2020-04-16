@@ -53,13 +53,13 @@ var streamViewApp = angular.module("streamViewApp", [
   "pascalprecht.translate"
 ]);
 
-var route_url = "http://demo.streamhash.com/#";
+var route_url = "http://yoplex.online:9000/#"; // user panel url - angular code
 
-var apiUrl = "http://adminview.streamhash.com/";
+var apiUrl = "http://yoplex.online/"; // admin panel url
 
-var angularUrl = "http://demo.streamhash.com/#/";
+var angularUrl = "http://yoplex.online:9000/#/"; // user panel url
 
-var common_url = "http://demo.streamhash.com/assets/";
+var common_url = "http://yoplex.online:9000/#/assets/";
 
 streamViewApp.run([
   "$rootScope",

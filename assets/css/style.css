@@ -765,7 +765,7 @@ input:focus,textarea:focus{
 .season-select .form-control{
 	width: 155px;
 	font-weight: bold;
-    background: transparent;
+    background: red;
     color: #fff;
     text-transform: uppercase;
 }
